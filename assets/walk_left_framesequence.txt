@@ -1,0 +1,3 @@
+The frame numbers for the animation, same for walk_right
+
+1,2,4,3,4,2
