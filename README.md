@@ -11,4 +11,4 @@
 ## Some reminders
 * Godot is a node-based system that has underlying layers
 * We are working on a 2D top-down project with a sort of childish vibe (Celeste)
-* When adding a scene, attach a script to the scene to ensure that it works
+* When adding a scene and attempting to add game mechanics such as physics or dialogue, attach a script to the scene to ensure that it works
