@@ -12,3 +12,4 @@
 * Godot is a node-based system that has underlying layers
 * We are working on a 2D top-down project with a sort of childish vibe (Celeste)
 * When adding a scene and attempting to add game mechanics such as physics or dialogue, attach a script to the scene to ensure that it works
+* Keep this project organized! The assets file will include things like images, audio, etc. The scene folder will have any of the scenes that are added. And the scripts folder is where all scripts in GDScript or other languages should be saved (.gd is like .py)
