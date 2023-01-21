@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Economics Game Project"
-run/main_scene="res://scenes/world.tscn"
+run/main_scene="res://scenes/titlescreen.tscn"
 
 [gui]
 
@@ -64,6 +64,15 @@ down={
  ]
 }
 
+[layer_names]
+
+2d_render/layer_1="topground"
+2d_render/layer_2="player"
+
 [physics]
 
 common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_clear_color=Color( 0, 0, 0, 1 )

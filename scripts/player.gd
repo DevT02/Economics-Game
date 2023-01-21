@@ -18,6 +18,13 @@ func read_input():
 		direction = Vector2(1, 0)
 	velocity = velocity.normalized()
 	velocity = move_and_slide(velocity * 200)
+	
+
 func _physics_process(delta):
 	read_input()
 
+
+
+
+	
+	

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/fonts/Fipps-Regular.otf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+font_data = ExtResource( 1 )
+
+[node name="MultiplayerButton" type="Button"]
+margin_left = 152.0
+margin_right = 376.0
+margin_bottom = 56.0
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="."]
+margin_top = 2.0
+margin_right = 224.0
+margin_bottom = 58.0
+size_flags_horizontal = 5
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.121569, 0.380392, 0.870588, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 5
+custom_fonts/font = SubResource( 1 )
+text = "Multiplayer"
+align = 1
+valign = 1
