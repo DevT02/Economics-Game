@@ -1,13 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/fonts/Fipps-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/characters/female_character_standing_1.png" type="Texture" id=2]
 [ext_resource path="res://assets/characterselectionscreen/characterselection.png" type="Texture" id=3]
-[ext_resource path="res://assets/characters/male_character_left_brown_1.png" type="Texture" id=4]
-[ext_resource path="res://scenes/characterSelectionScreen.gd" type="Script" id=5]
+[ext_resource path="res://assets/characters/male_character_right_brown_3.png" type="Texture" id=4]
+[ext_resource path="res://scripts/characterselectbuttongroup.gd" type="Script" id=5]
 [ext_resource path="res://scenes/buttons/buttongroups/characterSelectionButtonGroup.tres" type="ButtonGroup" id=6]
-
-[sub_resource type="ButtonGroup" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
@@ -15,10 +13,25 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="CanvasItemMaterial" id=2]
 
+[sub_resource type="ImageTexture" id=5]
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 4 )
+normal_map = SubResource( 5 )
+region_rect = Rect2( 0, 0, 1024, 1024 )
+margin_left = 150.0
+expand_margin_left = 48.0
+expand_margin_right = 54.0
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 483, 1019 )
+
 [node name="CharacterSelection" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 5 )
+group = ExtResource( 6 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_right = 1023.0
@@ -30,15 +43,6 @@ margin_bottom = 600.0
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 1
-
-[node name="MaleCharacter" type="TextureButton" parent="MarginContainer/TextureRect"]
-margin_left = 307.0
-margin_top = 181.0
-margin_right = 451.0
-margin_bottom = 468.0
-group = SubResource( 3 )
-texture_normal = ExtResource( 2 )
-expand = true
 
 [node name="Label" type="Label" parent="MarginContainer/TextureRect"]
 margin_right = 1022.0
@@ -56,12 +60,20 @@ margin_top = 131.0
 margin_right = 1022.0
 margin_bottom = 181.0
 
-[node name="FemaleCharacter" type="TextureButton" parent="MarginContainer/TextureRect"]
-margin_left = 540.0
-margin_top = 180.0
-margin_right = 690.0
-margin_bottom = 467.0
+[node name="MaleCharacter" type="Button" parent="MarginContainer/TextureRect"]
+margin_left = 511.0
+margin_top = 196.0
+margin_right = 682.0
+margin_bottom = 502.0
+rect_pivot_offset = Vector2( -882, -145 )
+custom_styles/normal = SubResource( 4 )
 group = ExtResource( 6 )
-texture_normal = ExtResource( 4 )
-expand = true
-stretch_mode = 6
+
+[node name="FemaleCharacter" type="Button" parent="MarginContainer/TextureRect"]
+margin_left = 306.0
+margin_top = 199.0
+margin_right = 477.0
+margin_bottom = 506.0
+rect_pivot_offset = Vector2( -882, -145 )
+custom_styles/normal = SubResource( 6 )
+group = ExtResource( 6 )

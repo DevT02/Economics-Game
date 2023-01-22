@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Economics Game Project"
-run/main_scene="res://scenes/world.tscn"
+run/main_scene="res://scenes/notecards/notecardeventplayer.tscn"
 
 [gui]
 
