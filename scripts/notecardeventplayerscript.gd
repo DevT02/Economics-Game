@@ -25,7 +25,6 @@ func play():
 	$NinePatchRect/Option2Button.text = data[4]['tech_choices'][1]
 	$NinePatchRect/Option3Button.text = data[4]['tech_choices'][2]
 	
-	
 #func randomize_event_number():
 #	eventId = rng.randf_range(0, data[3]['tech_choices'] - 1)
 	
