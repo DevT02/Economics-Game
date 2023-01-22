@@ -2,11 +2,11 @@
 
 [ext_resource path="res://assets/fonts/Merchant Copy.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/Merchant Copy Doublesize.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://scripts/notecardeventplayer.gd" type="Script" id=3]
+[ext_resource path="res://scripts/notecardeventplayerscript.gd" type="Script" id=3]
 [ext_resource path="res://assets/interactions/notecard.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 15
+size = 18
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
@@ -30,59 +30,71 @@ border_color = Color( 0, 0, 0, 1 )
 border_blend = true
 
 [sub_resource type="DynamicFont" id=5]
-size = 15
+size = 18
 outline_size = 1
 font_data = ExtResource( 2 )
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="notecardeventlayer" type="CanvasLayer"]
 script = ExtResource( 3 )
 data_file = "res://assets/interactions/data.json"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-margin_left = 52.0
-margin_top = 8.0
-margin_right = 568.0
-margin_bottom = 347.0
+margin_left = 248.0
+margin_top = 100.0
+margin_right = 764.0
+margin_bottom = 448.0
 texture = ExtResource( 4 )
 region_rect = Rect2( 17.7647, 38.359, 187.318, 139.234 )
 patch_margin_left = 1
 patch_margin_top = 9
 
 [node name="ToLabel" type="RichTextLabel" parent="NinePatchRect"]
-margin_left = 60.0
-margin_top = 13.0
-margin_right = 446.0
-margin_bottom = 35.0
+margin_left = 67.0
+margin_top = 45.0
+margin_right = 457.0
+margin_bottom = 75.0
 custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 text = "To "
 
+[node name="FromLabel" type="RichTextLabel" parent="NinePatchRect"]
+margin_left = 92.0
+margin_top = 12.0
+margin_right = 280.0
+margin_bottom = 42.0
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+text = "From"
+
 [node name="MessageLabel" type="RichTextLabel" parent="NinePatchRect"]
-margin_left = 38.0
-margin_top = 48.0
-margin_right = 470.0
-margin_bottom = 201.0
+margin_left = 40.0
+margin_top = 84.0
+margin_right = 472.0
+margin_bottom = 211.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 2 )
 text = "Message"
 
 [node name="Option1Button" type="Button" parent="NinePatchRect"]
 margin_left = 40.0
-margin_top = 206.0
+margin_top = 220.0
 margin_right = 472.0
-margin_bottom = 237.0
+margin_bottom = 251.0
 rect_pivot_offset = Vector2( 105, 68 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
 text = "Option 1"
 
 [node name="Option2Button" type="Button" parent="NinePatchRect"]
 margin_left = 40.0
-margin_top = 246.0
+margin_top = 260.0
 margin_right = 472.0
-margin_bottom = 277.0
+margin_bottom = 291.0
 rect_pivot_offset = Vector2( 260, 16 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
@@ -91,9 +103,9 @@ text = "Option 2"
 
 [node name="Option3Button" type="Button" parent="NinePatchRect"]
 margin_left = 40.0
-margin_top = 284.0
+margin_top = 298.0
 margin_right = 472.0
-margin_bottom = 315.0
+margin_bottom = 329.0
 rect_pivot_offset = Vector2( 260, 16 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
@@ -101,11 +113,21 @@ custom_styles/normal = SubResource( 4 )
 text = "Option 3"
 
 [node name="Label" type="Label" parent="NinePatchRect"]
-margin_left = 25.0
-margin_top = 13.0
-margin_right = 47.0
-margin_bottom = 35.0
+margin_left = 16.0
+margin_top = 45.0
+margin_right = 53.0
+margin_bottom = 76.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 5 )
-text = "To"
+text = "To:"
+
+[node name="Label2" type="Label" parent="NinePatchRect"]
+margin_left = 16.0
+margin_top = 12.0
+margin_right = 73.0
+margin_bottom = 41.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "From:"

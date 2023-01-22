@@ -12,7 +12,7 @@ func _ready():
 		i.connect("pressed", self, "button_pressed")
 
 func button_pressed():
-	if group.get_pressed_button() == group.get_buttons()[1]:
+	if group.get_pressed_button() == group.get_buttons()[0]:
 		get_tree().change_scene("res://scenes/world.tscn")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
