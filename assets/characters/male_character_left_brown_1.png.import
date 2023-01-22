@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DALLE_2023-01-21_18.33.18.png-180d7079c5cf7d1dbe6c5b7147041464.stex"
+path="res://.import/male_character_left_brown_1.png-03bc109c4391682210e74c506803a875.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/DALLE_2023-01-21_18.33.18.png"
-dest_files=[ "res://.import/DALLE_2023-01-21_18.33.18.png-180d7079c5cf7d1dbe6c5b7147041464.stex" ]
+source_file="res://assets/characters/male_character_left_brown_1.png"
+dest_files=[ "res://.import/male_character_left_brown_1.png-03bc109c4391682210e74c506803a875.stex" ]
 
 [params]
 

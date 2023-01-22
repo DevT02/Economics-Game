@@ -1,5 +1,67 @@
-[gd_scene format=2]
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/fonts/Fipps-Regular.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/characters/female_character_standing_1.png" type="Texture" id=2]
+[ext_resource path="res://assets/characterselectionscreen/characterselection.png" type="Texture" id=3]
+[ext_resource path="res://assets/characters/male_character_left_brown_1.png" type="Texture" id=4]
+[ext_resource path="res://scenes/characterSelectionScreen.gd" type="Script" id=5]
+[ext_resource path="res://scenes/buttons/buttongroups/characterSelectionButtonGroup.tres" type="ButtonGroup" id=6]
+
+[sub_resource type="ButtonGroup" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+font_data = ExtResource( 1 )
+
+[sub_resource type="CanvasItemMaterial" id=2]
 
 [node name="CharacterSelection" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 1023.0
+margin_bottom = 600.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+margin_right = 1023.0
+margin_bottom = 600.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+
+[node name="MaleCharacter" type="TextureButton" parent="MarginContainer/TextureRect"]
+margin_left = 307.0
+margin_top = 181.0
+margin_right = 451.0
+margin_bottom = 468.0
+group = SubResource( 3 )
+texture_normal = ExtResource( 2 )
+expand = true
+
+[node name="Label" type="Label" parent="MarginContainer/TextureRect"]
+margin_right = 1022.0
+margin_bottom = 140.0
+size_flags_horizontal = 0
+custom_colors/font_color = Color( 0.388235, 0.388235, 0.388235, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Character Selection"
+align = 1
+valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/TextureRect"]
+material = SubResource( 2 )
+margin_top = 131.0
+margin_right = 1022.0
+margin_bottom = 181.0
+
+[node name="FemaleCharacter" type="TextureButton" parent="MarginContainer/TextureRect"]
+margin_left = 540.0
+margin_top = 180.0
+margin_right = 690.0
+margin_bottom = 467.0
+group = ExtResource( 6 )
+texture_normal = ExtResource( 4 )
+expand = true
+stretch_mode = 6

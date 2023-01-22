@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DALLE_2023-01-21_18.40.42_-_pixel_art_female_character_white_skin_stardew_valley_full_body_in_suit_.png-f4127090aed01ef0a04bdd5067d876d2.stex"
+path="res://.import/female_character_standing_1.png-15d6f7819f26318c1733dc3aad3be99a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/DALLE_2023-01-21_18.40.42_-_pixel_art_female_character_white_skin_stardew_valley_full_body_in_suit_.png"
-dest_files=[ "res://.import/DALLE_2023-01-21_18.40.42_-_pixel_art_female_character_white_skin_stardew_valley_full_body_in_suit_.png-f4127090aed01ef0a04bdd5067d876d2.stex" ]
+source_file="res://assets/characters/female_character_standing_1.png"
+dest_files=[ "res://.import/female_character_standing_1.png-15d6f7819f26318c1733dc3aad3be99a.stex" ]
 
 [params]
 
