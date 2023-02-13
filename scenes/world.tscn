@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/background_image_pixelated.png" type="Texture" id=2]
 [ext_resource path="res://scenes/notecards/NoteCardEventPlayer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scripts/event_interactions/house_interaction.gd" type="Script" id=5]
+[ext_resource path="res://scripts/event_interactions/interactions.gd" type="Script" id=5]
 
 [sub_resource type="GDScript" id=4]
 script/source = "extends Node2D
