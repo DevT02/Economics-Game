@@ -5,6 +5,11 @@ var direction : Vector2 = Vector2()
 
 onready var animation = $Sprite/AnimationPlayer
 
+
+func _ready():
+	animation.play("walk_up")
+	animation.stop()
+	# remove erros
 func read_input():
 	velocity = Vector2()
 	if Input.is_action_pressed("up"):
