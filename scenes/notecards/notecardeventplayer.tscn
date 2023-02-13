@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/fonts/Merchant Copy.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/Merchant Copy Doublesize.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://scripts/notecardeventplayerscript.gd" type="Script" id=3]
+[ext_resource path="res://scripts/NoteCardEventPlayer.gd" type="Script" id=3]
 [ext_resource path="res://assets/interactions/notecard.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
@@ -34,7 +34,7 @@ size = 18
 outline_size = 1
 font_data = ExtResource( 2 )
 
-[node name="notecardeventlayer" type="CanvasLayer"]
+[node name="NoteCardEventPlayer" type="CanvasLayer"]
 script = ExtResource( 3 )
 data_file = "res://assets/interactions/data.json"
 
