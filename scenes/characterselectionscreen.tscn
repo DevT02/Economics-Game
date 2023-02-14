@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/fonts/Fipps-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/characters/white_female_standing.png" type="Texture" id=2]
@@ -13,12 +13,20 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="CanvasItemMaterial" id=2]
 
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
 [sub_resource type="ImageTexture" id=5]
 
 [sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 4 )
 normal_map = SubResource( 5 )
 region_rect = Rect2( 0, 0, 48, 58 )
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
 
 [sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 2 )
@@ -77,6 +85,8 @@ margin_bottom = 543.0
 rect_min_size = Vector2( 10, 100 )
 rect_scale = Vector2( 0.994, 0.989 )
 rect_pivot_offset = Vector2( -882.083, -145 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
 custom_styles/normal = SubResource( 4 )
 group = ExtResource( 6 )
 
@@ -86,6 +96,8 @@ margin_top = 248.0
 margin_right = 466.0
 margin_bottom = 555.0
 rect_pivot_offset = Vector2( -882, -145 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
 custom_styles/normal = SubResource( 6 )
 group = ExtResource( 6 )
 

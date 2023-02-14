@@ -20,6 +20,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 20 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -1 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "walk_down"
@@ -34,6 +46,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 18, 19, 20, 21, 22, 23, 24, 25, 26 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.17587, -7 ), Vector2( 3, -7 ), Vector2( 4, -7 ), Vector2( 4, -7 ), Vector2( 4, -7 ), Vector2( 4, -7 ), Vector2( 5, -7 ), Vector2( 6, -7 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -50,6 +74,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 9, 10, 11, 12, 13, 14, 15, 16, 17 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1, -6 ), Vector2( -1, -6 ), Vector2( 0, -6 ), Vector2( 0, -6 ), Vector2( 1, -6 ), Vector2( 1, -6 ), Vector2( 1, -6 ), Vector2( 2, -6 ), Vector2( 2, -6 ) ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "walk_right"
@@ -65,6 +101,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 27, 28, 29, 30, 31, 32, 33, 34, 35, 35 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -1 ), Vector2( 0, -1 ), Vector2( 0, -1 ), Vector2( 1, -1 ), Vector2( 1, -1 ), Vector2( 1, -1 ), Vector2( 2, -1 ), Vector2( 3, -1 ), Vector2( 3, -1 ), Vector2( 3, -1 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "walk_up"
@@ -75,10 +123,22 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 3, 2, 4, 5, 6, 7, 8 ]
+"values": [ 0, 3, 2, 3, 4, 5, 6, 7, 8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, -9 ), Vector2( 3, -9 ), Vector2( 4.5, -9 ), Vector2( 5, -9 ), Vector2( 5, -9 ), Vector2( 5, -9 ), Vector2( 5, -9 ), Vector2( 6, -9 ) ]
 }
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
@@ -89,7 +149,7 @@ position = Vector2( 1, -1 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -3 )
+position = Vector2( 0, -1 )
 texture = ExtResource( 1 )
 hframes = 9
 vframes = 4
