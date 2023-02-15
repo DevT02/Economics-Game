@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 export(String, FILE, "*.json") var data_file
+export(ButtonGroup) var group
 
 var data = []
 var eventId = 0
@@ -16,16 +17,30 @@ var current_outcomes = current_company + "_outcomes"
 
 func _ready():
 	$NinePatchRect.visible = false
-#	rng.randomize()
+	for i in group.get_buttons():
+		i.connect("pressed", self, "button_pressed")
 #	randomize_event_number() # currently only supporting "tech" events
 
-
-
+func button_pressed():
+	if $NinePatchRect.visible == true:
+		if group.get_pressed_button() == group.get_buttons()[0]:
+			$AnimationPlayer.play("fade_out")
+			yield(get_tree().create_timer(1), "timeout")
+			$NinePatchRect.visible = false
+		if group.get_pressed_button() == group.get_buttons()[1]:
+			$AnimationPlayer.play("fade_out")
+			yield(get_tree().create_timer(1), "timeout")
+			$NinePatchRect.visible = false
+		if group.get_pressed_button() == group.get_buttons()[2]:
+			$AnmationPlayer.play("fade_out")
+			yield(get_tree().create_timer(1), "timeout")
+			$NinePatchRect.visible = false
 func play():
 	if dialogue_active:
 		return
 	data = load_data()
-		
+	
+	$AnimationPlayer.play("fade_in")
 	dialogue_active = true
 	$NinePatchRect.visible = true
 	eventId=-1
@@ -49,7 +64,7 @@ func _nextEvent():
 		$NinePatchRect.visible = false 
 		return	
 		
-func _randomize(company):
+func randomizeEvents(company):
 
 	match company:	
 		"tech":
@@ -59,7 +74,8 @@ func _randomize(company):
 		"fashion":
 			print("Z")
 
-	
+
+
 
 func _input(event):
 	if not dialogue_active:

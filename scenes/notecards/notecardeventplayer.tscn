@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/fonts/Merchant Copy.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/Merchant Copy Doublesize.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/NoteCardEventPlayer.gd" type="Script" id=3]
 [ext_resource path="res://assets/interactions/notecard.png" type="Texture" id=4]
+[ext_resource path="res://scenes/buttons/buttongroups/callingcards.tres" type="ButtonGroup" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 18
@@ -34,11 +35,58 @@ size = 18
 outline_size = 1
 font_data = ExtResource( 2 )
 
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("NinePatchRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("NinePatchRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("NinePatchRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [node name="NoteCardEventPlayer" type="CanvasLayer"]
 script = ExtResource( 3 )
 data_file = "res://assets/interactions/data.json"
+group = ExtResource( 5 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 248.0
 margin_top = 100.0
 margin_right = 764.0
@@ -88,6 +136,7 @@ custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
+group = ExtResource( 5 )
 text = "Option 1"
 
 [node name="Option2Button" type="Button" parent="NinePatchRect"]
@@ -99,6 +148,7 @@ rect_pivot_offset = Vector2( 260, 16 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
+group = ExtResource( 5 )
 text = "Option 2"
 
 [node name="Option3Button" type="Button" parent="NinePatchRect"]
@@ -110,6 +160,7 @@ rect_pivot_offset = Vector2( 260, 16 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
+group = ExtResource( 5 )
 text = "Option 3"
 
 [node name="Label" type="Label" parent="NinePatchRect"]
@@ -131,3 +182,8 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 5 )
 text = "From:"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 6 )
+anims/fade_in = SubResource( 7 )
+anims/fade_out = SubResource( 8 )
