@@ -19,39 +19,40 @@ func _ready():
 	$NinePatchRect.visible = false
 	for i in group.get_buttons():
 		i.connect("pressed", self, "button_pressed")
-#	randomize_event_number() # currently only supporting "tech" events
 
 func button_pressed():
 	if $NinePatchRect.visible == true:
 		if group.get_pressed_button() == group.get_buttons()[0]:
-			$AnimationPlayer.play("fade_out")
-			yield(get_tree().create_timer(1), "timeout")
-			$NinePatchRect.visible = false
-		if group.get_pressed_button() == group.get_buttons()[1]:
-			$AnimationPlayer.play("fade_out")
-			yield(get_tree().create_timer(1), "timeout")
-			$NinePatchRect.visible = false
-		if group.get_pressed_button() == group.get_buttons()[2]:
-			$AnmationPlayer.play("fade_out")
-			yield(get_tree().create_timer(1), "timeout")
-			$NinePatchRect.visible = false
+			fadeOut()
+		elif group.get_pressed_button() == group.get_buttons()[1]:
+			fadeOut()
+		elif group.get_pressed_button() == group.get_buttons()[2]:
+			fadeOut()
 func play():
 	if dialogue_active:
 		return
 	data = load_data()
 	
 	$AnimationPlayer.play("fade_in")
+	print('fading in')
 	dialogue_active = true
 	$NinePatchRect.visible = true
 	eventId=-1
-	_nextEvent()
+	randomizeEvents()
 	
-#func randomize_event_number():
-#	eventId = rng.randf_range(0, data[3]['tech_choices'] - 1)
+func fadeOut():
+	$AnimationPlayer.play("fade_out")
+	get_tree().get_root().set_disable_input(true)
+	yield(get_tree().create_timer(0.5), "timeout")
+	get_tree().get_root().set_disable_input(false)
+	$NinePatchRect.visible = false
+	dialogue_active = false
+	
 	
 func _nextEvent():
 	eventId += 1
-	$NinePatchRect/ToLabel.text = data[eventId]['name']
+	print(eventId)
+	$NinePatchRect/ToLabel.text = data[0]['name']
 	$NinePatchRect/FromLabel.text = data[3][from_department][eventId]
 	$NinePatchRect/MessageLabel.text = data[2][current_events][eventId]
 	
@@ -60,20 +61,28 @@ func _nextEvent():
 	$NinePatchRect/Option3Button.text = data[4][current_choices][eventId+2]
 	
 	if eventId >= len(data):
+		print("uh oh.. data is too small!")
 		dialogue_active = false
 		$NinePatchRect.visible = false 
 		return	
 		
-func randomizeEvents(company):
+func randomizeEvents():
 
-	match company:	
+	match current_company:	
 		"tech":
-			print("X")
+			_nextEvent(	
+			)
 		"fast_food":
 			print("Y")
 		"fashion":
 			print("Z")
 
+func erase():
+	data[3][from_department].erase(eventId)
+	data[3][from_department].erase(eventId)
+	data[4][current_choices].erase(eventId)
+	data[4][current_choices].erase(eventId+1)
+	data[4][current_choices].erase(eventId+2)
 
 
 

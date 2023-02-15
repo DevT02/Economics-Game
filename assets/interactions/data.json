@@ -1,9 +1,12 @@
 [
     {"name": "Mr. CEO"},
     {"company_type": "tech"},
-    {"tech_events":["A new development has been made in your R&D Department allowing for a reduction in cost by $150 by using a new material in the computer chip. However, it was found that there are slight risks of catching a flame under high workload."]}, 
-    {"tech_from_events":["R&D Department"]},
-    {"tech_choices":["Starts the use of the new chip", "Opt out of the lower cost", "Use more resources to solve the problem"]},
-    {"tech_outcomes":["You use the chip and nothing happens. Your stakeholder rating increases and your profit increases", "You use the chip and it catches fire in several computers. Your societal approval rating, profit, and stakeholder levels drop", "You do nothing and stakeholder decreases slightly"]},
+    {"tech_events":["A new development has been made in your R&D Department allowing for a reduction in cost by $150 by using a new material in the computer chip. However, it was found that there are slight risks of catching a flame under high workload.", "X event"]}, 
+    {"tech_from_events":["R&D Department", "LULZSEC"]},
+    {"tech_choices":["Starts the use of the new chip", "Opt out of the lower cost", "Use more resources to solve the problem", "A choice", "B choice", "C choice"]},
+    {"tech_outcomes":["You use the chip and nothing happens. Your stakeholder rating increases and your profit increases", "You use the chip and it catches fire in several computers. Your societal approval rating, profit, and stakeholder levels drop", "You do nothing and stakeholder decreases slightly", "A event", "B event", "C event"]},
     {"fast_food_events":["Your competitor Cockle-Doodle-Doo Chicken is going out of business. Their owner has approached you about purchasing Cockle-Doodle-Doo Chicken."]}
+
+ 
+
 ]
