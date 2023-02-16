@@ -4,9 +4,10 @@ export(String, FILE, "*.json") var data_file
 export(ButtonGroup) var group
 
 var data = []
-var eventId = 0
+var eventId = -1
 var dialogue_active = false
 
+var used_numbers  = []
 var current_company = "tech"
 var from_department = current_company + "_from_events"
 var current_events = current_company + "_events"
@@ -32,12 +33,11 @@ func play():
 	if dialogue_active:
 		return
 	data = load_data()
-	
+
 	$AnimationPlayer.play("fade_in")
 	print('fading in')
 	dialogue_active = true
 	$NinePatchRect.visible = true
-	eventId=-1
 	randomizeEvents()
 	
 func fadeOut():
@@ -49,16 +49,14 @@ func fadeOut():
 	dialogue_active = false
 	
 	
-func _nextEvent():
-	eventId += 1
-	print(eventId)
+func _nextEvent(eventId):
 	$NinePatchRect/ToLabel.text = data[0]['name']
 	$NinePatchRect/FromLabel.text = data[3][from_department][eventId]
 	$NinePatchRect/MessageLabel.text = data[2][current_events][eventId]
 	
-	$NinePatchRect/Option1Button.text = data[4][current_choices][eventId]
-	$NinePatchRect/Option2Button.text = data[4][current_choices][eventId+1]
-	$NinePatchRect/Option3Button.text = data[4][current_choices][eventId+2]
+	$NinePatchRect/Option1Button.text = data[4][current_choices][eventId * 3]
+	$NinePatchRect/Option2Button.text = data[4][current_choices][eventId* 3 + 1]
+	$NinePatchRect/Option3Button.text = data[4][current_choices][eventId* 3 + 2]
 	
 	if eventId >= len(data):
 		print("uh oh.. data is too small!")
@@ -69,9 +67,9 @@ func _nextEvent():
 func randomizeEvents():
 
 	match current_company:	
-		"tech":
-			_nextEvent(	
-			)
+		"tech":	
+			_nextEvent(generate_random_number(0, data[3][from_department].size() - 1, used_numbers))
+
 		"fast_food":
 			print("Y")
 		"fashion":
@@ -86,12 +84,36 @@ func erase():
 
 
 
-func _input(event):
-	if not dialogue_active:
-		return
+func generate_random_number(range_start, range_end, known_numbers):
+# Track the numbers that have been generated so far	
+	# Create a list of all possible numbers in the range
+	var possible_numbers = []
+	for i in range(range_start, range_end + 1):
+		var is_used = used_numbers.find(i) != -1
+		var is_known = known_numbers.find(i) != -1
+		if !is_used && !is_known:
+			possible_numbers.append(i)
+	print(possible_numbers)
+	# If there are no possible numbers left, select a random known number
+	if len(possible_numbers) == 0:
+		for number in known_numbers:
+			if used_numbers.find(number) == -1:
+				return number
+		# If all known numbers have already been used, just return a random number
+		return range_start + randi() % (range_end - range_start + 1)
 	
-	if event.is_action_pressed("game_usage"):
-		_nextEvent()
+	# Otherwise, select a random possible number and return it
+	var random_index = randi() % len(possible_numbers)
+	used_numbers.append(possible_numbers[random_index])
+	print(used_numbers)
+	return possible_numbers[random_index]
+
+
+
+
+func _input(event):
+	if !dialogue_active:
+		return
 
 	
 func load_data():
