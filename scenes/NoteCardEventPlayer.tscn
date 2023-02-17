@@ -1,25 +1,25 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://assets/fonts/Merchant Copy.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/fonts/Merchant Copy Doublesize.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://scripts/NoteCardEventPlayer.gd" type="Script" id=3]
-[ext_resource path="res://assets/interactions/notecard.png" type="Texture" id=4]
-[ext_resource path="res://scenes/buttons/buttongroups/callingcards.tres" type="ButtonGroup" id=5]
+[ext_resource path="res://assets/interactions/notecard.png" type="Texture" id=1]
+[ext_resource path="res://scenes/buttons/buttongroups/callingcards.tres" type="ButtonGroup" id=2]
+[ext_resource path="res://assets/fonts/Merchant Copy Doublesize.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/fonts/Merchant Copy.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scripts/NoteCardEventPlayer.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 18
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 25
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 22
-font_data = ExtResource( 1 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 1, 1, 1, 1 )
@@ -30,10 +30,13 @@ border_width_bottom = 2
 border_color = Color( 0, 0, 0, 1 )
 border_blend = true
 
+[sub_resource type="ButtonGroup" id=9]
+resource_local_to_scene = false
+
 [sub_resource type="DynamicFont" id=5]
 size = 18
 outline_size = 1
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="Animation" id=6]
 length = 0.001
@@ -81,9 +84,9 @@ tracks/0/keys = {
 }
 
 [node name="NoteCardEventPlayer" type="CanvasLayer"]
-script = ExtResource( 3 )
+script = ExtResource( 5 )
 data_file = "res://assets/interactions/data.json"
-group = ExtResource( 5 )
+group = ExtResource( 2 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 modulate = Color( 1, 1, 1, 0 )
@@ -91,7 +94,7 @@ margin_left = 248.0
 margin_top = 100.0
 margin_right = 764.0
 margin_bottom = 448.0
-texture = ExtResource( 4 )
+texture = ExtResource( 1 )
 region_rect = Rect2( 17.7647, 38.359, 187.318, 139.234 )
 patch_margin_left = 1
 patch_margin_top = 9
@@ -136,7 +139,7 @@ custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-group = ExtResource( 5 )
+group = ExtResource( 2 )
 text = "Option 1"
 
 [node name="Option2Button" type="Button" parent="NinePatchRect"]
@@ -148,7 +151,7 @@ rect_pivot_offset = Vector2( 260, 16 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-group = ExtResource( 5 )
+group = ExtResource( 2 )
 text = "Option 2"
 
 [node name="Option3Button" type="Button" parent="NinePatchRect"]
@@ -160,7 +163,7 @@ rect_pivot_offset = Vector2( 260, 16 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-group = ExtResource( 5 )
+group = SubResource( 9 )
 text = "Option 3"
 
 [node name="Label" type="Label" parent="NinePatchRect"]

@@ -18,10 +18,12 @@ var current_outcomes = current_company + "_outcomes"
 
 func _ready():
 	$NinePatchRect.visible = false
+	print(group.get_buttons())
 	for i in group.get_buttons():
 		i.connect("pressed", self, "button_pressed")
 
 func button_pressed():
+	print(group.get_pressed_button())
 	if $NinePatchRect.visible == true:
 		if group.get_pressed_button() == group.get_buttons()[0]:
 			fadeOut()
@@ -69,7 +71,6 @@ func randomizeEvents():
 	match current_company:	
 		"tech":	
 			_nextEvent(generate_random_number(0, data[3][from_department].size() - 1, used_numbers))
-
 		"fast_food":
 			print("Y")
 		"fashion":
