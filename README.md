@@ -13,3 +13,10 @@
 * We are working on a 2D top-down project with a sort of childish vibe (Celeste)
 * When adding a scene and attempting to add game mechanics such as physics or dialogue, attach a script to the scene to ensure that it works
 * Keep this project organized! The assets file will include things like images, audio, etc. The scene folder will have any of the scenes that are added. And the scripts folder is where all scripts in GDScript or other languages should be saved (.gd is like .py)
+
+## Run in browser
+1. Export the Project to HTML5 somewhere on your computer.
+2. Run an administrative command prompt.
+3. CD into the directory with the game folders.
+4. Run "python -m http.server 8000"
+5. Type localhost in browser and click the html file.
