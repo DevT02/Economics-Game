@@ -1,0 +1,49 @@
+{
+  "name": "MrCeo",
+  "companyTypes": [ "tech, fast_food", "fashion", "car_company", "retail", "entertainment" ],
+  "tech": {
+    "events": [
+      "A new development has been made in your R&D Department allowing for a reduction in cost by $150 by using a new material in the computer chip. However",
+      "it was found that there are slight risks of catching a flame under high workload."
+    ],
+    "fromevents": [
+      "R&D Department",
+      "Finance Department",
+      "Management Department"
+    ],
+    "choices": [
+      "Starts the use of the new chip",
+      "Opt out of the lower cost",
+      "Use more resources to solve the problem"
+    ],
+    "outcomes": [
+      "You use the chip and nothing happens",
+      "You use the chip and it catches fire in several computers. Your societal approval rating, profit, and stakeholder levels drop",
+      "You do nothing and stakeholder decreases slightly"
+    ],
+    "profiteffects": [
+      "1",
+      "-1",
+      "0"
+    ],
+    "publicimgeffects": [
+      "0",
+      "-1",
+      "0"
+    ],
+    "stakeholdereffects": [
+      "1",
+      "-1",
+      "-0.5"
+    ]
+  },
+  "fast_food": {
+    "events": [
+      "A new development",
+      "Hi baby"
+    ],
+    "fromevents": [],
+    "choices": [],
+    "outcomes": []
+  }
+}

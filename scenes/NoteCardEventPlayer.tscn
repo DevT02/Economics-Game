@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/interactions/notecard.png" type="Texture" id=1]
 [ext_resource path="res://scenes/buttons/buttongroups/callingcards.tres" type="ButtonGroup" id=2]
@@ -29,9 +29,6 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color( 0, 0, 0, 1 )
 border_blend = true
-
-[sub_resource type="ButtonGroup" id=9]
-resource_local_to_scene = false
 
 [sub_resource type="DynamicFont" id=5]
 size = 18
@@ -163,7 +160,7 @@ rect_pivot_offset = Vector2( 260, 16 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-group = SubResource( 9 )
+group = ExtResource( 2 )
 text = "Option 3"
 
 [node name="Label" type="Label" parent="NinePatchRect"]

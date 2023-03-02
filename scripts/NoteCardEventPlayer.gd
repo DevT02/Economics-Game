@@ -6,13 +6,21 @@ export(ButtonGroup) var group
 var data = []
 var eventId = -1
 var dialogue_active = false
+var pressedButton = -1
 
 var used_numbers  = []
 var current_company = "tech"
-var from_department = current_company + "_from_events"
 var current_events = current_company + "_events"
+var from_events = current_company + "_fromevents"
 var current_choices = current_company + "_choices"
 var current_outcomes = current_company + "_outcomes"
+var current_outcome_profit = current_company + "_profiteffects"
+var current_outcome_image_effects = current_company + "_publicimgeffects"
+var current_outcome_stakeholder = current_company + "_stakeholdereffects"
+var profit = 0
+var public_img = 0
+var stakeholder = 0
+## PUBLIC IMAGE, STAKHOLDER, PROFIT
 
 #var rng = RandomNumberGenerator.new()
 
@@ -26,9 +34,12 @@ func button_pressed():
 	print(group.get_pressed_button())
 	if $NinePatchRect.visible == true:
 		if group.get_pressed_button() == group.get_buttons()[0]:
+			pressedButton = 0;
 			fadeOut()
 		elif group.get_pressed_button() == group.get_buttons()[1]:
+			pressedButton = 1;
 			fadeOut()
+			pressedButton = 2;
 		elif group.get_pressed_button() == group.get_buttons()[2]:
 			fadeOut()
 func play():
@@ -53,12 +64,14 @@ func fadeOut():
 	
 func _nextEvent(eventId):
 	$NinePatchRect/ToLabel.text = data[0]['name']
-	$NinePatchRect/FromLabel.text = data[3][from_department][eventId]
-	$NinePatchRect/MessageLabel.text = data[2][current_events][eventId]
+	$NinePatchRect/FromLabel.text = data[current_company][from_events][eventId]
+	$NinePatchRect/MessageLabel.text = data[current_company][current_events][eventId]
 	
-	$NinePatchRect/Option1Button.text = data[4][current_choices][eventId * 3]
-	$NinePatchRect/Option2Button.text = data[4][current_choices][eventId* 3 + 1]
-	$NinePatchRect/Option3Button.text = data[4][current_choices][eventId* 3 + 2]
+	
+	$NinePatchRect/Option1Button.text = data[current_company][current_choices][eventId * 3]
+	$NinePatchRect/Option2Button.text = data[current_company][current_choices][eventId* 3 + 1]
+	$NinePatchRect/Option3Button.text = data[current_company][current_choices][eventId* 3 + 2]
+		
 	
 	if eventId >= len(data):
 		print("uh oh.. data is too small!")
@@ -70,15 +83,15 @@ func randomizeEvents():
 
 	match current_company:	
 		"tech":	
-			_nextEvent(generate_random_number(0, data[3][from_department].size() - 1, used_numbers))
+			_nextEvent(generate_random_number(0, data[current_company][from_events].size() - 1, used_numbers))
 		"fast_food":
 			print("Y")
 		"fashion":
 			print("Z")
 
 func erase():
-	data[3][from_department].erase(eventId)
-	data[3][from_department].erase(eventId)
+	data[3][from_events].erase(eventId)
+	data[3][from_events].erase(eventId)
 	data[4][current_choices].erase(eventId)
 	data[4][current_choices].erase(eventId+1)
 	data[4][current_choices].erase(eventId+2)
