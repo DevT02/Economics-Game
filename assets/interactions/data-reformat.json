@@ -3,8 +3,7 @@
   "companyTypes": [ "tech, fast_food", "fashion", "car_company", "retail", "entertainment" ],
   "tech": {
     "events": [
-      "A new development has been made in your R&D Department allowing for a reduction in cost by $150 by using a new material in the computer chip. However",
-      "it was found that there are slight risks of catching a flame under high workload."
+      "A new development has been made in your R&D Department allowing for a reduction in cost by $150 by using a new material in the computer chip. However, it was found that there are slight risks of catching a flame under high workload."
     ],
     "fromevents": [
       "R&D Department",

@@ -9,14 +9,17 @@ var dialogue_active = false
 var pressedButton = -1
 
 var used_numbers  = []
-var current_company = "tech"
-var current_events = current_company + "_events"
-var from_events = current_company + "_fromevents"
-var current_choices = current_company + "_choices"
-var current_outcomes = current_company + "_outcomes"
-var current_outcome_profit = current_company + "_profiteffects"
-var current_outcome_image_effects = current_company + "_publicimgeffects"
-var current_outcome_stakeholder = current_company + "_stakeholdereffects"
+var used_numbers2 = []
+var used_numbers3 = []
+
+var current_company = 'tech'
+var current_events =  "events"
+var from_events =  "fromevents"
+var current_choices =  "choices"
+var current_outcomes =  "outcomes"
+var current_outcome_profit = "profiteffects"
+var current_outcome_image_effects =  "publicimgeffects"
+var current_outcome_stakeholder =  "stakeholdereffects"
 var profit = 0
 var public_img = 0
 var stakeholder = 0
@@ -24,12 +27,21 @@ var stakeholder = 0
 
 #var rng = RandomNumberGenerator.new()
 
+# on ready
 func _ready():
 	$NinePatchRect.visible = false
 	print(group.get_buttons())
 	for i in group.get_buttons():
 		i.connect("pressed", self, "button_pressed")
-
+	
+# funcion to load data
+func load_data():
+	var file = File.new()
+	if file.file_exists(data_file):
+		file.open(data_file, file.READ)
+		return parse_json(file.get_as_text())
+		
+# connect button press with on_ready
 func button_pressed():
 	print(group.get_pressed_button())
 	if $NinePatchRect.visible == true:
@@ -42,16 +54,29 @@ func button_pressed():
 			pressedButton = 2;
 		elif group.get_pressed_button() == group.get_buttons()[2]:
 			fadeOut()
+			
+# when pressed (see interactions.gd)
 func play():
 	if dialogue_active:
 		return
 	data = load_data()
-
+   
 	$AnimationPlayer.play("fade_in")
 	print('fading in')
 	dialogue_active = true
 	$NinePatchRect.visible = true
 	randomizeEvents()
+	
+
+func randomizeEvents():
+	match current_company:	
+		"tech":	
+			_nextEvent(generate_random_number(0, data[current_company][current_events].size() - 1, used_numbers2), generate_random_number(0, data[current_company][from_events].size() - 1, used_numbers))
+		"fast_food":
+			print("Y")
+		"fashion":
+			print("Z")
+
 	
 func fadeOut():
 	$AnimationPlayer.play("fade_out")
@@ -61,16 +86,16 @@ func fadeOut():
 	$NinePatchRect.visible = false
 	dialogue_active = false
 	
+# each event has corresonding 3 fromEvents	
+func _nextEvent(numberofEvents, numberofFromEvents):
+	$NinePatchRect/ToLabel.text = data['name']
+	$NinePatchRect/FromLabel.text = data[current_company][from_events][numberofFromEvents]
+	$NinePatchRect/MessageLabel.text = data[current_company][current_events][numberofEvents]
 	
-func _nextEvent(eventId):
-	$NinePatchRect/ToLabel.text = data[0]['name']
-	$NinePatchRect/FromLabel.text = data[current_company][from_events][eventId]
-	$NinePatchRect/MessageLabel.text = data[current_company][current_events][eventId]
 	
-	
-	$NinePatchRect/Option1Button.text = data[current_company][current_choices][eventId * 3]
-	$NinePatchRect/Option2Button.text = data[current_company][current_choices][eventId* 3 + 1]
-	$NinePatchRect/Option3Button.text = data[current_company][current_choices][eventId* 3 + 2]
+	$NinePatchRect/Option1Button.text = data[current_company][current_choices][(numberofEvents - 1) * 3]
+	$NinePatchRect/Option2Button.text = data[current_company][current_choices][(numberofEvents - 1) * 3 + 1]
+	$NinePatchRect/Option3Button.text = data[current_company][current_choices][(numberofEvents - 1)* 3 + 2]
 		
 	
 	if eventId >= len(data):
@@ -79,15 +104,6 @@ func _nextEvent(eventId):
 		$NinePatchRect.visible = false 
 		return	
 		
-func randomizeEvents():
-
-	match current_company:	
-		"tech":	
-			_nextEvent(generate_random_number(0, data[current_company][from_events].size() - 1, used_numbers))
-		"fast_food":
-			print("Y")
-		"fashion":
-			print("Z")
 
 func erase():
 	data[3][from_events].erase(eventId)
@@ -129,9 +145,3 @@ func _input(event):
 	if !dialogue_active:
 		return
 
-	
-func load_data():
-	var file = File.new()
-	if file.file_exists(data_file):
-		file.open(data_file, file.READ)
-		return parse_json(file.get_as_text())

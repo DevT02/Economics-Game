@@ -72,6 +72,7 @@ texture = ExtResource( 2 )
 script = ExtResource( 5 )
 
 [node name="NoteCardEventPlayer" parent="Area2D" instance=ExtResource( 3 )]
+data_file = "res://assets/interactions/data-reformat.json"
 
 [node name="house_interaction" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 150, 705 )
