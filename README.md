@@ -1,7 +1,7 @@
 # Econ Game Project
 
 ## Setup
-1. Download the portable Godot Engine from https://godotengine.org/download/windows on Standard Version
+1. Download the portable Godot Engine from https://godotengine.org/download/3.x/windows/ on Standard Version
 2. Download GitKraken and try getting the Pro Version (students get it for free)
 3. Clone the repo through URL in Gitkraken and put it somewhere safe
 4. Open Godot and click import to select project.godot
