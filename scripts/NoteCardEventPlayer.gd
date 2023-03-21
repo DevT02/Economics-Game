@@ -12,6 +12,7 @@ var used_numbers  = []
 var used_numbers2 = []
 var used_numbers3 = []
 
+
 var current_company = 'tech'
 var current_events =  "events"
 var from_events =  "fromevents"
@@ -50,53 +51,43 @@ func button_pressed():
 	print(group.get_pressed_button())
 	if $NinePatchRect.visible == true:
 		if group.get_pressed_button() == group.get_buttons()[0]:
-			profit += data[current_company][current_outcome_profit][used_numbers3[0]]	
-			public_img += data[current_company][current_outcome_image_effects][used_numbers3[0]]	
-			stakeholder += data[current_company][current_outcome_stakeholder][used_numbers3[0]]				
-			pressedButton = 0;
-			# reset randomization
-			used_numbers3 = []
+			updateEffects(0)		
 			fadeOut()
 		elif group.get_pressed_button() == group.get_buttons()[1]:
-			profit += data[current_company][current_outcome_profit][used_numbers3[1]]	
-			public_img += data[current_company][current_outcome_image_effects][used_numbers3[1]]	
-			stakeholder += data[current_company][current_outcome_stakeholder][used_numbers3[1]]	
-			pressedButton = 1;
-			used_numbers3 = []
+			updateEffects(1)
 			fadeOut()
 		elif group.get_pressed_button() == group.get_buttons()[2]:
-			profit += data[current_company][current_outcome_profit][used_numbers3[2]]	
-			public_img += data[current_company][current_outcome_image_effects][used_numbers3[2]]	
-			stakeholder += data[current_company][current_outcome_stakeholder][used_numbers3[2]]	
-			used_numbers3 = []
-			pressedButton = 2;
+			updateEffects(2)
 			fadeOut()
 		print(profit)
 		print(public_img)
-		print(stakeholder)			
+		print(stakeholder)
+		
+		
 # when pressed (see interactions.gd)
 func play():
 	if dialogue_active:
 		return
 	data = load_data()
-   
-	$AnimationPlayer.play("fade_in")
-	print('fading in')
-	dialogue_active = true
-	$NinePatchRect.visible = true
+	fadeIn()
 	randomizeEvents()
 	
 
 func randomizeEvents():
 	match current_company:	
 		"tech":	
-			_nextEvent(generate_random_number(0, data[current_company][current_events].size() - 1, used_numbers2), generate_random_number(0, data[current_company][from_events].size() - 1, used_numbers))
+			_nextEvent(generate_random_number(0, data[current_company][current_events].size() - 1, used_numbers2, 2), generate_random_number(0, data[current_company][from_events].size() - 1, used_numbers, 0))
 		"fast_food":
 			print("Y")
 		"fashion":
 			print("Z")
 
-	
+func fadeIn():
+	$AnimationPlayer.play("fade_in")
+	print('fading in')
+	dialogue_active = true
+	$NinePatchRect.visible = true
+
 func fadeOut():
 	$AnimationPlayer.play("fade_out")
 	get_tree().get_root().set_disable_input(true)
@@ -106,16 +97,15 @@ func fadeOut():
 	dialogue_active = false
 	
 # each event has corresonding 3 fromEvents	
-func _nextEvent(numberofEvents, numberofFromEvents):
+func _nextEvent(numberofEvents, numberFromEvents):
 	$NinePatchRect/ToLabel.text = data['name']
-	$NinePatchRect/FromLabel.text = data[current_company][from_events][numberofFromEvents]
+	$NinePatchRect/FromLabel.text = data[current_company][from_events][numberFromEvents]
 	$NinePatchRect/MessageLabel.text = data[current_company][current_events][numberofEvents]
 	
-	$NinePatchRect/Option1Button.text = data[current_company][current_choices][(numberofEvents - 1) * 3 + (generate_random_number(0, 2, used_numbers3))]
-	$NinePatchRect/Option2Button.text = data[current_company][current_choices][(numberofEvents - 1) * 3 + (generate_random_number(0, 2, used_numbers3))]
-	$NinePatchRect/Option3Button.text = data[current_company][current_choices][(numberofEvents - 1)* 3 + (generate_random_number(0, 2, used_numbers3))]
+	$NinePatchRect/Option1Button.text = data[current_company][current_choices][(numberofEvents - 1) * 3 + (generate_random_number(0, 2, used_numbers3, 3))]
+	$NinePatchRect/Option2Button.text = data[current_company][current_choices][(numberofEvents - 1) * 3 + (generate_random_number(0, 2, used_numbers3, 3))]
+	$NinePatchRect/Option3Button.text = data[current_company][current_choices][(numberofEvents - 1) * 3 + (generate_random_number(0, 2, used_numbers3, 3))]
 	# the order of used_numbers3 will correspond to the option choices publically stored...
-	
 	
 	
 	if eventId >= len(data):
@@ -132,9 +122,15 @@ func erase():
 	data[4][current_choices].erase(eventId+1)
 	data[4][current_choices].erase(eventId+2)
 
+func updateEffects(buttonChoice):
+	profit += data[current_company][current_outcome_profit][used_numbers3[buttonChoice]]	
+	public_img += data[current_company][current_outcome_image_effects][used_numbers3[buttonChoice]]	
+	stakeholder += data[current_company][current_outcome_stakeholder][used_numbers3[buttonChoice]]	
+	pressedButton = buttonChoice;
+	# reset randomization (so we don't repeat numbers)
+	used_numbers3 = []
 
-
-func generate_random_number(range_start, range_end, known_numbers):
+func generate_random_number(range_start, range_end, known_numbers, usedNumberIndex):
 	# Track the numbers that have been generated so far	
 	# Create a list of all possible numbers in the range
 	var possible_numbers = []
@@ -155,9 +151,19 @@ func generate_random_number(range_start, range_end, known_numbers):
 	# Otherwise, select a random possible number and return it
 	var random_index = randi() % len(possible_numbers)
 	known_numbers.append(possible_numbers[random_index])
-	print(used_numbers)
+	# this is required, when passing a parameter it doesnt affect the global scope of the class (as we're creating a copy of the variable..) unfortunately this is the best solution.
+	rememberUsedNumbers(known_numbers, usedNumberIndex)
+	
 	return possible_numbers[random_index]
 
+func rememberUsedNumbers(known_numbers, usedNumberIndex):
+	match usedNumberIndex:
+		3:
+			used_numbers3 = known_numbers
+		2: 
+			used_numbers2 = known_numbers
+		1:
+			used_numbers = known_numbers
 
 
 
