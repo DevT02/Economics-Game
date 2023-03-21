@@ -23,6 +23,10 @@ var current_outcome_stakeholder =  "stakeholdereffects"
 var profit = 0
 var public_img = 0
 var stakeholder = 0
+var option1effect = 0
+var option2effect = 0
+var option3effect = 0
+
 ## PUBLIC IMAGE, STAKHOLDER, PROFIT
 
 #var rng = RandomNumberGenerator.new()
@@ -46,15 +50,30 @@ func button_pressed():
 	print(group.get_pressed_button())
 	if $NinePatchRect.visible == true:
 		if group.get_pressed_button() == group.get_buttons()[0]:
+			profit += data[current_company][current_outcome_profit][used_numbers3[0]]	
+			public_img += data[current_company][current_outcome_image_effects][used_numbers3[0]]	
+			stakeholder += data[current_company][current_outcome_stakeholder][used_numbers3[0]]				
 			pressedButton = 0;
+			# reset randomization
+			used_numbers3 = []
 			fadeOut()
 		elif group.get_pressed_button() == group.get_buttons()[1]:
+			profit += data[current_company][current_outcome_profit][used_numbers3[1]]	
+			public_img += data[current_company][current_outcome_image_effects][used_numbers3[1]]	
+			stakeholder += data[current_company][current_outcome_stakeholder][used_numbers3[1]]	
 			pressedButton = 1;
+			used_numbers3 = []
 			fadeOut()
-			pressedButton = 2;
 		elif group.get_pressed_button() == group.get_buttons()[2]:
+			profit += data[current_company][current_outcome_profit][used_numbers3[2]]	
+			public_img += data[current_company][current_outcome_image_effects][used_numbers3[2]]	
+			stakeholder += data[current_company][current_outcome_stakeholder][used_numbers3[2]]	
+			used_numbers3 = []
+			pressedButton = 2;
 			fadeOut()
-			
+		print(profit)
+		print(public_img)
+		print(stakeholder)			
 # when pressed (see interactions.gd)
 func play():
 	if dialogue_active:
@@ -92,11 +111,12 @@ func _nextEvent(numberofEvents, numberofFromEvents):
 	$NinePatchRect/FromLabel.text = data[current_company][from_events][numberofFromEvents]
 	$NinePatchRect/MessageLabel.text = data[current_company][current_events][numberofEvents]
 	
+	$NinePatchRect/Option1Button.text = data[current_company][current_choices][(numberofEvents - 1) * 3 + (generate_random_number(0, 2, used_numbers3))]
+	$NinePatchRect/Option2Button.text = data[current_company][current_choices][(numberofEvents - 1) * 3 + (generate_random_number(0, 2, used_numbers3))]
+	$NinePatchRect/Option3Button.text = data[current_company][current_choices][(numberofEvents - 1)* 3 + (generate_random_number(0, 2, used_numbers3))]
+	# the order of used_numbers3 will correspond to the option choices publically stored...
 	
-	$NinePatchRect/Option1Button.text = data[current_company][current_choices][(numberofEvents - 1) * 3]
-	$NinePatchRect/Option2Button.text = data[current_company][current_choices][(numberofEvents - 1) * 3 + 1]
-	$NinePatchRect/Option3Button.text = data[current_company][current_choices][(numberofEvents - 1)* 3 + 2]
-		
+	
 	
 	if eventId >= len(data):
 		print("uh oh.. data is too small!")
@@ -115,26 +135,26 @@ func erase():
 
 
 func generate_random_number(range_start, range_end, known_numbers):
-# Track the numbers that have been generated so far	
+	# Track the numbers that have been generated so far	
 	# Create a list of all possible numbers in the range
 	var possible_numbers = []
 	for i in range(range_start, range_end + 1):
-		var is_used = used_numbers.find(i) != -1
+#		var is_used = used_numbers.find(i) != -1
 		var is_known = known_numbers.find(i) != -1
-		if !is_used && !is_known:
+		if !is_known:
 			possible_numbers.append(i)
 	print(possible_numbers)
 	# If there are no possible numbers left, select a random known number
 	if len(possible_numbers) == 0:
 		for number in known_numbers:
-			if used_numbers.find(number) == -1:
+			if known_numbers.find(number) == -1:
 				return number
 		# If all known numbers have already been used, just return a random number
 		return range_start + randi() % (range_end - range_start + 1)
 	
 	# Otherwise, select a random possible number and return it
 	var random_index = randi() % len(possible_numbers)
-	used_numbers.append(possible_numbers[random_index])
+	known_numbers.append(possible_numbers[random_index])
 	print(used_numbers)
 	return possible_numbers[random_index]
 
