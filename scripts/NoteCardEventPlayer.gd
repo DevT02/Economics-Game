@@ -24,9 +24,9 @@ var current_outcome_stakeholder =  "stakeholdereffects"
 var profit = 0
 var public_img = 0
 var stakeholder = 0
-var option1effect = 0
-var option2effect = 0
-var option3effect = 0
+var text_speed = 0.02
+
+
 
 ## PUBLIC IMAGE, STAKHOLDER, PROFIT
 
@@ -35,7 +35,12 @@ var option3effect = 0
 # on ready
 func _ready():
 	$NinePatchRect.visible = false
-	print(group.get_buttons())
+	get_node("../EffectsPopUp/Tween/NinePatchRect/Label").visible = false
+
+
+
+
+	
 	for i in group.get_buttons():
 		i.connect("pressed", self, "button_pressed")
 	
@@ -48,7 +53,6 @@ func load_data():
 		
 # connect button press with on_ready
 func button_pressed():
-	print(group.get_pressed_button())
 	if $NinePatchRect.visible == true:
 		if group.get_pressed_button() == group.get_buttons()[0]:
 			updateEffects(0)		
@@ -105,6 +109,8 @@ func _nextEvent(numberofEvents, numberFromEvents):
 	$NinePatchRect/Option1Button.text = data[current_company][current_choices][(numberofEvents - 1) * 3 + (generate_random_number(0, 2, used_numbers3, 3))]
 	$NinePatchRect/Option2Button.text = data[current_company][current_choices][(numberofEvents - 1) * 3 + (generate_random_number(0, 2, used_numbers3, 3))]
 	$NinePatchRect/Option3Button.text = data[current_company][current_choices][(numberofEvents - 1) * 3 + (generate_random_number(0, 2, used_numbers3, 3))]
+	
+	
 	# the order of used_numbers3 will correspond to the option choices publically stored...
 	
 	
@@ -123,9 +129,54 @@ func erase():
 	data[4][current_choices].erase(eventId+2)
 
 func updateEffects(buttonChoice):
+	# load text first then logic
+	var text = data[current_company][current_outcomes][used_numbers3[buttonChoice]]
+	
+	get_node("../EffectsPopUp/Tween/NinePatchRect/Label").visible = true
+	get_node("../EffectsPopUp/Tween/NinePatchRect/Label").visible_characters = 0
+	get_node("../EffectsPopUp/Tween/NinePatchRect/Label").text = text
+	var text_length = len(text)
+	var text_reveal_speed = text_length * text_speed
+	get_node("../EffectsPopUp/Tween/").interpolate_property(get_node("../EffectsPopUp/Tween/NinePatchRect/Label"), "visible_characters", 0, text_length, text_reveal_speed, Tween.TRANS_LINEAR)
+	get_node("../EffectsPopUp/Tween/").start()
+	
+	var oldProfit = profit
+	var oldImg = public_img
+	var oldStakeholder = stakeholder
 	profit += data[current_company][current_outcome_profit][used_numbers3[buttonChoice]]	
 	public_img += data[current_company][current_outcome_image_effects][used_numbers3[buttonChoice]]	
 	stakeholder += data[current_company][current_outcome_stakeholder][used_numbers3[buttonChoice]]	
+	
+	# based on differences, match a color to the text 0-0.5 is YELLOW (or okay) anything below 0 is RED (bad) anything above 0.5 is GREEN (great)
+	var diffProfit = profit - oldProfit
+	var diffImg = public_img - oldImg
+	var diffStakeholder = stakeholder - oldStakeholder
+	var buttonEffect = 0
+	if diffStakeholder < 0 || diffImg < 0 || diffProfit < 0:
+		buttonEffect = 1
+	elif (0 < diffStakeholder && diffStakeholder <= 0.5) || (0 < diffImg && diffImg <= 0.5) || (0 < diffProfit && diffProfit <= 0.5):
+		buttonEffect = 2
+	elif (0 < diffStakeholder && diffStakeholder <= 1) || (0 < diffImg && diffImg <= 1) || (0 < diffProfit && diffProfit <= 1):
+		buttonEffect = 0
+		
+	# switch effect label
+	match buttonEffect:
+		0:
+			# (GREEN)
+			get_node("../EffectsPopUp/Tween/NinePatchRect/Label").add_color_override("font_color", Color8(0, 255, 52, 255))
+		1:
+			# (RED) 
+			get_node("../EffectsPopUp/Tween/NinePatchRect/Label").add_color_override("font_color", Color8(255, 0, 0, 255))
+		2:
+			# (YELLOW)
+			get_node("../EffectsPopUp/Tween/NinePatchRect/Label").add_color_override("font_color", Color8(241, 255, 0, 255))
+
+
+
+
+
+
+
 	pressedButton = buttonChoice;
 	# reset randomization (so we don't repeat numbers)
 	used_numbers3 = []
@@ -139,7 +190,6 @@ func generate_random_number(range_start, range_end, known_numbers, usedNumberInd
 		var is_known = known_numbers.find(i) != -1
 		if !is_known:
 			possible_numbers.append(i)
-	print(possible_numbers)
 	# If there are no possible numbers left, select a random known number
 	if len(possible_numbers) == 0:
 		for number in known_numbers:
