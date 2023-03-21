@@ -21,19 +21,13 @@
       "You do nothing and stakeholder decreases slightly"
     ],
     "profiteffects": [
-      "1",
-      "-1",
-      "0"
+      1,-1,0
     ],
     "publicimgeffects": [
-      "0",
-      "-1",
-      "0"
+      0,-1,0
     ],
     "stakeholdereffects": [
-      "1",
-      "-1",
-      "-0.5"
+      1,-1,0.5
     ]
   },
   "fast_food": {
