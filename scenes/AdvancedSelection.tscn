@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/fonts/Merchant Copy Wide.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/Merchant Copy.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/fonts/Fipps-Regular.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/buttons/buttongroups/advancedSelectionButtonGroup.tres" type="ButtonGroup" id=4]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.0137615 )
@@ -21,8 +23,12 @@ font_data = ExtResource( 1 )
 default_font = SubResource( 4 )
 
 [sub_resource type="DynamicFont" id=6]
-size = 30
-font_data = ExtResource( 2 )
+extra_spacing_top = -2
+extra_spacing_space = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 3 )
 
 [node name="AdvancedSelection" type="CanvasLayer"]
 
@@ -33,19 +39,19 @@ rect_pivot_offset = Vector2( 56, 166 )
 texture = SubResource( 2 )
 
 [node name="NaneLabel" type="Label" parent="NinePatchRect"]
-margin_left = 56.0
-margin_top = 56.0
-margin_right = 131.0
-margin_bottom = 84.0
+margin_left = 62.0
+margin_top = 50.0
+margin_right = 137.0
+margin_bottom = 78.0
 rect_pivot_offset = Vector2( 31, 125 )
 custom_fonts/font = SubResource( 3 )
 text = "Name:"
 
 [node name="NameButton" type="TextEdit" parent="NinePatchRect"]
-margin_left = 138.0
-margin_top = 53.0
-margin_right = 424.0
-margin_bottom = 90.0
+margin_left = 154.0
+margin_top = 42.0
+margin_right = 456.0
+margin_bottom = 91.0
 theme = SubResource( 5 )
 custom_colors/font_color_selected = Color( 0.705882, 0.635294, 0.635294, 1 )
 custom_colors/line_number_color = Color( 0, 0, 0, 1 )
@@ -56,21 +62,31 @@ text = " Mr. CEO"
 [node name="OptionButton" type="OptionButton" parent="NinePatchRect"]
 anchor_right = 0.331
 anchor_bottom = 0.254
-margin_left = 244.0
-margin_top = 125.0
-margin_right = 281.591
-margin_bottom = 87.306
+margin_left = 260.0
+margin_top = 126.0
+margin_right = 297.591
+margin_bottom = 88.306
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.603922, 0.603922, 0.603922, 1 )
+custom_fonts/font = SubResource( 7 )
 text = "Random"
 
 [node name="CompanyLabel" type="Label" parent="NinePatchRect"]
-margin_left = 40.0
-margin_top = 136.0
-margin_right = 220.0
-margin_bottom = 164.0
+margin_left = 56.0
+margin_top = 137.0
+margin_right = 251.0
+margin_bottom = 165.0
 rect_pivot_offset = Vector2( 31, 125 )
 custom_fonts/font = SubResource( 3 )
 text = "Company Type:"
+
+[node name="Button" type="Button" parent="NinePatchRect"]
+margin_left = 155.0
+margin_top = 252.0
+margin_right = 379.0
+margin_bottom = 298.0
+custom_fonts/font = SubResource( 7 )
+group = ExtResource( 4 )
+text = "Apply"

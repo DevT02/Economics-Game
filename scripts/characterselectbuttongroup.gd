@@ -8,12 +8,19 @@ export(ButtonGroup) var group
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$MarginContainer/AdvancedSelection.visible = false
+	print(group.get_buttons())
 	for i in group.get_buttons():
 		i.connect("pressed", self, "button_pressed")
 
 func button_pressed():
 	if group.get_pressed_button() == group.get_buttons()[0]:
 		get_tree().change_scene("res://scenes/world.tscn")
+	if group.get_pressed_button() == group.get_buttons()[2]:
+		$MarginContainer/TextureRect.visible = false
+		$MarginContainer/AdvancedSelection.visible = true
+		
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
