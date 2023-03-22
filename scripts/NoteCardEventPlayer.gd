@@ -140,10 +140,11 @@ func updateEffects(outcomeIndex):
 	var text = data[current_company][current_outcomes][outcomeIndex]
 	print(text)
 	# stop everything if data is null
-	if text != "Null":
+	if text != null:
 		get_node("../EffectsPopUp/Tween/NinePatchRect/Label").text = text
 	else:
 		updateNumericalEffects(outcomeIndex)
+		used_numbers3 = []
 		return
 	
 	get_node("../EffectsPopUp/Tween/NinePatchRect/Label").visible = true
