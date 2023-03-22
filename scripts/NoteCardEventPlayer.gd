@@ -103,12 +103,16 @@ func fadeOut():
 # each event has corresonding 3 fromEvents	
 func _nextEvent(numberofEvents, numberFromEvents):
 	$NinePatchRect/ToLabel.text = data['name']
-	$NinePatchRect/FromLabel.text = data[current_company][from_events][numberFromEvents]
+	$NinePatchRect/FromLabel.text = data[current_company][from_events][numberofEvents]
 	$NinePatchRect/MessageLabel.text = data[current_company][current_events][numberofEvents]
 	
-	$NinePatchRect/Option1Button.text = data[current_company][current_choices][(numberofEvents - 1) * 3 + (generate_random_number(0, 2, used_numbers3, 3))]
-	$NinePatchRect/Option2Button.text = data[current_company][current_choices][(numberofEvents - 1) * 3 + (generate_random_number(0, 2, used_numbers3, 3))]
-	$NinePatchRect/Option3Button.text = data[current_company][current_choices][(numberofEvents - 1) * 3 + (generate_random_number(0, 2, used_numbers3, 3))]
+	var data1 = data[current_company][current_choices][(numberofEvents - 1) * 3 + (generate_random_number(0, 2, used_numbers3, 3))] 
+	var data2 = data[current_company][current_choices][(numberofEvents - 1) * 3 + (generate_random_number(0, 2, used_numbers3, 3))] 
+	var data3 = data[current_company][current_choices][(numberofEvents - 1) * 3 + (generate_random_number(0, 2, used_numbers3, 3))] 
+	
+	$NinePatchRect/Option1Button.text = data1 if data1 != null else ''
+	$NinePatchRect/Option2Button.text = data2 if data2 != null else ''
+	$NinePatchRect/Option3Button.text = data3 if data3 != null else ''
 	
 	
 	# the order of used_numbers3 will correspond to the option choices publically stored...

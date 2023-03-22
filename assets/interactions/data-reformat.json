@@ -3,31 +3,77 @@
   "companyTypes": [ "tech, fast_food", "fashion", "car_company", "retail", "entertainment" ],
   "tech": {
     "events": [
-      "A new development has been made in your R&D Department allowing for a reduction in cost by $150 by using a new material in the computer chip. However, it was found that there are slight risks of catching a flame under high workload."
+	  "You have been doing trade for one year in the neighboring country. You have now realized $2,000,000 in net imports from this country. What should you do with the money accumulated from this trade?",
+	  "Currently interest rates are up in the bonds market. Luckily your finance department has been holding bonds worth $200,000 in the current market, available to sell. A set of financial projections has also been provided for your viewing. Will you sell the bonds?",
+	  "A new development has been made in your R&D Department allowing for a reduction in cost by $150 by using a new material in the computer chip. However, it was found that there are slight risks of catching a flame under high workload. Do you use the new chip?",
+	  "Your competitor Comp4U is going out of business. The company has been under fire for having cheap quality . Their owner has approached you about purchasing Comp4U and their hardware and software patents. Do you buy Comp4U?",
+	  "Your company is under fire for importing parts from a country that uses child labor. The general public is attacking the company for supporting unethical business practices and is losing revenue. Do you change manufacturers?",
+	  "The new logo used for one of your new services has been copyright striked. The logo is slightly different but strongly resembles the other company’s logo. This was done accidentally but the other company is now suing for copyright infringement.",
+	  "Some of your customers have been running into a basic bug interfering with their usage of the company’s A-23 computers. The R&D department has found a solution, but there will need to be a 2 week recall. The issue is not major and does not affect performance for everyone, but could worsen. Do you recall the computers?"
     ],
     "fromevents": [
-      "R&D Department",
-      "Finance Department",
-      "Management Department"
+	  "Main Company",
+	  "Finance Dept.",
+	  "R&D Dept.",
+	  "Miscellaneous",
+	  "HR Dept.",
+	  "Marketing",
+          "Operations"
     ],
     "choices": [
-      "Starts the use of the new chip",
-      "Opt out of the lower cost",
-      "Use more resources to solve the problem"
+      "Take the money and use it to get back your home currency in the FOREX",
+	  "Reinvest in the other country, increasing investments",
+	  "Hold it for now, choosing what to do later.",
+	  "Yes: Sell the Bonds at the current market price.",
+      "No: Hold the Bonds for possible future use or collateral.",
+      "Wait for Sale: Wait for the markets to change over time, possibly for a drop in interest rates and increase in Bond Price.",
+	  "Yes: Starts the use of the new chip, possibly taking a damage to reputation",
+      "No: Opt out of the lower cost but definitely keep reputation",
+      "Wait: Use more resources to solve the problem, which would bite down on profits for now",
+	  "Yes: Buy Comp4U and rebrand, gaining a new asset, profits may temporarily decrease and stay low",
+	  "No: Stakeholders may get upset",
+	  null,
+	  "Yes: Change the company’s primary manufacturer and release an apology to the public, profits may fall", 
+      "No: Keep the same manufacturer and let crisis management do its thing",
+	  null,
+	  null,
+	  null,
+	  null,
+	  "Yes: Recall the computers, profit probably goes down, and public rating may go up or down",
+	  "No: Nothing may happen, but public rating may decrease",
+	  null
     ],
     "outcomes": [
-      "You use the chip and nothing happens",
+	  "The results of changing back to currency might decrease or increase profit and stakeholder but will increase reputation.",
+	  "Reinvestment will increase profit and stakeholder but decrease reputation.",
+	  "Will not change factors until chosen to move into 1 or 2. If nothing is chosen by the end of the year, your currency has a chance of being lost in the big global recession at the end of year 1.",
+      "Interest rates fall after selling, meaning profit is maximized. Increased Profit and Stakeholder Approval", 
+      "Decreased interest rates after selling, meaning more profit could’ve been made. Still increase profit and stakeholder approval, but less than 1.",
+      "No change was made to any indicators since it was not sold.",
+	  "You use the chip and nothing happens",
       "You use the chip and it catches fire in several computers. Your societal approval rating, profit, and stakeholder levels drop",
-      "You do nothing and stakeholder decreases slightly"
+      "You do nothing and stakeholder decreases slightly",
+	  "Comp4U’s products and parts are incompatible with your current products, making the benefits of the purchase minimal, profit ratings drop significantly",
+	  "Your R&D team is able to incorporate Comp4U’s services into your product mix. Your profit ratings increase significantly, your stakeholder rating go up",
+	  null,	
+	  "The company’s profit goes down because of new manufacturer, but the public approval rating has gone up",
+      "Public approval rating drops significantly",
+	  null,
+      "You win the court case, no bars change",
+	  "You lose the court case, profit drops and public approval drop",
+	  null,
+	  "You recall the computers, profit goes down, stakeholder and public approval rating goes down",
+	  "You recall the computers, profit and stakeholder goes down, but public approval rating goes up",
+	  "The bug is not major so no bar changes"
     ],
     "profiteffects": [
-      1,-1,0
+      1,-1,0,-1,-1,0,1,0,0.5,-1,0.4,0.4,-0.4,-0.5,0.5,0.5,1,-1,0,0
     ],
     "publicimgeffects": [
-      0,-1,0
+      0,-1,0,-1,-1,0,1,0,0.5,-1,0.4,0.4,-0.4,-0.5,0.5,0.5,1,-1,0,0
     ],
     "stakeholdereffects": [
-      1,-1,0.5
+      1,-1,0.5,0,-1,0,-1,-1,0,1,0,0.5,-1,0.4,0.4,-0.4,-0.5,0.5,0.5,1
     ]
   },
   "fast_food": {
