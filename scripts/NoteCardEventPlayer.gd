@@ -80,7 +80,8 @@ func play():
 func randomizeEvents():
 	match current_company:	
 		"tech":	
-			_nextEvent(generate_random_number(0, data[current_company][current_events].size() - 1, used_numbers2, 2), generate_random_number(0, data[current_company][from_events].size() - 1, used_numbers, 0))
+			# generate random event to pick
+			_nextEvent(generate_random_number(0, data[current_company][current_events].size() - 1, used_numbers2, 2))
 		"fast_food":
 			print("Y")
 		"fashion":
@@ -100,16 +101,23 @@ func fadeOut():
 	$NinePatchRect.visible = false
 	dialogue_active = false
 	
-# each event has corresonding 3 fromEvents	
-func _nextEvent(numberofEvents, numberFromEvents):
+func _nextEvent(numberofEvents):
+
 	$NinePatchRect/ToLabel.text = data['name']
+	# fromLabels correspond with messageLabel (in size)
 	$NinePatchRect/FromLabel.text = data[current_company][from_events][numberofEvents]
 	$NinePatchRect/MessageLabel.text = data[current_company][current_events][numberofEvents]
 	
-	var data1 = data[current_company][current_choices][(numberofEvents - 1) * 3 + (generate_random_number(0, 2, used_numbers3, 3))] 
-	var data2 = data[current_company][current_choices][(numberofEvents - 1) * 3 + (generate_random_number(0, 2, used_numbers3, 3))] 
-	var data3 = data[current_company][current_choices][(numberofEvents - 1) * 3 + (generate_random_number(0, 2, used_numbers3, 3))] 
-	
+	print(numberofEvents)
+	var button1 = (numberofEvents) * 3 + (generate_random_number(1, 3, used_numbers3, 3))
+	var button2 = (numberofEvents) * 3 + (generate_random_number(1, 3, used_numbers3, 3))
+	var button3 = (numberofEvents) * 3 + (generate_random_number(1, 3, used_numbers3, 3))
+
+	# each event has corresonding 3 fromEvents, subtract 1 as we are using index, multiply by 3 as 3 per choice. 
+	var data1 = data[current_company][current_choices][button1-1] 
+	var data2 = data[current_company][current_choices][button2-1] 
+	var data3 = data[current_company][current_choices][button3-1] 
+
 	$NinePatchRect/Option1Button.text = data1 if data1 != null else ''
 	$NinePatchRect/Option2Button.text = data2 if data2 != null else ''
 	$NinePatchRect/Option3Button.text = data3 if data3 != null else ''
@@ -162,7 +170,7 @@ func updateEffects(buttonChoice):
 		buttonEffect = 2
 	elif (0 < diffStakeholder && diffStakeholder <= 1) || (0 < diffImg && diffImg <= 1) || (0 < diffProfit && diffProfit <= 1):
 		buttonEffect = 0
-		
+	
 	# switch effect label
 	match buttonEffect:
 		0:
@@ -174,10 +182,6 @@ func updateEffects(buttonChoice):
 		2:
 			# (YELLOW)
 			get_node("../EffectsPopUp/Tween/NinePatchRect/Label").add_color_override("font_color", Color8(241, 255, 0, 255))
-
-
-
-
 
 
 
