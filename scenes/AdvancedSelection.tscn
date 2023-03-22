@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/fonts/Merchant Copy Wide.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/Merchant Copy.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.0137615 )
+colors = PoolColorArray( 0.188235, 0.25098, 0.490196, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 41
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=5]
+default_font = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = ExtResource( 2 )
+
+[node name="AdvancedSelection" type="CanvasLayer"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_right = 539.0
+margin_bottom = 361.0
+rect_pivot_offset = Vector2( 56, 166 )
+texture = SubResource( 2 )
+
+[node name="NaneLabel" type="Label" parent="NinePatchRect"]
+margin_left = 56.0
+margin_top = 56.0
+margin_right = 131.0
+margin_bottom = 84.0
+rect_pivot_offset = Vector2( 31, 125 )
+custom_fonts/font = SubResource( 3 )
+text = "Name:"
+
+[node name="NameButton" type="TextEdit" parent="NinePatchRect"]
+margin_left = 138.0
+margin_top = 53.0
+margin_right = 424.0
+margin_bottom = 90.0
+theme = SubResource( 5 )
+custom_colors/font_color_selected = Color( 0.705882, 0.635294, 0.635294, 1 )
+custom_colors/line_number_color = Color( 0, 0, 0, 1 )
+custom_colors/completion_selected_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = " Mr. CEO"
+
+[node name="OptionButton" type="OptionButton" parent="NinePatchRect"]
+anchor_right = 0.331
+anchor_bottom = 0.254
+margin_left = 244.0
+margin_top = 125.0
+margin_right = 281.591
+margin_bottom = 87.306
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.603922, 0.603922, 0.603922, 1 )
+text = "Random"
+
+[node name="CompanyLabel" type="Label" parent="NinePatchRect"]
+margin_left = 40.0
+margin_top = 136.0
+margin_right = 220.0
+margin_bottom = 164.0
+rect_pivot_offset = Vector2( 31, 125 )
+custom_fonts/font = SubResource( 3 )
+text = "Company Type:"

@@ -144,7 +144,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
 group = ExtResource( 2 )
-text = "Option 1"
+text = "Option 1 text is this long atuhsaudhaishdsahdsadhajad"
 
 [node name="Option2Button" type="Button" parent="NinePatchRect"]
 margin_left = 40.0

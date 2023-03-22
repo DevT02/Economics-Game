@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/fonts/Fipps-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/characters/white_female_standing.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/characters/brown_male_standing.png" type="Texture" id=4]
 [ext_resource path="res://scripts/characterselectbuttongroup.gd" type="Script" id=5]
 [ext_resource path="res://scenes/buttons/buttongroups/characterSelectionButtonGroup.tres" type="ButtonGroup" id=6]
+[ext_resource path="res://scenes/AdvancedSelection.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 36
@@ -119,3 +120,5 @@ margin_right = 840.0
 margin_bottom = 280.0
 custom_fonts/font = SubResource( 8 )
 text = "Jonathan D"
+
+[node name="AdvancedSelection" parent="MarginContainer/TextureRect" instance=ExtResource( 7 )]
