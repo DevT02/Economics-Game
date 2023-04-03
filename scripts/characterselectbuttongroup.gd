@@ -16,7 +16,7 @@ func _ready():
 func button_pressed():
 	if group.get_pressed_button() == group.get_buttons()[0]:
 		get_tree().change_scene("res://scenes/world.tscn")
-	if group.get_pressed_button() == group.get_buttons()[2]:
+	elif group.get_pressed_button() == group.get_buttons()[1]:
 		$MarginContainer/TextureRect.visible = false
 		$MarginContainer/AdvancedSelection.visible = true
 		
