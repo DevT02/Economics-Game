@@ -32,6 +32,7 @@ group = ExtResource( 7 )
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_right = 1024.0
 margin_bottom = 600.0
+rect_scale = Vector2( 1.873, 1.801 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 margin_right = 1024.0

@@ -58,6 +58,7 @@ group = ExtResource( 6 )
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_right = 1023.0
 margin_bottom = 600.0
+rect_scale = Vector2( 1.873, 1.801 )
 
 [node name="AdvancedSelection" parent="MarginContainer" instance=ExtResource( 7 )]
 
