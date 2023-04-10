@@ -20,9 +20,6 @@
 [ext_resource path="res://assets/map/ontop of map/RandDBild.png" type="Texture" id=18]
 [ext_resource path="res://assets/map/background_image_pixelated.png" type="Texture" id=19]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 47, 12 )
-
 [sub_resource type="TileSet" id=2]
 0/name = "background_image_pixelated.png 0"
 0/texture = ExtResource( 19 )
@@ -363,19 +360,10 @@ extents = Vector2( 47, 12 )
 13/shapes = [  ]
 13/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 306, 33.375 )
+
 [node name="main_world" type="Node2D"]
-
-[node name="Area2D" type="Area2D" parent="."]
-script = ExtResource( 4 )
-
-[node name="EffectsPopUp" parent="Area2D" instance=ExtResource( 2 )]
-
-[node name="NoteCardEventPlayer" parent="Area2D" instance=ExtResource( 1 )]
-data_file = "res://assets/interactions/data-reformat.json"
-
-[node name="house_interaction" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 150, 705 )
-shape = SubResource( 1 )
 
 [node name="TileMapBackground" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
@@ -385,12 +373,34 @@ tile_data = PoolIntArray( -2162762, 9, 0, -2162761, 9, 0, -2162760, 9, 0, -21627
 [node name="TileMapObjects" type="TileMap" parent="."]
 tile_set = SubResource( 3 )
 format = 1
-tile_data = PoolIntArray( -458752, 1, 0, -327690, 12, 0, -65552, 11, 0, -65528, 0, 0, 196604, 10, 0, 458756, 9, 0, 589811, 3, 0 )
+tile_data = PoolIntArray( -458752, 1, 0, -327690, 12, 0, -65552, 11, 0, -65528, 0, 0, 196604, 10, 0, 458756, 9, 0, 655347, 3, 0 )
 
-[node name="KinematicBody2D" parent="." instance=ExtResource( 3 )]
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="EffectsPopUp" parent="Area2D" instance=ExtResource( 2 )]
+
+[node name="NoteCardEventPlayer" parent="Area2D" instance=ExtResource( 1 )]
+data_file = "res://assets/interactions/data-reformat.json"
+
+[node name="finance_interaction" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -528, 1005 )
+shape = SubResource( 1 )
+
+[node name="marketing_interaction" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 443, 959 )
+scale = Vector2( 0.654, 1 )
+shape = SubResource( 1 )
+
+[node name="hq_itnteraction" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 952.375, 436 )
+scale = Vector2( 0.916, 1 )
+shape = SubResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -42, 484 )
 
-[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( -4, -2 )
 current = true
 smoothing_enabled = true

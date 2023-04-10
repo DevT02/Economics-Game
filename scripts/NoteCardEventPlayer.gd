@@ -14,6 +14,7 @@ var used_numbers3 = []
 
 
 var current_company = 'tech'
+var current_division = "none"
 var current_events =  "events"
 var from_events =  "fromevents"
 var current_choices =  "choices"
@@ -63,13 +64,14 @@ func button_pressed():
 		print(stakeholder)
 
 # when pressed (see interactions.gd)
-func play():
+func play(event):
+	current_division = event
 	if dialogue_active:
 		return
 	data = load_data()
 	fadeIn()
 	randomizeEvents()
-	
+
 func randomizeEvents():
 	match current_company:	
 		"tech":	
@@ -98,7 +100,7 @@ func _nextEvent(numberofEvents):
 	
 	$NinePatchRect/ToLabel.text = data['name']
 	# fromLabels correspond with messageLabel (in size)
-	$NinePatchRect/FromLabel.text = data[current_company][from_events][numberofEvents]
+	$NinePatchRect/FromLabel.text = data[current_company][from_events][current_division]
 	$NinePatchRect/MessageLabel.text = data[current_company][current_events][numberofEvents]
 	
 	var button1 = (numberofEvents) * 3 + (generate_random_number(1, 3, used_numbers3, 3))
