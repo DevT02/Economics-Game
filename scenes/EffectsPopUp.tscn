@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/fonts/Merchant Copy Doublesize.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/EffectsPopUp.gd" type="Script" id=2]
+[ext_resource path="res://assets/interactions/boxborders.png" type="Texture" id=3]
 
 [sub_resource type="Theme" id=1]
 
 [sub_resource type="DynamicFont" id=2]
+size = 13
 font_data = ExtResource( 1 )
 
 [node name="EffectsPopUp" type="CanvasLayer"]
@@ -14,16 +16,21 @@ script = ExtResource( 2 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Tween"]
-margin_left = 475.0
-margin_top = 541.0
-margin_right = 1021.0
-margin_bottom = 600.0
+margin_left = 1553.0
+margin_top = 11.0
+margin_right = 1905.0
+margin_bottom = 144.0
+texture = ExtResource( 3 )
+region_rect = Rect2( 400, 147, 128, 106 )
+patch_margin_left = 50
+patch_margin_top = 109
+patch_margin_right = 34
 
 [node name="Label" type="Label" parent="Tween/NinePatchRect"]
-margin_left = -39.0
-margin_top = -535.0
-margin_right = 548.0
-margin_bottom = -455.0
+margin_left = 28.0
+margin_top = 14.0
+margin_right = 330.0
+margin_bottom = 98.0
 theme = SubResource( 1 )
 custom_colors/font_color = Color( 0.945098, 1, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )

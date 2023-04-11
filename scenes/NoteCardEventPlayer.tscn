@@ -81,16 +81,18 @@ tracks/0/keys = {
 }
 
 [node name="NoteCardEventPlayer" type="CanvasLayer"]
+follow_viewport_scale = 0.001
 script = ExtResource( 5 )
 data_file = "res://assets/interactions/data.json"
 group = ExtResource( 2 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 248.0
-margin_top = 100.0
-margin_right = 764.0
-margin_bottom = 448.0
+margin_left = 360.0
+margin_top = 135.0
+margin_right = 876.0
+margin_bottom = 483.0
+rect_scale = Vector2( 2.25, 2.25 )
 texture = ExtResource( 1 )
 region_rect = Rect2( 17.7647, 38.359, 187.318, 139.234 )
 patch_margin_left = 1
