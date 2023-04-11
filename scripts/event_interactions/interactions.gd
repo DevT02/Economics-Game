@@ -1,15 +1,9 @@
 extends Area2D
 
-var interaction = "none"
+var interaction = "Finance Dept."
 
 func _input(event):
-	if event.is_action_pressed("game_usage") and len(get_overlapping_bodies()) > 0:
-		for body in get_overlapping_bodies():
-			if body.name=="marketing_interaction":
-				interaction = "Marketing"
-			elif body.name=="finance_interaction":
-				interaction = "Finance Dept."
-		print(interaction)
+	if event.is_action_pressed("game_usage") and len(get_overlapping_bodies()) > 0 and not get_node_or_null("../Area2D/NoteCardEventPlayer/NinePatchRect").visible == true:
 		var player_event = get_node_or_null("NoteCardEventPlayer")
 		if player_event:
 			player_event.play(interaction)

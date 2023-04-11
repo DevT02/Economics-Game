@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/NoteCardEventPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/EffectsPopUp.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://assets/map/ontop of map/SunnySkyLogo.png" type="Texture" id=17]
 [ext_resource path="res://assets/map/ontop of map/RandDBild.png" type="Texture" id=18]
 [ext_resource path="res://assets/map/background_image_pixelated.png" type="Texture" id=19]
+[ext_resource path="res://scenes/interactions_hq.gd" type="Script" id=20]
 
 [sub_resource type="TileSet" id=2]
 0/name = "background_image_pixelated.png 0"
@@ -387,12 +388,10 @@ data_file = "res://assets/interactions/data-reformat.json"
 position = Vector2( -528, 1005 )
 shape = SubResource( 1 )
 
-[node name="marketing_interaction" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 443, 959 )
-scale = Vector2( 0.654, 1 )
-shape = SubResource( 1 )
+[node name="Area2D2" type="Area2D" parent="."]
+script = ExtResource( 20 )
 
-[node name="hq_itnteraction" type="CollisionShape2D" parent="Area2D"]
+[node name="hq_interaction" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2( 952.375, 436 )
 scale = Vector2( 0.916, 1 )
 shape = SubResource( 1 )

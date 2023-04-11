@@ -12,13 +12,13 @@
 	  "Some of your customers have been running into a basic bug interfering with their usage of the company’s A-23 computers. The R&D department has found a solution, but there will need to be a 2 week recall. The issue is not major and does not affect performance for everyone, but could worsen. Do you recall the computers?"
     ],
     "fromevents": [
-	  "Main Company",
+	  "HQ",
 	  "Finance Dept.",
 	  "R&D Dept.",
 	  "Miscellaneous",
 	  "HR Dept.",
 	  "Marketing",
-          "Operations"
+        "Operations"
     ],
     "choices": [
       "Take the money and use it to get back your home currency in the FOREX",
