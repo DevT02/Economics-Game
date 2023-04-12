@@ -18,7 +18,7 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 21
+size = 18
 font_data = ExtResource( 4 )
 
 [sub_resource type="StyleBoxFlat" id=4]
@@ -132,10 +132,10 @@ custom_fonts/normal_font = SubResource( 2 )
 text = "Message"
 
 [node name="Option1Button" type="Button" parent="NinePatchRect"]
-margin_left = 40.0
-margin_top = 220.0
-margin_right = 472.0
-margin_bottom = 251.0
+margin_left = 30.0
+margin_top = 223.0
+margin_right = 484.0
+margin_bottom = 254.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_pivot_offset = Vector2( 105, 68 )
@@ -146,13 +146,13 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
 group = ExtResource( 2 )
-text = "Option 1 is this long..............(61 chars)"
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
 [node name="Option2Button" type="Button" parent="NinePatchRect"]
-margin_left = 40.0
-margin_top = 260.0
-margin_right = 472.0
-margin_bottom = 291.0
+margin_left = 29.7778
+margin_top = 261.0
+margin_right = 482.778
+margin_bottom = 292.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_pivot_offset = Vector2( 260, 16 )
@@ -161,13 +161,13 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
 group = ExtResource( 2 )
-text = "Option 2"
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
 [node name="Option3Button" type="Button" parent="NinePatchRect"]
-margin_left = 40.0
-margin_top = 298.0
-margin_right = 472.0
-margin_bottom = 329.0
+margin_left = 30.2222
+margin_top = 298.778
+margin_right = 483.222
+margin_bottom = 329.778
 grow_horizontal = 2
 grow_vertical = 2
 rect_pivot_offset = Vector2( 260, 16 )
@@ -177,7 +177,7 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
 group = ExtResource( 2 )
-text = "Option 3"
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
 [node name="Label" type="Label" parent="NinePatchRect"]
 margin_left = 16.0
