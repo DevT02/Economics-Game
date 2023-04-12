@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/fonts/Merchant Copy Wide.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/Merchant Copy.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/fonts/Fipps-Regular.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://scenes/buttons/buttongroups/advancedSelectionButtonGroup.tres" type="ButtonGroup" id=4]
@@ -11,17 +10,7 @@
 size = 41
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=4]
-font_data = ExtResource( 1 )
-
-[sub_resource type="Theme" id=5]
-default_font = SubResource( 4 )
-Button/colors/font_color = Color( 1, 1, 1, 1 )
-TextEdit/colors/caret_background_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="DynamicFont" id=6]
-extra_spacing_top = -2
-extra_spacing_space = 1
+[sub_resource type="DynamicFont" id=8]
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=7]
@@ -52,18 +41,14 @@ rect_pivot_offset = Vector2( 31, 125 )
 custom_fonts/font = SubResource( 3 )
 text = "Name:"
 
-[node name="NameButton" type="TextEdit" parent="NinePatchRect"]
-anchor_top = -0.008
-anchor_bottom = -0.008
-margin_left = 155.0
-margin_top = 57.0
-margin_right = 432.0
-margin_bottom = 106.0
-theme = SubResource( 5 )
-custom_colors/background_color = Color( 0, 0, 0, 1 )
-custom_colors/executing_line_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 6 )
+[node name="LineEdit" type="LineEdit" parent="NinePatchRect"]
+margin_left = 161.72
+margin_top = 57.44
+margin_right = 404.72
+margin_bottom = 104.44
+custom_fonts/font = SubResource( 8 )
 text = "Mr. CEO"
+align = 1
 
 [node name="OptionButton" type="OptionButton" parent="NinePatchRect"]
 anchor_right = 0.331
