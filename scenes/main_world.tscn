@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scenes/NoteCardEventPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/EffectsPopUp.tscn" type="PackedScene" id=2]
@@ -20,6 +20,10 @@
 [ext_resource path="res://assets/map/ontop of map/RandDBild.png" type="Texture" id=18]
 [ext_resource path="res://assets/map/background_image_pixelated.png" type="Texture" id=19]
 [ext_resource path="res://scenes/interactions_hq.gd" type="Script" id=20]
+[ext_resource path="res://scenes/r&d_interaction.gd" type="Script" id=21]
+[ext_resource path="res://scenes/hr_interaction.gd" type="Script" id=22]
+[ext_resource path="res://scenes/marketing_interaction.gd" type="Script" id=23]
+[ext_resource path="res://scenes/operations_interaction.gd" type="Script" id=24]
 
 [sub_resource type="TileSet" id=2]
 0/name = "background_image_pixelated.png 0"
@@ -163,6 +167,30 @@
 9/shapes = [  ]
 9/z_index = 0
 
+[sub_resource type="ConvexPolygonShape2D" id=15]
+points = PoolVector2Array( 233, 419.8, 248.84, 392.08, 224.36, 291.28, 371.24, 322.6, 375.56, 259.24, 372.68, 177.52, 427.4, 178.96, 500.84, 167.44, 506.6, 238, 559.88, 255.28, 665, 211.72, 605.96, 319.72, 660.68, 329.44, 657.8, 452.92, 233, 450.04 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+points = PoolVector2Array( 103.346, 225.212, 190.437, 41.0764, 576.127, 43.5647, 640.823, 257.56, 592, 392.5, 257, 392.5 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+points = PoolVector2Array( 73.92, 114.72, 79.6801, 68.6401, 98.4, 35.5201, 325.92, 35.5201, 341.76, 104.64, 395.04, 132, 386.4, 195.36, 308.64, 225.6, 112.8, 229.92, 43.6801, 195.36, 29.28, 146.4 )
+
+[sub_resource type="ConvexPolygonShape2D" id=11]
+points = PoolVector2Array( 52.2001, 227.72, 43.5601, 151.4, 34.3669, 103.878, 9.48389, 59.0879, 44.3203, 29.228, 56.762, 34.2046, 88.2001, 36.2, 60.84, 89.48, 66.6, 213.32, 210.6, 230.6, 207.72, 119.72, 196.108, 46.6462, 240.898, 24.2512, 275.4, 31.88, 219.24, 131.24, 214.92, 223.4, 394.92, 229.16, 379.08, 480.8, 57.96, 488 )
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+points = PoolVector2Array( 28, 39.8, 110.08, 36.92, 123.04, 103.16, 337.6, 97.4, 336.16, 83, 346.24, 35.48, 426.88, 44.1201, 419.68, 275.24, 42.4, 273.8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+points = PoolVector2Array( 102.72, 239.64, 79.6801, 231.36, 91.2001, 218.4, 101.28, 218.04, 130.08, 205.44, 140.16, 172.32, 132.96, 152.16, 158.88, 143.52, 157.44, 99.9601, 147.36, 78.3601, 160.32, 61.4401, 177.6, 67.2001, 186.24, 71.16, 180.48, 104.28, 192, 155.04, 220.8, 157.92, 265.44, 146.4, 284.16, 87.36, 268.32, 62.8801, 285.6, 46.6801, 308.64, 68.2802, 297.12, 77.28, 287.04, 124.44, 324.48, 148.92, 348.96, 157.56, 361.92, 140.28, 389.28, 112.92, 393.6, 90.24, 380.64, 64.3201, 397.92, 43.8, 425.28, 56.7601, 416.64, 74.04, 415.2, 111.84, 438.24, 137.76, 451.2, 202.2, 452.64, 209.76, 458.4, 216.96, 446.88, 231.36, 416.64, 265.92, 395.04, 313.44, 363.36, 335.04, 346.08, 312, 261.12, 317.76, 194.88, 327.84, 154.56, 319.2 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+points = PoolVector2Array( 58.3201, 432.72, 118.8, 376.2, 118.8, 195.12, 90, 174.96, 306, 35.28, 488, 158.25, 523.44, 179.28, 461.52, 183.6, 460.08, 206.64, 461.52, 373.68, 540.72, 416.88, 555.12, 434.16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+points = PoolVector2Array( 44.4401, 384.4, 106, 233.75, 96.28, 164.08, 87.64, 143.92, 142.36, 135.28, 181.24, 122.32, 204, 84, 188.44, 133.84, 213, 135, 224, 146, 209.038, 166.384, 205, 181, 116, 162, 171, 290.25, 338.2, 290.8, 333.88, 498.16, 50.2001, 496.72 )
+
 [sub_resource type="TileSet" id=3]
 0/name = "HQBild.png 0"
 0/texture = ExtResource( 10 )
@@ -174,23 +202,37 @@
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 15 )
 0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 15 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 0/z_index = 0
 1/name = "HRBild.png 1"
 1/texture = ExtResource( 14 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 26, 199, 718, 520 )
+1/region = Rect2( 308, 317, 1, 1 )
 1/tile_mode = 0
 1/occluder_offset = Vector2( 0, 0 )
 1/navigation_offset = Vector2( 0, 0 )
 1/shape_offset = Vector2( 0, 0 )
 1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 8 )
 1/shape_one_way = false
-1/shape_one_way_margin = 0.0
-1/shapes = [  ]
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 1/z_index = 0
 2/name = "LunchboxLogo.png 2"
 2/texture = ExtResource( 9 )
@@ -216,9 +258,16 @@
 3/navigation_offset = Vector2( 0, 0 )
 3/shape_offset = Vector2( 0, 0 )
 3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape = SubResource( 9 )
 3/shape_one_way = false
-3/shape_one_way_margin = 0.0
-3/shapes = [  ]
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 3/z_index = 0
 4/name = "DevChiknLogo.png 4"
 4/texture = ExtResource( 12 )
@@ -300,9 +349,16 @@
 9/navigation_offset = Vector2( 0, 0 )
 9/shape_offset = Vector2( 0, 0 )
 9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape = SubResource( 12 )
 9/shape_one_way = false
-9/shape_one_way_margin = 0.0
-9/shapes = [  ]
+9/shape_one_way_margin = 1.0
+9/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 12 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 9/z_index = 0
 10/name = "MiddleFountain.png 10"
 10/texture = ExtResource( 15 )
@@ -314,9 +370,16 @@
 10/navigation_offset = Vector2( 0, 0 )
 10/shape_offset = Vector2( 0, 0 )
 10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape = SubResource( 10 )
 10/shape_one_way = false
-10/shape_one_way_margin = 0.0
-10/shapes = [  ]
+10/shape_one_way_margin = 1.0
+10/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 10 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 10/z_index = 0
 11/name = "OperationsBild.png 11"
 11/texture = ExtResource( 16 )
@@ -328,9 +391,16 @@
 11/navigation_offset = Vector2( 0, 0 )
 11/shape_offset = Vector2( 0, 0 )
 11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape = SubResource( 11 )
 11/shape_one_way = false
-11/shape_one_way_margin = 0.0
-11/shapes = [  ]
+11/shape_one_way_margin = 1.0
+11/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 11 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 11/z_index = 0
 12/name = "RandDBild.png 12"
 12/texture = ExtResource( 18 )
@@ -342,9 +412,16 @@
 12/navigation_offset = Vector2( 0, 0 )
 12/shape_offset = Vector2( 0, 0 )
 12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape = SubResource( 13 )
 12/shape_one_way = false
-12/shape_one_way_margin = 0.0
-12/shapes = [  ]
+12/shape_one_way_margin = 1.0
+12/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 13 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 12/z_index = 0
 13/name = "SunnySkyLogo.png 13"
 13/texture = ExtResource( 17 )
@@ -360,9 +437,39 @@
 13/shape_one_way_margin = 0.0
 13/shapes = [  ]
 13/z_index = 0
+14/name = "HRBild.png 14"
+14/texture = ExtResource( 14 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 122, 218, 541, 384 )
+14/tile_mode = 0
+14/occluder_offset = Vector2( 0, 0 )
+14/navigation_offset = Vector2( 0, 0 )
+14/shape_offset = Vector2( 0, 0 )
+14/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+14/shape = SubResource( 14 )
+14/shape_one_way = false
+14/shape_one_way_margin = 1.0
+14/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 14 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+14/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 306, 33.375 )
+extents = Vector2( 304, 29.8438 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 255.5, 33.75 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 194, 37 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 215.5, 19.5 )
 
 [node name="main_world" type="Node2D"]
 
@@ -374,7 +481,7 @@ tile_data = PoolIntArray( -2162762, 9, 0, -2162761, 9, 0, -2162760, 9, 0, -21627
 [node name="TileMapObjects" type="TileMap" parent="."]
 tile_set = SubResource( 3 )
 format = 1
-tile_data = PoolIntArray( -458752, 1, 0, -327690, 12, 0, -65552, 11, 0, -65528, 0, 0, 196604, 10, 0, 458756, 9, 0, 655347, 3, 0 )
+tile_data = PoolIntArray( -458752, 1, 0, -327690, 12, 0, -393214, 14, 0, -65552, 11, 0, -65528, 0, 0, 196604, 10, 0, 458756, 9, 0, 655347, 3, 0 )
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource( 4 )
@@ -385,16 +492,44 @@ script = ExtResource( 4 )
 data_file = "res://assets/interactions/data-reformat.json"
 
 [node name="finance_interaction" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -528, 1005 )
+position = Vector2( -544, 1066.16 )
 shape = SubResource( 1 )
 
 [node name="Area2D2" type="Area2D" parent="."]
 script = ExtResource( 20 )
 
 [node name="hq_interaction" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2( 952.375, 436 )
+position = Vector2( 947, 483 )
 scale = Vector2( 0.916, 1 )
 shape = SubResource( 1 )
+
+[node name="Area2D3" type="Area2D" parent="."]
+script = ExtResource( 21 )
+
+[node name="r&d_interaction" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2( -420, 6 )
+shape = SubResource( 4 )
+
+[node name="Area2D4" type="Area2D" parent="."]
+script = ExtResource( 22 )
+
+[node name="hr_interaction" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2( 409.5, 34.75 )
+shape = SubResource( 4 )
+
+[node name="Area2D5" type="Area2D" parent="."]
+script = ExtResource( 23 )
+
+[node name="marketing_interaction" type="CollisionShape2D" parent="Area2D5"]
+position = Vector2( 438, 1013 )
+shape = SubResource( 5 )
+
+[node name="Area2D6" type="Area2D" parent="."]
+script = ExtResource( 24 )
+
+[node name="operations_interaction" type="CollisionShape2D" parent="Area2D6"]
+position = Vector2( -805, 439 )
+shape = SubResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -42, 484 )

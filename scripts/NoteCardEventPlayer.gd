@@ -69,6 +69,7 @@ func button_pressed():
 # when pressed (see interactions.gd)
 func play(event):
 	current_division = event
+	print('replaced divisaion')
 	if dialogue_active:
 		return
 	data = load_data()
@@ -129,23 +130,30 @@ func _nextEvent(numberofEvents):
 	var data1isNull = data1 == null
 	var data2isNull = data2 == null
 	var data3isNull = data3 == null
-	print("is data 1 null ", data1isNull)
-	print("is data 2 null ", data2isNull)
-	print("is data 3 null ", data3isNull)
+#	print("is data 1 null ", data1isNull)
+#	print("is data 2 null ", data2isNull)
+#	print("is data 3 null ", data3isNull)
 	
 
 	## ensure first two choices are filled to give optimal strategy
 	if data1isNull && data2isNull && data3isNull:
-		print('nulldata')
+#		print('nulldata')
 		$NinePatchRect/Option1Button.text = allNullText
 		$NinePatchRect/Option2Button.text = allNullText
 		$NinePatchRect/Option3Button.text = allNullText
 	elif data1isNull && not data2isNull:
-		print('X MARK X MARK data1 null')
-		swapIndexes(1, 2)
-		$NinePatchRect/Option1Button.text = data2
+#		print('X MARK X MARK data1 null')
+		if not data3isNull:
+			swapIndexes(1, 3)
+			$NinePatchRect/Option1Button.text = data3
+			$NinePatchRect/Option3Button.text = emptyOptionText
+		else:
+			swapIndexes(1, 2)
+			$NinePatchRect/Option1Button.text = data2
+	elif data3isNull && not data1isNull && not data2isNull:
+		$NinePatchRect/Option3Button.text = emptyOptionText
 	elif data2isNull && not data3isNull:
-		print('X MARK X MARK data1 null 2')
+#		print('X MARK X MARK data1 null 2')
 		# move 3rd option up in sorter!!
 		if data1isNull:
 			# 2 ARE NULL then
@@ -155,7 +163,7 @@ func _nextEvent(numberofEvents):
 			$NinePatchRect/Option3Button.text = emptyOptionText
 			return
 		else:
-			print("got here !!!!!!")
+#			print("got here !!!!!!")
 			# 1 ARE NULL then
 			swapIndexes(2, 3)
 			$NinePatchRect/Option1Button.text = data1
@@ -164,17 +172,13 @@ func _nextEvent(numberofEvents):
 			return
 			
 		swapIndexes(1, 2)	
-		print(data1, "<< data 1")
-		print(data2, "<< data 2")
-		print(data3, "<< data 3")
+#		print(data1, "<< data 1")
+#		print(data2, "<< data 2")
+#		print(data3, "<< data 3")
 		$NinePatchRect/Option1Button.text = data3
 		$NinePatchRect/Option2Button.text = emptyOptionText
 		$NinePatchRect/Option3Button.text = emptyOptionText
-	elif data3isNull && not data2isNull && not data1isNull:
-		$NinePatchRect/Option3Button.text = emptyOptionText
 
-#	elif data3isNull && not data2isNull && not data1isNull:
-#		swapIndexes(1, 3)
 	else: 
 		$NinePatchRect/Option1Button.text = data1 if data1 != null else ''
 		$NinePatchRect/Option2Button.text = data2 if data2 != null else ''
@@ -182,7 +186,7 @@ func _nextEvent(numberofEvents):
 	# final check! because we do not reset pick any option, if there are still some left, we need to account for it!
 
 		
-	print('✔ passed checks')
+#	print('✔ passed checks')
 
 	# the order of used_numbers3 will correspond to the option choices publically stored...
 	
