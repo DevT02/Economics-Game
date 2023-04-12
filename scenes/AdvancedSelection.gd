@@ -1,23 +1,20 @@
 extends CanvasLayer
 
 export(ButtonGroup) var group
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time
-
 func _ready():
-	print("entered.")
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
+	$NinePatchRect/OptionButton.add_item("Tech")
+	$NinePatchRect/OptionButton.add_item("Dev's Fast Food")
+	
 func _on_Button_pressed():
-	print("yo pressed")
+	var company
+	match $NinePatchRect/OptionButton.get_selected_id():
+		0:
+			company = "Random"
+		1:
+			company = "Tech"
+		2:
+			company = "Dev's Fast Food"
+			
 	self.visible = false
 	get_node_or_null("../").modulate.a = 1
-	get_node_or_null("../../").backToScreen()
-	pass # Replace with function body.
+	get_node_or_null("../../").backToScreen($NinePatchRect/LineEdit.text, company)

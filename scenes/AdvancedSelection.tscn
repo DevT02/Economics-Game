@@ -63,6 +63,8 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.603922, 0.603922, 0.603922, 1 )
 custom_fonts/font = SubResource( 7 )
 group = ExtResource( 4 )
+text = "Random"
+align = 1
 
 [node name="CompanyLabel" type="Label" parent="NinePatchRect"]
 margin_left = 51.0
