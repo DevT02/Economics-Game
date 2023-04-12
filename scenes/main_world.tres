@@ -1,0 +1,308 @@
+[gd_resource type="TileSet" load_steps=23 format=2]
+
+[ext_resource path="res://assets/map/ontop of map/ARFashnLogoBG.png" type="Texture" id=1]
+[ext_resource path="res://assets/map/ontop of map/AudaxGameLogo.png" type="Texture" id=2]
+[ext_resource path="res://assets/map/ontop of map/ARFashnLogo.png" type="Texture" id=3]
+[ext_resource path="res://assets/map/ontop of map/HQBild.png" type="Texture" id=4]
+[ext_resource path="res://assets/map/ontop of map/DevChiknLogo.png" type="Texture" id=5]
+[ext_resource path="res://assets/map/ontop of map/HRBild.png" type="Texture" id=6]
+[ext_resource path="res://assets/map/ontop of map/MiddleFountain.png" type="Texture" id=7]
+[ext_resource path="res://assets/map/ontop of map/ChariotMotorsLogo.png" type="Texture" id=8]
+[ext_resource path="res://assets/map/ontop of map/MarketingBild.png" type="Texture" id=9]
+[ext_resource path="res://assets/map/ontop of map/LunchboxLogo.png" type="Texture" id=10]
+[ext_resource path="res://assets/map/ontop of map/financeBild.png" type="Texture" id=11]
+[ext_resource path="res://assets/map/ontop of map/OperationsBild.png" type="Texture" id=12]
+[ext_resource path="res://assets/map/ontop of map/SunnySkyLogo.png" type="Texture" id=13]
+[ext_resource path="res://assets/map/ontop of map/RandDBild.png" type="Texture" id=14]
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+points = PoolVector2Array( 181.16, 408.28, 230.12, 383.8, 188.36, 258.52, 352.5, 300.25, 354.167, 254.417, 351.667, 146.917, 424.52, 144.76, 533.333, 145.25, 536.84, 234.04, 555.56, 221.08, 706.76, 172.12, 646.28, 298.84, 693.8, 330.52, 695.833, 498.583, 184.04, 501.88 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+points = PoolVector2Array( 103.346, 225.212, 190.437, 41.0764, 576.127, 43.5647, 640.823, 257.56, 592, 392.5, 257, 392.5 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+points = PoolVector2Array( 64.1667, 109.208, 57.5, 59.2083, 82.5, 20.0417, 316.667, 16.7083, 366.667, 97.5417, 409.167, 132.958, 409.167, 199.625, 314.167, 257.542, 103.333, 249.208, 12.5, 198.375, 15.8333, 138.375 )
+
+[sub_resource type="ConvexPolygonShape2D" id=11]
+points = PoolVector2Array( 28.8333, 229.167, 43.5601, 151.4, 34.3669, 103.878, 11.3333, 43.75, 44.3203, 29.228, 56.762, 34.2046, 88.2001, 36.2, 60.84, 89.48, 66.6, 213.32, 210.6, 230.6, 201.333, 119.583, 196.108, 46.6462, 239.667, 11.25, 308.833, 11.25, 233.833, 130.417, 234.667, 224.583, 408, 226.667, 403.833, 530, 35.5, 525.833 )
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+points = PoolVector2Array( 4.16669, 3.16669, 122.5, 3.16669, 127.5, 70.6667, 305.833, 66.5, 327.5, 67.3333, 331.667, 6.5, 445, 5.66669, 445.833, 341.917, 6.66669, 345.25 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+points = PoolVector2Array( 102.72, 239.64, 57.1667, 232.625, 54.6667, 215.125, 101.28, 218.04, 130.08, 205.44, 140.16, 172.32, 132.96, 152.16, 158.88, 143.52, 157.44, 99.9601, 147.36, 78.3601, 160.32, 61.4401, 177.6, 67.2001, 186.24, 71.16, 180.48, 104.28, 192, 155.04, 220.8, 157.92, 265.44, 146.4, 284.16, 87.36, 268.32, 62.8801, 285.6, 46.6801, 308.64, 68.2802, 297.12, 77.28, 300.5, 116.792, 324.667, 132.625, 345.5, 143.458, 358.833, 131.792, 378, 111.792, 380.5, 87.625, 375.5, 62.625, 397.92, 43.8, 431.333, 53.4583, 431.333, 75.125, 415.2, 111.84, 449.667, 133.875, 463.833, 187.208, 461.333, 208.875, 519.667, 219.292, 520.5, 231.792, 481.333, 235.958, 442.167, 315.125, 413.833, 368.875, 361.333, 366.375, 264.667, 352.208, 202.167, 368.875, 155.5, 371.375 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+points = PoolVector2Array( 18.1667, 448.167, 111.5, 376.917, 108.167, 192.333, 77.3333, 182.333, 298.167, 25.25, 488, 158.25, 523.44, 179.28, 483.167, 186.917, 483.167, 213.583, 484.833, 374.833, 540.72, 416.88, 585.667, 449 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+points = PoolVector2Array( 29.3333, 380.125, 106, 233.75, 91, 155.958, 80.1667, 120.958, 136.833, 120.958, 181.24, 122.32, 204, 84, 188.44, 133.84, 213, 135, 224, 146, 197.667, 187.625, 162.667, 160.125, 116, 162, 171, 290.25, 347.667, 289.292, 346, 520.125, 26.8333, 515.125 )
+
+[resource]
+0/name = "HQBild.png 0"
+0/texture = ExtResource( 4 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 45, 31, 946, 639 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 15 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 15 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "HRBild.png 1"
+1/texture = ExtResource( 6 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 308, 317, 1, 1 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 8 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "LunchboxLogo.png 2"
+2/texture = ExtResource( 10 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 238, 90, 214, 240 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "financeBild.png 3"
+3/texture = ExtResource( 11 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 116, 116, 604, 457 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape = SubResource( 9 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
+4/name = "DevChiknLogo.png 4"
+4/texture = ExtResource( 5 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 297, 104, 165, 177 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+5/name = "ChariotMotorsLogo.png 5"
+5/texture = ExtResource( 8 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 326, 109, 241, 236 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+6/name = "AudaxGameLogo.png 6"
+6/texture = ExtResource( 2 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 257, 268, 342, 381 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+7/name = "ARFashnLogoBG.png 7"
+7/texture = ExtResource( 1 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 219, 219, 302, 288 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0
+8/name = "ARFashnLogo.png 8"
+8/texture = ExtResource( 3 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 259, 247, 216, 236 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape_one_way = false
+8/shape_one_way_margin = 0.0
+8/shapes = [  ]
+8/z_index = 0
+9/name = "MarketingBild.png 9"
+9/texture = ExtResource( 9 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 199, 88, 514, 654 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 0, 0 )
+9/navigation_offset = Vector2( 0, 0 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape = SubResource( 12 )
+9/shape_one_way = false
+9/shape_one_way_margin = 1.0
+9/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 12 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+9/z_index = 0
+10/name = "MiddleFountain.png 10"
+10/texture = ExtResource( 7 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 50, 551, 433, 273 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 0, 0 )
+10/navigation_offset = Vector2( 0, 0 )
+10/shape_offset = Vector2( 0, 0 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape = SubResource( 10 )
+10/shape_one_way = false
+10/shape_one_way_margin = 1.0
+10/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 10 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+10/z_index = 0
+11/name = "OperationsBild.png 11"
+11/texture = ExtResource( 12 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 197, 60, 427, 546 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape = SubResource( 11 )
+11/shape_one_way = false
+11/shape_one_way_margin = 1.0
+11/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 11 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+11/z_index = 0
+12/name = "RandDBild.png 12"
+12/texture = ExtResource( 14 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 250, 141, 451, 350 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape = SubResource( 13 )
+12/shape_one_way = false
+12/shape_one_way_margin = 1.0
+12/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 13 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+12/z_index = 0
+13/name = "SunnySkyLogo.png 13"
+13/texture = ExtResource( 13 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 288, 72, 332, 289 )
+13/tile_mode = 0
+13/occluder_offset = Vector2( 0, 0 )
+13/navigation_offset = Vector2( 0, 0 )
+13/shape_offset = Vector2( 0, 0 )
+13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+13/shape_one_way = false
+13/shape_one_way_margin = 0.0
+13/shapes = [  ]
+13/z_index = 0
+14/name = "HRBild.png 14"
+14/texture = ExtResource( 6 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 122, 218, 541, 384 )
+14/tile_mode = 0
+14/occluder_offset = Vector2( 0, 0 )
+14/navigation_offset = Vector2( 0, 0 )
+14/shape_offset = Vector2( 0, 0 )
+14/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+14/shape = SubResource( 14 )
+14/shape_one_way = false
+14/shape_one_way_margin = 1.0
+14/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 14 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+14/z_index = 0
