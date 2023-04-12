@@ -39,7 +39,7 @@ points = PoolVector2Array( 29.3333, 380.125, 106, 233.75, 91, 155.958, 80.1667, 
 [resource]
 0/name = "HQBild.png 0"
 0/texture = ExtResource( 4 )
-0/tex_offset = Vector2( 0, 0 )
+0/tex_offset = Vector2( 4.963, 28.711 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 45, 31, 946, 639 )
 0/tile_mode = 0
@@ -165,7 +165,7 @@ points = PoolVector2Array( 29.3333, 380.125, 106, 233.75, 91, 155.958, 80.1667, 
 8/z_index = 0
 9/name = "MarketingBild.png 9"
 9/texture = ExtResource( 9 )
-9/tex_offset = Vector2( 200, 0 )
+9/tex_offset = Vector2( 195, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 199, 88, 514, 654 )
 9/tile_mode = 0
