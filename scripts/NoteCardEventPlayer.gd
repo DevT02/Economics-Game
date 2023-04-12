@@ -22,6 +22,9 @@ var current_outcomes =  "outcomes"
 var current_outcome_profit = "profiteffects"
 var current_outcome_image_effects =  "publicimgeffects"
 var current_outcome_stakeholder =  "stakeholdereffects"
+var allNullText = "Pick any option, you can't change this outcome!"
+var emptyOptionText = "This option does nothing."
+
 var profit = 0
 var public_img = 0
 var stakeholder = 0
@@ -50,6 +53,7 @@ func load_data():
 # connect button press with on_ready
 func button_pressed():
 	if $NinePatchRect.visible == true:
+				
 		if group.get_pressed_button() == group.get_buttons()[0]:
 			updateEffects(button1Index)		
 			fadeOut()
@@ -59,18 +63,22 @@ func button_pressed():
 		elif group.get_pressed_button() == group.get_buttons()[2]:
 			updateEffects(button3Index)
 			fadeOut()
-		print(profit)
-		print(public_img)
-		print(stakeholder)
-
+#		print(profit)
+#		print(public_img)
+#		print(stakeholder)
 # when pressed (see interactions.gd)
 func play(event):
 	current_division = event
 	if dialogue_active:
 		return
 	data = load_data()
-	fadeIn()
 	randomizeEvents()
+	for button in group.get_buttons():
+		button.disabled = false
+		if button.text == emptyOptionText:
+			button.disabled = true
+	fadeIn()
+
 
 func randomizeEvents():
 	match current_company:	
@@ -115,11 +123,67 @@ func _nextEvent(numberofEvents):
 	var data2 = data[current_company][current_choices][button2Index] 
 	var data3 = data[current_company][current_choices][button3Index] 
 
-	$NinePatchRect/Option1Button.text = data1 if data1 != null else ''
-	$NinePatchRect/Option2Button.text = data2 if data2 != null else ''
-	$NinePatchRect/Option3Button.text = data3 if data3 != null else ''
+#	$NinePatchRect/Option1Button.text = data1 if data1 != null else ''
+#	$NinePatchRect/Option2Button.text = data2 if data2 != null else ''
+#	$NinePatchRect/Option3Button.text = data3 if data3 != null else ''
+	var data1isNull = data1 == null
+	var data2isNull = data2 == null
+	var data3isNull = data3 == null
+	print("is data 1 null ", data1isNull)
+	print("is data 2 null ", data2isNull)
+	print("is data 3 null ", data3isNull)
 	
-	
+
+	## ensure first two choices are filled to give optimal strategy
+	if data1isNull && data2isNull && data3isNull:
+		print('nulldata')
+		$NinePatchRect/Option1Button.text = allNullText
+		$NinePatchRect/Option2Button.text = allNullText
+		$NinePatchRect/Option3Button.text = allNullText
+	elif data1isNull && not data2isNull:
+		print('X MARK X MARK data1 null')
+		swapIndexes(1, 2)
+		$NinePatchRect/Option1Button.text = data2
+	elif data2isNull && not data3isNull:
+		print('X MARK X MARK data1 null 2')
+		# move 3rd option up in sorter!!
+		if data1isNull:
+			# 2 ARE NULL then
+			swapIndexes(1, 3)
+			$NinePatchRect/Option1Button.text = data3
+			$NinePatchRect/Option2Button.text = emptyOptionText
+			$NinePatchRect/Option3Button.text = emptyOptionText
+			return
+		else:
+			print("got here !!!!!!")
+			# 1 ARE NULL then
+			swapIndexes(2, 3)
+			$NinePatchRect/Option1Button.text = data1
+			$NinePatchRect/Option2Button.text = data3
+			$NinePatchRect/Option3Button.text = emptyOptionText
+			return
+			
+		swapIndexes(1, 2)	
+		print(data1, "<< data 1")
+		print(data2, "<< data 2")
+		print(data3, "<< data 3")
+		$NinePatchRect/Option1Button.text = data3
+		$NinePatchRect/Option2Button.text = emptyOptionText
+		$NinePatchRect/Option3Button.text = emptyOptionText
+	elif data3isNull && not data2isNull && not data1isNull:
+		$NinePatchRect/Option3Button.text = emptyOptionText
+
+#	elif data3isNull && not data2isNull && not data1isNull:
+#		swapIndexes(1, 3)
+	else: 
+		$NinePatchRect/Option1Button.text = data1 if data1 != null else ''
+		$NinePatchRect/Option2Button.text = data2 if data2 != null else ''
+		$NinePatchRect/Option3Button.text = data3 if data3 != null else ''
+	# final check! because we do not reset pick any option, if there are still some left, we need to account for it!
+
+		
+	print('✔ passed checks')
+
 	# the order of used_numbers3 will correspond to the option choices publically stored...
 	
 	
@@ -128,8 +192,25 @@ func _nextEvent(numberofEvents):
 		dialogue_active = false
 		$NinePatchRect.visible = false 
 		return	
-		
-
+	
+func swapIndexes(buttonpassedIndex1, buttonpassedIndex2):
+	# NOT INDEXES, JUST BUTTON #
+	var temp
+	if buttonpassedIndex1 == 1 && buttonpassedIndex2 == 2 || buttonpassedIndex1 == 2 && buttonpassedIndex2 == 1:
+		temp = button1Index
+		button1Index = button2Index
+		button2Index = temp
+	# swap 2, 3
+	elif buttonpassedIndex1 == 2 && buttonpassedIndex2 == 3 || buttonpassedIndex1 == 3 && buttonpassedIndex2 == 2:	
+		temp = button2Index
+		button3Index = button2Index
+		button2Index = temp
+	# allow reversible params
+	elif buttonpassedIndex1 == 3 && buttonpassedIndex2 == 1 || buttonpassedIndex1 == 1 && buttonpassedIndex2 == 3:
+		temp = button3Index
+		button3Index = button1Index
+		button1Index = temp
+			
 func erase():
 	data[3][from_events].erase(eventId)
 	data[3][from_events].erase(eventId)
@@ -137,11 +218,12 @@ func erase():
 	data[4][current_choices].erase(eventId+1)
 	data[4][current_choices].erase(eventId+2)
 
+
+
 func updateEffects(outcomeIndex):
 	# see in this function, we dont have to worry about null values as they will be set to 0
 	# load text first then logic
 	var text = data[current_company][current_outcomes][outcomeIndex]
-	print(text)
 	# stop everything if data is null
 	if text != null:
 		get_node("../EffectsPopUp/Tween/NinePatchRect/Label").text = text
