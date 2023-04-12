@@ -7,5 +7,4 @@ func _input(event):
 		
 		var player_event = get_node_or_null("../Area2D/NoteCardEventPlayer")
 		if player_event:
-			print('uihj')
 			player_event.play(interaction)

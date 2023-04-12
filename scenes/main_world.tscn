@@ -500,42 +500,42 @@ script = ExtResource( 14 )
 data_file = "res://assets/interactions/data-reformat.json"
 
 [node name="finance_interaction" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -1448, 1752 )
+position = Vector2( -1448, 1767 )
 shape = SubResource( 1 )
 
 [node name="R&D" type="Area2D" parent="."]
 script = ExtResource( 10 )
 
 [node name="r&d_interaction" type="CollisionShape2D" parent="R&D"]
-position = Vector2( -671.5, -358 )
+position = Vector2( -675, -339 )
 shape = SubResource( 4 )
 
 [node name="HR" type="Area2D" parent="."]
 script = ExtResource( 13 )
 
 [node name="hr_interaction" type="CollisionShape2D" parent="HR"]
-position = Vector2( 674, -354 )
+position = Vector2( 670, -329 )
 shape = SubResource( 4 )
 
 [node name="Marketing" type="Area2D" parent="."]
 script = ExtResource( 12 )
 
 [node name="marketing_interaction" type="CollisionShape2D" parent="Marketing"]
-position = Vector2( 1443, 1752 )
+position = Vector2( 1447, 1756 )
 shape = SubResource( 5 )
 
 [node name="Operations" type="Area2D" parent="."]
 script = ExtResource( 11 )
 
 [node name="operations_interaction" type="CollisionShape2D" parent="Operations"]
-position = Vector2( -1434, 411 )
+position = Vector2( -1438, 422 )
 shape = SubResource( 6 )
 
 [node name="HQ" type="Area2D" parent="."]
 script = ExtResource( 4 )
 
 [node name="hq_interaction" type="CollisionShape2D" parent="HQ"]
-position = Vector2( 2308, 803 )
+position = Vector2( 2304, 807 )
 shape = SubResource( 13 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]

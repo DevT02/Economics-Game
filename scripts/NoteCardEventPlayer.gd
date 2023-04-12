@@ -35,6 +35,12 @@ var button3Index = null
 ## PUBLIC IMAGE, STAKHOLDER, PROFIT
 
 #var rng = RandomNumberGenerator.new()
+var hq_indexes = []
+var finance_indexes = []
+var randd_indexes = []
+var handr_indexes = []
+var marketing_indexes = []
+var operations_indexes = []
 
 # on ready
 func _ready():
@@ -42,7 +48,21 @@ func _ready():
 	get_node("../EffectsPopUp/Tween/NinePatchRect/Label").visible = false
 	for i in group.get_buttons():
 		i.connect("pressed", self, "button_pressed")
-	
+	data = load_data()
+	var fromevents = data[current_company][from_events]
+	for i in range(fromevents.size()):
+		if fromevents[i] == "HQ":
+			hq_indexes.append(i)
+		elif fromevents[i] == "R&D":
+			randd_indexes.append(i)
+		elif fromevents[i] == "HR":
+			handr_indexes.append(i)
+		elif fromevents[i] == "Marketing":
+			marketing_indexes.append(i)
+		elif fromevents[i] == "Finance":
+			finance_indexes.append(i)
+		elif fromevents[i] == "Operations":
+			operations_indexes.append(i)	
 # funcion to load data
 func load_data():
 	var file = File.new()
@@ -69,10 +89,9 @@ func button_pressed():
 # when pressed (see interactions.gd)
 func play(event):
 	current_division = event
-	print('replaced division', event)
+	print('replaced division: ', event)
 	if dialogue_active:
 		return
-	data = load_data()
 	randomizeEvents()
 	for button in group.get_buttons():
 		button.disabled = false
@@ -105,17 +124,17 @@ func fadeOut():
 	$NinePatchRect.visible = false
 	dialogue_active = false
 	
-func _nextEvent(numberofEvents):
+func _nextEvent(eventIndex):
 	
 	$NinePatchRect/ToLabel.text = data['name']
 	# fromLabels correspond with messageLabel (in size)
-
-	$NinePatchRect/FromLabel.text = data[current_company][from_events][numberofEvents]
-	$NinePatchRect/MessageLabel.text = data[current_company][current_events][numberofEvents]
+   
+	$NinePatchRect/FromLabel.text = data[current_company][from_events][eventIndex]
+	$NinePatchRect/MessageLabel.text = data[current_company][current_events][eventIndex]
 	
-	var button1 = (numberofEvents) * 3 + (generate_random_number(1, 3, used_numbers3, 3))
-	var button2 = (numberofEvents) * 3 + (generate_random_number(1, 3, used_numbers3, 3))
-	var button3 = (numberofEvents) * 3 + (generate_random_number(1, 3, used_numbers3, 3))
+	var button1 = (eventIndex) * 3 + (generate_random_number(1, 3, used_numbers3, 3))
+	var button2 = (eventIndex) * 3 + (generate_random_number(1, 3, used_numbers3, 3))
+	var button3 = (eventIndex) * 3 + (generate_random_number(1, 3, used_numbers3, 3))
 	button1Index = button1 - 1
 	button2Index = button2 - 1
 	button3Index = button3 - 1
