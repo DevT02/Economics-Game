@@ -18,7 +18,7 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 22
+size = 21
 font_data = ExtResource( 4 )
 
 [sub_resource type="StyleBoxFlat" id=4]
@@ -146,7 +146,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
 group = ExtResource( 2 )
-text = "Option 1 text is this long atuhsaudhaishdsahdsadhajad"
+text = "Option 1 is this long..............(61 chars)"
 
 [node name="Option2Button" type="Button" parent="NinePatchRect"]
 margin_left = 40.0
