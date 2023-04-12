@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/fonts/Fipps-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/characters/white_female_standing.png" type="Texture" id=2]
@@ -7,8 +7,8 @@
 [ext_resource path="res://scripts/characterselectbuttongroup.gd" type="Script" id=5]
 [ext_resource path="res://scenes/buttons/buttongroups/characterSelectionButtonGroup.tres" type="ButtonGroup" id=6]
 [ext_resource path="res://scenes/AdvancedSelection.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/buttons/buttongroups/advancedSelectionButtonGroup.tres" type="ButtonGroup" id=8]
-[ext_resource path="res://scripts/advancedsettingsbutton.gd" type="Script" id=9]
+
+[sub_resource type="ButtonGroup" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 36
@@ -46,8 +46,14 @@ outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
+[sub_resource type="Theme" id=14]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+
 [sub_resource type="DynamicFont" id=13]
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=15]
+modulate_color = Color( 0, 0.109804, 1, 1 )
 
 [node name="CharacterSelection" type="Control"]
 anchor_right = 1.0
@@ -61,6 +67,7 @@ margin_bottom = 600.0
 rect_scale = Vector2( 1.873, 1.801 )
 
 [node name="AdvancedSelection" parent="MarginContainer" instance=ExtResource( 7 )]
+group = SubResource( 16 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 margin_right = 1023.0
@@ -130,11 +137,12 @@ custom_fonts/font = SubResource( 8 )
 text = "Jonathan D"
 
 [node name="AdvancedSettingsButton" type="Button" parent="MarginContainer/TextureRect"]
-margin_left = 729.0
-margin_top = 530.0
-margin_right = 1023.0
-margin_bottom = 600.0
+margin_left = 748.0
+margin_top = 537.0
+margin_right = 1024.0
+margin_bottom = 598.0
+theme = SubResource( 14 )
 custom_fonts/font = SubResource( 13 )
-group = ExtResource( 8 )
+custom_styles/normal = SubResource( 15 )
+group = ExtResource( 6 )
 text = "Advanced Settings"
-script = ExtResource( 9 )

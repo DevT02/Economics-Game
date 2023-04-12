@@ -4,13 +4,8 @@
 [ext_resource path="res://assets/fonts/Merchant Copy.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/fonts/Fipps-Regular.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://scenes/buttons/buttongroups/advancedSelectionButtonGroup.tres" type="ButtonGroup" id=4]
-
-[sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0.0137615 )
-colors = PoolColorArray( 0.188235, 0.25098, 0.490196, 1 )
-
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
+[ext_resource path="res://assets/interactions/boxborders.png" type="Texture" id=5]
+[ext_resource path="res://scenes/AdvancedSelection.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=3]
 size = 41
@@ -21,6 +16,8 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="Theme" id=5]
 default_font = SubResource( 4 )
+Button/colors/font_color = Color( 1, 1, 1, 1 )
+TextEdit/colors/caret_background_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="DynamicFont" id=6]
 extra_spacing_top = -2
@@ -31,53 +28,62 @@ font_data = ExtResource( 3 )
 font_data = ExtResource( 3 )
 
 [node name="AdvancedSelection" type="CanvasLayer"]
+follow_viewport_enable = true
+script = ExtResource( 6 )
+group = ExtResource( 4 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-margin_right = 539.0
-margin_bottom = 361.0
-rect_pivot_offset = Vector2( 56, 166 )
-texture = SubResource( 2 )
+anchor_left = 0.384
+anchor_top = 0.357
+anchor_right = 0.384
+anchor_bottom = 0.357
+margin_right = 480.015
+margin_bottom = 359.0
+rect_pivot_offset = Vector2( -1244, -211 )
+texture = ExtResource( 5 )
+region_rect = Rect2( 4, 270, 128, 127 )
 
 [node name="NaneLabel" type="Label" parent="NinePatchRect"]
-margin_left = 62.0
-margin_top = 50.0
-margin_right = 137.0
-margin_bottom = 78.0
+margin_left = 57.0
+margin_top = 65.0
+margin_right = 132.0
+margin_bottom = 93.0
 rect_pivot_offset = Vector2( 31, 125 )
 custom_fonts/font = SubResource( 3 )
 text = "Name:"
 
 [node name="NameButton" type="TextEdit" parent="NinePatchRect"]
-margin_left = 154.0
-margin_top = 42.0
-margin_right = 456.0
-margin_bottom = 91.0
+anchor_top = -0.008
+anchor_bottom = -0.008
+margin_left = 155.0
+margin_top = 57.0
+margin_right = 432.0
+margin_bottom = 106.0
 theme = SubResource( 5 )
-custom_colors/font_color_selected = Color( 0.705882, 0.635294, 0.635294, 1 )
-custom_colors/line_number_color = Color( 0, 0, 0, 1 )
-custom_colors/completion_selected_color = Color( 0, 0, 0, 1 )
+custom_colors/background_color = Color( 0, 0, 0, 1 )
+custom_colors/executing_line_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 6 )
-text = " Mr. CEO"
+text = "Mr. CEO"
 
 [node name="OptionButton" type="OptionButton" parent="NinePatchRect"]
 anchor_right = 0.331
 anchor_bottom = 0.254
-margin_left = 260.0
-margin_top = 126.0
-margin_right = 297.591
-margin_bottom = 88.306
+margin_left = 255.0
+margin_top = 141.0
+margin_right = 292.591
+margin_bottom = 103.306
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.603922, 0.603922, 0.603922, 1 )
 custom_fonts/font = SubResource( 7 )
-text = "Random"
+group = ExtResource( 4 )
 
 [node name="CompanyLabel" type="Label" parent="NinePatchRect"]
-margin_left = 56.0
-margin_top = 137.0
-margin_right = 251.0
-margin_bottom = 165.0
+margin_left = 51.0
+margin_top = 152.0
+margin_right = 246.0
+margin_bottom = 180.0
 rect_pivot_offset = Vector2( 31, 125 )
 custom_fonts/font = SubResource( 3 )
 text = "Company Type:"
@@ -90,3 +96,5 @@ margin_bottom = 298.0
 custom_fonts/font = SubResource( 7 )
 group = ExtResource( 4 )
 text = "Apply"
+
+[connection signal="pressed" from="NinePatchRect/Button" to="." method="_on_Button_pressed"]
