@@ -8,10 +8,10 @@
 [ext_resource path="res://assets/map/ontop of map/HRBild.png" type="Texture" id=6]
 [ext_resource path="res://assets/map/ontop of map/MiddleFountain.png" type="Texture" id=7]
 [ext_resource path="res://assets/map/ontop of map/ChariotMotorsLogo.png" type="Texture" id=8]
-[ext_resource path="res://assets/map/ontop of map/MarketingBild.png" type="Texture" id=9]
+[ext_resource path="res://assets/map/ontop of map/MKTBuildWithDoors.png" type="Texture" id=9]
 [ext_resource path="res://assets/map/ontop of map/LunchboxLogo.png" type="Texture" id=10]
 [ext_resource path="res://assets/map/ontop of map/financeBild.png" type="Texture" id=11]
-[ext_resource path="res://assets/map/ontop of map/OperationsBild.png" type="Texture" id=12]
+[ext_resource path="res://assets/map/ontop of map/Operations.png" type="Texture" id=12]
 [ext_resource path="res://assets/map/ontop of map/SunnySkyLogo.png" type="Texture" id=13]
 [ext_resource path="res://assets/map/ontop of map/RandDBild.png" type="Texture" id=14]
 
@@ -21,25 +21,25 @@ points = PoolVector2Array( 181.16, 408.28, 230.12, 383.8, 188.36, 258.52, 352.5,
 [sub_resource type="ConvexPolygonShape2D" id=10]
 points = PoolVector2Array( 64.1667, 109.208, 57.5, 59.2083, 82.5, 20.0417, 316.667, 16.7083, 366.667, 97.5417, 409.167, 132.958, 409.167, 199.625, 314.167, 257.542, 103.333, 249.208, 12.5, 198.375, 15.8333, 138.375 )
 
-[sub_resource type="ConvexPolygonShape2D" id=11]
-points = PoolVector2Array( 28.8333, 229.167, 43.5601, 151.4, 34.3669, 103.878, 11.3333, 43.75, 44.3203, 29.228, 56.762, 34.2046, 88.2001, 36.2, 60.84, 89.48, 66.6, 213.32, 210.6, 230.6, 201.333, 119.583, 196.108, 46.6462, 239.667, 11.25, 308.833, 11.25, 233.833, 130.417, 234.667, 224.583, 408, 226.667, 403.833, 530, 35.5, 525.833 )
-
 [sub_resource type="ConvexPolygonShape2D" id=16]
 points = PoolVector2Array( 44.0564, 198.372, 66.525, 188.742, 76.9568, 151.027, 117.882, 106.892, 109.857, 82.0164, 118.684, 37.0793, 141.153, 29.0548, 140.35, 58.7455, 135.536, 86.0287, 153.19, 125.349, 178.065, 145.41, 227.015, 118.929, 235.039, 83.6214, 221.398, 60.3503, 233.434, 26.6474, 263.927, 29.8573, 267.94, 54.7332, 255.101, 89.2385, 269.545, 121.336, 286.396, 143.805, 317.692, 134.978, 348.987, 111.707, 350.592, 69.9797, 340.963, 51.5234, 344.975, 34.672, 375.468, 24.2401, 387.505, 36.2768, 376.27, 75.5969, 391.517, 94.8557, 412.381, 118.127, 419.603, 160.657, 436.454, 193.557, 472.564, 195.162, 473.367, 207.199, 435.652, 210.408, 409.973, 224.852, 391.517, 264.172, 380.283, 303.492, 345.777, 342.813, 332.938, 341.208, 262.323, 320.344, 194.917, 331.578, 162.819, 350.035, 125.906, 342.01, 107.45, 327.566, 73.747, 259.358, 54.4882, 212.816, 15.9706, 212.816, 13.5633, 191.952 )
 
 [sub_resource type="ConvexPolygonShape2D" id=17]
 points = PoolVector2Array( 117.349, 58.6844, 121.361, 114.856, 325.986, 117.263, 329.998, 54.6721, 436.724, 58.6844, 439.933, 305.839, 442.341, 393.306, 3.40088, 391.701, 0.191101, 51.4623 )
 
+[sub_resource type="ConvexPolygonShape2D" id=18]
+points = PoolVector2Array( 20.0166, 246.351, 31.5719, 248.662, 37.3495, 209.374, 16.55, 51.0673, 43.1271, 6.00177, 142.502, 36.0455, 92.8147, 242.885, 192.19, 235.952, 185.257, 84.5776, 209.523, 17.5571, 318.142, 12.9349, 224.545, 238.263, 412.896, 233.641, 410.584, 535.233, 30.4163, 535.233 )
+
+[sub_resource type="ConvexPolygonShape2D" id=19]
+points = PoolVector2Array( 155.347, 235.526, 151.88, 148.861, 114.903, 143.083, 116.059, 92.2402, 229.301, 88.7737, 246.633, 79.5295, 300.943, 41.3971, 297.477, 210.104, 273.211, 177.749, 179.613, 153.483, 213.123, 226.281, 258.189, 316.412, 519.338, 316.412, 519.338, 666.537, 31.7056, 667.692, 30.55, 450.453 )
+
 [sub_resource type="ConvexPolygonShape2D" id=9]
 points = PoolVector2Array( 18.1667, 448.167, 111.5, 376.917, 108.167, 192.333, 77.3333, 182.333, 298.167, 25.25, 488, 158.25, 523.44, 179.28, 483.167, 186.917, 483.167, 213.583, 484.833, 374.833, 540.72, 416.88, 585.667, 449 )
-
-[sub_resource type="ConvexPolygonShape2D" id=12]
-points = PoolVector2Array( 29.3333, 380.125, 106, 233.75, 91, 155.958, 80.1667, 120.958, 136.833, 120.958, 181.24, 122.32, 204, 84, 188.44, 133.84, 213, 135, 224, 146, 197.667, 187.625, 162.667, 160.125, 116, 162, 171, 290.25, 347.667, 289.292, 346, 520.125, 26.8333, 515.125 )
 
 [resource]
 0/name = "HQBild.png 0"
 0/texture = ExtResource( 4 )
-0/tex_offset = Vector2( 4.963, 28.711 )
+0/tex_offset = Vector2( -5.244, 31.017 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 45, 31, 946, 639 )
 0/tile_mode = 0
@@ -74,7 +74,7 @@ points = PoolVector2Array( 29.3333, 380.125, 106, 233.75, 91, 155.958, 80.1667, 
 2/z_index = 0
 3/name = "financeBild.png 3"
 3/texture = ExtResource( 11 )
-3/tex_offset = Vector2( 0, 0 )
+3/tex_offset = Vector2( -21.563, 42.989 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 116, 116, 604, 457 )
 3/tile_mode = 0
@@ -163,27 +163,6 @@ points = PoolVector2Array( 29.3333, 380.125, 106, 233.75, 91, 155.958, 80.1667, 
 8/shape_one_way_margin = 0.0
 8/shapes = [  ]
 8/z_index = 0
-9/name = "MarketingBild.png 9"
-9/texture = ExtResource( 9 )
-9/tex_offset = Vector2( 195, 0 )
-9/modulate = Color( 1, 1, 1, 1 )
-9/region = Rect2( 199, 88, 514, 654 )
-9/tile_mode = 0
-9/occluder_offset = Vector2( 0, 0 )
-9/navigation_offset = Vector2( 0, 0 )
-9/shape_offset = Vector2( 0, 0 )
-9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-9/shape = SubResource( 12 )
-9/shape_one_way = false
-9/shape_one_way_margin = 1.0
-9/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 12 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-9/z_index = 0
 10/name = "MiddleFountain.png 10"
 10/texture = ExtResource( 7 )
 10/tex_offset = Vector2( 0, 0 )
@@ -205,27 +184,6 @@ points = PoolVector2Array( 29.3333, 380.125, 106, 233.75, 91, 155.958, 80.1667, 
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 10/z_index = 0
-11/name = "OperationsBild.png 11"
-11/texture = ExtResource( 12 )
-11/tex_offset = Vector2( 0, 0 )
-11/modulate = Color( 1, 1, 1, 1 )
-11/region = Rect2( 197, 60, 427, 546 )
-11/tile_mode = 0
-11/occluder_offset = Vector2( 0, 0 )
-11/navigation_offset = Vector2( 0, 0 )
-11/shape_offset = Vector2( 0, 0 )
-11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-11/shape = SubResource( 11 )
-11/shape_one_way = false
-11/shape_one_way_margin = 1.0
-11/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 11 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-11/z_index = 0
 13/name = "SunnySkyLogo.png 13"
 13/texture = ExtResource( 13 )
 13/tex_offset = Vector2( 0, 0 )
@@ -242,7 +200,7 @@ points = PoolVector2Array( 29.3333, 380.125, 106, 233.75, 91, 155.958, 80.1667, 
 13/z_index = 0
 14/name = "HRBild.png 14"
 14/texture = ExtResource( 6 )
-14/tex_offset = Vector2( -14.844, 2.638 )
+14/tex_offset = Vector2( -17.634, 25.756 )
 14/modulate = Color( 1, 1, 1, 1 )
 14/region = Rect2( 159, 220, 496, 382 )
 14/tile_mode = 0
@@ -263,7 +221,7 @@ points = PoolVector2Array( 29.3333, 380.125, 106, 233.75, 91, 155.958, 80.1667, 
 14/z_index = 0
 15/name = "RandDBild.png 15"
 15/texture = ExtResource( 14 )
-15/tex_offset = Vector2( -1.017, -16.601 )
+15/tex_offset = Vector2( -1.017, 1.637 )
 15/modulate = Color( 1, 1, 1, 1 )
 15/region = Rect2( 249, 90, 463, 403 )
 15/tile_mode = 0
@@ -282,3 +240,45 @@ points = PoolVector2Array( 29.3333, 380.125, 106, 233.75, 91, 155.958, 80.1667, 
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 15/z_index = 0
+16/name = "Operations.png 16"
+16/texture = ExtResource( 12 )
+16/tex_offset = Vector2( 8.07, 11.688 )
+16/modulate = Color( 1, 1, 1, 1 )
+16/region = Rect2( 193, 53, 433, 554 )
+16/tile_mode = 0
+16/occluder_offset = Vector2( 0, 0 )
+16/navigation_offset = Vector2( 0, 0 )
+16/shape_offset = Vector2( 0, 0 )
+16/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+16/shape = SubResource( 18 )
+16/shape_one_way = false
+16/shape_one_way_margin = 1.0
+16/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 18 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+16/z_index = 0
+17/name = "MKTBuildWithDoors.png 17"
+17/texture = ExtResource( 9 )
+17/tex_offset = Vector2( 0, 0 )
+17/modulate = Color( 1, 1, 1, 1 )
+17/region = Rect2( 179, 63, 546, 691 )
+17/tile_mode = 0
+17/occluder_offset = Vector2( 0, 0 )
+17/navigation_offset = Vector2( 0, 0 )
+17/shape_offset = Vector2( 0, 0 )
+17/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+17/shape = SubResource( 19 )
+17/shape_one_way = false
+17/shape_one_way_margin = 1.0
+17/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 19 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+17/z_index = 0
