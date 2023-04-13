@@ -8,16 +8,20 @@ var eventId = -1
 var dialogue_active = false
 var pressedButton = -1
 
-
+var current_name = 'Mr CEO'
 var current_company = 'tech'
 var current_division = "none"
 var current_events =  "events"
 var from_events =  "fromevents"
+var graphs = "graphs"
 var current_choices =  "choices"
 var current_outcomes =  "outcomes"
 var current_outcome_profit = "profiteffects"
 var current_outcome_image_effects =  "publicimgeffects"
 var current_outcome_stakeholder =  "stakeholdereffects"
+var allNullText = "Pick any option, you can't change this outcome!"
+var emptyOptionText = "This option does nothing."
+
 var profit = 0
 var public_img = 0
 var stakeholder = 0
@@ -28,6 +32,12 @@ var button3Index = null
 ## PUBLIC IMAGE, STAKHOLDER, PROFIT
 
 #var rng = RandomNumberGenerator.new()
+var hq_indexes = []
+var finance_indexes = []
+var randd_indexes = []
+var hr_indexes = []
+var marketing_indexes = []
+var operations_indexes = []
 
 
 var known_numbers = []
@@ -47,14 +57,47 @@ func initialize_indexes(event_name, indexes_copy):
 	indexes = [] # Clear the array and assign a new, empty one
 	indexes.append_array(indexes_copy)
 
+func loadAdvancedSettings(name, company, items):
+#   TODO: Change when events are added
+#	current_name = name
+#	if company == "random":
+#		current_company = data[rand_range(1, 2)]
+	current_name = name
+	
+func init():
+	pass
 	
 # on ready
 func _ready():
+	print(self.get_path())
 	$NinePatchRect.visible = false
 	$NinePatchRect2.visible = false
-	get_node("../EffectsPopUp/Tween/NinePatchRect/Label").visible = false
+	get_node_or_null("../EffectsPopUp/Tween/NinePatchRect/Label").visible = false
 	for i in group.get_buttons():
 		i.connect("pressed", self, "button_pressed")
+	data = load_data()
+	var fromevents = data[current_company][from_events]
+	for i in range(fromevents.size()):
+		if fromevents[i] == "HQ":
+			hq_indexes.append(i)
+		elif fromevents[i] == "R&D":
+			randd_indexes.append(i)
+		elif fromevents[i] == "HR":
+			hr_indexes.append(i)
+		elif fromevents[i] == "Marketing":
+			marketing_indexes.append(i)
+		elif fromevents[i] == "Finance":
+			finance_indexes.append(i)
+		elif fromevents[i] == "Operations":
+			operations_indexes.append(i)	
+
+	#print(hq_indexes)
+	initialize_indexes("HQ", hq_indexes)
+	initialize_indexes("R&D", randd_indexes)
+	initialize_indexes("HR", hr_indexes)
+	initialize_indexes("Marketing", marketing_indexes)
+	initialize_indexes("Finance", finance_indexes)
+	initialize_indexes("Operations", operations_indexes)
 	
 # funcion to load data
 func load_data():
@@ -66,6 +109,7 @@ func load_data():
 # connect button press with on_ready
 func button_pressed():
 	if $NinePatchRect.visible == true:
+				
 		if group.get_pressed_button() == group.get_buttons()[0]:
 			updateEffects(button1Index)		
 			fadeOut()
@@ -75,24 +119,28 @@ func button_pressed():
 		elif group.get_pressed_button() == group.get_buttons()[2]:
 			updateEffects(button3Index)
 			fadeOut()
-		print(profit)
-		print(public_img)
-		print(stakeholder)
-
+#		print(profit)
+#		print(public_img)
+#		print(stakeholder)
 # when pressed (see interactions.gd)
 func play(event):
 	current_division = event
+	#print('replaced division: ', event)
 	if dialogue_active:
 		return
-	data = load_data()
-	fadeIn()
 	randomizeEvents()
+	for button in group.get_buttons():
+		button.disabled = false
+		if button.text == emptyOptionText:
+			button.disabled = true
+	fadeIn()
+
 
 func randomizeEvents():
 	match current_company:	
 		"tech":	
 			# generate random event to pick
-			_nextEvent(generate_random_number(0, data[current_company][current_events].size() - 1, used_numbers2, 2))
+			_nextEvent(get_random_index(current_division))
 		"fast_food":
 			print("Y")
 		"fashion":
@@ -114,28 +162,97 @@ func fadeOut():
 	
 func _nextEvent(eventIndex):
 	print(eventIndex, " event index")
-	$NinePatchRect/ToLabel.text = data['name']
+	$NinePatchRect/ToLabel.text = current_name
 	# fromLabels correspond with messageLabel (in size)
+	#print(data[current_company][from_events])
+	$NinePatchRect2/TextureRect.texture = load("res://assets//graphs//" + "graph" + str(data[current_company][graphs][eventIndex]) + ".svg")
+	$NinePatchRect/FromLabel.text = data[current_company][from_events][eventIndex]
+	$NinePatchRect/MessageLabel.text = data[current_company][current_events][eventIndex]
 
-	$NinePatchRect/FromLabel.text = current_division
-	$NinePatchRect/MessageLabel.text = data[current_company][current_events][numberofEvents]
-	
-	var button1 = (numberofEvents) * 3 + (generate_random_number(1, 3, used_numbers3, 3))
-	var button2 = (numberofEvents) * 3 + (generate_random_number(1, 3, used_numbers3, 3))
-	var button3 = (numberofEvents) * 3 + (generate_random_number(1, 3, used_numbers3, 3))
+	var button1 = (eventIndex) * 3 + (get_random_number_in_range(1, 3, known_numbers))
+	var button2 = (eventIndex) * 3 + (get_random_number_in_range(1, 3, known_numbers))
+	var button3 = (eventIndex) * 3 + (get_random_number_in_range(1, 3, known_numbers))
 	button1Index = button1 - 1
 	button2Index = button2 - 1
 	button3Index = button3 - 1
+#	print(button1Index, " 1 Index")
+#	print(button2Index, " 2 Index")
+#	print(button3Index, " 3 Index")
 	# each event has corresonding 3 fromEvents, subtract 1 as we are using index, multiply by 3 as 3 per choice. 
 	var data1 = data[current_company][current_choices][button1Index] 
 	var data2 = data[current_company][current_choices][button2Index] 
 	var data3 = data[current_company][current_choices][button3Index] 
 
-	$NinePatchRect/Option1Button.text = data1 if data1 != null else ''
-	$NinePatchRect/Option2Button.text = data2 if data2 != null else ''
-	$NinePatchRect/Option3Button.text = data3 if data3 != null else ''
-	
-	
+#	$NinePatchRect/Option1Button.text = data1 if data1 != null else ''
+#	$NinePatchRect/Option2Button.text = data2 if data2 != null else ''
+#	$NinePatchRect/Option3Button.text = data3 if data3 != null else ''
+	var data1isNull = data1 == null
+	var data2isNull = data2 == null
+	var data3isNull = data3 == null
+#	print("is data 1 null ", data1isNull)
+#	print("is data 2 null ", data2isNull)
+#	print("is data 3 null ", data3isNull)
+#
+
+	## ensure first two choices are filled to give optimal strategy
+	if data1isNull && data2isNull && data3isNull:
+#		print('nulldata')
+		$NinePatchRect/Option1Button.text = allNullText
+		$NinePatchRect/Option2Button.text = allNullText
+		$NinePatchRect/Option3Button.text = allNullText
+	elif data1isNull && not data2isNull:
+#		print('X MARK X MARK data1 null')
+		if not data3isNull:
+			swapIndexes(1, 3)
+			$NinePatchRect/Option1Button.text = data3
+			$NinePatchRect/Option2Button.text = data2
+			$NinePatchRect/Option3Button.text = emptyOptionText
+		else:
+			swapIndexes(1, 2)
+			$NinePatchRect/Option1Button.text = data2
+		if data2isNull:
+#			print("bro is bro")
+			$NinePatchRect/Option2Button.text = emptyOptionText
+	elif data2isNull && not data3isNull:
+#		print('X MARK X MARK data1 null 2')
+		# move 3rd option up in sorter!!
+		if data1isNull:
+#			print("go there")
+			# 2 ARE NULL then
+			swapIndexes(1, 3)
+			$NinePatchRect/Option1Button.text = data3
+			$NinePatchRect/Option2Button.text = emptyOptionText
+			$NinePatchRect/Option3Button.text = emptyOptionText
+			return
+		else:
+#			print("got here !!!!!!")
+			# 1 ARE NULL then
+			swapIndexes(2, 3)
+			$NinePatchRect/Option1Button.text = data1
+			$NinePatchRect/Option2Button.text = data3
+			$NinePatchRect/Option3Button.text = emptyOptionText
+			return
+		if not data2isNull:
+#			print("wooooo ")
+			$NinePatchRect/Option3Button.text = emptyOptionText
+		swapIndexes(1, 2)	
+#		print(data1, "<< data 1")
+#		print(data2, "<< data 2")
+#		print(data3, "<< data 3")
+		$NinePatchRect/Option1Button.text = data3
+		$NinePatchRect/Option2Button.text = emptyOptionText
+		$NinePatchRect/Option3Button.text = emptyOptionText
+	elif data3isNull:
+		$NinePatchRect/Option3Button.text = emptyOptionText
+	else: 
+		$NinePatchRect/Option1Button.text = data1 if data1 != null else ''
+		$NinePatchRect/Option2Button.text = data2 if data2 != null else ''
+		$NinePatchRect/Option3Button.text = data3 if data3 != null else ''
+	# final check! because we do not reset pick any option, if there are still some left, we need to account for it!
+
+		
+#	print('✔ passed checks')
+
 	# the order of used_numbers3 will correspond to the option choices publically stored...
 	
 	
@@ -144,8 +261,25 @@ func _nextEvent(eventIndex):
 		dialogue_active = false
 		$NinePatchRect.visible = false 
 		return	
-		
-
+	
+func swapIndexes(buttonpassedIndex1, buttonpassedIndex2):
+	# NOT INDEXES, JUST BUTTON #
+	var temp
+	if buttonpassedIndex1 == 1 && buttonpassedIndex2 == 2 || buttonpassedIndex1 == 2 && buttonpassedIndex2 == 1:
+		temp = button1Index
+		button1Index = button2Index
+		button2Index = temp
+	# swap 2, 3
+	elif buttonpassedIndex1 == 2 && buttonpassedIndex2 == 3 || buttonpassedIndex1 == 3 && buttonpassedIndex2 == 2:	
+		temp = button2Index
+		button3Index = button2Index
+		button2Index = temp
+	# allow reversible params
+	elif buttonpassedIndex1 == 3 && buttonpassedIndex2 == 1 || buttonpassedIndex1 == 1 && buttonpassedIndex2 == 3:
+		temp = button3Index
+		button3Index = button1Index
+		button1Index = temp
+			
 func erase():
 	data[3][from_events].erase(eventId)
 	data[3][from_events].erase(eventId)
@@ -153,17 +287,17 @@ func erase():
 	data[4][current_choices].erase(eventId+1)
 	data[4][current_choices].erase(eventId+2)
 
+
+
 func updateEffects(outcomeIndex):
 	# see in this function, we dont have to worry about null values as they will be set to 0
 	# load text first then logic
 	var text = data[current_company][current_outcomes][outcomeIndex]
-	print(text)
 	# stop everything if data is null
 	if text != null:
 		get_node("../EffectsPopUp/Tween/NinePatchRect/Label").text = text
 	else:
 		updateNumericalEffects(outcomeIndex)
-		used_numbers3 = []
 		return
 	
 	get_node("../EffectsPopUp/Tween/NinePatchRect/Label").visible = true
@@ -212,7 +346,6 @@ func updateEffects(outcomeIndex):
 
 	pressedButton = outcomeIndex;
 	# reset randomization (so we don't repeat numbers)
-	used_numbers3 = []
 
 func updateNumericalEffects(outcomeIndex):
 	profit += data[current_company][current_outcome_profit][outcomeIndex]	
@@ -249,15 +382,7 @@ func get_random_number_in_range(start_range, end_range, known_numbers):
 	known_numbers.append(random_number)
 	valid_numbers.remove(random_number)
 	return random_number
-
-func rememberUsedNumbers(known_numbers, usedNumberIndex):
-	match usedNumberIndex:
-		3:
-			used_numbers3 = known_numbers
-		2: 
-			used_numbers2 = known_numbers
-		1:
-			used_numbers = known_numbers
+	
 
 
 
@@ -265,3 +390,17 @@ func _input(event):
 	if !dialogue_active:
 		return
 
+
+
+func _on_Option4Button_pressed():
+	for button in group.get_buttons():
+		button.disabled = true
+	$NinePatchRect.modulate.a8 = 80
+	$NinePatchRect2.visible = true
+
+
+func _on_Button_pressed():
+	for button in group.get_buttons():
+		button.disabled = false
+	$NinePatchRect.modulate.a8 = 255
+	$NinePatchRect2.visible = false

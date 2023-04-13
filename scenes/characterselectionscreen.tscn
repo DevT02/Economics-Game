@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/fonts/Fipps-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/characters/white_female_standing.png" type="Texture" id=2]
@@ -16,36 +16,24 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="CanvasItemMaterial" id=2]
 
-[sub_resource type="StyleBoxFlat" id=18]
-bg_color = Color( 0, 0, 0, 0.435294 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 0, 0, 0, 1 )
-border_blend = true
-anti_aliasing = false
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
 
 [sub_resource type="ImageTexture" id=5]
 
 [sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 4 )
 normal_map = SubResource( 5 )
-region_rect = Rect2( 7.20116, 2.41838, 32.7028, 50.5141 )
+region_rect = Rect2( 0, 0, 48, 58 )
 
-[sub_resource type="StyleBoxFlat" id=19]
-bg_color = Color( 0, 0, 0, 0.533333 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 0, 0, 0, 1 )
-border_blend = true
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
 
 [sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 2 )
-region_rect = Rect2( 11.2608, 7.15089, 33.5844, 52.4522 )
-margin_right = 1.88677
+region_rect = Rect2( 0, 0, 58, 67 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 32
@@ -62,10 +50,19 @@ font_data = ExtResource( 1 )
 Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
 
 [sub_resource type="DynamicFont" id=13]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxTexture" id=15]
-modulate_color = Color( 0, 0.109804, 1, 1 )
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 1, 1, 1, 0.266667 )
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
 
 [node name="CharacterSelection" type="Control"]
 anchor_right = 1.0
@@ -79,6 +76,7 @@ margin_bottom = 600.0
 rect_scale = Vector2( 1.873, 1.801 )
 
 [node name="AdvancedSelection" parent="MarginContainer" instance=ExtResource( 7 )]
+visible = false
 group = SubResource( 16 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
@@ -106,38 +104,36 @@ margin_right = 1022.0
 margin_bottom = 181.0
 
 [node name="MaleCharacter" type="Button" parent="MarginContainer/TextureRect"]
-margin_left = 104.111
-margin_top = 190.45
-margin_right = 199.111
-margin_bottom = 344.45
+margin_left = 624.132
+margin_top = 219.323
+margin_right = 813.132
+margin_bottom = 447.323
 rect_min_size = Vector2( 10, 100 )
-rect_scale = Vector2( 0.994, 0.989 )
+rect_scale = Vector2( 0.975, 0.989 )
 rect_pivot_offset = Vector2( -882.083, -145 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/hover = SubResource( 18 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
 custom_styles/normal = SubResource( 4 )
 group = ExtResource( 6 )
-icon_align = 1
 
 [node name="FemaleCharacter" type="Button" parent="MarginContainer/TextureRect"]
-margin_left = 302.189
-margin_top = 187.118
-margin_right = 403.189
-margin_bottom = 348.118
+margin_left = 209.29
+margin_top = 209.883
+margin_right = 443.29
+margin_bottom = 457.883
 rect_pivot_offset = Vector2( -882, -145 )
-custom_styles/hover = SubResource( 19 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
 custom_styles/normal = SubResource( 6 )
 group = ExtResource( 6 )
-icon_align = 1
-expand_icon = true
 
 [node name="Label2" type="Label" parent="MarginContainer/TextureRect"]
-margin_left = 292.579
-margin_top = 137.701
-margin_right = 474.579
-margin_bottom = 217.701
-rect_scale = Vector2( 0.7, 0.7 )
+margin_left = 242.926
+margin_top = 158.801
+margin_right = 424.926
+margin_bottom = 238.801
 custom_colors/font_color = Color( 0.980392, 0.980392, 0.980392, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -145,20 +141,22 @@ custom_fonts/font = SubResource( 7 )
 text = "Alice B"
 
 [node name="Label3" type="Label" parent="MarginContainer/TextureRect"]
-margin_left = 29.0
-margin_top = 139.0
-margin_right = 316.0
-margin_bottom = 218.0
-rect_scale = Vector2( 0.7, 0.7 )
+margin_left = 559.53
+margin_top = 160.466
+margin_right = 864.53
+margin_bottom = 239.466
 custom_fonts/font = SubResource( 8 )
 text = "Jonathan D"
 
 [node name="AdvancedSettingsButton" type="Button" parent="MarginContainer/TextureRect"]
-margin_left = 438.868
-margin_top = 526.374
-margin_right = 644.868
-margin_bottom = 587.374
+margin_left = 745.328
+margin_top = 538.034
+margin_right = 1021.33
+margin_bottom = 599.034
 theme = SubResource( 14 )
 custom_fonts/font = SubResource( 13 )
 custom_styles/normal = SubResource( 17 )
-text = "Continue"
+group = ExtResource( 6 )
+text = "Advanced Settings"
+
+[connection signal="pressed" from="MarginContainer/TextureRect/AdvancedSettingsButton" to="." method="_on_AdvancedSettingsButton_pressed"]

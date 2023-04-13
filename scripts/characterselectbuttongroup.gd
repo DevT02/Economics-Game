@@ -22,7 +22,7 @@ func button_pressed():
 	if group.get_pressed_button() == group.get_buttons()[0]:
 		group.get_buttons()[0].modulate = Color(0,0,0)
 		selectedCharacter = "brownMale"
-#		get_tree().change_scene("res://scenes/main_world.tscn")
+		get_tree().change_scene("res://scenes/main_world.tscn")
 	elif group.get_pressed_button() == group.get_buttons()[1]:
 		group.get_buttons()[1].modulate = Color(0,0,0)
 		selectedCharacter = "whiteFemale"
@@ -40,5 +40,5 @@ func _on_AdvancedSettingsButton_pressed():
 	$MarginContainer/TextureRect.visible = true
 	$MarginContainer/AdvancedSelection.visible = true
 	
-func backToScreen(text, company, items):
+#func backToScreen(text, company, items):
 	
