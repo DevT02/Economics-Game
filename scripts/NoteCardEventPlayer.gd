@@ -13,6 +13,7 @@ var current_company = 'tech'
 var current_division = "none"
 var current_events =  "events"
 var from_events =  "fromevents"
+var graphs = "graphs"
 var current_choices =  "choices"
 var current_outcomes =  "outcomes"
 var current_outcome_profit = "profiteffects"
@@ -60,6 +61,7 @@ func initialize_indexes(event_name, indexes_copy):
 # on ready
 func _ready():
 	$NinePatchRect.visible = false
+	$NinePatchRect2.visible = false
 	get_node("../EffectsPopUp/Tween/NinePatchRect/Label").visible = false
 	for i in group.get_buttons():
 		i.connect("pressed", self, "button_pressed")
@@ -149,10 +151,11 @@ func fadeOut():
 	dialogue_active = false
 	
 func _nextEvent(eventIndex):
-	#print(eventIndex, " event index")
+	print(eventIndex, " event index")
 	$NinePatchRect/ToLabel.text = data['name']
 	# fromLabels correspond with messageLabel (in size)
 	#print(data[current_company][from_events])
+	$NinePatchRect2/TextureRect.texture = load("res://assets//graphs//" + "graph" + str(data[current_company][graphs][eventIndex]) + ".svg")
 	$NinePatchRect/FromLabel.text = data[current_company][from_events][eventIndex]
 	$NinePatchRect/MessageLabel.text = data[current_company][current_events][eventIndex]
 
@@ -377,3 +380,17 @@ func _input(event):
 	if !dialogue_active:
 		return
 
+
+
+func _on_Option4Button_pressed():
+	for button in group.get_buttons():
+		button.disabled = true
+	$NinePatchRect.modulate.a8 = 80
+	$NinePatchRect2.visible = true
+
+
+func _on_Button_pressed():
+	for button in group.get_buttons():
+		button.disabled = false
+	$NinePatchRect.modulate.a8 = 255
+	$NinePatchRect2.visible = false
