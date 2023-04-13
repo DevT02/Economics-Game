@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/fonts/Fipps-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/characters/white_female_standing.png" type="Texture" id=2]
@@ -16,24 +16,36 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="CanvasItemMaterial" id=2]
 
-[sub_resource type="StyleBoxEmpty" id=9]
-
-[sub_resource type="StyleBoxEmpty" id=10]
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0, 0, 0, 0.435294 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+anti_aliasing = false
 
 [sub_resource type="ImageTexture" id=5]
 
 [sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 4 )
 normal_map = SubResource( 5 )
-region_rect = Rect2( 0, 0, 48, 58 )
+region_rect = Rect2( 7.20116, 2.41838, 32.7028, 50.5141 )
 
-[sub_resource type="StyleBoxEmpty" id=11]
-
-[sub_resource type="StyleBoxEmpty" id=12]
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0, 0, 0, 0.533333 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
 
 [sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 2 )
-region_rect = Rect2( 0, 0, 58, 67 )
+region_rect = Rect2( 11.2608, 7.15089, 33.5844, 52.4522 )
+margin_right = 1.88677
 
 [sub_resource type="DynamicFont" id=7]
 size = 32
@@ -94,34 +106,38 @@ margin_right = 1022.0
 margin_bottom = 181.0
 
 [node name="MaleCharacter" type="Button" parent="MarginContainer/TextureRect"]
-margin_left = 564.0
-margin_top = 253.0
-margin_right = 784.0
-margin_bottom = 543.0
+margin_left = 104.111
+margin_top = 190.45
+margin_right = 199.111
+margin_bottom = 344.45
 rect_min_size = Vector2( 10, 100 )
 rect_scale = Vector2( 0.994, 0.989 )
 rect_pivot_offset = Vector2( -882.083, -145 )
-custom_styles/hover = SubResource( 9 )
-custom_styles/pressed = SubResource( 10 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 18 )
 custom_styles/normal = SubResource( 4 )
 group = ExtResource( 6 )
+icon_align = 1
 
 [node name="FemaleCharacter" type="Button" parent="MarginContainer/TextureRect"]
-margin_left = 187.0
-margin_top = 248.0
-margin_right = 466.0
-margin_bottom = 555.0
+margin_left = 302.189
+margin_top = 187.118
+margin_right = 403.189
+margin_bottom = 348.118
 rect_pivot_offset = Vector2( -882, -145 )
-custom_styles/hover = SubResource( 11 )
-custom_styles/pressed = SubResource( 12 )
+custom_styles/hover = SubResource( 19 )
 custom_styles/normal = SubResource( 6 )
 group = ExtResource( 6 )
+icon_align = 1
+expand_icon = true
 
 [node name="Label2" type="Label" parent="MarginContainer/TextureRect"]
-margin_left = 239.0
-margin_top = 201.0
-margin_right = 421.0
-margin_bottom = 281.0
+margin_left = 292.579
+margin_top = 137.701
+margin_right = 474.579
+margin_bottom = 217.701
+rect_scale = Vector2( 0.7, 0.7 )
 custom_colors/font_color = Color( 0.980392, 0.980392, 0.980392, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -129,20 +145,20 @@ custom_fonts/font = SubResource( 7 )
 text = "Alice B"
 
 [node name="Label3" type="Label" parent="MarginContainer/TextureRect"]
-margin_left = 535.0
-margin_top = 201.0
-margin_right = 840.0
-margin_bottom = 280.0
+margin_left = 29.0
+margin_top = 139.0
+margin_right = 316.0
+margin_bottom = 218.0
+rect_scale = Vector2( 0.7, 0.7 )
 custom_fonts/font = SubResource( 8 )
 text = "Jonathan D"
 
 [node name="AdvancedSettingsButton" type="Button" parent="MarginContainer/TextureRect"]
-margin_left = 748.0
-margin_top = 537.0
-margin_right = 1024.0
-margin_bottom = 598.0
+margin_left = 438.868
+margin_top = 526.374
+margin_right = 644.868
+margin_bottom = 587.374
 theme = SubResource( 14 )
 custom_fonts/font = SubResource( 13 )
-custom_styles/normal = SubResource( 15 )
-group = ExtResource( 6 )
-text = "Advanced Settings"
+custom_styles/normal = SubResource( 17 )
+text = "Continue"

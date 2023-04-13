@@ -76,12 +76,12 @@ custom_fonts/font = SubResource( 3 )
 text = "Company Type:"
 
 [node name="Button" type="Button" parent="NinePatchRect"]
-margin_left = 155.0
-margin_top = 252.0
-margin_right = 379.0
-margin_bottom = 298.0
+margin_left = 134.72
+margin_top = 255.44
+margin_right = 358.72
+margin_bottom = 301.44
 custom_fonts/font = SubResource( 7 )
 group = ExtResource( 4 )
-text = "Apply"
+text = "Play Game"
 
 [connection signal="pressed" from="NinePatchRect/Button" to="." method="_on_Button_pressed"]

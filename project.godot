@@ -13,6 +13,10 @@ config_version=4
 config/name="Economics Game Project"
 run/main_scene="res://scenes/titlescreen.tscn"
 
+[autoload]
+
+NoteCardEventPlayer="*res://scripts/NoteCardEventPlayer.gd"
+
 [display]
 
 window/size/width=1920
