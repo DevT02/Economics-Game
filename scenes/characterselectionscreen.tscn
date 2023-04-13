@@ -50,19 +50,10 @@ font_data = ExtResource( 1 )
 Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
 
 [sub_resource type="DynamicFont" id=13]
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=17]
-bg_color = Color( 1, 1, 1, 0.266667 )
-draw_center = false
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color( 0, 0, 0, 1 )
-border_blend = true
+[sub_resource type="StyleBoxTexture" id=15]
+modulate_color = Color( 0, 0.109804, 1, 1 )
 
 [node name="CharacterSelection" type="Control"]
 anchor_right = 1.0
@@ -76,7 +67,6 @@ margin_bottom = 600.0
 rect_scale = Vector2( 1.873, 1.801 )
 
 [node name="AdvancedSelection" parent="MarginContainer" instance=ExtResource( 7 )]
-visible = false
 group = SubResource( 16 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
@@ -104,25 +94,23 @@ margin_right = 1022.0
 margin_bottom = 181.0
 
 [node name="MaleCharacter" type="Button" parent="MarginContainer/TextureRect"]
-margin_left = 624.132
-margin_top = 219.323
-margin_right = 813.132
-margin_bottom = 447.323
+margin_left = 564.0
+margin_top = 253.0
+margin_right = 784.0
+margin_bottom = 543.0
 rect_min_size = Vector2( 10, 100 )
-rect_scale = Vector2( 0.975, 0.989 )
+rect_scale = Vector2( 0.994, 0.989 )
 rect_pivot_offset = Vector2( -882.083, -145 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
 custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 10 )
 custom_styles/normal = SubResource( 4 )
 group = ExtResource( 6 )
 
 [node name="FemaleCharacter" type="Button" parent="MarginContainer/TextureRect"]
-margin_left = 209.29
-margin_top = 209.883
-margin_right = 443.29
-margin_bottom = 457.883
+margin_left = 187.0
+margin_top = 248.0
+margin_right = 466.0
+margin_bottom = 555.0
 rect_pivot_offset = Vector2( -882, -145 )
 custom_styles/hover = SubResource( 11 )
 custom_styles/pressed = SubResource( 12 )
@@ -130,10 +118,10 @@ custom_styles/normal = SubResource( 6 )
 group = ExtResource( 6 )
 
 [node name="Label2" type="Label" parent="MarginContainer/TextureRect"]
-margin_left = 242.926
-margin_top = 158.801
-margin_right = 424.926
-margin_bottom = 238.801
+margin_left = 239.0
+margin_top = 201.0
+margin_right = 421.0
+margin_bottom = 281.0
 custom_colors/font_color = Color( 0.980392, 0.980392, 0.980392, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -141,22 +129,20 @@ custom_fonts/font = SubResource( 7 )
 text = "Alice B"
 
 [node name="Label3" type="Label" parent="MarginContainer/TextureRect"]
-margin_left = 559.53
-margin_top = 160.466
-margin_right = 864.53
-margin_bottom = 239.466
+margin_left = 535.0
+margin_top = 201.0
+margin_right = 840.0
+margin_bottom = 280.0
 custom_fonts/font = SubResource( 8 )
 text = "Jonathan D"
 
 [node name="AdvancedSettingsButton" type="Button" parent="MarginContainer/TextureRect"]
-margin_left = 745.328
-margin_top = 538.034
-margin_right = 1021.33
-margin_bottom = 599.034
+margin_left = 748.0
+margin_top = 537.0
+margin_right = 1024.0
+margin_bottom = 598.0
 theme = SubResource( 14 )
 custom_fonts/font = SubResource( 13 )
-custom_styles/normal = SubResource( 17 )
+custom_styles/normal = SubResource( 15 )
 group = ExtResource( 6 )
 text = "Advanced Settings"
-
-[connection signal="pressed" from="MarginContainer/TextureRect/AdvancedSettingsButton" to="." method="_on_AdvancedSettingsButton_pressed"]

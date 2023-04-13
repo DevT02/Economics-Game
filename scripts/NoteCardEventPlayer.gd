@@ -8,10 +8,6 @@ var eventId = -1
 var dialogue_active = false
 var pressedButton = -1
 
-var used_numbers  = []
-var used_numbers2 = []
-var used_numbers3 = []
-
 
 var current_company = 'tech'
 var current_division = "none"
@@ -33,9 +29,29 @@ var button3Index = null
 
 #var rng = RandomNumberGenerator.new()
 
+
+var known_numbers = []
+var previous_numbers = []
+
+var indexes_dict = {
+	"HQ": hq_indexes,
+	"HR": hr_indexes,
+	"Finance": finance_indexes,
+	"Marketing": marketing_indexes,
+	"R&D": randd_indexes,
+	"Operations": operations_indexes
+}
+
+func initialize_indexes(event_name, indexes_copy):
+	var indexes = indexes_dict[event_name]
+	indexes = [] # Clear the array and assign a new, empty one
+	indexes.append_array(indexes_copy)
+
+	
 # on ready
 func _ready():
 	$NinePatchRect.visible = false
+	$NinePatchRect2.visible = false
 	get_node("../EffectsPopUp/Tween/NinePatchRect/Label").visible = false
 	for i in group.get_buttons():
 		i.connect("pressed", self, "button_pressed")
@@ -96,8 +112,8 @@ func fadeOut():
 	$NinePatchRect.visible = false
 	dialogue_active = false
 	
-func _nextEvent(numberofEvents):
-	
+func _nextEvent(eventIndex):
+	print(eventIndex, " event index")
 	$NinePatchRect/ToLabel.text = data['name']
 	# fromLabels correspond with messageLabel (in size)
 
@@ -203,30 +219,36 @@ func updateNumericalEffects(outcomeIndex):
 	public_img += data[current_company][current_outcome_image_effects][outcomeIndex]	
 	stakeholder += data[current_company][current_outcome_stakeholder][outcomeIndex]	
 
-func generate_random_number(range_start, range_end, known_numbers, usedNumberIndex):
-	# Track the numbers that have been generated so far	
-	# Create a list of all possible numbers in the range
-	var possible_numbers = []
-	for i in range(range_start, range_end + 1):
-#		var is_used = used_numbers.find(i) != -1
-		var is_known = known_numbers.find(i) != -1
-		if !is_known:
-			possible_numbers.append(i)
-	# If there are no possible numbers left, select a random known number
-	if len(possible_numbers) == 0:
-		for number in known_numbers:
-			if known_numbers.find(number) == -1:
-				return number
-		# If all known numbers have already been used, just return a random number
-		return range_start + randi() % (range_end - range_start + 1)
-	
-	# Otherwise, select a random possible number and return it
-	var random_index = randi() % len(possible_numbers)
-	known_numbers.append(possible_numbers[random_index])
-	# this is required, when passing a parameter it doesnt affect the global scope of the class (as we're creating a copy of the variable..) unfortunately this is the best solution.
-	rememberUsedNumbers(known_numbers, usedNumberIndex)
-	
-	return possible_numbers[random_index]
+
+
+func get_random_index(event_name):
+	var indexes = indexes_dict[event_name]
+	if indexes.size() == 0:
+		return 0
+	elif indexes.size() == 1:
+		return indexes[0]
+	else:
+		var index = randi() % indexes.size()
+		var indexes_copy = indexes.duplicate()
+		indexes_copy.remove(index)
+		return indexes[index] if indexes[index] != null else get_random_index(event_name)
+
+func get_random_number_in_range(start_range, end_range, known_numbers):
+	var valid_numbers = []
+	for i in range(start_range, end_range + 1):
+		if not (i in known_numbers):
+			valid_numbers.append(i)
+
+	if valid_numbers.size() == 0:
+		known_numbers.clear()
+		for i in range(start_range, end_range + 1):
+			valid_numbers.append(i)
+
+	var index = randi() % valid_numbers.size()
+	var random_number = valid_numbers[index]
+	known_numbers.append(random_number)
+	valid_numbers.remove(random_number)
+	return random_number
 
 func rememberUsedNumbers(known_numbers, usedNumberIndex):
 	match usedNumberIndex:

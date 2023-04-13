@@ -53,10 +53,10 @@ align = 1
 [node name="OptionButton" type="OptionButton" parent="NinePatchRect"]
 anchor_right = 0.331
 anchor_bottom = 0.254
-margin_left = 222.72
-margin_top = 140.44
-margin_right = 315.835
-margin_bottom = 102.254
+margin_left = 255.0
+margin_top = 141.0
+margin_right = 292.591
+margin_bottom = 103.306
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -67,10 +67,10 @@ text = "Random"
 align = 1
 
 [node name="CompanyLabel" type="Label" parent="NinePatchRect"]
-margin_left = 20.72
-margin_top = 152.44
-margin_right = 215.72
-margin_bottom = 180.44
+margin_left = 51.0
+margin_top = 152.0
+margin_right = 246.0
+margin_bottom = 180.0
 rect_pivot_offset = Vector2( 31, 125 )
 custom_fonts/font = SubResource( 3 )
 text = "Company Type:"
