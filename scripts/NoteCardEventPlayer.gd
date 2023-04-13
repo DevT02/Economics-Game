@@ -8,7 +8,7 @@ var eventId = -1
 var dialogue_active = false
 var pressedButton = -1
 
-
+var current_name = 'Mr CEO'
 var current_company = 'tech'
 var current_division = "none"
 var current_events =  "events"
@@ -57,12 +57,22 @@ func initialize_indexes(event_name, indexes_copy):
 	indexes = [] # Clear the array and assign a new, empty one
 	indexes.append_array(indexes_copy)
 
+func loadAdvancedSettings(name, company, items):
+#   TODO: Change when events are added
+#	current_name = name
+#	if company == "random":
+#		current_company = data[rand_range(1, 2)]
+	current_name = name
+	
+func init():
+	pass
 	
 # on ready
 func _ready():
+	print(self.get_path())
 	$NinePatchRect.visible = false
 	$NinePatchRect2.visible = false
-	get_node("../EffectsPopUp/Tween/NinePatchRect/Label").visible = false
+	get_node_or_null("../EffectsPopUp/Tween/NinePatchRect/Label").visible = false
 	for i in group.get_buttons():
 		i.connect("pressed", self, "button_pressed")
 	data = load_data()
@@ -152,7 +162,7 @@ func fadeOut():
 	
 func _nextEvent(eventIndex):
 	print(eventIndex, " event index")
-	$NinePatchRect/ToLabel.text = data['name']
+	$NinePatchRect/ToLabel.text = current_name
 	# fromLabels correspond with messageLabel (in size)
 	#print(data[current_company][from_events])
 	$NinePatchRect2/TextureRect.texture = load("res://assets//graphs//" + "graph" + str(data[current_company][graphs][eventIndex]) + ".svg")
@@ -372,7 +382,7 @@ func get_random_number_in_range(start_range, end_range, known_numbers):
 	known_numbers.append(random_number)
 	valid_numbers.remove(random_number)
 	return random_number
-
+	
 
 
 
