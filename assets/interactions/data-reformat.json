@@ -13,12 +13,12 @@
 		],
 		"fromevents": [
 			"HQ",
-			"Finance Dept.",
-			"R&D Dept.",
-			"HR",
+			"Finance",
+			"HQ",
+			"HQ",
 			"HQ",
 			"Marketing",
-			"HQ",
+			"Operations"
 		],
 		"choices": [
 			"Take the money and use it to get back your home currency in the FOREX",

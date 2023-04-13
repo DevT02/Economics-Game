@@ -8,10 +8,6 @@ var eventId = -1
 var dialogue_active = false
 var pressedButton = -1
 
-var used_numbers  = []
-var used_numbers2 = []
-var used_numbers3 = []
-
 
 var current_company = 'tech'
 var current_division = "none"
@@ -38,10 +34,29 @@ var button3Index = null
 var hq_indexes = []
 var finance_indexes = []
 var randd_indexes = []
-var handr_indexes = []
+var hr_indexes = []
 var marketing_indexes = []
 var operations_indexes = []
 
+
+var known_numbers = []
+var previous_numbers = []
+
+var indexes_dict = {
+	"HQ": hq_indexes,
+	"HR": hr_indexes,
+	"Finance": finance_indexes,
+	"Marketing": marketing_indexes,
+	"R&D": randd_indexes,
+	"Operations": operations_indexes
+}
+
+func initialize_indexes(event_name, indexes_copy):
+	var indexes = indexes_dict[event_name]
+	indexes = [] # Clear the array and assign a new, empty one
+	indexes.append_array(indexes_copy)
+
+	
 # on ready
 func _ready():
 	$NinePatchRect.visible = false
@@ -56,13 +71,22 @@ func _ready():
 		elif fromevents[i] == "R&D":
 			randd_indexes.append(i)
 		elif fromevents[i] == "HR":
-			handr_indexes.append(i)
+			hr_indexes.append(i)
 		elif fromevents[i] == "Marketing":
 			marketing_indexes.append(i)
 		elif fromevents[i] == "Finance":
 			finance_indexes.append(i)
 		elif fromevents[i] == "Operations":
 			operations_indexes.append(i)	
+
+	print(hq_indexes)
+	initialize_indexes("HQ", hq_indexes)
+	initialize_indexes("R&D", randd_indexes)
+	initialize_indexes("HR", hr_indexes)
+	initialize_indexes("Marketing", marketing_indexes)
+	initialize_indexes("Finance", finance_indexes)
+	initialize_indexes("Operations", operations_indexes)
+	
 # funcion to load data
 func load_data():
 	var file = File.new()
@@ -104,7 +128,7 @@ func randomizeEvents():
 	match current_company:	
 		"tech":	
 			# generate random event to pick
-			_nextEvent(generate_random_number(0, data[current_company][current_events].size() - 1, used_numbers2, 2))
+			_nextEvent(get_random_index(current_division))
 		"fast_food":
 			print("Y")
 		"fashion":
@@ -125,19 +149,22 @@ func fadeOut():
 	dialogue_active = false
 	
 func _nextEvent(eventIndex):
-	
+	print(eventIndex, " event index")
 	$NinePatchRect/ToLabel.text = data['name']
 	# fromLabels correspond with messageLabel (in size)
-   
+	print(data[current_company][from_events])
 	$NinePatchRect/FromLabel.text = data[current_company][from_events][eventIndex]
 	$NinePatchRect/MessageLabel.text = data[current_company][current_events][eventIndex]
-	
-	var button1 = (eventIndex) * 3 + (generate_random_number(1, 3, used_numbers3, 3))
-	var button2 = (eventIndex) * 3 + (generate_random_number(1, 3, used_numbers3, 3))
-	var button3 = (eventIndex) * 3 + (generate_random_number(1, 3, used_numbers3, 3))
+
+	var button1 = (eventIndex) * 3 + (get_random_number_in_range(1, 3, known_numbers))
+	var button2 = (eventIndex) * 3 + (get_random_number_in_range(1, 3, known_numbers))
+	var button3 = (eventIndex) * 3 + (get_random_number_in_range(1, 3, known_numbers))
 	button1Index = button1 - 1
 	button2Index = button2 - 1
 	button3Index = button3 - 1
+	print(button1Index, " 1 Index")
+	print(button2Index, " 2 Index")
+	print(button3Index, " 3 Index")
 	# each event has corresonding 3 fromEvents, subtract 1 as we are using index, multiply by 3 as 3 per choice. 
 	var data1 = data[current_company][current_choices][button1Index] 
 	var data2 = data[current_company][current_choices][button2Index] 
@@ -149,32 +176,35 @@ func _nextEvent(eventIndex):
 	var data1isNull = data1 == null
 	var data2isNull = data2 == null
 	var data3isNull = data3 == null
-#	print("is data 1 null ", data1isNull)
-#	print("is data 2 null ", data2isNull)
-#	print("is data 3 null ", data3isNull)
+	print("is data 1 null ", data1isNull)
+	print("is data 2 null ", data2isNull)
+	print("is data 3 null ", data3isNull)
 	
 
 	## ensure first two choices are filled to give optimal strategy
 	if data1isNull && data2isNull && data3isNull:
-#		print('nulldata')
+		print('nulldata')
 		$NinePatchRect/Option1Button.text = allNullText
 		$NinePatchRect/Option2Button.text = allNullText
 		$NinePatchRect/Option3Button.text = allNullText
 	elif data1isNull && not data2isNull:
-#		print('X MARK X MARK data1 null')
+		print('X MARK X MARK data1 null')
 		if not data3isNull:
 			swapIndexes(1, 3)
 			$NinePatchRect/Option1Button.text = data3
+			$NinePatchRect/Option2Button.text = data2
 			$NinePatchRect/Option3Button.text = emptyOptionText
 		else:
 			swapIndexes(1, 2)
 			$NinePatchRect/Option1Button.text = data2
-	elif data3isNull && not data1isNull && not data2isNull:
-		$NinePatchRect/Option3Button.text = emptyOptionText
+		if data2isNull:
+			print("bro is bro")
+			$NinePatchRect/Option2Button.text = emptyOptionText
 	elif data2isNull && not data3isNull:
-#		print('X MARK X MARK data1 null 2')
+		print('X MARK X MARK data1 null 2')
 		# move 3rd option up in sorter!!
 		if data1isNull:
+			print("go there")
 			# 2 ARE NULL then
 			swapIndexes(1, 3)
 			$NinePatchRect/Option1Button.text = data3
@@ -182,22 +212,25 @@ func _nextEvent(eventIndex):
 			$NinePatchRect/Option3Button.text = emptyOptionText
 			return
 		else:
-#			print("got here !!!!!!")
+			print("got here !!!!!!")
 			# 1 ARE NULL then
 			swapIndexes(2, 3)
 			$NinePatchRect/Option1Button.text = data1
 			$NinePatchRect/Option2Button.text = data3
 			$NinePatchRect/Option3Button.text = emptyOptionText
 			return
-			
+		if not data2isNull:
+			print("wooooo ")
+			$NinePatchRect/Option3Button.text = emptyOptionText
 		swapIndexes(1, 2)	
-#		print(data1, "<< data 1")
-#		print(data2, "<< data 2")
-#		print(data3, "<< data 3")
+		print(data1, "<< data 1")
+		print(data2, "<< data 2")
+		print(data3, "<< data 3")
 		$NinePatchRect/Option1Button.text = data3
 		$NinePatchRect/Option2Button.text = emptyOptionText
 		$NinePatchRect/Option3Button.text = emptyOptionText
-
+	elif data3isNull:
+		$NinePatchRect/Option3Button.text = emptyOptionText
 	else: 
 		$NinePatchRect/Option1Button.text = data1 if data1 != null else ''
 		$NinePatchRect/Option2Button.text = data2 if data2 != null else ''
@@ -205,7 +238,7 @@ func _nextEvent(eventIndex):
 	# final check! because we do not reset pick any option, if there are still some left, we need to account for it!
 
 		
-#	print('✔ passed checks')
+	print('✔ passed checks')
 
 	# the order of used_numbers3 will correspond to the option choices publically stored...
 	
@@ -252,7 +285,6 @@ func updateEffects(outcomeIndex):
 		get_node("../EffectsPopUp/Tween/NinePatchRect/Label").text = text
 	else:
 		updateNumericalEffects(outcomeIndex)
-		used_numbers3 = []
 		return
 	
 	get_node("../EffectsPopUp/Tween/NinePatchRect/Label").visible = true
@@ -301,46 +333,43 @@ func updateEffects(outcomeIndex):
 
 	pressedButton = outcomeIndex;
 	# reset randomization (so we don't repeat numbers)
-	used_numbers3 = []
 
 func updateNumericalEffects(outcomeIndex):
 	profit += data[current_company][current_outcome_profit][outcomeIndex]	
 	public_img += data[current_company][current_outcome_image_effects][outcomeIndex]	
 	stakeholder += data[current_company][current_outcome_stakeholder][outcomeIndex]	
 
-func generate_random_number(range_start, range_end, known_numbers, usedNumberIndex):
-	# Track the numbers that have been generated so far	
-	# Create a list of all possible numbers in the range
-	var possible_numbers = []
-	for i in range(range_start, range_end + 1):
-#		var is_used = used_numbers.find(i) != -1
-		var is_known = known_numbers.find(i) != -1
-		if !is_known:
-			possible_numbers.append(i)
-	# If there are no possible numbers left, select a random known number
-	if len(possible_numbers) == 0:
-		for number in known_numbers:
-			if known_numbers.find(number) == -1:
-				return number
-		# If all known numbers have already been used, just return a random number
-		return range_start + randi() % (range_end - range_start + 1)
-	
-	# Otherwise, select a random possible number and return it
-	var random_index = randi() % len(possible_numbers)
-	known_numbers.append(possible_numbers[random_index])
-	# this is required, when passing a parameter it doesnt affect the global scope of the class (as we're creating a copy of the variable..) unfortunately this is the best solution.
-	rememberUsedNumbers(known_numbers, usedNumberIndex)
-	
-	return possible_numbers[random_index]
 
-func rememberUsedNumbers(known_numbers, usedNumberIndex):
-	match usedNumberIndex:
-		3:
-			used_numbers3 = known_numbers
-		2: 
-			used_numbers2 = known_numbers
-		1:
-			used_numbers = known_numbers
+
+func get_random_index(event_name):
+	var indexes = indexes_dict[event_name]
+	if indexes.size() == 0:
+		return 0
+	elif indexes.size() == 1:
+		return indexes[0]
+	else:
+		var index = randi() % indexes.size()
+		var indexes_copy = indexes.duplicate()
+		indexes_copy.remove(index)
+		return indexes[index] if indexes[index] != null else get_random_index(event_name)
+
+func get_random_number_in_range(start_range, end_range, known_numbers):
+	var valid_numbers = []
+	for i in range(start_range, end_range + 1):
+		if not (i in known_numbers):
+			valid_numbers.append(i)
+
+	if valid_numbers.size() == 0:
+		known_numbers.clear()
+		for i in range(start_range, end_range + 1):
+			valid_numbers.append(i)
+
+	var index = randi() % valid_numbers.size()
+	var random_number = valid_numbers[index]
+	known_numbers.append(random_number)
+	valid_numbers.remove(random_number)
+	return random_number
+
 
 
 
