@@ -66,8 +66,8 @@
 			"You recall the computers, profit and stakeholder goes down, but public approval rating goes up",
 			"The bug is not major so no bar changes"
 		],
-		"graph": [
-			1, 2, 3, 5, 7, 4, 4, 2, 1, 9, 8, 1, 3, 4, 2, 3, 4, 6, 7, 8
+		"graphs": [
+			2, 3, 13, 5, 7, 8, 5, 15, 11, 9, 8, 1, 13, 4, 12, 13, 4, 16, 7, 8
 		],
 		"profiteffects": [
 			1, -1, 0, -1, -1, 0, 1, 0, 0.5, -1, 0.4, 0.4, -0.4, -0.5, 0.5, 0.5, 1, -1, 0, 0, 0
