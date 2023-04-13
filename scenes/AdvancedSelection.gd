@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+onready var player_vars = get_node("/root/GlobalVars")
+
 export(ButtonGroup) var group
 func _ready():
 	$NinePatchRect/OptionButton.add_item("Random")
@@ -18,7 +20,6 @@ func _on_Button_pressed():
 			company = "Tech"
 		2:
 			company = "Dev's Fast Food"
-			
+	player_vars.new_name = $NinePatchRect/LineEdit.text			
 	self.visible = false
-	get_node_or_null("../").modulate.a = 1
-	get_node_or_null("../../").backToScreen($NinePatchRect/LineEdit.text, company)
+	get_tree().change_scene("res://scenes/main_world.tscn")

@@ -43,6 +43,8 @@ var operations_indexes = []
 var known_numbers = []
 var previous_numbers = []
 
+onready var player_vars = get_node("/root/GlobalVars")
+
 var indexes_dict = {
 	"HQ": hq_indexes,
 	"HR": hr_indexes,
@@ -57,12 +59,6 @@ func initialize_indexes(event_name, indexes_copy):
 	indexes = [] # Clear the array and assign a new, empty one
 	indexes.append_array(indexes_copy)
 
-func loadAdvancedSettings(name, company, items):
-#   TODO: Change when events are added
-#	current_name = name
-#	if company == "random":
-#		current_company = data[rand_range(1, 2)]
-	current_name = name
 	
 func init():
 	pass
@@ -125,6 +121,7 @@ func button_pressed():
 # when pressed (see interactions.gd)
 func play(event):
 	current_division = event
+	current_name = player_vars.new_name
 	#print('replaced division: ', event)
 	if dialogue_active:
 		return
