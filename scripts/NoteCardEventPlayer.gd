@@ -168,22 +168,18 @@ func play(event):
 
 
 func randomizeEvents():
-	match current_company:	
-		"tech":	
-			# generate random event to pick
-			var general_event_or_specific = rand_range(1, 3)
-			if general_event_or_specific == 1:
-				current_company = ""
-				_nextEvent(get_random_index(current_division))
-			else:
-				current_company_copied = current_company
-				current_company = "general"
-				print("generalities of humanking")
-				_nextEvent(get_random_index(current_division + "_general"))
-		"fast_food":
-			print("Y")
-		"fashion":
-			print("Z")
+	# generate random event to pick
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var num = rng.randi_range(1,2)
+#	if general_event_or_specific == 1:
+#	current_company = ""
+#	_nextEvent(get_random_index(current_division))
+#	else:
+	current_company_copied = current_company
+	current_company = "general"
+	#print("generalities of humanking")
+	_nextEvent(get_random_index(current_division + "_general"))
 
 func fadeIn():
 	$AnimationPlayer.play("fade_in")
@@ -207,8 +203,10 @@ func _nextEvent(eventIndex):
 	#print(data[current_company][from_events])
 	var graphNumber = data[current_company][graphs][eventIndex]
 	if graphNumber != 0:
+		group.get_buttons()[3].visible = true
 		$NinePatchRect2/TextureRect.texture = load("res://assets//graphs//" + "graph" + str(graphNumber) + ".svg")
-	
+	else:
+		group.get_buttons()[3].visible = false
 	$NinePatchRect/FromLabel.text = data[current_company][from_events][eventIndex] 
 	$NinePatchRect/MessageLabel.text = data[current_company][current_events][eventIndex]
 
@@ -276,6 +274,9 @@ func _nextEvent(eventIndex):
 #			print("got here !!!!!!")
 			# 1 ARE NULL then
 			swapIndexes(2, 3)
+			#print(data1)
+			#print(data2)
+			#print(data3)
 			$NinePatchRect/Option1Button.text = data1
 			$NinePatchRect/Option2Button.text = data3
 			$NinePatchRect/Option3Button.text = emptyOptionText
@@ -283,6 +284,7 @@ func _nextEvent(eventIndex):
 		if not data2isNull:
 #			print("wooooo ")
 			$NinePatchRect/Option3Button.text = emptyOptionText
+				
 		swapIndexes(1, 2)	
 #		print(data1, "<< data 1")
 #		print(data2, "<< data 2")
@@ -291,6 +293,7 @@ func _nextEvent(eventIndex):
 		$NinePatchRect/Option2Button.text = emptyOptionText
 		$NinePatchRect/Option3Button.text = emptyOptionText
 	elif data3isNull:
+#		print('bro is asjajsdksjljk')
 		$NinePatchRect/Option3Button.text = emptyOptionText
 		if not data2isNull:
 			$NinePatchRect/Option2Button.text = data2
@@ -360,26 +363,41 @@ func updateEffects(outcomeIndex):
 	get_node("../EffectsPopUp/Tween/").interpolate_property(get_node("../EffectsPopUp/Tween/NinePatchRect/Label"), "visible_characters", 0, text_length, text_reveal_speed, Tween.TRANS_LINEAR)
 	get_node("../EffectsPopUp/Tween/").start()
 	
-	var oldProfit = profit
-	var oldImg = public_img
-	var oldStakeholder = stakeholder
-	updateNumericalEffects(outcomeIndex)
+#	var oldProfit = profit
+#	var oldImg = public_img
+#	var oldStakeholder = stakeholder
 	
-	# based on numerical differences, match a color to the text 0-0.5 is YELLOW (or okay) anything below 0 is RED (bad) anything above 0.5 is GREEN (great)
-	var diffProfit = profit - oldProfit
-	var diffImg = public_img - oldImg
-	var diffStakeholder = stakeholder - oldStakeholder
+	var profit_percent_diff = data[current_company][current_outcome_profit][outcomeIndex]
+	var public_img_diff = data[current_company][current_outcome_image_effects][outcomeIndex]
+	var stakeholder_diff = data[current_company][current_outcome_stakeholder][outcomeIndex]
+	updateNumericalEffects(outcomeIndex)
 	var buttonEffect = 0
-	if diffStakeholder < 0 || diffImg < 0 || diffProfit < 0:
+	# based on numerical differences, match a color to the text 0-0.5 is YELLOW (or okay) anything below 0 is RED (bad) anything above 0.5 is GREEN (great)
+#	var diffProfit = profit - oldProfit
+#	var diffImg = public_img - oldImg
+#	var diffStakeholder = stakeholder - oldStakeholder
+#	var buttonEffect = 0
+#	if diffStakeholder < 0 || diffImg < 0 || diffProfit < 0:
+#		buttonEffect = 1
+#	elif (0 < diffStakeholder && diffStakeholder <= 0.5) || (0 < diffImg && diffImg <= 0.5) || (0 < diffProfit && diffProfit <= 0.5):
+#		buttonEffect = 2
+#	elif (0 < diffStakeholder && diffStakeholder <= 1) || (0 < diffImg && diffImg <= 1) || (0 < diffProfit && diffProfit <= 1):
+#		buttonEffect = 0
+#	else:
+#		# idk?
+#		buttonEffect = 4
+	#
+	var avgOfAllDiff = (profit_percent_diff + public_img_diff + stakeholder_diff) / 3
+	print(avgOfAllDiff)
+	if avgOfAllDiff < 0:
 		buttonEffect = 1
-	elif (0 < diffStakeholder && diffStakeholder <= 0.5) || (0 < diffImg && diffImg <= 0.5) || (0 < diffProfit && diffProfit <= 0.5):
+	elif avgOfAllDiff > 0 && avgOfAllDiff < 0.04:
 		buttonEffect = 2
-	elif (0 < diffStakeholder && diffStakeholder <= 1) || (0 < diffImg && diffImg <= 1) || (0 < diffProfit && diffProfit <= 1):
+	elif avgOfAllDiff >= 0.04 && avgOfAllDiff < 1:
 		buttonEffect = 0
 	else:
-		# idk?
+#		# idk?
 		buttonEffect = 4
-		
 	
 	# switch effect label
 	match buttonEffect:
