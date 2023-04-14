@@ -10,6 +10,7 @@ var pressedButton = -1
 
 var current_name = 'Mr CEO'
 var current_company = 'tech'
+var current_company_copied = 'tech'
 var current_division = "none"
 var current_events =  "events"
 var from_events =  "fromevents"
@@ -22,9 +23,9 @@ var current_outcome_stakeholder =  "stakeholdereffects"
 var allNullText = "Pick any option, you can't change this outcome!"
 var emptyOptionText = "This option does nothing."
 
-var profit = 0
-var public_img = 0
-var stakeholder = 0
+var profit = 100000
+var public_img = 100
+var stakeholder = 100
 var text_speed = 0.02
 var button1Index = null
 var button2Index = null
@@ -39,6 +40,12 @@ var hr_indexes = []
 var marketing_indexes = []
 var operations_indexes = []
 
+var hq_indexes_general = []
+var finance_indexes_general = []
+var randd_indexes_general = []
+var hr_indexes_general = []
+var marketing_indexes_general = []
+var operations_indexes_general = []
 
 var known_numbers = []
 var previous_numbers = []
@@ -51,7 +58,13 @@ var indexes_dict = {
 	"Finance": finance_indexes,
 	"Marketing": marketing_indexes,
 	"R&D": randd_indexes,
-	"Operations": operations_indexes
+	"Operations": operations_indexes,
+	"HQ_general": hq_indexes_general,
+	"R&D_general": randd_indexes_general,
+	"HR_general": hr_indexes_general,
+	"Marketing_general": marketing_indexes_general,
+	"Finance_general": finance_indexes_general,
+	"Operations_general": operations_indexes_general
 }
 
 func initialize_indexes(event_name, indexes_copy):
@@ -65,7 +78,6 @@ func init():
 	
 # on ready
 func _ready():
-	print(self.get_path())
 	$NinePatchRect.visible = false
 	$NinePatchRect2.visible = false
 	get_node_or_null("../EffectsPopUp/Tween/NinePatchRect/Label").visible = false
@@ -87,6 +99,21 @@ func _ready():
 		elif fromevents[i] == "Operations":
 			operations_indexes.append(i)	
 
+	var from_gen_events = data["general"][from_events]
+	
+	for i in range(from_gen_events.size()):
+		if from_gen_events[i] == "HQ":
+			hq_indexes_general.append(i)
+		elif from_gen_events[i] == "R&D":
+			randd_indexes_general.append(i)
+		elif from_gen_events[i] == "HR":
+			hr_indexes_general.append(i)
+		elif from_gen_events[i] == "Marketing":
+			marketing_indexes_general.append(i)
+		elif from_gen_events[i] == "Finance":
+			finance_indexes_general.append(i)
+		elif from_gen_events[i] == "Operations":
+			operations_indexes_general.append(i)	
 	#print(hq_indexes)
 	initialize_indexes("HQ", hq_indexes)
 	initialize_indexes("R&D", randd_indexes)
@@ -94,6 +121,12 @@ func _ready():
 	initialize_indexes("Marketing", marketing_indexes)
 	initialize_indexes("Finance", finance_indexes)
 	initialize_indexes("Operations", operations_indexes)
+	initialize_indexes("HQ_general", hq_indexes_general)
+	initialize_indexes("R&D_general", randd_indexes_general)
+	initialize_indexes("HR_general", hr_indexes_general)
+	initialize_indexes("Marketing_general", marketing_indexes_general)
+	initialize_indexes("Finance_general", finance_indexes_general)
+	initialize_indexes("Operations_general", operations_indexes_general)
 	
 # funcion to load data
 func load_data():
@@ -121,6 +154,7 @@ func button_pressed():
 # when pressed (see interactions.gd)
 func play(event):
 	current_division = event
+#	print("current DIVSION ", event)
 	current_name = player_vars.new_name
 	#print('replaced division: ', event)
 	if dialogue_active:
@@ -137,7 +171,15 @@ func randomizeEvents():
 	match current_company:	
 		"tech":	
 			# generate random event to pick
-			_nextEvent(get_random_index(current_division))
+			var general_event_or_specific = rand_range(1, 3)
+			if general_event_or_specific == 1:
+				current_company = ""
+				_nextEvent(get_random_index(current_division))
+			else:
+				current_company_copied = current_company
+				current_company = "general"
+				print("generalities of humanking")
+				_nextEvent(get_random_index(current_division + "_general"))
 		"fast_food":
 			print("Y")
 		"fashion":
@@ -145,7 +187,7 @@ func randomizeEvents():
 
 func fadeIn():
 	$AnimationPlayer.play("fade_in")
-	print('fading in')
+#	print('fading in')
 	dialogue_active = true
 	$NinePatchRect.visible = true
 
@@ -156,16 +198,22 @@ func fadeOut():
 	get_tree().get_root().set_disable_input(false)
 	$NinePatchRect.visible = false
 	dialogue_active = false
+
 	
 func _nextEvent(eventIndex):
-	print(eventIndex, " event index")
+#	print(eventIndex, " event index")
 	$NinePatchRect/ToLabel.text = current_name
 	# fromLabels correspond with messageLabel (in size)
 	#print(data[current_company][from_events])
-	$NinePatchRect2/TextureRect.texture = load("res://assets//graphs//" + "graph" + str(data[current_company][graphs][eventIndex]) + ".svg")
-	$NinePatchRect/FromLabel.text = data[current_company][from_events][eventIndex]
+	var graphNumber = data[current_company][graphs][eventIndex]
+	if graphNumber != 0:
+		$NinePatchRect2/TextureRect.texture = load("res://assets//graphs//" + "graph" + str(graphNumber) + ".svg")
+	
+	$NinePatchRect/FromLabel.text = data[current_company][from_events][eventIndex] 
 	$NinePatchRect/MessageLabel.text = data[current_company][current_events][eventIndex]
 
+
+	
 	var button1 = (eventIndex) * 3 + (get_random_number_in_range(1, 3, known_numbers))
 	var button2 = (eventIndex) * 3 + (get_random_number_in_range(1, 3, known_numbers))
 	var button3 = (eventIndex) * 3 + (get_random_number_in_range(1, 3, known_numbers))
@@ -179,7 +227,10 @@ func _nextEvent(eventIndex):
 	var data1 = data[current_company][current_choices][button1Index] 
 	var data2 = data[current_company][current_choices][button2Index] 
 	var data3 = data[current_company][current_choices][button3Index] 
-
+	
+#	print("data3 ", data3)
+#	print("data2 ", data2)
+#	print("data1 ", data1)
 #	$NinePatchRect/Option1Button.text = data1 if data1 != null else ''
 #	$NinePatchRect/Option2Button.text = data2 if data2 != null else ''
 #	$NinePatchRect/Option3Button.text = data3 if data3 != null else ''
@@ -241,6 +292,11 @@ func _nextEvent(eventIndex):
 		$NinePatchRect/Option3Button.text = emptyOptionText
 	elif data3isNull:
 		$NinePatchRect/Option3Button.text = emptyOptionText
+		if not data2isNull:
+			$NinePatchRect/Option2Button.text = data2
+			$NinePatchRect/Option1Button.text = data1
+		else:
+			$NinePatchRect/Option2Button.text = emptyOptionText
 	else: 
 		$NinePatchRect/Option1Button.text = data1 if data1 != null else ''
 		$NinePatchRect/Option2Button.text = data2 if data2 != null else ''
@@ -340,17 +396,17 @@ func updateEffects(outcomeIndex):
 			# (cool effect maybe? or if == 0)
 			get_node("../EffectsPopUp/Tween/NinePatchRect/Label").add_color_override("font_color", Color8(0, 0, 255, 255))
 
-
+	current_company = current_company_copied
 	pressedButton = outcomeIndex;
 	# reset randomization (so we don't repeat numbers)
 
 func updateNumericalEffects(outcomeIndex):
-	profit += data[current_company][current_outcome_profit][outcomeIndex]	
-	public_img += data[current_company][current_outcome_image_effects][outcomeIndex]	
-	stakeholder += data[current_company][current_outcome_stakeholder][outcomeIndex]	
+	profit *= 1 + data[current_company][current_outcome_profit][outcomeIndex]	
+	public_img *= 1 + data[current_company][current_outcome_image_effects][outcomeIndex]	
+	stakeholder *= 1 + data[current_company][current_outcome_stakeholder][outcomeIndex]	
 
 
-
+var last_index = -1
 func get_random_index(event_name):
 	var indexes = indexes_dict[event_name]
 	if indexes.size() == 0:
@@ -358,10 +414,16 @@ func get_random_index(event_name):
 	elif indexes.size() == 1:
 		return indexes[0]
 	else:
+		indexes.shuffle()
 		var index = randi() % indexes.size()
+		if index == last_index:
+			index = (index + 1) % indexes.size() if index < indexes.size() - 1 else 0
+		last_index = index
 		var indexes_copy = indexes.duplicate()
 		indexes_copy.remove(index)
 		return indexes[index] if indexes[index] != null else get_random_index(event_name)
+
+
 
 func get_random_number_in_range(start_range, end_range, known_numbers):
 	var valid_numbers = []
@@ -371,14 +433,17 @@ func get_random_number_in_range(start_range, end_range, known_numbers):
 
 	if valid_numbers.size() == 0:
 		known_numbers.clear()
+		valid_numbers = []
 		for i in range(start_range, end_range + 1):
 			valid_numbers.append(i)
 
 	var index = randi() % valid_numbers.size()
 	var random_number = valid_numbers[index]
 	known_numbers.append(random_number)
-	valid_numbers.remove(random_number)
+	if valid_numbers.size() > 0:
+		valid_numbers.remove(random_number)
 	return random_number
+
 	
 
 
@@ -398,6 +463,7 @@ func _on_Option4Button_pressed():
 
 func _on_Button_pressed():
 	for button in group.get_buttons():
-		button.disabled = false
+		if (button.text != emptyOptionText):
+			button.disabled = false
 	$NinePatchRect.modulate.a8 = 255
 	$NinePatchRect2.visible = false
