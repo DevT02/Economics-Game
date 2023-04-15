@@ -98,7 +98,6 @@ func _ready():
 			finance_indexes.append(i)
 		elif fromevents[i] == "Operations":
 			operations_indexes.append(i)	
-
 	var from_gen_events = data["general"][from_events]
 	
 	for i in range(from_gen_events.size()):
@@ -387,13 +386,18 @@ func updateEffects(outcomeIndex):
 #		# idk?
 #		buttonEffect = 4
 	#
+	print(profit_percent_diff, " profit percent diff")
+	print(stakeholder_diff, " stakeholder_diff")
+	print(public_img_diff, " public_img_diff")
+
+	
 	var avgOfAllDiff = (profit_percent_diff + public_img_diff + stakeholder_diff) / 3
 	print(avgOfAllDiff)
 	if avgOfAllDiff < 0:
 		buttonEffect = 1
-	elif avgOfAllDiff > 0 && avgOfAllDiff < 0.04:
+	elif avgOfAllDiff > 0 && avgOfAllDiff < 0.03:
 		buttonEffect = 2
-	elif avgOfAllDiff >= 0.04 && avgOfAllDiff < 1:
+	elif avgOfAllDiff >= 0.03 && avgOfAllDiff < 1:
 		buttonEffect = 0
 	else:
 #		# idk?
