@@ -178,9 +178,9 @@ group = ExtResource( 2 )
 text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
 [node name="Option2Button" type="Button" parent="NinePatchRect"]
-margin_left = 29.7778
+margin_left = 30.0
 margin_top = 261.0
-margin_right = 482.778
+margin_right = 484.0
 margin_bottom = 292.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -193,10 +193,10 @@ group = ExtResource( 2 )
 text = "Option 2"
 
 [node name="Option3Button" type="Button" parent="NinePatchRect"]
-margin_left = 30.2222
-margin_top = 298.778
-margin_right = 483.222
-margin_bottom = 329.778
+margin_left = 30.0
+margin_top = 299.0
+margin_right = 484.0
+margin_bottom = 330.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_pivot_offset = Vector2( 260, 16 )

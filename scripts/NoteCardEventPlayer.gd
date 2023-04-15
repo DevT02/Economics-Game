@@ -48,7 +48,6 @@ var marketing_indexes_general = []
 var operations_indexes_general = []
 
 var known_numbers = []
-var previous_numbers = []
 
 onready var player_vars = get_node("/root/GlobalVars")
 
@@ -150,6 +149,7 @@ func button_pressed():
 #		print(profit)
 #		print(public_img)
 #		print(stakeholder)
+
 # when pressed (see interactions.gd)
 func play(event):
 	current_division = event
@@ -209,8 +209,6 @@ func _nextEvent(eventIndex):
 	$NinePatchRect/FromLabel.text = data[current_company][from_events][eventIndex] 
 	$NinePatchRect/MessageLabel.text = data[current_company][current_events][eventIndex]
 
-
-	
 	var button1 = (eventIndex) * 3 + (get_random_number_in_range(1, 3, known_numbers))
 	var button2 = (eventIndex) * 3 + (get_random_number_in_range(1, 3, known_numbers))
 	var button3 = (eventIndex) * 3 + (get_random_number_in_range(1, 3, known_numbers))
@@ -224,7 +222,6 @@ func _nextEvent(eventIndex):
 	var data1 = data[current_company][current_choices][button1Index] 
 	var data2 = data[current_company][current_choices][button2Index] 
 	var data3 = data[current_company][current_choices][button3Index] 
-	
 #	print("data3 ", data3)
 #	print("data2 ", data2)
 #	print("data1 ", data1)
@@ -237,8 +234,7 @@ func _nextEvent(eventIndex):
 #	print("is data 1 null ", data1isNull)
 #	print("is data 2 null ", data2isNull)
 #	print("is data 3 null ", data3isNull)
-#
-
+	var notOnlyTwoOptions = true
 	## ensure first two choices are filled to give optimal strategy
 	if data1isNull && data2isNull && data3isNull:
 #		print('nulldata')
@@ -252,6 +248,7 @@ func _nextEvent(eventIndex):
 			$NinePatchRect/Option1Button.text = data3
 			$NinePatchRect/Option2Button.text = data2
 			$NinePatchRect/Option3Button.text = emptyOptionText
+			notOnlyTwoOptions = false
 		else:
 			swapIndexes(1, 2)
 			$NinePatchRect/Option1Button.text = data2
@@ -268,41 +265,51 @@ func _nextEvent(eventIndex):
 			$NinePatchRect/Option1Button.text = data3
 			$NinePatchRect/Option2Button.text = emptyOptionText
 			$NinePatchRect/Option3Button.text = emptyOptionText
-			return
 		else:
 #			print("got here !!!!!!")
 			# 1 ARE NULL then
-			swapIndexes(2, 3)
-			#print(data1)
-			#print(data2)
-			#print(data3)
+			swapIndexes(2, 3)	
 			$NinePatchRect/Option1Button.text = data1
 			$NinePatchRect/Option2Button.text = data3
 			$NinePatchRect/Option3Button.text = emptyOptionText
-			return
+			notOnlyTwoOptions = false
+			
 		if not data2isNull:
-#			print("wooooo ")
+			$NinePatchRect/Option3Button.text = emptyOptionText
+			swapIndexes(1, 2)	
+			$NinePatchRect/Option1Button.text = data3
+			$NinePatchRect/Option2Button.text = emptyOptionText
 			$NinePatchRect/Option3Button.text = emptyOptionText
 				
-		swapIndexes(1, 2)	
-#		print(data1, "<< data 1")
-#		print(data2, "<< data 2")
-#		print(data3, "<< data 3")
-		$NinePatchRect/Option1Button.text = data3
-		$NinePatchRect/Option2Button.text = emptyOptionText
-		$NinePatchRect/Option3Button.text = emptyOptionText
+
 	elif data3isNull:
 #		print('bro is asjajsdksjljk')
 		$NinePatchRect/Option3Button.text = emptyOptionText
 		if not data2isNull:
 			$NinePatchRect/Option2Button.text = data2
 			$NinePatchRect/Option1Button.text = data1
+			notOnlyTwoOptions = false
 		else:
 			$NinePatchRect/Option2Button.text = emptyOptionText
 	else: 
 		$NinePatchRect/Option1Button.text = data1 if data1 != null else ''
 		$NinePatchRect/Option2Button.text = data2 if data2 != null else ''
 		$NinePatchRect/Option3Button.text = data3 if data3 != null else ''
+		
+	print(!notOnlyTwoOptions, " yo there r two options lol")
+	
+	if notOnlyTwoOptions:
+		$NinePatchRect/Option1Button.margin_bottom = 254
+		$NinePatchRect/Option2Button.margin_top = 261
+		$NinePatchRect/Option2Button.margin_bottom = 292
+		$NinePatchRect/Option3Button.visible = true
+
+	else:
+		$NinePatchRect/Option1Button.margin_bottom = 273
+		$NinePatchRect/Option2Button.margin_top = 282
+		$NinePatchRect/Option2Button.margin_bottom = 330
+		$NinePatchRect/Option3Button.visible = false
+
 	# final check! because we do not reset pick any option, if there are still some left, we need to account for it!
 
 		
@@ -361,31 +368,12 @@ func updateEffects(outcomeIndex):
 	var text_reveal_speed = text_length * text_speed
 	get_node("../EffectsPopUp/Tween/").interpolate_property(get_node("../EffectsPopUp/Tween/NinePatchRect/Label"), "visible_characters", 0, text_length, text_reveal_speed, Tween.TRANS_LINEAR)
 	get_node("../EffectsPopUp/Tween/").start()
-	
-#	var oldProfit = profit
-#	var oldImg = public_img
-#	var oldStakeholder = stakeholder
-	
+
 	var profit_percent_diff = data[current_company][current_outcome_profit][outcomeIndex]
 	var public_img_diff = data[current_company][current_outcome_image_effects][outcomeIndex]
 	var stakeholder_diff = data[current_company][current_outcome_stakeholder][outcomeIndex]
 	updateNumericalEffects(outcomeIndex)
 	var buttonEffect = 0
-	# based on numerical differences, match a color to the text 0-0.5 is YELLOW (or okay) anything below 0 is RED (bad) anything above 0.5 is GREEN (great)
-#	var diffProfit = profit - oldProfit
-#	var diffImg = public_img - oldImg
-#	var diffStakeholder = stakeholder - oldStakeholder
-#	var buttonEffect = 0
-#	if diffStakeholder < 0 || diffImg < 0 || diffProfit < 0:
-#		buttonEffect = 1
-#	elif (0 < diffStakeholder && diffStakeholder <= 0.5) || (0 < diffImg && diffImg <= 0.5) || (0 < diffProfit && diffProfit <= 0.5):
-#		buttonEffect = 2
-#	elif (0 < diffStakeholder && diffStakeholder <= 1) || (0 < diffImg && diffImg <= 1) || (0 < diffProfit && diffProfit <= 1):
-#		buttonEffect = 0
-#	else:
-#		# idk?
-#		buttonEffect = 4
-	#
 	print(profit_percent_diff, " profit percent diff")
 	print(stakeholder_diff, " stakeholder_diff")
 	print(public_img_diff, " public_img_diff")
@@ -448,7 +436,7 @@ func get_random_index(event_name):
 
 
 func get_random_number_in_range(start_range, end_range, known_numbers):
-	var valid_numbers = []
+	var valid_numbers = [] 
 	for i in range(start_range, end_range + 1):
 		if not (i in known_numbers):
 			valid_numbers.append(i)
@@ -463,18 +451,15 @@ func get_random_number_in_range(start_range, end_range, known_numbers):
 	var random_number = valid_numbers[index]
 	known_numbers.append(random_number)
 	if valid_numbers.size() > 0:
-		valid_numbers.remove(random_number)
+		var find_index = valid_numbers.find(random_number)
+		if find_index != -1:
+			valid_numbers.remove(find_index)
+
 	return random_number
-
-	
-
-
 
 func _input(event):
 	if !dialogue_active:
 		return
-
-
 
 func _on_Option4Button_pressed():
 	for button in group.get_buttons():
