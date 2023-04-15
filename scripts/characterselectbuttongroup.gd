@@ -36,7 +36,19 @@ func _on_AdvancedSettingsButton_pressed():
 		self.modulate.a8 = 50
 		$MarginContainer/TextureRect.visible = true
 		$MarginContainer/AdvancedSelection.visible = true
+	else:
+		var new_stylebox_normal = $MarginContainer/TextureRect/AdvancedSettingsButton.get_stylebox("normal").duplicate()
+		
+		updateButton(new_stylebox_normal, "Pick a character to continue!", "##FF0000", Color8(255, 17, 17, 255))
+		yield(get_tree().create_timer(0.6), "timeout")
+		updateButton(new_stylebox_normal, "Continue!", "#44ffffff", Color8(255, 255, 255, 255))
 
-	
+func updateButton(style, text, hex, color):
+	style.set_bg_color(Color(hex))
+	$MarginContainer/TextureRect/AdvancedSettingsButton.set("custom_styles/normal", style)
+	$MarginContainer/TextureRect/AdvancedSettingsButton.set("custom_styles/hover", style)
+	$MarginContainer/TextureRect/AdvancedSettingsButton.set("custom_styles/pressed", style)
+	$MarginContainer/TextureRect/AdvancedSettingsButton.text = text
+	$MarginContainer/TextureRect/AdvancedSettingsButton.modulate = color
 #func backToScreen(text, company, items):
 	

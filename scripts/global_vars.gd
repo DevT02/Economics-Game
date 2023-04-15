@@ -1,7 +1,7 @@
 extends Node
 
 var new_name = null
-var character_selected = ""
+var character_selected = null
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
