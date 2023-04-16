@@ -189,7 +189,7 @@ func fadeIn():
 func fadeOut():
 	$AnimationPlayer.play("fade_out")
 	get_tree().get_root().set_disable_input(true)
-	yield(get_tree().create_timer(0.5), "timeout")
+	yield(get_tree().create_timer(1), "timeout")
 	get_tree().get_root().set_disable_input(false)
 	$NinePatchRect.visible = false
 	dialogue_active = false

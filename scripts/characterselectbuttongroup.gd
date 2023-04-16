@@ -24,13 +24,6 @@ func button_pressed():
 		group.get_buttons()[1].modulate = Color(0,0,0)
 		player_vars.character_selected = "whiteFemale"
 
-		
-
-func backToScreen(name, company):
-	for i in group.get_buttons():
-		i.disabled = false
-
-
 func _on_AdvancedSettingsButton_pressed():
 	if player_vars.character_selected != null:
 		self.modulate.a8 = 50
