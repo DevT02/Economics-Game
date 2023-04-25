@@ -239,23 +239,23 @@ func _nextEvent(eventIndex):
 	## ensure first two choices are filled to give optimal strategy
 	if data1isNull && data2isNull && data3isNull:
 #		print('nulldata')
-		$NinePatchRect/Option1Button.text = allNullText
-		$NinePatchRect/Option2Button.text = allNullText
-		$NinePatchRect/Option3Button.text = allNullText
+		$NinePatchRect/button1Label.text = allNullText
+		$NinePatchRect/button2Label.text = allNullText
+		$NinePatchRect/button3Label.text = allNullText
 	elif data1isNull && not data2isNull:
 #		print('X MARK X MARK data1 null')
 		if not data3isNull:
 			swapIndexes(1, 3)
-			$NinePatchRect/Option1Button.text = data3
-			$NinePatchRect/Option2Button.text = data2
-			$NinePatchRect/Option3Button.text = emptyOptionText
+			$NinePatchRect/button1Label.text = data3
+			$NinePatchRect/button2Label.text = data2
+			$NinePatchRect/button3Label.text = emptyOptionText
 			notOnlyTwoOptions = false
 		else:
 			swapIndexes(1, 2)
-			$NinePatchRect/Option1Button.text = data2
+			$NinePatchRect/button1Label.text = data2
 		if data2isNull:
 #			print("bro is bro")
-			$NinePatchRect/Option2Button.text = emptyOptionText
+			$NinePatchRect/button2Label.text = emptyOptionText
 	elif data2isNull && not data3isNull:
 #		print('X MARK X MARK data1 null 2')
 		# move 3rd option up in sorter!!
@@ -263,39 +263,39 @@ func _nextEvent(eventIndex):
 #			print("go there")
 			# 2 ARE NULL then
 			swapIndexes(1, 3)
-			$NinePatchRect/Option1Button.text = data3
-			$NinePatchRect/Option2Button.text = emptyOptionText
-			$NinePatchRect/Option3Button.text = emptyOptionText
+			$NinePatchRect/button1Label.text = data3
+			$NinePatchRect/button2Label.text = emptyOptionText
+			$NinePatchRect/button3Label.text = emptyOptionText
 		else:
 #			print("got here !!!!!!")
 			# 1 ARE NULL then
 			swapIndexes(2, 3)	
-			$NinePatchRect/Option1Button.text = data1
-			$NinePatchRect/Option2Button.text = data3
-			$NinePatchRect/Option3Button.text = emptyOptionText
+			$NinePatchRect/button1Label.text = data1
+			$NinePatchRect/button2Label.text = data3
+			$NinePatchRect/button3Label.text = emptyOptionText
 			notOnlyTwoOptions = false
 			
 		if not data2isNull:
-			$NinePatchRect/Option3Button.text = emptyOptionText
+			$NinePatchRect/button3Label.text = emptyOptionText
 			swapIndexes(1, 2)	
-			$NinePatchRect/Option1Button.text = data3
-			$NinePatchRect/Option2Button.text = emptyOptionText
-			$NinePatchRect/Option3Button.text = emptyOptionText
+			$NinePatchRect/button1Label.text = data3
+			$NinePatchRect/button2Label.text = emptyOptionText
+			$NinePatchRect/button3Label.text = emptyOptionText
 				
 
 	elif data3isNull:
 #		print('bro is asjajsdksjljk')
-		$NinePatchRect/Option3Button.text = emptyOptionText
+		$NinePatchRect/button3Label.text = emptyOptionText
 		if not data2isNull:
-			$NinePatchRect/Option2Button.text = data2
-			$NinePatchRect/Option1Button.text = data1
+			$NinePatchRect/button2Label.text = data2
+			$NinePatchRect/button1Label.text = data1
 			notOnlyTwoOptions = false
 		else:
-			$NinePatchRect/Option2Button.text = emptyOptionText
+			$NinePatchRect/button2Label.text = emptyOptionText
 	else: 
-		$NinePatchRect/Option1Button.text = data1 if data1 != null else ''
-		$NinePatchRect/Option2Button.text = data2 if data2 != null else ''
-		$NinePatchRect/Option3Button.text = data3 if data3 != null else ''
+		$NinePatchRect/button1Label.text = data1 if data1 != null else ''
+		$NinePatchRect/button2Label.text = data2 if data2 != null else ''
+		$NinePatchRect/button3Label.text = data3 if data3 != null else ''
 		
 #	print(!notOnlyTwoOptions, " yo there r two options lol")
 	
@@ -304,13 +304,19 @@ func _nextEvent(eventIndex):
 		$NinePatchRect/Option2Button.margin_top = 261
 		$NinePatchRect/Option2Button.margin_bottom = 292
 		$NinePatchRect/Option3Button.visible = true
-
+		$NinePatchRect/button1Label.margin_bottom = 254
+		$NinePatchRect/button2Label.margin_top = 261
+		$NinePatchRect/button2Label.margin_bottom = 292
+		$NinePatchRect/button3Label.visible = true
 	else:
 		$NinePatchRect/Option1Button.margin_bottom = 273
 		$NinePatchRect/Option2Button.margin_top = 282
 		$NinePatchRect/Option2Button.margin_bottom = 330
 		$NinePatchRect/Option3Button.visible = false
-
+		$NinePatchRect/button1Label.margin_bottom = 273
+		$NinePatchRect/button2Label.margin_top = 282
+		$NinePatchRect/button2Label.margin_bottom = 330
+		$NinePatchRect/button3Label.visible = false
 	# final check! because we do not reset pick any option, if there are still some left, we need to account for it!
 
 		
