@@ -129,8 +129,17 @@
 			"Our company is considering a new pricing strategy for our product. We are currently in a duopoly market, and we are deciding whether to lower our prices to undercut our only competitor or maintain our current prices. Our marketing analysts have come up with the following estimations for the outcomes of each scenario with our company first listed then the competitor. Values are in millions. What’s the right move?",
 			"Our company has introduced a new product in our product line. We are uncertain about the potential future for this product and hence changes in demand are unknown at the moment. However, market data shows that the product has plentiful substitutes. Should we move our price down or maintain the same?",
 			"The government has implemented a price ceiling on our product, which is below our current market price. We are currently considering two ways to adapt to this change. Should we increase our advertising or should we advise operations to increase production?",
-			"Our company has recently been hit with a new tax on our product, which will increase the cost of production. We are debating whether to increase the price of our product to offset the tax or absorb the cost ourselves. However, we are concerned about the impact on our consumers and reputation. How should we proceed?"
-
+			"Our company has recently been hit with a new tax on our product, which will increase the cost of production. We are debating whether to increase the price of our product to offset the tax or absorb the cost ourselves. However, we are concerned about the impact on our consumers and reputation. How should we proceed?",
+			"One of your main suppliers has gone out of business just before the launch of a new product! Customers complain about the lack of inventory that the company has and go to social media to vent their complaints.",
+			"The company pledges to have all of its operations go green by 2035. This was a response from a local recycling enthusiast named Hang who proposed the idea in a company forum.",
+			"After one of the employees in the manufacturing plant loses his finger, the other employees go on strike to protest harsh working conditions. This is the first time in company history that a situation like this has occurred. The manufacturing plant has been regarded as one of the best in the nation and has received multiple awards from safety inspection agencies. The strike turned into a riot and resulted in many injuries and property damage. How do we handle this situation before it becomes a PR nightmare?",
+			"One of the employees has been using machinery for non-work purposes. The employee has a Youtube channel called MartyOnWheels where he unsafely operates these machines. The company logo is present in all of these videos. What do we do?",
+			"Our company has a product operating in a market where we have some control over our pricing and product differentiation. We are considering investing in new equipment to increase production efficiency and lower costs. However, we are unsure of how this investment will impact our pricing strategy and profitability. Can you help us make the best decision for our company?",
+			"Our company operates in the manufacturing industry and is experiencing an increase in production costs due to rising raw material prices. We are considering switching to a cheaper supplier but are concerned about the potential impact on quality and customer satisfaction. How should we proceed?",
+			"Our company produces two products which we are currently calling X and Y. Due to limited resources, we are faced with a tradeoff between the production of these products. Given our current resources, we are operating at a point that allows us to produce equal amounts of X and Y at maximum productivity. However, we have received a request for a large order of X. Should we accept the order?",
+			"Our company operates in a perfectly competitive market and produces a certain product. We are currently producing at a level where our average total cost (ATC) is at its minimum. However, we have noticed that the price of our product in the market is decreasing, and we are unsure whether to continue producing at the same level or decrease our output. We have created a graph that shows the relationship between the quantity of output produced and the market price of our product.",
+			"Your company is considering investing in a new production technology that will allow you to produce goods at a lower cost. However, this technology requires a significant upfront investment. Should you invest in this new technology or continue with your current production methods?",
+			"A sudden increase in the minimum wage has led to higher labor costs for our company. We are considering two options to maintain our profitability. Should we increase the price of our product or should we decrease our output?"
 		],
 		"fromevents": [
 			"Finance",
@@ -172,7 +181,17 @@
 			"Marketing",
 			"Marketing",
 			"Marketing",
-			"Marketing"
+			"Marketing",
+			"Operations",
+			"Operations",
+			"Operations",
+			"Operations",
+			"Operations",
+			"Operations",
+			"Operations",
+			"Operations",
+			"Operations",
+			"Operations"
 		],
 		"choices": [
 			null,
@@ -294,8 +313,37 @@
 			null,
 			"Increase the price of our products.",
 			"Absorb the cost of the tax ourselves.",
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			"Do nothing and hope the situation fizzles out.",
+			"Fire the employees that lead the strike.",
+			"Improve safety precautions in the plant even more.",
+			"Copystrike the videos and seize future revenue from the channel.",
+			"Send the employee to further operational training.",
+			"Fire the employee and revoke his operating license.",
+			"Invest in new equipment and reduce prices",
+			"Do not invest in new equipment and maintain our current pricing strategy",
+			null,
+			"Switch to a cheaper supplier to reduce production costs, potentially sacrificing quality but maintaining profitability.",
+			"Continue with our current supplier and absorb the increased production costs, maintaining quality but potentially decreasing profitability.",
+			null,
+			"Accept the order for X and produce less of Y",
+			"Accept the order for X but maintain our current production of Y",
+			"Reject the order for X and maintain our current production",
+			"Continue producing at the same level since our ATC is at its minimum and the market price will eventually recover.",
+			"Decrease our output to increase the market price of our product and maximize our profits.",
+			null,
+			"Invest in new technology and increase the capital stock",
+			"Continue with current production methods and capital stock",
+			null,
+			"Increase the price of our product to maintain profit margins.",
+			"Decrease our output to reduce our costs.",
 			null
-
 		],
 		"outcomes": [
 			"Shareholders are angry along with the public. Confidence in the firm has decreased sharply and the fines have added up immensely. Tread carefully.",
@@ -416,20 +464,50 @@
 			"Increasing production led to a temporary increase in supply, but the price ceiling still resulted in a shortage of the product. The company was able to maintain sales volume, but at a lower price point, resulting in lower profit margins.",
 			null,
 			"Increasing the price of our product led to a decrease in demand, as consumers were less willing to pay the higher price. This resulted in a decrease in overall sales volume, but the company was able to maintain its profit margin.",
-			" Absorbing the cost of the tax ourselves led to a decrease in profit margin, but the company was able to maintain its sales volume and avoid any negative impact on its reputation.",
+			"Absorbing the cost of the tax ourselves led to a decrease in profit margin, but the company was able to maintain its sales volume and avoid any negative impact on its reputation.",
+			null,
+			"The launch of your new product does not go well. Scalpers use bots to purchase from the limited stock on the website and upscale the price to the general public. Customers are very unhappy with the whole situation. Wrong place, wrong time!",
+			null,
+			null,
+			"With the issue of global warming growing each year, the public is happy that such a large corporation has taken a step toward tackling the issue. ",
+			null,
+			null,
+			"The company ends up paying for the damages to the plant, but overall nothing happens. Tensions calm down and things go back to normal. Keep calm and carry on!",
+			"The employees leading the strike were let go. Other employees reported that these employees had been conspiring against the company for weeks. Talk about bad apples!",
+			"The company improves infrastructure and machinery to be even safer. A large initial investment and frequent repairs are needed. Total quality management pays off right?",
+			"The copy-strike goes through the algorithm and the channel gets successfully demonetized by the company. You are now the owner of MartyOnWheels. However, the public is a little ticked off. UMG has nothing on us!",
+			"The employee agrees to go to additional operational training. During the training, he was filming an apology video and fell out of a crane. The company insurance paid for his medical expenses, but he was promptly let go after the incident. In the hospital, he created another youtube channel called MartyOnWheelchair, where he filmed himself fooling around with hospital equipment. The show must go on!",
+			"The employee is furious and plans to raid the facility before his keycard expires. He live-streams on Youtube so the viewers can see. He destroys some boxes and starts nibbling on packing peanuts. Eventually, he goes too far and knocks over a pile of boxes, which fall on him and render him unconscious. Security escorts him outside the building, where he is greeted with cheers from fans. It is later understood that the public assumed it was a PR stunt.",
+			"Investing in new equipment led to a shift downward in the short-run and long-run average cost curves, resulting in a lower cost per unit produced. This allowed the company to reduce prices while maintaining its profit margin, increasing market share.",
+			"Not investing in new equipment led to no change in the short-run and long-run average cost curves, resulting in no change in cost per unit produced. However, maintaining the current pricing strategy resulted in a decrease in market share due to increased competition from more efficient firms.",
+			null,
+			"Switching to a cheaper supplier led to a decrease in product quality and a decrease in customer satisfaction. However, the company was able to maintain profitability levels due to the reduction in production costs.",
+			"Absorbing the increased production costs led to a decrease in profitability levels, but the company was able to maintain its product quality and customer satisfaction.",
+			null,
+			"Accepting the order for X and producing less Y results in an increase in production efficiency and a boost in profits. However, there may be some impact on our customer base as the supply of Y may be lower than before.",
+			"Accepting the order for X and maintaining our current production of Y proved to be impossible for our facilities without further investment. We failed to create all orders of X promised, making all parties involved angry.",
+			"Rejecting the order for X and maintaining our current production of both X and Y may lead to a loss of potential profits. However, the production process remains stable and the supply of both products remains the same, which slightly positively impacts customer satisfaction.",
+			"Since we continue producing at the same level, our quantity supplied remains constant. Due to the decrease in market price, our revenue decreases as well. However, since our ATC is at its minimum, we are still able to make a profit, albeit a smaller one.",
+			"By decreasing our output, the market price of our product increases due to the decrease in supply. This results in higher revenue for each unit of output sold. However, since we are producing less, our total revenue and profit decrease.",
+			null,
+			"By investing in new technology, our company was able to produce goods at a lower cost, which increases profits. The increase in profits allows the company to expand operations and hire more workers, leading to an increase in output and an increase in our production possibilities.",
+			"By maintaining the current production methods, your company may not be able to compete with other firms that have adopted the new technology, leading to a decline in market share and profits. As a result, the company may not be able to expand operations or hire as many workers, leading to a decrease in output and production possibilities.",
+			null,
+			"Increasing the price of the product led to a shift along the demand curve, resulting in a decrease in revenue. Some customers were not willing to pay the higher price, and the company lost market share to competitors. The company's reputation also suffered due to negative feedback from customers.",
+			"Decreasing the output led to a decrease in supply, which led to an increase in the price of the product. However, the decrease in sales volume due to the higher price resulted in lower revenue. The company's reputation also suffered due to negative feedback from customers who were unable to purchase the product.",
 			null
 		],
 		"graphs": [
-			0, 0, 0, 0, 15, 14, 13, 0, 15, 14, 0, 0, 0, 0, 2, 1, 0, 9, 0, 7, 0, 0, 0, 0, 10, 12, 10, 3, 1, 0, 0, 0, 0, 0, 16, 9, 0, 1, 4, 5
+			0, 0, 0, 0, 15, 14, 13, 0, 15, 14, 0, 0, 0, 0, 2, 1, 0, 9, 0, 7, 0, 0, 0, 0, 10, 12, 10, 3, 1, 0, 0, 0, 0, 0, 16, 9, 0, 1, 4, 5, 0, 0, 0, 0, 12, 1, 2, 8, 2, 1
 		],
 		"profiteffects": [
-			-0.2, -0.2, -0.2, 0.05, 0.05, 0.05, 0.25, 0, 0, 0, 0, 0.04, 0.05, 0, 0, -0.05, 0.1, 0, 0.1, 0, 0, 0.06, 0.03, 0, 0.04, 0, 0, 0.08, 0, 0, -0.1, -0.1, -0.1, 0.15, 0.15, 0.15, -0.03, -0.03, 0.03, -0.07, -0.05, 0.00, 0.15, -0.1, 0, 0.1, -0.05, 0, 0.15, -0.1, 0, -0.05, 0.1, 0, 0.02, -0.07, 0, -0.1, 0.05, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.02, 0, 0, -0.05, 0, 0, -0.05, 0, 0, -0.1, 0, 0, -0.05, 0.1, 0, 0.15, 0, 0, 0.05, -0.05, 0, -0.02, -0.02, -0.02, 0.03, 0.03, 0.03, -0.01, 0, -0.01, -0.01, -0.03, 0, 0.07, -0.05, 0, 0.05, 0, 0, -0.08, -0.15, 0, 0.05, -0.1, 0, -0.01, -0.04, 0, 0.02, -0.02, 0
+			-0.2, -0.2, -0.2, 0.05, 0.05, 0.05, 0.25, 0, 0, 0, 0, 0.04, 0.05, 0, 0, -0.05, 0.1, 0, 0.1, 0, 0, 0.06, 0.03, 0, 0.04, 0, 0, 0.08, 0, 0, -0.1, -0.1, -0.1, 0.15, 0.15, 0.15, -0.03, -0.03, 0.03, -0.07, -0.05, 0.00, 0.15, -0.1, 0, 0.1, -0.05, 0, 0.15, -0.1, 0, -0.05, 0.1, 0, 0.02, -0.07, 0, -0.1, 0.05, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.02, 0, 0, -0.05, 0, 0, -0.05, 0, 0, -0.1, 0, 0, -0.05, 0.1, 0, 0.15, 0, 0, 0.05, -0.05, 0, -0.02, -0.02, -0.02, 0.03, 0.03, 0.03, -0.01, 0, -0.01, -0.01, -0.03, 0, 0.07, -0.05, 0, 0.05, 0, 0, -0.08, -0.15, 0, 0.05, -0.1, 0, -0.01, -0.04, 0, 0.02, -0.02, 0, -0.03, -0.03, -0.03, 0, 0, 0, -0.01, 0, 0.03, 0.01, -0.01, 0, 0.05, 0, 0, 0.05, -0.05, 0, 0.05, -0.05, 0, 0.05, -0.02, 0, 0.05, -0.05, 0, -0.02, -0.04, 0
 		],
 		"stakeholdereffects": [
-			-0.4, -0.4, -0.4, 0.25, 0.25, 0.25, -0.02, -0.1, 0, 0.15, -0.2, 0.05, 0.1, -0.05, 0, -0.15, 0.1, 0, 0.05, -0.05, 0, 0.15, -0.1, 0, 0.08, -0.05, 0, 0.1, -0.05, 0, -0.05, -0.05, -0.05, 0.2, 0.2, 0.2, -0.03, -0.05, 0.05, 0, -0.03, 0.05, 0.15, -0.1, 0, 0.05, 0, 0, 0.05, -0.05, 0, 0.05, 0.1, 0, 0.05, 0.1, 0, 0.05, -0.05, 0, -0.02, -0.02, -0.02, 0.08, 0.08, 0.08, 0, -0.01, 0, 0.02, 0.01, -0.03, 0.1, -0.05, 0, 0.1, -0.05, 0, 0.1, -0.05, 0, 0.1, -0.1, 0, 0.1, -0.05, 0, 0.1, -0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.05, 0, 0.1, -0.1, 0, 0.1, -0.05, 0, -0.03, -0.1, 0, 0.05, -0.05, 0, -0.03, 0.03, 0, -0.01, 0.01, 0
+			-0.4, -0.4, -0.4, 0.25, 0.25, 0.25, -0.02, -0.1, 0, 0.15, -0.2, 0.05, 0.1, -0.05, 0, -0.15, 0.1, 0, 0.05, -0.05, 0, 0.15, -0.1, 0, 0.08, -0.05, 0, 0.1, -0.05, 0, -0.05, -0.05, -0.05, 0.2, 0.2, 0.2, -0.03, -0.05, 0.05, 0, -0.03, 0.05, 0.15, -0.1, 0, 0.05, 0, 0, 0.05, -0.05, 0, 0.05, 0.1, 0, 0.05, 0.1, 0, 0.05, -0.05, 0, -0.02, -0.02, -0.02, 0.08, 0.08, 0.08, 0, -0.01, 0, 0.02, 0.01, -0.03, 0.1, -0.05, 0, 0.1, -0.05, 0, 0.1, -0.05, 0, 0.1, -0.1, 0, 0.1, -0.05, 0, 0.1, -0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.05, 0, 0.1, -0.1, 0, 0.1, -0.05, 0, -0.03, -0.1, 0, 0.05, -0.05, 0, -0.03, 0.03, 0, -0.01, 0.01, 0, 0, 0, 0, 0, 0, 0, 0.01, 0.02, 0.01, 0, 0, 0, 0.1, -0.05, 0, -0.1, 0.1, 0, 0.01, -0.05, -0.05, 0, 0, 0, 0.05, -0.05, 0, -0.05, -0.06, 0
 		],
 		"publicimgeffects": [
-			-0.4, -0.4, -0.4, -0.05, -0.05, -0.05, -0.02, 0.15, 0, 0, 0, 0.02, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.05, -0.05, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.01, 0.01, 0.01, 0, 0, 0, -0.05, 0.07, -0.03, 0.1, -0.15, 0, 0.05, 0, 0, 0, 0, 0, 0, 0.05, 0, 0.01, 0.08, 0, -0.05, 0.05, 0, -0.04, -0.04, -0.04, 0.02, 0.02, 0.02, 0, -0.05, 0, 0, 0, -0.03, 0.05, -0.1, 0, 0.05, -0.1, 0, 0, -0.05, 0, 0.05, -0.2, 0, 0.05, 0, 0, 0.1, -0.1, 0, 0, 0, 0, 0.03, 0.03, 0.03, -0.02, -0.05, 0.02, -0.02, -0.1, 0.04, 0, -0.05, 0, 0, 0, 0, 0, -0.05, 0, -0.02, -0.1, 0, -0.08, 0.01, 0, -0.01, 0.02
+			-0.4, -0.4, -0.4, -0.05, -0.05, -0.05, -0.02, 0.15, 0, 0, 0, 0.02, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.05, -0.05, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.01, 0.01, 0.01, 0, 0, 0, -0.05, 0.07, -0.03, 0.1, -0.15, 0, 0.05, 0, 0, 0, 0, 0, 0, 0.05, 0, 0.01, 0.08, 0, -0.05, 0.05, 0, -0.04, -0.04, -0.04, 0.02, 0.02, 0.02, 0, -0.05, 0, 0, 0, -0.03, 0.05, -0.1, 0, 0.05, -0.1, 0, 0, -0.05, 0, 0.05, -0.2, 0, 0.05, 0, 0, 0.1, -0.1, 0, 0, 0, 0, 0.03, 0.03, 0.03, -0.02, -0.05, 0.02, -0.02, -0.1, 0.04, 0, -0.05, 0, 0, 0, 0, 0, -0.05, 0, -0.02, -0.1, 0, -0.08, 0.01, 0, -0.01, 0.02, 0, -0.03, -0.03, -0.03, 0.04, 0.04, 0.04, 0, 0, 0, -0.02, 0, 0.02, 0, 0, 0, -0.05, 0.05, 0, -0.01, -0.05, 0.01, 0, 0, 0, 0.05, -0.02, 0, -0.08, -0.05, 0
 		]
 	}
 }
