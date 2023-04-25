@@ -77,6 +77,7 @@ func init():
 	
 # on ready
 func _ready():
+	randomize()
 	$NinePatchRect.visible = false
 	$NinePatchRect2.visible = false
 	get_node_or_null("../EffectsPopUp/Tween/NinePatchRect/Label").visible = false
@@ -296,7 +297,7 @@ func _nextEvent(eventIndex):
 		$NinePatchRect/Option2Button.text = data2 if data2 != null else ''
 		$NinePatchRect/Option3Button.text = data3 if data3 != null else ''
 		
-	print(!notOnlyTwoOptions, " yo there r two options lol")
+#	print(!notOnlyTwoOptions, " yo there r two options lol")
 	
 	if notOnlyTwoOptions:
 		$NinePatchRect/Option1Button.margin_bottom = 254
@@ -374,13 +375,13 @@ func updateEffects(outcomeIndex):
 	var stakeholder_diff = data[current_company][current_outcome_stakeholder][outcomeIndex]
 	updateNumericalEffects(outcomeIndex)
 	var buttonEffect = 0
-	print(profit_percent_diff, " profit percent diff")
-	print(stakeholder_diff, " stakeholder_diff")
-	print(public_img_diff, " public_img_diff")
+#	print(profit_percent_diff, " profit percent diff")
+#	print(stakeholder_diff, " stakeholder_diff")
+#	print(public_img_diff, " public_img_diff")
 
 	
 	var avgOfAllDiff = (profit_percent_diff + public_img_diff + stakeholder_diff) / 3
-	print(avgOfAllDiff)
+#	print(avgOfAllDiff)
 	if avgOfAllDiff < 0:
 		buttonEffect = 1
 	elif avgOfAllDiff > 0 && avgOfAllDiff < 0.03:
@@ -416,6 +417,7 @@ func updateNumericalEffects(outcomeIndex):
 	stakeholder *= 1 + data[current_company][current_outcome_stakeholder][outcomeIndex]	
 
 
+var used_indexes = []
 var last_index = -1
 func get_random_index(event_name):
 	var indexes = indexes_dict[event_name]
@@ -425,13 +427,19 @@ func get_random_index(event_name):
 		return indexes[0]
 	else:
 		indexes.shuffle()
-		var index = randi() % indexes.size()
-		if index == last_index:
-			index = (index + 1) % indexes.size() if index < indexes.size() - 1 else 0
-		last_index = index
-		var indexes_copy = indexes.duplicate()
-		indexes_copy.remove(index)
-		return indexes[index] if indexes[index] != null else get_random_index(event_name)
+		for index in indexes:
+			if not used_indexes.has(index) and index != last_index:
+				used_indexes.append(index)
+#				print("index found", index)
+				last_index = index
+				return index
+		# If all indexes have been used, reset the set
+		if len(used_indexes) == len(indexes):
+#			print('used all indexes')
+			last_index = used_indexes[len(used_indexes) - 1] 
+			used_indexes.clear()
+		return get_random_index(event_name)
+
 
 
 
