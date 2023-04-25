@@ -119,7 +119,18 @@
 			"Our company is facing a labor market with a shortage of workers. Currently, our company is paying an average wage that is below the market equilibrium wage rate. Should we raise our wage rate to attract more workers and reduce the labor shortage?",
 			"Our company operates in a market with a minimum wage set by the government. The current minimum wage is $10 per hour, which is above the equilibrium wage rate of $8 per hour in a competitive labor market. What should we do about this face?",
 			"Our company is considering implementing a new employee benefits program that would cost us $300,000 annually. Our department estimates that this program would lead to an average productivity increase of 10%, resulting in a profit increase of $500,000 annually. However, the Finance Dept. has informed us about the cost and would like to evaluate the marginal benefit and cost of the program.",
-			"Your company is experiencing a high turnover rate among employees, which is causing a loss of valuable talent and increased costs associated with recruiting and training new hires. The HR department has suggested implementing a new employee engagement program, which would involve regular team-building activities and career development opportunities. The estimated cost of the program is $100,000 per year, but it is expected to reduce turnover and improve employee productivity."
+			"Your company is experiencing a high turnover rate among employees, which is causing a loss of valuable talent and increased costs associated with recruiting and training new hires. The HR department has suggested implementing a new employee engagement program, which would involve regular team-building activities and career development opportunities. The estimated cost of the program is $100,000 per year, but it is expected to reduce turnover and improve employee productivity.",
+			"Your marketing team has decided to shoot its latest commercial on a lake to promote a new product. While filming the commercial, the cameraman dropped the camera in the water after falling overboard while in a kayak!",
+			"The social media team has been crowned “Best Social Media Content by a Corporation” by the users. ",
+			"Local celebrity, Mr. Johnson, has heavily criticized your company in his latest Tik-Tok. His massive following started boycotting your products! How do we handle the situation?",
+			"A charity has approached you on the prospect of a new operation to provide meals for school children in less economically developed areas. However, this charity has been controversial for its ties to anti-LGTBQ organizations. The company could use the PR but does not want to sacrifice its core values. How should we proceed?",
+			"Our company is considering expanding our advertising to a new market, but we are concerned about the potential impact of the entire economy going through a transition phase. Right now, unemployment is drastically decreasing in the short run and we are worried about what will happen in the long run. What should we do?",
+			"Our market researchers are considering increasing our advertising efforts to increase our market share. However, we are concerned about the potential cost of advertising and whether it will result in higher profits. We know that we are operating in a competitive market, but we historically have some control over price. What should we do?",
+			"Our company is considering a new pricing strategy for our product. We are currently in a duopoly market, and we are deciding whether to lower our prices to undercut our only competitor or maintain our current prices. Our marketing analysts have come up with the following estimations for the outcomes of each scenario with our company first listed then the competitor. Values are in millions. What’s the right move?",
+			"Our company has introduced a new product in our product line. We are uncertain about the potential future for this product and hence changes in demand are unknown at the moment. However, market data shows that the product has plentiful substitutes. Should we move our price down or maintain the same?",
+			"The government has implemented a price ceiling on our product, which is below our current market price. We are currently considering two ways to adapt to this change. Should we increase our advertising or should we advise operations to increase production?",
+			"Our company has recently been hit with a new tax on our product, which will increase the cost of production. We are debating whether to increase the price of our product to offset the tax or absorb the cost ourselves. However, we are concerned about the impact on our consumers and reputation. How should we proceed?"
+
 		],
 		"fromevents": [
 			"Finance",
@@ -151,7 +162,17 @@
 			"HR",
 			"HR",
 			"HR",
-			"HR"
+			"HR",
+			"Marketing",
+			"Marketing",
+			"Marketing",
+			"Marketing",
+			"Marketing",
+			"Marketing",
+			"Marketing",
+			"Marketing",
+			"Marketing",
+			"Marketing"
 		],
 		"choices": [
 			null,
@@ -243,7 +264,38 @@
 			null,
 			"Implement the employee engagement program",
 			"Do not implement the employee engagement program",
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			"Contact Mr. Johnson and arrange a meeting.",
+			"Publicly criticize Mr. Johnson and his viewers.",
+			"Pay off Mr. Johnson to stop defaming the company.",
+			"Decline the charity’s offer.",
+			"Accept the charity’s offer.",
+			"Approach a different charity to conduct the new operation.",
+			"Invest in expanding to the new market",
+			"Wait for the situation to settle before investing",
+			null,
+			"Increase advertising expenditures to increase market share",
+			"Focus on non-price competition instead of advertising",
+			null,
+			"Maintain our current prices",
+			"Lower our prices",
+			null,
+			"Set the price lower",
+			"Increase the price",
+			null,
+			"Increase advertising to increase demand for the product.",
+			"Increase production to try to meet the demand",
+			null,
+			"Increase the price of our products.",
+			"Absorb the cost of the tax ourselves.",
 			null
+
 		],
 		"outcomes": [
 			"Shareholders are angry along with the public. Confidence in the firm has decreased sharply and the fines have added up immensely. Tread carefully.",
@@ -335,19 +387,49 @@
 			null,
 			"The implementation of the employee engagement program was a success. Employee turnover has decreased, and employee productivity has increased. The program has helped to build a stronger sense of community among employees and improve job satisfaction. The cost of the program has been offset by the savings associated with reduced turnover.",
 			"Without the employee engagement program, the high turnover rate continues to negatively impact the company's bottom line. The cost of recruiting and training new hires continues to increase, and productivity is lower due to the loss of experienced employees.",
+			null,
+			"The marketing team is unable to finish the commercial and needs more money than allotted in the marketing budget. The new product does badly in its first week. Next time, get a double kayak!",
+			null,
+			null,
+			"The company gets positive media attention, and more people in our target market are aware of our products. Way to go team!",
+			null,
+			null,
+			"The company’s social media tries to contact Mr. Johnson to defuse the situation, but he refuses to meet with us. Tough luck!",
+			"Mr. Johnson retaliates with a diss track on the company that goes viral. No bad publicity right?",
+			"Mr. Johnson takes the big sum of money we threw at him. He starts promoting the company to his viewers. Money talks!",
+			"The news gets leaked to the public, which assumes the company declined to help the children because of corporate greed. Loyal families stop purchasing from the company. Oh boy!",
+			"The new operation brings in some good PR for the company, but the company is also heavily criticized for its association with the charity. Many loyal customers stop purchasing from the company and the stock price drops. To add insult to injury, the charity has been revealed to be a front for money laundering. Ouch!",
+			"The new operation is a success, and the company receives a lot of good PR. The controversial charity has been revealed to be a front for money laundering. Bullet dodged!",
+			"The investment paid off, despite a slight increase in the inflation rate. Unemployment remained relatively stable compared to inflation in the long run. Our company's profits increased without impact from economic disaster.",
+			"Waiting for the inflation rate to decrease resulted in missed opportunities and potential loss of market share. Our competitors who acted more quickly were able to capture a larger portion of the market.",
+			null,
+			"The increase in advertising expenditures paid off, resulting in a significant increase in revenue and market share. Our company's profits also increased, though the cost of advertising did cut into some of the gains.",
+			"Maintaining current advertising expenditures resulted in slower growth and limited market share gains. While profits were stable, our company may have missed out on potential growth opportunities.",
+			null,
+			"Maintaining our current prices resulted in a slight decrease in profits due to the competitor cutting prices. However, this is far from the worst option. ",
+			"Lowering our prices resulted in a decrease in profits due to a simultaneous decision by the competition to decrease. Shareholders are angry that the price war has mainly negatively impacted our company due to a lack of brand loyalty. Next time, don’t disturb the market leader!",
+			null,
+			"Setting the price lower undercuts the competition allowing our firm to increase sales! In the short run, this strategy worked but now the public views the product as more of an “economy” cheap product. ",
+			"Increasing the price in a market with many substitutes led to a sharp decrease in sales. We lost our competitive advantage and the public now views the product as a “cowboy” brand of low quality but high price. ",
+			null,
+			"Increasing advertising led to a slight increase in demand, but the price ceiling still resulted in a shortage of the product and worsened the problem. This led to frustration among consumers who were unable to purchase the product and a decrease in overall sales volume.",
+			"Increasing production led to a temporary increase in supply, but the price ceiling still resulted in a shortage of the product. The company was able to maintain sales volume, but at a lower price point, resulting in lower profit margins.",
+			null,
+			"Increasing the price of our product led to a decrease in demand, as consumers were less willing to pay the higher price. This resulted in a decrease in overall sales volume, but the company was able to maintain its profit margin.",
+			" Absorbing the cost of the tax ourselves led to a decrease in profit margin, but the company was able to maintain its sales volume and avoid any negative impact on its reputation.",
 			null
 		],
 		"graphs": [
-			0, 0, 0, 0, 15, 14, 13, 0, 15, 14, 0, 0, 0, 0, 2, 1, 0, 9, 0, 7, 0, 0, 0, 0, 10, 12, 10, 3, 1, 0
+			0, 0, 0, 0, 15, 14, 13, 0, 15, 14, 0, 0, 0, 0, 2, 1, 0, 9, 0, 7, 0, 0, 0, 0, 10, 12, 10, 3, 1, 0, 0, 0, 0, 0, 16, 9, 0, 1, 4, 5
 		],
 		"profiteffects": [
-			-0.2, -0.2, -0.2, 0.05, 0.05, 0.05, 0.25, 0, 0, 0, 0, 0.04, 0.05, 0, 0, -0.05, 0.1, 0, 0.1, 0, 0, 0.06, 0.03, 0, 0.04, 0, 0, 0.08, 0, 0, -0.1, -0.1, -0.1, 0.15, 0.15, 0.15, -0.03, -0.03, 0.03, -0.07, -0.05, 0.00, 0.15, -0.1, 0, 0.1, -0.05, 0, 0.15, -0.1, 0, -0.05, 0.1, 0, 0.02, -0.07, 0, -0.1, 0.05, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.02, 0, 0, -0.05, 0, 0, -0.05, 0, 0, -0.1, 0, 0, -0.05, 0.1, 0, 0.15, 0, 0, 0.05, -0.05, 0
+			-0.2, -0.2, -0.2, 0.05, 0.05, 0.05, 0.25, 0, 0, 0, 0, 0.04, 0.05, 0, 0, -0.05, 0.1, 0, 0.1, 0, 0, 0.06, 0.03, 0, 0.04, 0, 0, 0.08, 0, 0, -0.1, -0.1, -0.1, 0.15, 0.15, 0.15, -0.03, -0.03, 0.03, -0.07, -0.05, 0.00, 0.15, -0.1, 0, 0.1, -0.05, 0, 0.15, -0.1, 0, -0.05, 0.1, 0, 0.02, -0.07, 0, -0.1, 0.05, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.02, 0, 0, -0.05, 0, 0, -0.05, 0, 0, -0.1, 0, 0, -0.05, 0.1, 0, 0.15, 0, 0, 0.05, -0.05, 0, -0.02, -0.02, -0.02, 0.03, 0.03, 0.03, -0.01, 0, -0.01, -0.01, -0.03, 0, 0.07, -0.05, 0, 0.05, 0, 0, -0.08, -0.15, 0, 0.05, -0.1, 0, -0.01, -0.04, 0, 0.02, -0.02, 0
 		],
 		"stakeholdereffects": [
-			-0.4, -0.4, -0.4, 0.25, 0.25, 0.25, -0.02, -0.1, 0, 0.15, -0.2, 0.05, 0.1, -0.05, 0, -0.15, 0.1, 0, 0.05, -0.05, 0, 0.15, -0.1, 0, 0.08, -0.05, 0, 0.1, -0.05, 0, -0.05, -0.05, -0.05, 0.2, 0.2, 0.2, -0.03, -0.05, 0.05, 0, -0.03, 0.05, 0.15, -0.1, 0, 0.05, 0, 0, 0.05, -0.05, 0, 0.05, 0.1, 0, 0.05, 0.1, 0, 0.05, -0.05, 0, -0.02, -0.02, -0.02, 0.08, 0.08, 0.08, 0, -0.01, 0, 0.02, 0.01, -0.03, 0.1, -0.05, 0, 0.1, -0.05, 0, 0.1, -0.05, 0, 0.1, -0.1, 0, 0.1, -0.05, 0, 0.1, -0.1, 0
+			-0.4, -0.4, -0.4, 0.25, 0.25, 0.25, -0.02, -0.1, 0, 0.15, -0.2, 0.05, 0.1, -0.05, 0, -0.15, 0.1, 0, 0.05, -0.05, 0, 0.15, -0.1, 0, 0.08, -0.05, 0, 0.1, -0.05, 0, -0.05, -0.05, -0.05, 0.2, 0.2, 0.2, -0.03, -0.05, 0.05, 0, -0.03, 0.05, 0.15, -0.1, 0, 0.05, 0, 0, 0.05, -0.05, 0, 0.05, 0.1, 0, 0.05, 0.1, 0, 0.05, -0.05, 0, -0.02, -0.02, -0.02, 0.08, 0.08, 0.08, 0, -0.01, 0, 0.02, 0.01, -0.03, 0.1, -0.05, 0, 0.1, -0.05, 0, 0.1, -0.05, 0, 0.1, -0.1, 0, 0.1, -0.05, 0, 0.1, -0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.05, 0, 0.1, -0.1, 0, 0.1, -0.05, 0, -0.03, -0.1, 0, 0.05, -0.05, 0, -0.03, 0.03, 0, -0.01, 0.01, 0
 		],
 		"publicimgeffects": [
-			-0.4, -0.4, -0.4, -0.05, -0.05, -0.05, -0.02, 0.15, 0, 0, 0, 0.02, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.05, -0.05, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.01, 0.01, 0.01, 0, 0, 0, -0.05, 0.07, -0.03, 0.1, -0.15, 0, 0.05, 0, 0, 0, 0, 0, 0, 0.05, 0, 0.01, 0.08, 0, -0.05, 0.05, 0, -0.04, -0.04, -0.04, 0.02, 0.02, 0.02, 0, -0.05, 0, 0, 0, -0.03, 0.05, -0.1, 0, 0.05, -0.1, 0, 0, -0.05, 0, 0.05, -0.2, 0, 0.05, 0, 0, 0.1, -0.1, 0
+			-0.4, -0.4, -0.4, -0.05, -0.05, -0.05, -0.02, 0.15, 0, 0, 0, 0.02, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.05, -0.05, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.01, 0.01, 0.01, 0, 0, 0, -0.05, 0.07, -0.03, 0.1, -0.15, 0, 0.05, 0, 0, 0, 0, 0, 0, 0.05, 0, 0.01, 0.08, 0, -0.05, 0.05, 0, -0.04, -0.04, -0.04, 0.02, 0.02, 0.02, 0, -0.05, 0, 0, 0, -0.03, 0.05, -0.1, 0, 0.05, -0.1, 0, 0, -0.05, 0, 0.05, -0.2, 0, 0.05, 0, 0, 0.1, -0.1, 0, 0, 0, 0, 0.03, 0.03, 0.03, -0.02, -0.05, 0.02, -0.02, -0.1, 0.04, 0, -0.05, 0, 0, 0, 0, 0, -0.05, 0, -0.02, -0.1, 0, -0.08, 0.01, 0, -0.01, 0.02
 		]
 	}
 }
