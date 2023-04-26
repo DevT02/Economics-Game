@@ -140,12 +140,15 @@ func button_pressed():
 	if $MarginContainer/NinePatchRect.visible == true:
 				
 		if group.get_pressed_button() == group.get_buttons()[0]:
+#			print("pressed one")
 			updateEffects(button1Index)		
 			fadeOut()
 		elif group.get_pressed_button() == group.get_buttons()[1]:
+#			print("pressed two")
 			updateEffects(button2Index)
 			fadeOut()
 		elif group.get_pressed_button() == group.get_buttons()[2]:
+#			print("pressed three")
 			updateEffects(button3Index)
 			fadeOut()
 #		print(profit)
@@ -269,7 +272,7 @@ func _nextEvent(eventIndex):
 			$MarginContainer/NinePatchRect/button3Label.text = emptyOptionText
 		else:
 #			print("got here !!!!!!")
-			# 1 ARE NULL then
+			# data 2 is null, data 1 isnt null, data3 isnt null
 			swapIndexes(2, 3)	
 			$MarginContainer/NinePatchRect/button1Label.text = data1
 			$MarginContainer/NinePatchRect/button2Label.text = data3
@@ -320,9 +323,9 @@ func _nextEvent(eventIndex):
 		$MarginContainer/NinePatchRect/button3Label.visible = false
 	# final check! because we do not reset pick any option, if there are still some left, we need to account for it!
 
-	print("button3Index ", button3Index)
-	print("button2Index ", button2Index)
-	print("button1Index ", button1Index)
+#	print("button3Index ", button3Index)
+#	print("button2Index ", button2Index)
+#	print("button1Index ", button1Index)
 #	print('✔ passed checks')
 
 	# the order of used_numbers3 will correspond to the option choices publically stored...
@@ -344,8 +347,8 @@ func swapIndexes(buttonpassedIndex1, buttonpassedIndex2):
 	# swap 2, 3
 	elif buttonpassedIndex1 == 2 && buttonpassedIndex2 == 3 || buttonpassedIndex1 == 3 && buttonpassedIndex2 == 2:	
 		temp = button2Index
-		button3Index = button2Index
-		button2Index = temp
+		button2Index = button3Index
+		button3Index = temp
 	# allow reversible params
 	elif buttonpassedIndex1 == 3 && buttonpassedIndex2 == 1 || buttonpassedIndex1 == 1 && buttonpassedIndex2 == 3:
 		temp = button3Index
@@ -366,8 +369,8 @@ func updateEffects(outcomeIndex):
 	# load text first then logic
 	get_node_or_null("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").text = ""
 	var text = data[current_company][current_outcomes][outcomeIndex]
-	print(text)
-	print(outcomeIndex)
+#	print(text)
+#	print(outcomeIndex)
 	# stop everything if data is null
 	if text != null:
 		get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").text = text
@@ -420,7 +423,7 @@ func updateEffects(outcomeIndex):
 			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", Color8(241, 255, 0, 255))
 		4:
 			# (cool effect maybe? or if == 0)
-			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", Color8(0, 0, 255, 100))
+			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", "#00FFFF")
 
 	current_company = current_company_copied
 	pressedButton = outcomeIndex;
