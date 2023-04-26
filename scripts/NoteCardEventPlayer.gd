@@ -78,9 +78,9 @@ func init():
 # on ready
 func _ready():
 	randomize()
-	$NinePatchRect.visible = false
-	$NinePatchRect2.visible = false
-	get_node_or_null("../EffectsPopUp/Tween/NinePatchRect/Label").visible = false
+	$MarginContainer/NinePatchRect.visible = false
+	$MarginContainer/NinePatchRect2.visible = false
+	get_node_or_null("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").visible = false
 	for i in group.get_buttons():
 		i.connect("pressed", self, "button_pressed")
 	data = load_data()
@@ -136,7 +136,7 @@ func load_data():
 		
 # connect button press with on_ready
 func button_pressed():
-	if $NinePatchRect.visible == true:
+	if $MarginContainer/NinePatchRect.visible == true:
 				
 		if group.get_pressed_button() == group.get_buttons()[0]:
 			updateEffects(button1Index)		
@@ -182,33 +182,33 @@ func randomizeEvents():
 	_nextEvent(get_random_index(current_division + "_general"))
 
 func fadeIn():
-	$AnimationPlayer.play("fade_in")
+	$MarginContainer/AnimationPlayer.play("fade_in")
 #	print('fading in')
 	dialogue_active = true
-	$NinePatchRect.visible = true
+	$MarginContainer/NinePatchRect.visible = true
 
 func fadeOut():
-	$AnimationPlayer.play("fade_out")
+	$MarginContainer/AnimationPlayer.play("fade_out")
 	get_tree().get_root().set_disable_input(true)
 	yield(get_tree().create_timer(1), "timeout")
 	get_tree().get_root().set_disable_input(false)
-	$NinePatchRect.visible = false
+	$MarginContainer/NinePatchRect.visible = false
 	dialogue_active = false
 
 	
 func _nextEvent(eventIndex):
 #	print(eventIndex, " event index")
-	$NinePatchRect/ToLabel.text = current_name
+	$MarginContainer/NinePatchRect/ToLabel.text = current_name
 	# fromLabels correspond with messageLabel (in size)
 	#print(data[current_company][from_events])
 	var graphNumber = data[current_company][graphs][eventIndex]
 	if graphNumber != 0:
 		group.get_buttons()[3].visible = true
-		$NinePatchRect2/TextureRect.texture = load("res://assets//graphs//" + "graph" + str(graphNumber) + ".svg")
+		$MarginContainer/NinePatchRect2/TextureRect.texture = load("res://assets//graphs//" + "graph" + str(graphNumber) + ".svg")
 	else:
 		group.get_buttons()[3].visible = false
-	$NinePatchRect/FromLabel.text = data[current_company][from_events][eventIndex] 
-	$NinePatchRect/MessageLabel.text = data[current_company][current_events][eventIndex]
+	$MarginContainer/NinePatchRect/FromLabel.text = data[current_company][from_events][eventIndex] 
+	$MarginContainer/NinePatchRect/MessageLabel.text = data[current_company][current_events][eventIndex]
 
 	var button1 = (eventIndex) * 3 + (get_random_number_in_range(1, 3, known_numbers))
 	var button2 = (eventIndex) * 3 + (get_random_number_in_range(1, 3, known_numbers))
@@ -239,23 +239,23 @@ func _nextEvent(eventIndex):
 	## ensure first two choices are filled to give optimal strategy
 	if data1isNull && data2isNull && data3isNull:
 #		print('nulldata')
-		$NinePatchRect/button1Label.text = allNullText
-		$NinePatchRect/button2Label.text = allNullText
-		$NinePatchRect/button3Label.text = allNullText
+		$MarginContainer/NinePatchRect/button1Label.text = allNullText
+		$MarginContainer/NinePatchRect/button2Label.text = allNullText
+		$MarginContainer/NinePatchRect/button3Label.text = allNullText
 	elif data1isNull && not data2isNull:
 #		print('X MARK X MARK data1 null')
 		if not data3isNull:
 			swapIndexes(1, 3)
-			$NinePatchRect/button1Label.text = data3
-			$NinePatchRect/button2Label.text = data2
-			$NinePatchRect/button3Label.text = emptyOptionText
+			$MarginContainer/NinePatchRect/button1Label.text = data3
+			$MarginContainer/NinePatchRect/button2Label.text = data2
+			$MarginContainer/NinePatchRect/button3Label.text = emptyOptionText
 			notOnlyTwoOptions = false
 		else:
 			swapIndexes(1, 2)
-			$NinePatchRect/button1Label.text = data2
+			$MarginContainer/NinePatchRect/button1Label.text = data2
 		if data2isNull:
 #			print("bro is bro")
-			$NinePatchRect/button2Label.text = emptyOptionText
+			$MarginContainer/NinePatchRect/button2Label.text = emptyOptionText
 	elif data2isNull && not data3isNull:
 #		print('X MARK X MARK data1 null 2')
 		# move 3rd option up in sorter!!
@@ -263,60 +263,60 @@ func _nextEvent(eventIndex):
 #			print("go there")
 			# 2 ARE NULL then
 			swapIndexes(1, 3)
-			$NinePatchRect/button1Label.text = data3
-			$NinePatchRect/button2Label.text = emptyOptionText
-			$NinePatchRect/button3Label.text = emptyOptionText
+			$MarginContainer/NinePatchRect/button1Label.text = data3
+			$MarginContainer/NinePatchRect/button2Label.text = emptyOptionText
+			$MarginContainer/NinePatchRect/button3Label.text = emptyOptionText
 		else:
 #			print("got here !!!!!!")
 			# 1 ARE NULL then
 			swapIndexes(2, 3)	
-			$NinePatchRect/button1Label.text = data1
-			$NinePatchRect/button2Label.text = data3
-			$NinePatchRect/button3Label.text = emptyOptionText
+			$MarginContainer/NinePatchRect/button1Label.text = data1
+			$MarginContainer/NinePatchRect/button2Label.text = data3
+			$MarginContainer/NinePatchRect/button3Label.text = emptyOptionText
 			notOnlyTwoOptions = false
 			
 		if not data2isNull:
-			$NinePatchRect/button3Label.text = emptyOptionText
+			$MarginContainer/NinePatchRect/button3Label.text = emptyOptionText
 			swapIndexes(1, 2)	
-			$NinePatchRect/button1Label.text = data3
-			$NinePatchRect/button2Label.text = emptyOptionText
-			$NinePatchRect/button3Label.text = emptyOptionText
+			$MarginContainer/NinePatchRect/button1Label.text = data3
+			$MarginContainer/NinePatchRect/button2Label.text = emptyOptionText
+			$MarginContainer/NinePatchRect/button3Label.text = emptyOptionText
 				
 
 	elif data3isNull:
 #		print('bro is asjajsdksjljk')
-		$NinePatchRect/button3Label.text = emptyOptionText
+		$MarginContainer/NinePatchRect/button3Label.text = emptyOptionText
 		if not data2isNull:
-			$NinePatchRect/button2Label.text = data2
-			$NinePatchRect/button1Label.text = data1
+			$MarginContainer/NinePatchRect/button2Label.text = data2
+			$MarginContainer/NinePatchRect/button1Label.text = data1
 			notOnlyTwoOptions = false
 		else:
-			$NinePatchRect/button2Label.text = emptyOptionText
+			$MarginContainer/NinePatchRect/button2Label.text = emptyOptionText
 	else: 
-		$NinePatchRect/button1Label.text = data1 if data1 != null else ''
-		$NinePatchRect/button2Label.text = data2 if data2 != null else ''
-		$NinePatchRect/button3Label.text = data3 if data3 != null else ''
+		$MarginContainer/NinePatchRect/button1Label.text = data1 if data1 != null else ''
+		$MarginContainer/NinePatchRect/button2Label.text = data2 if data2 != null else ''
+		$MarginContainer/NinePatchRect/button3Label.text = data3 if data3 != null else ''
 		
 #	print(!notOnlyTwoOptions, " yo there r two options lol")
 	
 	if notOnlyTwoOptions:
-		$NinePatchRect/Option1Button.margin_bottom = 254
-		$NinePatchRect/Option2Button.margin_top = 261
-		$NinePatchRect/Option2Button.margin_bottom = 292
-		$NinePatchRect/Option3Button.visible = true
-		$NinePatchRect/button1Label.margin_bottom = 254
-		$NinePatchRect/button2Label.margin_top = 261
-		$NinePatchRect/button2Label.margin_bottom = 292
-		$NinePatchRect/button3Label.visible = true
+		$MarginContainer/NinePatchRect/Option1Button.margin_bottom = 254
+		$MarginContainer/NinePatchRect/Option2Button.margin_top = 261
+		$MarginContainer/NinePatchRect/Option2Button.margin_bottom = 292
+		$MarginContainer/NinePatchRect/Option3Button.visible = true
+		$MarginContainer/NinePatchRect/button1Label.margin_bottom = 254
+		$MarginContainer/NinePatchRect/button2Label.margin_top = 261
+		$MarginContainer/NinePatchRect/button2Label.margin_bottom = 292
+		$MarginContainer/NinePatchRect/button3Label.visible = true
 	else:
-		$NinePatchRect/Option1Button.margin_bottom = 273
-		$NinePatchRect/Option2Button.margin_top = 282
-		$NinePatchRect/Option2Button.margin_bottom = 330
-		$NinePatchRect/Option3Button.visible = false
-		$NinePatchRect/button1Label.margin_bottom = 273
-		$NinePatchRect/button2Label.margin_top = 282
-		$NinePatchRect/button2Label.margin_bottom = 330
-		$NinePatchRect/button3Label.visible = false
+		$MarginContainer/NinePatchRect/Option1Button.margin_bottom = 273
+		$MarginContainer/NinePatchRect/Option2Button.margin_top = 282
+		$MarginContainer/NinePatchRect/Option2Button.margin_bottom = 330
+		$MarginContainer/NinePatchRect/Option3Button.visible = false
+		$MarginContainer/NinePatchRect/button1Label.margin_bottom = 273
+		$MarginContainer/NinePatchRect/button2Label.margin_top = 282
+		$MarginContainer/NinePatchRect/button2Label.margin_bottom = 330
+		$MarginContainer/NinePatchRect/button3Label.visible = false
 	# final check! because we do not reset pick any option, if there are still some left, we need to account for it!
 
 		
@@ -328,7 +328,7 @@ func _nextEvent(eventIndex):
 	if eventId >= len(data):
 		print("uh oh.. data is too small!")
 		dialogue_active = false
-		$NinePatchRect.visible = false 
+		$MarginContainer/NinePatchRect.visible = false 
 		return	
 	
 func swapIndexes(buttonpassedIndex1, buttonpassedIndex2):
@@ -364,16 +364,16 @@ func updateEffects(outcomeIndex):
 	var text = data[current_company][current_outcomes][outcomeIndex]
 	# stop everything if data is null
 	if text != null:
-		get_node("../EffectsPopUp/Tween/NinePatchRect/Label").text = text
+		get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").text = text
 	else:
 		updateNumericalEffects(outcomeIndex)
 		return
 	
-	get_node("../EffectsPopUp/Tween/NinePatchRect/Label").visible = true
-	get_node("../EffectsPopUp/Tween/NinePatchRect/Label").visible_characters = 0
+	get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").visible = true
+	get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").visible_characters = 0
 	var text_length = len(text)
 	var text_reveal_speed = text_length * text_speed
-	get_node("../EffectsPopUp/Tween/").interpolate_property(get_node("../EffectsPopUp/Tween/NinePatchRect/Label"), "visible_characters", 0, text_length, text_reveal_speed, Tween.TRANS_LINEAR)
+	get_node("../EffectsPopUp/Tween/").interpolate_property(get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label"), "visible_characters", 0, text_length, text_reveal_speed, Tween.TRANS_LINEAR)
 	get_node("../EffectsPopUp/Tween/").start()
 
 	var profit_percent_diff = data[current_company][current_outcome_profit][outcomeIndex]
@@ -402,16 +402,16 @@ func updateEffects(outcomeIndex):
 	match buttonEffect:
 		0:
 			# (GREEN)
-			get_node("../EffectsPopUp/Tween/NinePatchRect/Label").add_color_override("font_color", Color8(0, 255, 52, 255))
+			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", Color8(0, 255, 52, 255))
 		1:
 			# (RED) 
-			get_node("../EffectsPopUp/Tween/NinePatchRect/Label").add_color_override("font_color", Color8(255, 0, 0, 255))
+			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", Color8(255, 0, 0, 255))
 		2:
 			# (YELLOW)
-			get_node("../EffectsPopUp/Tween/NinePatchRect/Label").add_color_override("font_color", Color8(241, 255, 0, 255))
+			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", Color8(241, 255, 0, 255))
 		4:
 			# (cool effect maybe? or if == 0)
-			get_node("../EffectsPopUp/Tween/NinePatchRect/Label").add_color_override("font_color", Color8(0, 0, 255, 255))
+			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", Color8(0, 0, 255, 255))
 
 	current_company = current_company_copied
 	pressedButton = outcomeIndex;
@@ -478,13 +478,13 @@ func _input(event):
 func _on_Option4Button_pressed():
 	for button in group.get_buttons():
 		button.disabled = true
-	$NinePatchRect.modulate.a8 = 80
-	$NinePatchRect2.visible = true
+	$MarginContainer/NinePatchRect.modulate.a8 = 80
+	$MarginContainer/NinePatchRect2.visible = true
 
 
 func _on_Button_pressed():
 	for button in group.get_buttons():
 		if (button.text != emptyOptionText):
 			button.disabled = false
-	$NinePatchRect.modulate.a8 = 255
-	$NinePatchRect2.visible = false
+	$MarginContainer/NinePatchRect.modulate.a8 = 255
+	$MarginContainer/NinePatchRect2.visible = false

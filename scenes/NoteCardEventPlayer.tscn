@@ -72,11 +72,23 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("MarginContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "fade_in"
 tracks/0/type = "value"
-tracks/0/path = NodePath("NinePatchRect:modulate")
+tracks/0/path = NodePath("MarginContainer:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -91,7 +103,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=8]
 resource_name = "fade_out"
 tracks/0/type = "value"
-tracks/0/path = NodePath("NinePatchRect:modulate")
+tracks/0/path = NodePath("MarginContainer:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -121,20 +133,23 @@ script = ExtResource( 5 )
 data_file = "res://assets/interactions/data.json"
 group = ExtResource( 2 )
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 360.0
-margin_top = 135.0
-margin_right = 876.0
-margin_bottom = 483.0
-rect_scale = Vector2( 2.25, 2.25 )
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 614.0
+margin_top = 247.0
+margin_right = 1121.0
+margin_bottom = 594.0
+rect_scale = Vector2( 2.5, 2.5 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+margin_right = 507.0
+margin_bottom = 347.0
 size_flags_vertical = 3
 texture = ExtResource( 1 )
 region_rect = Rect2( 17.7647, 38.359, 187.318, 139.234 )
 patch_margin_left = 1
 patch_margin_top = 9
 
-[node name="ToLabel" type="RichTextLabel" parent="NinePatchRect"]
+[node name="ToLabel" type="RichTextLabel" parent="MarginContainer/NinePatchRect"]
 margin_left = 67.0
 margin_top = 45.0
 margin_right = 457.0
@@ -144,7 +159,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 text = "To "
 
-[node name="FromLabel" type="RichTextLabel" parent="NinePatchRect"]
+[node name="FromLabel" type="RichTextLabel" parent="MarginContainer/NinePatchRect"]
 margin_left = 92.0
 margin_top = 12.0
 margin_right = 499.0
@@ -153,8 +168,11 @@ custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 text = "From"
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="MessageLabel" type="RichTextLabel" parent="NinePatchRect"]
+[node name="MessageLabel" type="RichTextLabel" parent="MarginContainer/NinePatchRect"]
 margin_left = 40.0
 margin_top = 84.0
 margin_right = 472.0
@@ -168,7 +186,7 @@ custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 2 )
 text = "Message"
 
-[node name="Option1Button" type="Button" parent="NinePatchRect"]
+[node name="Option1Button" type="Button" parent="MarginContainer/NinePatchRect"]
 margin_left = 30.0
 margin_top = 223.0
 margin_right = 484.0
@@ -184,7 +202,7 @@ custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
 group = ExtResource( 2 )
 
-[node name="Option2Button" type="Button" parent="NinePatchRect"]
+[node name="Option2Button" type="Button" parent="MarginContainer/NinePatchRect"]
 margin_left = 30.0
 margin_top = 261.0
 margin_right = 484.0
@@ -198,7 +216,7 @@ custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
 group = ExtResource( 2 )
 
-[node name="Option3Button" type="Button" parent="NinePatchRect"]
+[node name="Option3Button" type="Button" parent="MarginContainer/NinePatchRect"]
 margin_left = 30.0
 margin_top = 299.0
 margin_right = 484.0
@@ -213,7 +231,7 @@ custom_fonts/font = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
 group = ExtResource( 2 )
 
-[node name="Option4Button" type="Button" parent="NinePatchRect"]
+[node name="Option4Button" type="Button" parent="MarginContainer/NinePatchRect"]
 margin_left = 379.0
 margin_top = 39.0
 margin_right = 502.0
@@ -226,7 +244,7 @@ custom_styles/normal = SubResource( 10 )
 group = ExtResource( 2 )
 text = "Graph Hint"
 
-[node name="Label2" type="Label" parent="NinePatchRect"]
+[node name="Label2" type="Label" parent="MarginContainer/NinePatchRect"]
 margin_left = 16.0
 margin_top = 12.0
 margin_right = 81.0
@@ -236,7 +254,7 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 5 )
 text = "From:"
 
-[node name="Label" type="Label" parent="NinePatchRect"]
+[node name="Label" type="Label" parent="MarginContainer/NinePatchRect"]
 margin_left = 16.0
 margin_top = 45.0
 margin_right = 55.0
@@ -246,7 +264,7 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 5 )
 text = "To:"
 
-[node name="button1Label" type="Label" parent="NinePatchRect"]
+[node name="button1Label" type="Label" parent="MarginContainer/NinePatchRect"]
 margin_left = 31.0
 margin_top = 225.0
 margin_right = 482.0
@@ -259,7 +277,7 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="button2Label" type="Label" parent="NinePatchRect"]
+[node name="button2Label" type="Label" parent="MarginContainer/NinePatchRect"]
 margin_left = 32.0
 margin_top = 263.0
 margin_right = 482.0
@@ -272,7 +290,7 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="button3Label" type="Label" parent="NinePatchRect"]
+[node name="button3Label" type="Label" parent="MarginContainer/NinePatchRect"]
 margin_left = 32.0
 margin_top = 301.0
 margin_right = 482.0
@@ -285,21 +303,20 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer"]
+root_node = NodePath("../..")
 anims/RESET = SubResource( 6 )
 anims/fade_in = SubResource( 7 )
 anims/fade_out = SubResource( 8 )
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+[node name="NinePatchRect2" type="NinePatchRect" parent="MarginContainer"]
 visible = false
-margin_left = 721.0
-margin_top = 292.0
-margin_right = 1155.0
-margin_bottom = 771.0
+margin_right = 507.0
+margin_bottom = 347.0
 texture = ExtResource( 1 )
 region_rect = Rect2( 18, 39, 188, 138 )
 
-[node name="TextureRect" type="TextureRect" parent="NinePatchRect2"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/NinePatchRect2"]
 margin_left = 4.0
 margin_top = -2.0
 margin_right = 464.0
@@ -308,7 +325,7 @@ texture = ExtResource( 6 )
 expand = true
 stretch_mode = 6
 
-[node name="Button" type="Button" parent="NinePatchRect2"]
+[node name="Button" type="Button" parent="MarginContainer/NinePatchRect2"]
 margin_left = 95.0
 margin_top = 402.0
 margin_right = 336.0
@@ -320,5 +337,5 @@ custom_fonts/font = SubResource( 11 )
 custom_styles/normal = SubResource( 12 )
 text = "I think I got it!"
 
-[connection signal="pressed" from="NinePatchRect/Option4Button" to="." method="_on_Option4Button_pressed"]
-[connection signal="pressed" from="NinePatchRect2/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MarginContainer/NinePatchRect/Option4Button" to="." method="_on_Option4Button_pressed"]
+[connection signal="pressed" from="MarginContainer/NinePatchRect2/Button" to="." method="_on_Button_pressed"]

@@ -69,24 +69,26 @@ script = ExtResource( 5 )
 group = ExtResource( 6 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_right = 1023.0
-margin_bottom = 600.0
-rect_scale = Vector2( 1.873, 1.801 )
+margin_top = 3.0
+margin_right = 1917.0
+margin_bottom = 1039.0
+rect_scale = Vector2( 1.336, 1.28 )
 
 [node name="AdvancedSelection" parent="MarginContainer" instance=ExtResource( 7 )]
-visible = false
 group = SubResource( 16 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
-margin_right = 1025.0
-margin_bottom = 600.0
+margin_right = 1917.0
+margin_bottom = 1036.0
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 1
 
 [node name="Label" type="Label" parent="MarginContainer/TextureRect"]
-margin_right = 1022.0
-margin_bottom = 140.0
+margin_left = 157.303
+margin_top = 1.5625
+margin_right = 1179.3
+margin_bottom = 141.563
 rect_pivot_offset = Vector2( -36, 168 )
 size_flags_horizontal = 0
 custom_colors/font_color = Color( 0.286275, 0.266667, 0.266667, 1 )
@@ -145,10 +147,10 @@ text = "Jonathan D"
 [node name="AdvancedSettingsButton" type="Button" parent="MarginContainer/TextureRect"]
 anchor_left = -0.395
 anchor_right = -0.388
-margin_left = 846.236
-margin_top = 540.255
-margin_right = 1023.24
-margin_bottom = 601.255
+margin_left = 1628.02
+margin_top = 917.969
+margin_right = 1805.03
+margin_bottom = 978.969
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource( 14 )

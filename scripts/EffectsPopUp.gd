@@ -12,7 +12,7 @@ func _ready():
 
 func _on_Tween_tween_completed(object, key):
 	yield(get_tree().create_timer(2.0), "timeout")
-	$Tween/NinePatchRect/Label.visible = false
+	$Tween/MarginContainer/NinePatchRect/Label.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

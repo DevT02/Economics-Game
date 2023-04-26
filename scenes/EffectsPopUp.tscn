@@ -16,15 +16,15 @@ script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="."]
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Tween"]
-anchor_top = -0.004
-anchor_right = 0.004
-anchor_bottom = 0.002
-margin_left = 1346.0
-margin_top = 7.32
-margin_right = 1920.32
-margin_bottom = 206.84
-rect_scale = Vector2( 0.987, 1 )
+[node name="MarginContainer" type="MarginContainer" parent="Tween"]
+margin_left = 1995.0
+margin_top = 8.0
+margin_right = 2553.0
+margin_bottom = 246.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Tween/MarginContainer"]
+margin_right = 558.0
+margin_bottom = 238.0
 texture = ExtResource( 3 )
 region_rect = Rect2( 400, 147, 128, 106 )
 patch_margin_left = 63
@@ -32,10 +32,10 @@ patch_margin_top = 2
 patch_margin_right = 60
 patch_margin_bottom = 4
 
-[node name="Label" type="Label" parent="Tween/NinePatchRect"]
+[node name="Label" type="Label" parent="Tween/MarginContainer/NinePatchRect"]
 margin_left = 27.0
 margin_top = 16.0
-margin_right = 556.0
+margin_right = 532.0
 margin_bottom = 189.0
 size_flags_stretch_ratio = 0.0
 theme = SubResource( 1 )

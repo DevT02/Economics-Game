@@ -32,7 +32,7 @@ func _on_AdvancedSettingsButton_pressed():
 	else:
 		var new_stylebox_normal = $MarginContainer/TextureRect/AdvancedSettingsButton.get_stylebox("normal").duplicate()
 		
-		updateButton(new_stylebox_normal, "Pick a character to continue!", "##FF0000", Color8(255, 17, 17, 255))
+		updateButton(new_stylebox_normal, "Pick a character to continue!", "#FF0000", Color8(255, 17, 17, 255))
 		yield(get_tree().create_timer(1), "timeout")
 		updateButton(new_stylebox_normal, "Continue!", "#44ffffff", Color8(255, 255, 255, 255))
 
