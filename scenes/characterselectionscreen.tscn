@@ -78,7 +78,7 @@ visible = false
 group = SubResource( 16 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
-margin_right = 1023.0
+margin_right = 1025.0
 margin_bottom = 600.0
 texture = ExtResource( 3 )
 expand = true
