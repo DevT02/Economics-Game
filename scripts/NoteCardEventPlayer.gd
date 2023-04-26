@@ -402,16 +402,18 @@ func updateEffects(outcomeIndex):
 	match buttonEffect:
 		0:
 			# (GREEN)
-			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", Color8(0, 255, 52, 255))
+			
+			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", Color8(0, 255, 0, 255))
+			
 		1:
 			# (RED) 
-			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", Color8(255, 0, 0, 255))
+			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", "#FF033E")
 		2:
 			# (YELLOW)
 			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", Color8(241, 255, 0, 255))
 		4:
 			# (cool effect maybe? or if == 0)
-			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", Color8(0, 0, 255, 255))
+			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", Color8(0, 0, 255, 220))
 
 	current_company = current_company_copied
 	pressedButton = outcomeIndex;
