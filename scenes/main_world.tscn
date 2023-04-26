@@ -818,7 +818,9 @@ shape = SubResource( 13 )
 position = Vector2( 0, 260 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( -4, -2 )
 current = true
-smoothing_enabled = true
-smoothing_speed = 10.0
+limit_left = -2878
+limit_top = -1343
+limit_right = 3079
+limit_bottom = 2693
+editor_draw_limits = true
