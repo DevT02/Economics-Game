@@ -68,7 +68,6 @@ rect_pivot_offset = Vector2( 1000, -170 )
 size_flags_vertical = 1
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 1, 0.945098, 0.945098, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Economics  Simulator
 "
