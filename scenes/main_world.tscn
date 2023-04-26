@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://scenes/NoteCardEventPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/EffectsPopUp.tscn" type="PackedScene" id=2]
@@ -714,6 +714,12 @@ extents = Vector2( 225.5, 28.75 )
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 165.25, 35.75 )
 
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 2987.5, 31 )
+
+[sub_resource type="RectangleShape2D" id=29]
+extents = Vector2( 27.6875, 2041.25 )
+
 [node name="main_world" type="Node2D"]
 
 [node name="TileMapLogos" type="TileMap" parent="."]
@@ -824,3 +830,21 @@ limit_top = -1343
 limit_right = 3079
 limit_bottom = 2693
 editor_draw_limits = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 113.5, -1367 )
+shape = SubResource( 28 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 3090, 688 )
+shape = SubResource( 29 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -2887.69, 673.75 )
+shape = SubResource( 29 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 105, 2690 )
+shape = SubResource( 28 )
