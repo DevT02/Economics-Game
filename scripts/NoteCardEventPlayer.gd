@@ -80,6 +80,7 @@ func _ready():
 	randomize()
 	$MarginContainer/NinePatchRect.visible = false
 	$MarginContainer/NinePatchRect2.visible = false
+	get_node_or_null("../EffectsPopUp/Tween/MarginContainer").visible = false
 	get_node_or_null("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").visible = false
 	for i in group.get_buttons():
 		i.connect("pressed", self, "button_pressed")
@@ -319,7 +320,9 @@ func _nextEvent(eventIndex):
 		$MarginContainer/NinePatchRect/button3Label.visible = false
 	# final check! because we do not reset pick any option, if there are still some left, we need to account for it!
 
-		
+	print("button3Index ", button3Index)
+	print("button2Index ", button2Index)
+	print("button1Index ", button1Index)
 #	print('✔ passed checks')
 
 	# the order of used_numbers3 will correspond to the option choices publically stored...
@@ -361,15 +364,21 @@ func erase():
 func updateEffects(outcomeIndex):
 	# see in this function, we dont have to worry about null values as they will be set to 0
 	# load text first then logic
+	get_node_or_null("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").text = ""
 	var text = data[current_company][current_outcomes][outcomeIndex]
+	print(text)
+	print(outcomeIndex)
 	# stop everything if data is null
 	if text != null:
 		get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").text = text
 	else:
 		updateNumericalEffects(outcomeIndex)
 		return
-	
-	get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").visible = true
+
+	get_node_or_null("../EffectsPopUp/Tween/MarginContainer").visible = true
+	get_node_or_null("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").visible = true
+
+	get_node("../EffectsPopUp/AnimationPlayer").play("fade_in")
 	get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").visible_characters = 0
 	var text_length = len(text)
 	var text_reveal_speed = text_length * text_speed
@@ -402,9 +411,7 @@ func updateEffects(outcomeIndex):
 	match buttonEffect:
 		0:
 			# (GREEN)
-			
 			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", Color8(0, 255, 0, 255))
-			
 		1:
 			# (RED) 
 			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", "#FF7F7F")
