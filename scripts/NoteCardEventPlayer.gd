@@ -390,9 +390,9 @@ func updateEffects(outcomeIndex):
 #	print(avgOfAllDiff)
 	if avgOfAllDiff < 0:
 		buttonEffect = 1
-	elif avgOfAllDiff > 0 && avgOfAllDiff < 0.03:
+	elif avgOfAllDiff > 0 && avgOfAllDiff < 0.025:
 		buttonEffect = 2
-	elif avgOfAllDiff >= 0.03 && avgOfAllDiff < 1:
+	elif avgOfAllDiff >= 0.025 && avgOfAllDiff < 1:
 		buttonEffect = 0
 	else:
 #		# idk?
@@ -407,13 +407,13 @@ func updateEffects(outcomeIndex):
 			
 		1:
 			# (RED) 
-			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", "#FF033E")
+			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", "#FF7F7F")
 		2:
 			# (YELLOW)
 			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", Color8(241, 255, 0, 255))
 		4:
 			# (cool effect maybe? or if == 0)
-			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", Color8(0, 0, 255, 220))
+			get_node("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").add_color_override("font_color", Color8(0, 0, 255, 100))
 
 	current_company = current_company_copied
 	pressedButton = outcomeIndex;

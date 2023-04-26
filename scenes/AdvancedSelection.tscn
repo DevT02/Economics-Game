@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/fonts/Fipps-Regular.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://scenes/buttons/buttongroups/advancedSelectionButtonGroup.tres" type="ButtonGroup" id=4]
 [ext_resource path="res://assets/interactions/boxborders.png" type="Texture" id=5]
-[ext_resource path="res://scenes/AdvancedSelection.gd" type="Script" id=6]
+[ext_resource path="res://scripts/AdvancedSelection.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=3]
 size = 41
