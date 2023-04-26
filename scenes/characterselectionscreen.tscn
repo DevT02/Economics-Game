@@ -68,6 +68,11 @@ anchor_bottom = 1.0
 script = ExtResource( 5 )
 group = ExtResource( 6 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 109.552, 187.32 )
+scale = Vector2( 0.5344, 0.512 )
+offset = Vector2( 1168, 477 )
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_top = 3.0
 margin_right = 1917.0
@@ -85,10 +90,9 @@ expand = true
 stretch_mode = 1
 
 [node name="Label" type="Label" parent="MarginContainer/TextureRect"]
-margin_left = 157.303
-margin_top = 1.5625
-margin_right = 1179.3
-margin_bottom = 141.563
+margin_left = 444.611
+margin_right = 1466.61
+margin_bottom = 140.001
 rect_pivot_offset = Vector2( -36, 168 )
 size_flags_horizontal = 0
 custom_colors/font_color = Color( 0.286275, 0.266667, 0.266667, 1 )
