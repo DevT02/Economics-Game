@@ -134,7 +134,7 @@ func _ready():
 		var random_logo_indices = {0: 0,1: 2,2: 3,3: 4,4: 5, 5: 6}
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
-		var random_logo_index = rng.randi_range(0, 5)
+		var random_logo_index = rng.randi_range(0, 6)
 		setFountainLogo(random_logo_indices[random_logo_index])
 	else:
 		var logo_indices = {"1": 2,"2": 0,"3": 3,"4": 4,"5": 5,"6": 5}
