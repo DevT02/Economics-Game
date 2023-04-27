@@ -86,6 +86,8 @@ func _ready():
 		i.connect("pressed", self, "button_pressed")
 	data = load_data()
 	var fromevents = data[current_company][from_events]
+	var from_gen_events = data["general"][from_events]
+	
 	for i in range(fromevents.size()):
 		if fromevents[i] == "HQ":
 			hq_indexes.append(i)
@@ -99,7 +101,7 @@ func _ready():
 			finance_indexes.append(i)
 		elif fromevents[i] == "Operations":
 			operations_indexes.append(i)	
-	var from_gen_events = data["general"][from_events]
+
 	
 	for i in range(from_gen_events.size()):
 		if from_gen_events[i] == "HQ":
@@ -128,44 +130,22 @@ func _ready():
 	initialize_indexes("Finance_general", finance_indexes_general)
 	initialize_indexes("Operations_general", operations_indexes_general)
 	
-	if (player_vars.company_selected == "Random"):
+	if player_vars.company_selected == "Random":
+		var random_logo_indices = {0: 0,1: 2,2: 3,3: 4,4: 5, 5: 6}
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
-		var num = rng.randi_range(0,5)
-		match num:
-			0:
-				setFountainLogo(-1, 18, 0, Vector2(-1, 18))
-			1:
-				setFountainLogo(-1, 18, 2, Vector2(-1, 18))
-			2:
-				setFountainLogo(-1, 18, 3, Vector2(-1, 18))
-			3:
-				setFountainLogo(-1, 18, 4, Vector2(-1, 18))
-			4:
-				setFountainLogo(-1, 18, 5, Vector2(-1, 18))
-			5:
-				setFountainLogo(-1, 18, 6, Vector2(-1, 18))
+		var random_logo_index = rng.randi_range(0, 5)
+		setFountainLogo(random_logo_indices[random_logo_index])
 	else:
-		match int(player_vars.company_selected):
-			1:
-				setFountainLogo(-1, 18, 2, Vector2(-1, 18))	
-			2:
-				setFountainLogo(-1, 18, 0, Vector2(-1, 18))	
-			3:
-				setFountainLogo(-1, 18, 3, Vector2(-1, 18))		
-			4:
-				setFountainLogo(-1, 18, 4, Vector2(-1, 18))		
-			5:
-				setFountainLogo(-1, 18, 5, Vector2(-1, 18))	
-			6:
-				setFountainLogo(-1, 18, 5, Vector2(-1, 18))	
+		var logo_indices = {"1": 2,"2": 0,"3": 3,"4": 4,"5": 5,"6": 5}
+		setFountainLogo(logo_indices[player_vars.company_selected])
+
 				
 	current_name = player_vars.new_name
 	
-func setFountainLogo(x, y, index, vector):
-		get_node_or_null("../../TileMapLogos/").set_cell(x, y, index, false, false, false, vector)
+func setFountainLogo(index):
+	get_node_or_null("../../TileMapLogos/").set_cell(-1, 18, index, false, false, false, Vector2(-1, 18))
 	
-		
 	
 # funcion to load data from json
 func load_data():
