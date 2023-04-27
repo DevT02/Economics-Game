@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/interactions/pause_menu.png" type="Texture" id=1]
 [ext_resource path="res://scripts/PauseMenu.gd" type="Script" id=2]
-[ext_resource path="res://assets/interactions/notecard.png" type="Texture" id=3]
+[ext_resource path="res://assets/interactions/boxborders.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/Fipps-Regular.otf" type="DynamicFontData" id=4]
 
 [sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 1 )
@@ -15,6 +16,16 @@ region_rect = Rect2( 0, 0, 100, 100 )
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
 region_rect = Rect2( 0, 0, 100, 100 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.34902, 0.34902, 0.34902, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.34902, 0.34902, 0.34902, 1 )
 
 [node name="PauseMenu" type="CanvasLayer"]
 script = ExtResource( 2 )
@@ -33,20 +44,47 @@ custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 1 )
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
-margin_left = 441.0
-margin_top = 359.0
-margin_right = 225.0
-margin_bottom = 225.0
+anchor_left = 0.39
+anchor_top = -0.389
+anchor_right = 0.706
+anchor_bottom = -0.389
+margin_left = -980.0
+margin_top = 644.0
+margin_right = -1553.0
+margin_bottom = 1180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer2"]
-margin_right = 225.0
-margin_bottom = 225.0
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer2"]
+margin_right = 235.0
+margin_bottom = 536.0
+rect_pivot_offset = Vector2( 376, 469 )
 texture = ExtResource( 3 )
+region_rect = Rect2( 2.56937, 663.665, 132.038, 131.598 )
+patch_margin_left = 1
 
-[node name="Button" type="Button" parent="MarginContainer2/TextureRect"]
-margin_right = 12.0
-margin_bottom = 20.0
+[node name="ButtonExit" type="Button" parent="MarginContainer2/NinePatchRect"]
+margin_left = 264.0
+margin_top = 457.0
+margin_right = 583.0
+margin_bottom = 559.0
+rect_pivot_offset = Vector2( -89, -103 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "Save and Exit"
+
+[node name="Button2" type="Button" parent="MarginContainer2/NinePatchRect"]
+margin_left = 267.0
+margin_top = 237.0
+margin_right = 583.0
+margin_bottom = 340.0
+rect_pivot_offset = Vector2( -89, -103 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/normal = SubResource( 6 )
+text = "Back"
 
 [connection signal="mouse_entered" from="MarginContainer/Button" to="." method="_on_Button_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/Button" to="." method="_on_Button_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MarginContainer2/NinePatchRect/ButtonExit" to="." method="_on_ButtonExit_pressed"]
+[connection signal="pressed" from="MarginContainer2/NinePatchRect/Button2" to="." method="_on_Button2_pressed"]

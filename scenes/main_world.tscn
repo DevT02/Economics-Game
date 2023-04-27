@@ -895,10 +895,11 @@ tile_set = SubResource( 27 )
 format = 1
 tile_data = PoolIntArray( 524288, 0, 0, 1376124, 0, 0, 1310812, 0, 0, 6815747, 0, 0, 6815864, 0, 0 )
 
+[node name="PauseMenu" parent="." instance=ExtResource( 26 )]
+layer = 2
+
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource( 14 )
-
-[node name="PauseMenu" parent="Area2D" instance=ExtResource( 26 )]
 
 [node name="EffectsPopUp" parent="Area2D" instance=ExtResource( 2 )]
 
