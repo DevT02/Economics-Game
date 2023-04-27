@@ -79,7 +79,7 @@ func init():
 func _ready():
 	randomize()
 	$MarginContainer/NinePatchRect.visible = false
-	$MarginContainer/NinePatchRect2.visible = false
+	$MarginContainer2.visible = false
 	get_node_or_null("../EffectsPopUp/Tween/MarginContainer").visible = false
 	get_node_or_null("../EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").visible = false
 	for i in group.get_buttons():
@@ -208,7 +208,7 @@ func _nextEvent(eventIndex):
 	var graphNumber = data[current_company][graphs][eventIndex]
 	if graphNumber != 0:
 		group.get_buttons()[3].visible = true
-		$MarginContainer/NinePatchRect2/TextureRect.texture = load("res://assets//graphs//" + "graph" + str(graphNumber) + ".svg")
+		$MarginContainer2/NinePatchRect2/TextureRect.texture = load("res://assets//graphs//" + "graph" + str(graphNumber) + ".svg")
 	else:
 		group.get_buttons()[3].visible = false
 	$MarginContainer/NinePatchRect/FromLabel.text = data[current_company][from_events][eventIndex] 
@@ -491,7 +491,7 @@ func _on_Option4Button_pressed():
 	for button in group.get_buttons():
 		button.disabled = true
 	$MarginContainer/NinePatchRect.modulate.a8 = 80
-	$MarginContainer/NinePatchRect2.visible = true
+	$MarginContainer2.visible = true
 
 
 func _on_Button_pressed():
@@ -499,4 +499,4 @@ func _on_Button_pressed():
 		if (button.text != emptyOptionText):
 			button.disabled = false
 	$MarginContainer/NinePatchRect.modulate.a8 = 255
-	$MarginContainer/NinePatchRect2.visible = false
+	$MarginContainer2.visible = false

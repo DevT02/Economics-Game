@@ -116,7 +116,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="DynamicFont" id=11]
-size = 17
+size = 15
 font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxFlat" id=12]
@@ -309,27 +309,33 @@ anims/RESET = SubResource( 6 )
 anims/fade_in = SubResource( 7 )
 anims/fade_out = SubResource( 8 )
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="MarginContainer"]
-visible = false
-margin_right = 507.0
-margin_bottom = 347.0
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+light_mask = 2
+margin_left = 1067.0
+margin_top = 505.0
+margin_right = 1445.0
+margin_bottom = 912.0
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="MarginContainer2"]
+margin_right = 378.0
+margin_bottom = 407.0
 texture = ExtResource( 1 )
 region_rect = Rect2( 18, 39, 188, 138 )
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/NinePatchRect2"]
-margin_left = 4.0
-margin_top = -2.0
-margin_right = 464.0
-margin_bottom = 404.0
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2/NinePatchRect2"]
+margin_left = 1.0
+margin_top = -11.0
+margin_right = 410.0
+margin_bottom = 341.0
 texture = ExtResource( 6 )
 expand = true
 stretch_mode = 6
 
-[node name="Button" type="Button" parent="MarginContainer/NinePatchRect2"]
-margin_left = 95.0
-margin_top = 402.0
-margin_right = 336.0
-margin_bottom = 459.0
+[node name="Button" type="Button" parent="MarginContainer2/NinePatchRect2"]
+margin_left = 91.0
+margin_top = 339.0
+margin_right = 305.0
+margin_bottom = 386.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -338,4 +344,4 @@ custom_styles/normal = SubResource( 12 )
 text = "I think I got it!"
 
 [connection signal="pressed" from="MarginContainer/NinePatchRect/Option4Button" to="." method="_on_Option4Button_pressed"]
-[connection signal="pressed" from="MarginContainer/NinePatchRect2/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MarginContainer2/NinePatchRect2/Button" to="." method="_on_Button_pressed"]
