@@ -61,24 +61,12 @@ font_data = ExtResource( 3 )
 [sub_resource type="Animation" id=6]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("NinePatchRect:modulate")
+tracks/0/path = NodePath("MarginContainer:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("MarginContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -232,10 +220,10 @@ custom_styles/normal = SubResource( 4 )
 group = ExtResource( 2 )
 
 [node name="Option4Button" type="Button" parent="MarginContainer/NinePatchRect"]
-margin_left = 379.0
-margin_top = 39.0
-margin_right = 502.0
-margin_bottom = 73.0
+margin_left = 363.2
+margin_top = 37.6
+margin_right = 486.2
+margin_bottom = 71.6
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )

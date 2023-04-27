@@ -1,10 +1,7 @@
 extends Control
 export(ButtonGroup) var group
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 onready var player_vars = get_node("/root/GlobalVars")
-# Called when the node enters the scene tree for the first time.
+
 
 func _ready():
 	$MarginContainer/AdvancedSelection.visible = false
@@ -43,5 +40,5 @@ func updateButton(style, text, hex, color):
 	$MarginContainer/TextureRect/AdvancedSettingsButton.set("custom_styles/pressed", style)
 	$MarginContainer/TextureRect/AdvancedSettingsButton.text = text
 	$MarginContainer/TextureRect/AdvancedSettingsButton.modulate = color
-#func backToScreen(text, company, items):
+
 	

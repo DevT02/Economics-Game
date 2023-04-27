@@ -128,7 +128,46 @@ func _ready():
 	initialize_indexes("Finance_general", finance_indexes_general)
 	initialize_indexes("Operations_general", operations_indexes_general)
 	
-# funcion to load data
+	if (player_vars.company_selected == "Random"):
+		var rng = RandomNumberGenerator.new()
+		rng.randomize()
+		var num = rng.randi_range(0,5)
+		match num:
+			0:
+				setFountainLogo(-1, 18, 0, Vector2(-1, 18))
+			1:
+				setFountainLogo(-1, 18, 2, Vector2(-1, 18))
+			2:
+				setFountainLogo(-1, 18, 3, Vector2(-1, 18))
+			3:
+				setFountainLogo(-1, 18, 4, Vector2(-1, 18))
+			4:
+				setFountainLogo(-1, 18, 5, Vector2(-1, 18))
+			5:
+				setFountainLogo(-1, 18, 6, Vector2(-1, 18))
+	else:
+		match int(player_vars.company_selected):
+			1:
+				setFountainLogo(-1, 18, 2, Vector2(-1, 18))	
+			2:
+				setFountainLogo(-1, 18, 0, Vector2(-1, 18))	
+			3:
+				setFountainLogo(-1, 18, 3, Vector2(-1, 18))		
+			4:
+				setFountainLogo(-1, 18, 4, Vector2(-1, 18))		
+			5:
+				setFountainLogo(-1, 18, 5, Vector2(-1, 18))	
+			6:
+				setFountainLogo(-1, 18, 5, Vector2(-1, 18))	
+				
+	current_name = player_vars.new_name
+	
+func setFountainLogo(x, y, index, vector):
+		get_node_or_null("../../TileMapLogos/").set_cell(x, y, index, false, false, false, vector)
+	
+		
+	
+# funcion to load data from json
 func load_data():
 	var file = File.new()
 	if file.file_exists(data_file):
@@ -158,9 +197,6 @@ func button_pressed():
 # when pressed (see interactions.gd)
 func play(event):
 	current_division = event
-#	print("current DIVSION ", event)
-	current_name = player_vars.new_name
-	#print('replaced division: ', event)
 	if dialogue_active:
 		return
 	randomizeEvents()
@@ -173,9 +209,6 @@ func play(event):
 
 func randomizeEvents():
 	# generate random event to pick
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
-	var num = rng.randi_range(1,2)
 #	if general_event_or_specific == 1:
 #	current_company = ""
 #	_nextEvent(get_random_index(current_division))

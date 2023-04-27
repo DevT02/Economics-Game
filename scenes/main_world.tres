@@ -1,18 +1,10 @@
-[gd_resource type="TileSet" load_steps=22 format=2]
+[gd_resource type="TileSet" load_steps=13 format=2]
 
-[ext_resource path="res://assets/map/ontop of map/ARFashnLogoBG.png" type="Texture" id=1]
-[ext_resource path="res://assets/map/ontop of map/AudaxGameLogo.png" type="Texture" id=2]
-[ext_resource path="res://assets/map/ontop of map/ARFashnLogo.png" type="Texture" id=3]
 [ext_resource path="res://assets/map/ontop of map/HQBild.png" type="Texture" id=4]
-[ext_resource path="res://assets/map/ontop of map/DevChiknLogo.png" type="Texture" id=5]
 [ext_resource path="res://assets/map/ontop of map/HRBild.png" type="Texture" id=6]
 [ext_resource path="res://assets/map/ontop of map/MiddleFountain.png" type="Texture" id=7]
-[ext_resource path="res://assets/map/ontop of map/ChariotMotorsLogo.png" type="Texture" id=8]
-[ext_resource path="res://assets/map/ontop of map/MKTBuildWithDoors.png" type="Texture" id=9]
-[ext_resource path="res://assets/map/ontop of map/LunchboxLogo.png" type="Texture" id=10]
 [ext_resource path="res://assets/map/ontop of map/financeBild.png" type="Texture" id=11]
 [ext_resource path="res://assets/map/ontop of map/Operations.png" type="Texture" id=12]
-[ext_resource path="res://assets/map/ontop of map/SunnySkyLogo.png" type="Texture" id=13]
 [ext_resource path="res://assets/map/ontop of map/RandDBild.png" type="Texture" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=15]
@@ -29,9 +21,6 @@ points = PoolVector2Array( 117.349, 58.6844, 121.361, 114.856, 325.986, 117.263,
 
 [sub_resource type="ConvexPolygonShape2D" id=18]
 points = PoolVector2Array( 20.0166, 246.351, 31.5719, 248.662, 37.3495, 209.374, 16.55, 51.0673, 43.1271, 6.00177, 142.502, 36.0455, 92.8147, 242.885, 192.19, 235.952, 185.257, 84.5776, 209.523, 17.5571, 318.142, 12.9349, 224.545, 238.263, 412.896, 233.641, 410.584, 535.233, 30.4163, 535.233 )
-
-[sub_resource type="ConvexPolygonShape2D" id=19]
-points = PoolVector2Array( 155.347, 235.526, 151.88, 148.861, 114.903, 143.083, 116.059, 92.2402, 229.301, 88.7737, 246.633, 79.5295, 300.943, 41.3971, 297.477, 210.104, 273.211, 177.749, 179.613, 153.483, 213.123, 226.281, 258.189, 316.412, 519.338, 316.412, 519.338, 666.537, 31.7056, 667.692, 30.55, 450.453 )
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
 points = PoolVector2Array( 18.1667, 448.167, 111.5, 376.917, 108.167, 192.333, 77.3333, 182.333, 298.167, 25.25, 488, 158.25, 523.44, 179.28, 483.167, 186.917, 483.167, 213.583, 484.833, 374.833, 540.72, 416.88, 585.667, 449 )
@@ -58,20 +47,6 @@ points = PoolVector2Array( 18.1667, 448.167, 111.5, 376.917, 108.167, 192.333, 7
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
-2/name = "LunchboxLogo.png 2"
-2/texture = ExtResource( 10 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 238, 90, 214, 240 )
-2/tile_mode = 0
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape_one_way = false
-2/shape_one_way_margin = 0.0
-2/shapes = [  ]
-2/z_index = 0
 3/name = "financeBild.png 3"
 3/texture = ExtResource( 11 )
 3/tex_offset = Vector2( -21.563, 42.989 )
@@ -93,76 +68,6 @@ points = PoolVector2Array( 18.1667, 448.167, 111.5, 376.917, 108.167, 192.333, 7
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 3/z_index = 0
-4/name = "DevChiknLogo.png 4"
-4/texture = ExtResource( 5 )
-4/tex_offset = Vector2( 0, 0 )
-4/modulate = Color( 1, 1, 1, 1 )
-4/region = Rect2( 297, 104, 165, 177 )
-4/tile_mode = 0
-4/occluder_offset = Vector2( 0, 0 )
-4/navigation_offset = Vector2( 0, 0 )
-4/shape_offset = Vector2( 0, 0 )
-4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-4/shape_one_way = false
-4/shape_one_way_margin = 0.0
-4/shapes = [  ]
-4/z_index = 0
-5/name = "ChariotMotorsLogo.png 5"
-5/texture = ExtResource( 8 )
-5/tex_offset = Vector2( 0, 0 )
-5/modulate = Color( 1, 1, 1, 1 )
-5/region = Rect2( 326, 109, 241, 236 )
-5/tile_mode = 0
-5/occluder_offset = Vector2( 0, 0 )
-5/navigation_offset = Vector2( 0, 0 )
-5/shape_offset = Vector2( 0, 0 )
-5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-5/shape_one_way = false
-5/shape_one_way_margin = 0.0
-5/shapes = [  ]
-5/z_index = 0
-6/name = "AudaxGameLogo.png 6"
-6/texture = ExtResource( 2 )
-6/tex_offset = Vector2( 0, 0 )
-6/modulate = Color( 1, 1, 1, 1 )
-6/region = Rect2( 257, 268, 342, 381 )
-6/tile_mode = 0
-6/occluder_offset = Vector2( 0, 0 )
-6/navigation_offset = Vector2( 0, 0 )
-6/shape_offset = Vector2( 0, 0 )
-6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-6/shape_one_way = false
-6/shape_one_way_margin = 0.0
-6/shapes = [  ]
-6/z_index = 0
-7/name = "ARFashnLogoBG.png 7"
-7/texture = ExtResource( 1 )
-7/tex_offset = Vector2( 0, 0 )
-7/modulate = Color( 1, 1, 1, 1 )
-7/region = Rect2( 219, 219, 302, 288 )
-7/tile_mode = 0
-7/occluder_offset = Vector2( 0, 0 )
-7/navigation_offset = Vector2( 0, 0 )
-7/shape_offset = Vector2( 0, 0 )
-7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-7/shape_one_way = false
-7/shape_one_way_margin = 0.0
-7/shapes = [  ]
-7/z_index = 0
-8/name = "ARFashnLogo.png 8"
-8/texture = ExtResource( 3 )
-8/tex_offset = Vector2( 0, 0 )
-8/modulate = Color( 1, 1, 1, 1 )
-8/region = Rect2( 259, 247, 216, 236 )
-8/tile_mode = 0
-8/occluder_offset = Vector2( 0, 0 )
-8/navigation_offset = Vector2( 0, 0 )
-8/shape_offset = Vector2( 0, 0 )
-8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-8/shape_one_way = false
-8/shape_one_way_margin = 0.0
-8/shapes = [  ]
-8/z_index = 0
 10/name = "MiddleFountain.png 10"
 10/texture = ExtResource( 7 )
 10/tex_offset = Vector2( 0, 0 )
@@ -184,20 +89,6 @@ points = PoolVector2Array( 18.1667, 448.167, 111.5, 376.917, 108.167, 192.333, 7
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 10/z_index = 0
-13/name = "SunnySkyLogo.png 13"
-13/texture = ExtResource( 13 )
-13/tex_offset = Vector2( 0, 0 )
-13/modulate = Color( 1, 1, 1, 1 )
-13/region = Rect2( 288, 72, 332, 289 )
-13/tile_mode = 0
-13/occluder_offset = Vector2( 0, 0 )
-13/navigation_offset = Vector2( 0, 0 )
-13/shape_offset = Vector2( 0, 0 )
-13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-13/shape_one_way = false
-13/shape_one_way_margin = 0.0
-13/shapes = [  ]
-13/z_index = 0
 14/name = "HRBild.png 14"
 14/texture = ExtResource( 6 )
 14/tex_offset = Vector2( -17.634, 25.756 )
@@ -261,24 +152,3 @@ points = PoolVector2Array( 18.1667, 448.167, 111.5, 376.917, 108.167, 192.333, 7
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 16/z_index = 0
-17/name = "MKTBuildWithDoors.png 17"
-17/texture = ExtResource( 9 )
-17/tex_offset = Vector2( 0, 0 )
-17/modulate = Color( 1, 1, 1, 1 )
-17/region = Rect2( 179, 63, 546, 691 )
-17/tile_mode = 0
-17/occluder_offset = Vector2( 0, 0 )
-17/navigation_offset = Vector2( 0, 0 )
-17/shape_offset = Vector2( 0, 0 )
-17/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-17/shape = SubResource( 19 )
-17/shape_one_way = false
-17/shape_one_way_margin = 1.0
-17/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 19 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-17/z_index = 0
