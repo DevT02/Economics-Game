@@ -8,4 +8,13 @@ func _input(event):
 		if player_event:
 			player_event.play(interaction)
 	elif event.is_action_pressed("game_usage") and get_node_or_null("../Area2D/EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").is_visible():
-		get_node_or_null("../Area2D/EffectsPopUp/Tween/").seek(10000)
+		if get_node_or_null("../Area2D/EffectsPopUp/AnimationPlayer").get_animation() != "fade_out":
+			get_node_or_null("../Area2D/EffectsPopUp/Tween/").seek(1000)
+			yield(get_tree().create_timer(3.75), "timeout")
+			get_node_or_null("../Area2D/EffectsPopUp/AnimationPlayer").play("fade_out")
+
+		
+
+	
+
+
