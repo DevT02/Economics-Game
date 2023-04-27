@@ -255,7 +255,6 @@ func _nextEvent(eventIndex):
 	var notOnlyTwoOptions = true
 	## ensure first two choices are filled to give optimal strategy
 	if data1isNull && data2isNull && data3isNull:
-#		print('nulldata')
 		$MarginContainer/NinePatchRect/button1Label.text = allNullText
 		$MarginContainer/NinePatchRect/button2Label.text = allNullText
 		$MarginContainer/NinePatchRect/button3Label.text = allNullText
