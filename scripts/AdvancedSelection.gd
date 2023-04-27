@@ -22,4 +22,6 @@ func _on_Button_pressed():
 			company = "Dev's Fast Food"
 	player_vars.new_name = $NinePatchRect/LineEdit.text			
 	self.visible = false
-	get_tree().change_scene("res://scenes/main_world.tscn")
+	if get_tree().change_scene("res://scenes/main_world.tscn") != OK:
+		print("Unexpected error when switching to main world screen")
+

@@ -15,7 +15,8 @@ func _ready():
 		
 func button_pressed():
 	if group.get_pressed_button() == group.get_buttons()[0]:
-		get_tree().change_scene("res://scenes/characterselectionscreen.tscn")
+		if get_tree().change_scene("res://scenes/characterselectionscreen.tscn") != OK:
+			print("Unexpected error when switching to character selection screen")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
