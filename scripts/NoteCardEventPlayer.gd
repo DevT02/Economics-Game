@@ -445,13 +445,17 @@ func updateNumericalEffects(outcomeIndex):
 	profit *= 1 + data[current_company][current_outcome_profit][outcomeIndex]	
 	public_img *= 1 + data[current_company][current_outcome_image_effects][outcomeIndex]	
 	stakeholder *= 1 + data[current_company][current_outcome_stakeholder][outcomeIndex]	
+	
+	player_vars.profit = profit
+	player_vars.public_img = public_img
+	player_vars.stakeholder = stakeholder
 	updateDisplayEffects()
 
 func updateDisplayEffects():
 	get_node_or_null("../EffectsPopUp/Profit").value = profit
 	get_node_or_null("../EffectsPopUp/PublicImage").value = public_img
 	get_node_or_null("../EffectsPopUp/Stakeholder").value = stakeholder
-	
+
 	if (profit < 0 || public_img < 0 || stakeholder < 0):
 		print("Game Over")
 	

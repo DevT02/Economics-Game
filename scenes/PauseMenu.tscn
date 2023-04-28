@@ -66,7 +66,7 @@ patch_margin_left = 1
 [node name="ButtonExit" type="Button" parent="MarginContainer2/NinePatchRect"]
 margin_left = 264.0
 margin_top = 457.0
-margin_right = 583.0
+margin_right = 611.0
 margin_bottom = 559.0
 rect_pivot_offset = Vector2( -89, -103 )
 custom_fonts/font = SubResource( 4 )
@@ -74,9 +74,9 @@ custom_styles/normal = SubResource( 5 )
 text = "Save and Exit"
 
 [node name="Button2" type="Button" parent="MarginContainer2/NinePatchRect"]
-margin_left = 267.0
+margin_left = 265.0
 margin_top = 237.0
-margin_right = 583.0
+margin_right = 610.0
 margin_bottom = 340.0
 rect_pivot_offset = Vector2( -89, -103 )
 custom_fonts/font = SubResource( 4 )
