@@ -4,7 +4,7 @@ func _ready():
 	pass 
 
 func _on_Tween_tween_completed(object, key):
-	yield(get_tree().create_timer(3.75), "timeout")
+	yield(get_tree().create_timer(7.5), "timeout")
 	print("fading out")
 	fadeOut()
 

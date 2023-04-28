@@ -106,30 +106,34 @@ text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 autowrap = true
 clip_text = true
 
-[node name="HUD" type="MarginContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="Profit" type="TextureProgress" parent="HUD"]
-margin_right = 75.0
-margin_bottom = 40.0
+[node name="Profit" type="TextureProgress" parent="."]
+margin_left = 35.0
+margin_top = 1093.0
+margin_right = 482.0
+margin_bottom = 1146.0
 rect_pivot_offset = Vector2( -108, 70 )
 theme = SubResource( 6 )
 texture_over = ExtResource( 4 )
 texture_progress = ExtResource( 5 )
 nine_patch_stretch = true
 
-[node name="PublicImage" type="TextureProgress" parent="HUD"]
-margin_right = 75.0
-margin_bottom = 40.0
+[node name="PublicImage" type="TextureProgress" parent="."]
+margin_left = 35.0
+margin_top = 1168.0
+margin_right = 483.0
+margin_bottom = 1221.0
 texture_over = ExtResource( 4 )
 texture_progress = ExtResource( 5 )
+nine_patch_stretch = true
 
-[node name="Stakeholder" type="TextureProgress" parent="HUD"]
-margin_right = 75.0
-margin_bottom = 40.0
+[node name="Stakeholder" type="TextureProgress" parent="."]
+margin_left = 35.0
+margin_top = 1243.0
+margin_right = 484.0
+margin_bottom = 1296.0
 texture_over = ExtResource( 4 )
 texture_progress = ExtResource( 5 )
+nine_patch_stretch = true
 
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
 [connection signal="tween_started" from="Tween" to="." method="_on_Tween_tween_started"]
