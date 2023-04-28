@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 func _ready():
-	$Profit.value = 100
+	$Profit.value = 120
 	$PublicImage.value = 100
 	$Stakeholder.value = 100
 	pass 

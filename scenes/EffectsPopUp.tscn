@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/fonts/Merchant Copy Doublesize.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/EffectsPopUp.gd" type="Script" id=2]
 [ext_resource path="res://assets/interactions/boxborders.png" type="Texture" id=3]
 [ext_resource path="res://assets/HUD/blank_progress_bar.png" type="Texture" id=4]
 [ext_resource path="res://assets/HUD/green_part_of_progressbar.png" type="Texture" id=5]
+[ext_resource path="res://assets/HUD/suitcase-pixel-art_505135-94-v6xJB47f9-transformed (1).png" type="Texture" id=6]
+[ext_resource path="res://assets/HUD/public.png" type="Texture" id=7]
+[ext_resource path="res://assets/HUD/money.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -107,10 +110,10 @@ autowrap = true
 clip_text = true
 
 [node name="Profit" type="TextureProgress" parent="."]
-margin_left = 36.0
-margin_top = 1084.0
-margin_right = 456.0
-margin_bottom = 1148.0
+margin_left = 95.0
+margin_top = 1086.0
+margin_right = 518.0
+margin_bottom = 1134.0
 rect_pivot_offset = Vector2( -108, 70 )
 theme = SubResource( 6 )
 texture_under = ExtResource( 4 )
@@ -118,22 +121,52 @@ texture_progress = ExtResource( 5 )
 nine_patch_stretch = true
 
 [node name="PublicImage" type="TextureProgress" parent="."]
-margin_left = 36.0
-margin_top = 1159.0
-margin_right = 456.0
-margin_bottom = 1223.0
+margin_left = 96.0
+margin_top = 1167.0
+margin_right = 519.0
+margin_bottom = 1215.0
 texture_under = ExtResource( 4 )
 texture_progress = ExtResource( 5 )
 nine_patch_stretch = true
 
 [node name="Stakeholder" type="TextureProgress" parent="."]
-margin_left = 36.0
-margin_top = 1234.0
-margin_right = 456.0
-margin_bottom = 1298.0
+margin_left = 96.0
+margin_top = 1246.0
+margin_right = 519.0
+margin_bottom = 1294.0
 texture_under = ExtResource( 4 )
 texture_progress = ExtResource( 5 )
 nine_patch_stretch = true
+
+[node name="Profit_Image" type="TextureRect" parent="."]
+margin_left = 36.0
+margin_top = 1082.0
+margin_right = 84.0
+margin_bottom = 1134.0
+rect_pivot_offset = Vector2( -615, 907 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+
+[node name="PublicImage_Image" type="TextureRect" parent="."]
+margin_left = 32.0
+margin_top = 1168.0
+margin_right = 83.0
+margin_bottom = 1213.0
+rect_pivot_offset = Vector2( -615, 907 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="Stakeholder_Image" type="TextureRect" parent="."]
+margin_left = 22.0
+margin_top = 1231.0
+margin_right = 95.0
+margin_bottom = 1313.0
+rect_pivot_offset = Vector2( -615, 907 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
 
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
 [connection signal="tween_started" from="Tween" to="." method="_on_Tween_tween_started"]

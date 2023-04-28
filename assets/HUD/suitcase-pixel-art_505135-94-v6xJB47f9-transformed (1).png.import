@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/suitcase-pixel-art_505135-94-v6xJB47f9-transformed (1).jpeg-c159cbe35f120294e89b7f160a47024e.stex"
+path="res://.import/suitcase-pixel-art_505135-94-v6xJB47f9-transformed (1).png-e7da21ba166803d12f07c1b61a52bbb5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/HUD/suitcase-pixel-art_505135-94-v6xJB47f9-transformed (1).jpeg"
-dest_files=[ "res://.import/suitcase-pixel-art_505135-94-v6xJB47f9-transformed (1).jpeg-c159cbe35f120294e89b7f160a47024e.stex" ]
+source_file="res://assets/HUD/suitcase-pixel-art_505135-94-v6xJB47f9-transformed (1).png"
+dest_files=[ "res://.import/suitcase-pixel-art_505135-94-v6xJB47f9-transformed (1).png-e7da21ba166803d12f07c1b61a52bbb5.stex" ]
 
 [params]
 

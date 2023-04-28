@@ -23,7 +23,7 @@ var current_outcome_stakeholder =  "stakeholdereffects"
 var allNullText = "Pick any option, you can't change this outcome!"
 var emptyOptionText = "This option does nothing."
 
-var profit = 100000
+var profit = 100
 var public_img = 100
 var stakeholder = 100
 var text_speed = 0.02
@@ -445,8 +445,16 @@ func updateNumericalEffects(outcomeIndex):
 	profit *= 1 + data[current_company][current_outcome_profit][outcomeIndex]	
 	public_img *= 1 + data[current_company][current_outcome_image_effects][outcomeIndex]	
 	stakeholder *= 1 + data[current_company][current_outcome_stakeholder][outcomeIndex]	
+	updateDisplayEffects()
 
-
+func updateDisplayEffects():
+	get_node_or_null("../EffectsPopUp/Profit").value = profit
+	get_node_or_null("../EffectsPopUp/PublicImage").value = public_img
+	get_node_or_null("../EffectsPopUp/Stakeholder").value = stakeholder
+	
+	if (profit < 0 || public_img < 0 || stakeholder < 0):
+		print("Game Over")
+	
 var used_indexes = []
 var last_index = -1
 func get_random_index(event_name):
