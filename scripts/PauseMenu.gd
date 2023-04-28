@@ -25,9 +25,10 @@ func ready():
 	$MarginContainer2.visible = true
 	
 func _input(event):
-	if event.is_action_pressed("escape"):
+	if event.is_action_pressed("escape") && $MarginContainer2.visible == false:
 		ready()
-	
+	elif event.is_action_pressed("escape") && $MarginContainer2.visible == true:
+		notReady()
 func _on_Button_mouse_entered():
 	$MarginContainer/Button.modulate.a8 = 225
 
@@ -46,20 +47,14 @@ func _on_Button2_pressed():
 
 
 func _on_ButtonExit_pressed():
-	save_game(player_vars)
-
-var character_selected = null
-var company_selected = null
-var profit = null
-var stakeholder = null
-var public_img = null
+	save_game()
 
 
 func save():
 	var save_dict = {
 		"name" : player_vars.new_name,
 		"company" : player_vars.company_selected,
-		"profit" : player_vars.profit, # Vector2 is not supported by JSON
+		"profit" : player_vars.profit, 
 		"stakeholder" : player_vars.stakeholder,
 		"public_img" : player_vars.public_img,
 	}
@@ -74,8 +69,7 @@ func save():
 			return null
 	return save_dict
 
-func save_game(player_vars):
-	
+func save_game():
 	var save_game = File.new()
 	var stored_dict = save()
 	if (stored_dict != null):
