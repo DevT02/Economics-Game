@@ -414,9 +414,9 @@ func updateEffects(outcomeIndex):
 #	print(avgOfAllDiff)
 	if avgOfAllDiff < 0:
 		buttonEffect = 1
-	elif avgOfAllDiff > 0 && avgOfAllDiff < 0.025:
+	elif avgOfAllDiff > 0 && avgOfAllDiff < 0.019:
 		buttonEffect = 2
-	elif avgOfAllDiff >= 0.025 && avgOfAllDiff < 1:
+	elif avgOfAllDiff >= 0.019 && avgOfAllDiff < 1:
 		buttonEffect = 0
 	else:
 #		# idk?
@@ -455,28 +455,30 @@ func updateDisplayEffects():
 	if (profit < 0 || public_img < 0 || stakeholder < 0):
 		print("Game Over")
 	
-var used_indexes = []
 var last_index = -1
+var used_indexes = {}
+const MAX_ATTEMPTS = 100
+
 func get_random_index(event_name):
-	var indexes = indexes_dict[event_name]
+	var indexes = indexes_dict.get(event_name, [])
 	if indexes.size() == 0:
 		return 0
 	elif indexes.size() == 1:
 		return indexes[0]
 	else:
-		indexes.shuffle()
-		for index in indexes:
+		for i in range(MAX_ATTEMPTS):
+			var index = indexes[randi() % indexes.size()]
 			if not used_indexes.has(index) and index != last_index:
-				used_indexes.append(index)
-#				print("index found", index)
+				used_indexes[index] = true
 				last_index = index
+				if i % 10 == 0:
+					used_indexes.clear()
 				return index
-		# If all indexes have been used, reset the set
-		if len(used_indexes) == len(indexes):
-#			print('used all indexes')
-			last_index = used_indexes[len(used_indexes) - 1] 
-			used_indexes.clear()
-		return get_random_index(event_name)
+		print("Could not find unused index after", MAX_ATTEMPTS, "attempts")
+		return indexes[randi() % indexes.size()]
+
+
+	
 
 
 
