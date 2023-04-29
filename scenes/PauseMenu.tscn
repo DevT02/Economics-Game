@@ -32,71 +32,58 @@ size = 142
 font_data = ExtResource( 4 )
 
 [node name="PauseMenu" type="CanvasLayer"]
+layer = 2
 script = ExtResource( 2 )
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Button" type="Button" parent="."]
 margin_left = 21.0
 margin_top = 17.0
 margin_right = 85.0
 margin_bottom = 82.0
-
-[node name="Button" type="Button" parent="MarginContainer"]
-margin_right = 64.0
-margin_bottom = 65.0
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 1 )
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-anchor_left = 0.39
-anchor_top = -0.389
-anchor_right = 0.706
-anchor_bottom = -0.389
-margin_left = -980.0
-margin_top = 644.0
-margin_right = -1553.0
-margin_bottom = 1180.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer2"]
-margin_right = 235.0
-margin_bottom = 536.0
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_left = 810.0
+margin_top = 282.0
+margin_right = 1719.0
+margin_bottom = 1062.0
 rect_pivot_offset = Vector2( 376, 469 )
 texture = ExtResource( 3 )
 region_rect = Rect2( 2.56937, 663.665, 132.038, 131.598 )
 patch_margin_left = 1
 
-[node name="ButtonExit" type="Button" parent="MarginContainer2/NinePatchRect"]
-margin_left = 264.0
-margin_top = 457.0
-margin_right = 611.0
-margin_bottom = 559.0
+[node name="ButtonExit" type="Button" parent="NinePatchRect"]
+margin_left = 261.0
+margin_top = 463.0
+margin_right = 608.0
+margin_bottom = 565.0
 rect_pivot_offset = Vector2( -89, -103 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 text = "Save and Exit"
 
-[node name="Button2" type="Button" parent="MarginContainer2/NinePatchRect"]
-margin_left = 265.0
-margin_top = 237.0
-margin_right = 610.0
-margin_bottom = 340.0
+[node name="Button2" type="Button" parent="NinePatchRect"]
+margin_left = 261.0
+margin_top = 245.0
+margin_right = 606.0
+margin_bottom = 348.0
 rect_pivot_offset = Vector2( -89, -103 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/normal = SubResource( 6 )
 text = "Back"
 
 [node name="LargeText" type="Label" parent="."]
-margin_left = 179.0
-margin_top = 391.0
-margin_right = 2382.0
-margin_bottom = 747.0
+margin_left = 190.0
+margin_top = 833.0
+margin_right = 2393.0
+margin_bottom = 1189.0
 custom_fonts/font = SubResource( 7 )
 text = "Yo quitting game!!!"
 
-[connection signal="mouse_entered" from="MarginContainer/Button" to="." method="_on_Button_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/Button" to="." method="_on_Button_mouse_exited"]
-[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="MarginContainer2/NinePatchRect/ButtonExit" to="." method="_on_ButtonExit_pressed"]
-[connection signal="pressed" from="MarginContainer2/NinePatchRect/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="NinePatchRect/ButtonExit" to="." method="_on_ButtonExit_pressed"]
+[connection signal="pressed" from="NinePatchRect/Button2" to="." method="_on_Button2_pressed"]

@@ -6,55 +6,40 @@ extends CanvasLayer
 # var b = "text"
 
 onready var player_vars = get_node("/root/GlobalVars")
-onready var new_stylebox_normal = $MarginContainer2/NinePatchRect/ButtonExit.get_stylebox("normal").duplicate()
+onready var new_stylebox_normal = $NinePatchRect/ButtonExit.get_stylebox("normal").duplicate()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$LargeText.visible = false
-	notReady()
+	$NinePatchRect.visible = false
 
-func notReady():
-	$MarginContainer2.visible = false
-	$MarginContainer2.margin_left = -980
-	$MarginContainer2.margin_top = 644
-	$MarginContainer2.margin_right = -1553
-	$MarginContainer2.margin_bottom = 1180
 
-func ready():
-	$MarginContainer2.margin_left = -166
-	$MarginContainer2.margin_top = 797
-	$MarginContainer2.margin_right = -111
-	$MarginContainer2.margin_bottom = 1570
-	$MarginContainer2.visible = true
 	
 func _input(event):
-	if event.is_action_pressed("escape") && $MarginContainer2.visible == false:
-		ready()
-	elif event.is_action_pressed("escape") && $MarginContainer2.visible == true:
-		notReady()
+	if event.is_action_pressed("escape") && $NinePatchRect.visible == false:
+		$NinePatchRect.visible = true
+	elif event.is_action_pressed("escape") && $NinePatchRect.visible == true:
+		$NinePatchRect.visible = false
 func _on_Button_mouse_entered():
-	$MarginContainer/Button.modulate.a8 = 225
-
+	print("entered")
+	$Button.modulate.a8 = 180
 
 func _on_Button_mouse_exited():
-	$MarginContainer/Button.modulate.a8 = 255
-
+	$Button.modulate.a8 = 255
 
 func _on_Button_pressed():
-	ready()
-	$MarginContainer/Button.modulate.a8 = 100
-
+	$NinePatchRect.visible = true
+	$Button.modulate.a8 = 50
 
 func _on_Button2_pressed():
-	notReady()
-
-
+	$NinePatchRect.visible = false
+	
 func _on_ButtonExit_pressed():
 	save_game()
 
 
 func save():
 	var save_dict = {
-		"name" : player_vars.new_name,
+	"name" : player_vars.new_name,
 		"company" : player_vars.company_selected,
 		"profit" : player_vars.profit, 
 		"stakeholder" : player_vars.stakeholder,
@@ -62,7 +47,6 @@ func save():
 	}
 	for key in save_dict:
 		if save_dict.has(key) and save_dict[key] == null:
-			$MarginContainer2/NinePatchRect/ButtonExit.text = "Play some more"
 			updateButton(new_stylebox_normal, "Play some more!!", "#FF0000", Color8(255, 255, 255, 255))
 			return null
 			
@@ -94,10 +78,10 @@ func save_game():
 
 func updateButton(style, text, hex, color):
 	style.set_bg_color(Color(hex))
-	$MarginContainer2/NinePatchRect/ButtonExit.set("custom_styles/normal", style)
-	$MarginContainer2/NinePatchRect/ButtonExit.set("custom_styles/hover", style)
-	$MarginContainer2/NinePatchRect/ButtonExit.set("custom_styles/pressed", style)
-	$MarginContainer2/NinePatchRect/ButtonExit.text = text
-	$MarginContainer2/NinePatchRect/ButtonExit.modulate = color
+	$NinePatchRect/ButtonExit.set("custom_styles/normal", style)
+	$NinePatchRect/ButtonExit.set("custom_styles/hover", style)
+	$NinePatchRect/ButtonExit.set("custom_styles/pressed", style)
+	$NinePatchRect/ButtonExit.text = text
+	$NinePatchRect/ButtonExit.modulate = color
 
 
