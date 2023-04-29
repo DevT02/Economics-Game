@@ -130,6 +130,13 @@ func _ready():
 	initialize_indexes("Finance_general", finance_indexes_general)
 	initialize_indexes("Operations_general", operations_indexes_general)
 	
+	if player_vars.profit != null:
+		current_name = player_vars.name
+		current_company = player_vars.company_selected
+		updateLocalVars()
+		updateDisplayEffects()
+		
+	# At the moment, there is like 1/2 the functionality for specific companies. Maybe later I'll take a look into it (once we add it)
 	if player_vars.company_selected == "Random":
 		var random_logo_indices = {0: 0,1: 2,2: 3,3: 4,4: 5, 5: 6}
 		var rng = RandomNumberGenerator.new()
@@ -139,7 +146,6 @@ func _ready():
 	else:
 		var logo_indices = {"1": 2,"2": 0,"3": 3,"4": 4,"5": 5,"6": 5}
 		setFountainLogo(logo_indices[player_vars.company_selected])
-
 				
 	current_name = player_vars.new_name
 	
@@ -446,11 +452,19 @@ func updateNumericalEffects(outcomeIndex):
 	public_img *= 1 + data[current_company][current_outcome_image_effects][outcomeIndex]	
 	stakeholder *= 1 + data[current_company][current_outcome_stakeholder][outcomeIndex]	
 	
+	updateGlobalVars()
+	updateDisplayEffects()
+
+func updateGlobalVars():
 	player_vars.profit = profit
 	player_vars.public_img = public_img
 	player_vars.stakeholder = stakeholder
-	updateDisplayEffects()
 
+func updateLocalVars():
+	profit = player_vars.profit
+	public_img = player_vars.public_img
+	stakeholder = player_vars.stakeholder
+	
 func updateDisplayEffects():
 	get_node_or_null("../EffectsPopUp/Profit").value = profit
 	get_node_or_null("../EffectsPopUp/PublicImage").value = public_img

@@ -60,24 +60,34 @@ func save():
 	}
 	for key in save_dict:
 		if save_dict.has(key) and save_dict[key] == null:
-			print("Null value detected.")
 			$MarginContainer2/NinePatchRect/ButtonExit.text = "Play some more"
-			var new_stylebox_normal = $MarginContainer2/NinePatchRect/ButtonExit.get_stylebox("normal").duplicate()
 			updateButton(new_stylebox_normal, "Play some more!!", "#FF0000", Color8(255, 255, 255, 255))
-			yield(get_tree().create_timer(1), "timeout")
-			updateButton(new_stylebox_normal, "Save and Exit", "#595959", Color8(255, 255, 255, 255))
 			return null
+			
 	return save_dict
 
+
 func save_game():
+	hide()
+	$LargeText.visible = true
+	$LargeText.text = "Saving Game..."
 	var save_game = File.new()
 	var stored_dict = save()
+	print(stored_dict)
 	if (stored_dict != null):
 		save_game.open("user://savegame.save", File.WRITE)
-
 		save_game.store_string(var2str(stored_dict))
 		print("saving game..")
 		save_game.close()
+		$LargeText.text = "Quitting Game..."
+		yield(get_tree().create_timer(3), "timeout")
+		get_tree().quit()
+	else:
+		$LargeText.visible = false
+		show()
+		yield(get_tree().create_timer(2), "timeout")
+		updateButton(new_stylebox_normal, "Save and Exit", "#595959", Color8(255, 255, 255, 255))
+
 
 func updateButton(style, text, hex, color):
 	style.set_bg_color(Color(hex))
