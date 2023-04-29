@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/interactions/pause_menu.png" type="Texture" id=1]
 [ext_resource path="res://scripts/PauseMenu.gd" type="Script" id=2]
@@ -26,6 +26,10 @@ bg_color = Color( 0.34902, 0.34902, 0.34902, 1 )
 
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.34902, 0.34902, 0.34902, 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 142
+font_data = ExtResource( 4 )
 
 [node name="PauseMenu" type="CanvasLayer"]
 script = ExtResource( 2 )
@@ -82,6 +86,14 @@ rect_pivot_offset = Vector2( -89, -103 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/normal = SubResource( 6 )
 text = "Back"
+
+[node name="LargeText" type="Label" parent="."]
+margin_left = 179.0
+margin_top = 391.0
+margin_right = 2382.0
+margin_bottom = 747.0
+custom_fonts/font = SubResource( 7 )
+text = "Yo quitting game!!!"
 
 [connection signal="mouse_entered" from="MarginContainer/Button" to="." method="_on_Button_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/Button" to="." method="_on_Button_mouse_exited"]

@@ -6,8 +6,10 @@ extends CanvasLayer
 # var b = "text"
 
 onready var player_vars = get_node("/root/GlobalVars")
+onready var new_stylebox_normal = $MarginContainer2/NinePatchRect/ButtonExit.get_stylebox("normal").duplicate()
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$LargeText.visible = false
 	notReady()
 
 func notReady():
@@ -68,8 +70,8 @@ func save():
 
 
 func save_game():
-	hide()
 	$LargeText.visible = true
+	hide()
 	$LargeText.text = "Saving Game..."
 	var save_game = File.new()
 	var stored_dict = save()
