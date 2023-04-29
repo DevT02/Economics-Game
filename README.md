@@ -20,3 +20,6 @@
 3. CD into the directory with the game folders.
 4. Run "python -m http.server 8000"
 5. Type localhost in browser and click the html file.
+
+## Demo / Development Version
+Play the pre-alpha version [here](https://devt02.itch.io/economics-game)
