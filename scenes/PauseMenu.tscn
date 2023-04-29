@@ -29,6 +29,7 @@ bg_color = Color( 0.34902, 0.34902, 0.34902, 1 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 142
+outline_size = 9
 font_data = ExtResource( 4 )
 
 [node name="PauseMenu" type="CanvasLayer"]
@@ -75,12 +76,16 @@ custom_styles/normal = SubResource( 6 )
 text = "Back"
 
 [node name="LargeText" type="Label" parent="."]
-margin_left = 190.0
-margin_top = 833.0
-margin_right = 2393.0
-margin_bottom = 1189.0
+margin_left = 213.0
+margin_top = 426.0
+margin_right = 2416.0
+margin_bottom = 782.0
+custom_colors/font_color = Color( 0.756863, 0.741176, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 7 )
-text = "Yo quitting game!!!"
+text = "Quitting Game..."
+align = 1
 
 [connection signal="mouse_entered" from="Button" to="." method="_on_Button_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="." method="_on_Button_mouse_exited"]

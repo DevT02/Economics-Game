@@ -54,24 +54,22 @@ func save():
 
 
 func save_game():
-	$LargeText.visible = true
-	hide()
 	$LargeText.text = "Saving Game..."
 	var save_game = File.new()
 	var stored_dict = save()
-
 	print(stored_dict)
 	if (stored_dict != null):
+		$LargeText.visible = true
+		$NinePatchRect.visible = false
 		save_game.open("user://savegame.dat", File.WRITE)
 		save_game.store_var(stored_dict)
-		print("saving game..")
+		yield(get_tree().create_timer(1), "timeout")
 		save_game.close()
 		$LargeText.text = "Quitting Game..."
 		yield(get_tree().create_timer(3), "timeout")
 		get_tree().quit()
 	else:
 		$LargeText.visible = false
-		show()
 		yield(get_tree().create_timer(2), "timeout")
 		updateButton(new_stylebox_normal, "Save and Exit", "#595959", Color8(255, 255, 255, 255))
 

@@ -20,6 +20,7 @@ GlobalVars="*res://scripts/global_vars.gd"
 [debug]
 
 settings/fps/force_fps=60
+settings/stdout/print_fps=true
 
 [display]
 
@@ -28,7 +29,6 @@ window/size/height=1329
 window/size/resizable=false
 window/size/fullscreen=true
 window/dpi/allow_hidpi=true
-window/vsync/vsync_via_compositor=true
 window/per_pixel_transparency/allowed=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
