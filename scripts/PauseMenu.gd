@@ -75,10 +75,11 @@ func save_game():
 	$LargeText.text = "Saving Game..."
 	var save_game = File.new()
 	var stored_dict = save()
+
 	print(stored_dict)
 	if (stored_dict != null):
-		save_game.open("user://savegame.save", File.WRITE)
-		save_game.store_string(var2str(stored_dict))
+		save_game.open("user://savegame.dat", File.WRITE)
+		save_game.store_var(stored_dict)
 		print("saving game..")
 		save_game.close()
 		$LargeText.text = "Quitting Game..."

@@ -24,15 +24,14 @@ func button_pressed():
 			print("Unexpected error when switching to character selection screen")
 	if group.get_pressed_button() == group.get_buttons()[1]:
 		var file = File.new()
-		if file.file_exists("user://savegame.save"):
-			file.open("user://savegame.save", File.READ)
-			var loaded_dict = str2var(file.get_as_text())
+		if file.file_exists("user://savegame.dat"):
+			file.open("user://savegame.dat", File.READ)
+			var loaded_dict = file.get_var()
 			player_vars.new_name = loaded_dict.name
 			player_vars.company_selected = loaded_dict.company
 			player_vars.profit = loaded_dict.profit
 			player_vars.public_img = loaded_dict.public_img
 			player_vars.stakeholder = loaded_dict.stakeholder
-			
 			if get_tree().change_scene("res://scenes/main_world.tscn") != OK:
 				print("Unexpected error when switching to character selection screen")
 		else:
