@@ -3,13 +3,27 @@ extends KinematicBody2D
 var velocity : Vector2 = Vector2()
 var direction : Vector2 = Vector2()
 
-onready var animation = $Sprite/AnimationPlayer
+onready var animation
+onready var character = get_node("/root/GlobalVars").character_selected
 
 
 func _ready():
+	match_character()
 	animation.play("walk_up")
 	animation.stop()
-	# remove erros
+			
+func match_character():
+	$AnimSprite/AnimatedSprite.visible = false
+	$AnimSprite/AnimatedSprite2.visible = false
+	match character:
+		"brownMale":
+			animation = $AnimSprite/AnimatedSprite
+			$AnimSprite/AnimatedSprite.visible = true
+		"whiteFemale":
+			animation = $AnimSprite/AnimatedSprite2
+			$AnimSprite/AnimatedSprite2.visible = true
+
+			
 func read_input():
 	velocity = Vector2()
 	if Input.is_action_pressed("up"):
@@ -29,7 +43,7 @@ func read_input():
 		velocity.x += 3
 		direction = Vector2(0.5, 0)
 	else:
-		animation.seek(0, true)
+		animation.set_frame(0)
 		animation.stop()
 		
 

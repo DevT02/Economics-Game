@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/fonts/Fipps-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/characters/white_female_standing.png" type="Texture" id=2]
@@ -32,17 +32,6 @@ region_rect = Rect2( 8.22269, 2.25574, 31.5468, 52.3389 )
 [sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 2 )
 region_rect = Rect2( 10.7321, 5.8406, 32.9807, 55.2068 )
-
-[sub_resource type="DynamicFont" id=7]
-size = 32
-outline_size = 4
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=8]
-size = 31
-outline_size = 4
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
 
 [sub_resource type="Theme" id=14]
 Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
@@ -85,6 +74,7 @@ group = SubResource( 16 )
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 margin_right = 1917.0
 margin_bottom = 1036.0
+rect_pivot_offset = Vector2( 420.659, 231.25 )
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 1
@@ -102,10 +92,10 @@ align = 1
 valign = 1
 
 [node name="MaleCharacter" type="Button" parent="MarginContainer/TextureRect"]
-margin_left = 243.994
-margin_top = 175.458
-margin_right = 332.994
-margin_bottom = 324.458
+margin_left = 323.353
+margin_top = 146.875
+margin_right = 477.353
+margin_bottom = 415.875
 rect_min_size = Vector2( 10, 100 )
 rect_scale = Vector2( 0.975, 0.989 )
 rect_pivot_offset = Vector2( -882.083, -145 )
@@ -117,36 +107,15 @@ custom_styles/normal = SubResource( 4 )
 group = ExtResource( 6 )
 
 [node name="FemaleCharacter" type="Button" parent="MarginContainer/TextureRect"]
-margin_left = 64.0683
-margin_top = 179.345
-margin_right = 160.068
-margin_bottom = 326.345
+margin_left = 64.0
+margin_top = 149.0
+margin_right = 232.0
+margin_bottom = 412.0
 rect_pivot_offset = Vector2( -882, -145 )
 custom_styles/hover = SubResource( 11 )
 custom_styles/pressed = SubResource( 12 )
 custom_styles/normal = SubResource( 6 )
 group = ExtResource( 6 )
-
-[node name="Label2" type="Label" parent="MarginContainer/TextureRect"]
-margin_left = 82.0
-margin_top = 144.0
-margin_right = 260.0
-margin_bottom = 224.0
-rect_scale = Vector2( 0.4, 0.4 )
-custom_colors/font_color = Color( 0.980392, 0.980392, 0.980392, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 7 )
-text = "Alice B"
-
-[node name="Label3" type="Label" parent="MarginContainer/TextureRect"]
-margin_left = 195.942
-margin_top = 140.478
-margin_right = 542.942
-margin_bottom = 219.478
-rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 8 )
-text = "Jonathan D"
 
 [node name="AdvancedSettingsButton" type="Button" parent="MarginContainer/TextureRect"]
 anchor_left = -0.395

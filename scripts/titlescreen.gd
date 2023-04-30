@@ -32,6 +32,7 @@ func button_pressed():
 			player_vars.profit = loaded_dict.profit
 			player_vars.public_img = loaded_dict.public_img
 			player_vars.stakeholder = loaded_dict.stakeholder
+			player_vars.character_selected = loaded_dict.character
 			if get_tree().change_scene("res://scenes/main_world.tscn") != OK:
 				print("Unexpected error when switching to character selection screen")
 		else:

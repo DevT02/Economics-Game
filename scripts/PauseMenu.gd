@@ -44,6 +44,7 @@ func save():
 		"profit" : player_vars.profit, 
 		"stakeholder" : player_vars.stakeholder,
 		"public_img" : player_vars.public_img,
+		"character" : player_vars.character_selected,
 	}
 	for key in save_dict:
 		if save_dict.has(key) and save_dict[key] == null:
