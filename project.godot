@@ -20,7 +20,6 @@ GlobalVars="*res://scripts/global_vars.gd"
 [debug]
 
 settings/fps/force_fps=60
-settings/stdout/print_fps=true
 
 [display]
 
