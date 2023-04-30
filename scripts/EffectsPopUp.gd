@@ -7,13 +7,11 @@ func _ready():
 	pass 
 
 func _on_Tween_tween_completed(object, key):
-	yield(get_tree().create_timer(7.5), "timeout")
-	print("fading out")
+	yield(get_tree().create_timer(15), "timeout")
 	fadeOut()
 
 
 func fadeOut():
-	print('fading..')
 	$AnimationPlayer.play("fade_out")
 
 	
