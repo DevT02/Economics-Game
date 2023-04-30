@@ -139,7 +139,17 @@
 			"Our company produces two products which we are currently calling X and Y. Due to limited resources, we are faced with a tradeoff between the production of these products. Given our current resources, we are operating at a point that allows us to produce equal amounts of X and Y at maximum productivity. However, we have received a request for a large order of X. Should we accept the order?",
 			"Our company operates in a perfectly competitive market and produces a certain product. We are currently producing at a level where our average total cost (ATC) is at its minimum. However, we have noticed that the price of our product in the market is decreasing, and we are unsure whether to continue producing at the same level or decrease our output. We have created a graph that shows the relationship between the quantity of output produced and the market price of our product.",
 			"Your company is considering investing in a new production technology that will allow you to produce goods at a lower cost. However, this technology requires a significant upfront investment. Should you invest in this new technology or continue with your current production methods?",
-			"A sudden increase in the minimum wage has led to higher labor costs for our company. We are considering two options to maintain our profitability. Should we increase the price of our product or should we decrease our output?"
+			"A sudden increase in the minimum wage has led to higher labor costs for our company. We are considering two options to maintain our profitability. Should we increase the price of our product or should we decrease our output?",
+			"The lazy PR chair forgets to post the new social media posts promoting a new company initiative, which fails due to a lack of customer engagement.",
+			"You have made the list for Time Magazine’s 100 Most Influential People of the Year!",
+			"One of our employees, Josh Cole, has said a culturally insensitive comment on live television. Publicly, he claims it was in the script we provided for him. Customers are now upset with the use of inappropriate language. What should we do to defuse the situation?",
+			"The Director of R&D has recently died in a car accident. Before his death, he posted a string of tweets on Twitter heavily criticizing the company. As a result, the public has been speculating that the company was responsible for his death, but the company had nothing to do with it. What does the company do?",
+			"The Government has come to us with an offer to subsidize major elements of production. Doing so would allow the firm to ramp up production to levels never seen before, but it is at the cost of some autonomy. Do we accept the offer?",
+			"The Governor has sent a letter asking for the opinion of business leaders on the new taxation policy. To balance the budget with increasing spending programs, taxes are being increased. The two options are either increasing the corporate tax rate or the increase of the progressive tax rate. Which do you favor?",
+			"Our business currently holds a vast amount of bonds after acquiring a small bank for our financial investment. The Federal Reserve is looking to pursue loose monetary policy through open market operations to close the recessionary gap. Do we sell the bonds to the Fed or buy more?",
+			"Estimates by our analysts have turned out to be wrong! While we have taken out loans at a 7% nominal rate for our facilities, the inflation rate was higher than expected at 10%! What should we do with this knowledge?",
+			"To encourage company spirit, the company began handing out a special Wildcat Dollar that can be redeemed in merchandise stores across the branch locations. This new currency however is currently facing a major problem: everything in the store is too expensive! How will you deal with this problem?",
+			"Your recent decisions have paid off massively for the company. The board has decided to give you a massive bonus, but you have to spend it by the end of today or it goes into next year’s budget! What are you buying?"
 		],
 		"fromevents": [
 			"Finance",
@@ -191,7 +201,17 @@
 			"Operations",
 			"Operations",
 			"Operations",
-			"Operations"
+			"Operations",
+			"HQ",
+			"HQ",
+			"HQ",
+			"HQ",
+			"HQ",
+			"HQ",
+			"HQ",
+			"HQ",
+			"HQ",
+			"HQ"
 		],
 		"choices": [
 			null,
@@ -343,7 +363,37 @@
 			null,
 			"Increase the price of our product to maintain profit margins.",
 			"Decrease our output to reduce our costs.",
-			null
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			"Fire Josh and claim the company had no part in the incident.",
+			"Release a public statement apologizing to all customers.",
+			"Defend Josh and claim it was an accident.",
+			"Report that the company caused the accident, taking the blame out of guilt.",
+			"Hold a press conference to address rumors.",
+			"Release a well-written statement commemorating the director of R&D.",
+			"Accept the subsidy and ramp up production",
+			"Decline the subsidy, keeping the same level of production",
+			null,
+			"Fight for the corporate tax rate",
+			"Fight for the progressive income tax",
+			null,
+			"Sell bonds on hand to the Fed",
+			"Buy the bonds from the Fed",
+			null,
+			"Stop further investment activities momentarily",
+			"Increase investments in other areas as well",
+			null,
+			"Increase the supply of Wildcat Dollars",
+			"Decrease the supply of Wildcat Dollars",
+			null,
+			"Buy a Bugatti.",
+			"Buy an iPhone 14 Pro Max.",
+			"Invest in the stock market."
 		],
 		"outcomes": [
 			"Shareholders are angry along with the public. Confidence in the firm has decreased sharply and the fines have added up immensely. Tread carefully.",
@@ -495,19 +545,49 @@
 			null,
 			"Increasing the price of the product led to a shift along the demand curve, resulting in a decrease in revenue. Some customers were not willing to pay the higher price, and the company lost market share to competitors. The company's reputation also suffered due to negative feedback from customers.",
 			"Decreasing the output led to a decrease in supply, which led to an increase in the price of the product. However, the decrease in sales volume due to the higher price resulted in lower revenue. The company's reputation also suffered due to negative feedback from customers who were unable to purchase the product.",
-			null
+			null,
+			"The executive board is upset with you for letting this heavily planned project go to waste. You then promptly fire the PR Chair. You snooze, you lose!",
+			"The executive board is upset with you for letting this heavily planned project go to waste. You then promptly fire the PR Chair. You snooze, you lose!",
+			"The executive board is upset with you for letting this heavily planned project go to waste. You then promptly fire the PR Chair. You snooze, you lose!",
+			"The company's reputation is benefitted from your newly acquired fame. Your charity to protect the environment has been massively donated to by company customers. The company also donates a large sum to the organization, which is responded to very positively by the public. All this attention also promotes a new product released by the company. You’re him!",
+			"The company's reputation is benefitted from your newly acquired fame. Your charity to protect the environment has been massively donated to by company customers. The company also donates a large sum to the organization, which is responded to very positively by the public. All this attention also promotes a new product released by the company. You’re him!",
+			"The company's reputation is benefitted from your newly acquired fame. Your charity to protect the environment has been massively donated to by company customers. The company also donates a large sum to the organization, which is responded to very positively by the public. All this attention also promotes a new product released by the company. You’re him!",
+			"A couple of weeks later, Josh posts an edited version of the script he was provided. There is a public uproar and the company responds by suing Josh for defamation. Executives are upset and many of them, including you, are in hot water. The court trial will be broadcasted live. Better call Saul!",
+			"The statement is well received immediately, but over time the issue fades from the public eye. Josh has been removed from the media team and demoted to a desk job, but he claims it is just a break. Ok, Ross…",
+			"The company board publicly defends Josh and attempts to convince the public it was an accident. Josh is heavily criticized on social media, but the company is in the clear. Josh is then put through a culture sensitivity program",
+			"The public has raided the company headquarters and destroyed a lot of property. The company’s reputation is in the toilet. You have been fired for releasing the statement and are being investigated by the police for murder.",
+			"Tomatoes are thrown at you as you get on stage. You address all the questions and put the rumor to rest. The hope is that with time this situation will be resolved.",
+			"The public surprisingly responds positively to the statement and suspicions of malicious intent were sidelined.",
+			"The subsidy has vastly increased the possibilities of the company’s production capacity. The public has better access to the product with a wider social benefit. However, shareholders are angry that power is now distributed to the government with company matters.",
+			"Without the subsidy, decisions, and matters within the company continue as normal. Shareholders are happy that you stuck up for the company's independence and have increased the stock price accordingly.",
+			null,
+			"Even though you sent in the choice for the corporate tax rate, the progressive tax was chosen. Stakeholders are annoyed that it won but appreciate your efforts fighting for a corporate tax rather than income. The public is angry that you are protecting your wealth. Geez, can't a guy keep his cash?",
+			"The Progressive Tax Rate was chosen as the method of increasing taxes. Stockholders are angry that you would decrease their earnings. However, the general public has increased respect for the business’s new streak of altruism.",
+			null,
+			"Together with the Federal Reserve, the company sells the bonds it has on hand increasing the money supply alongside the other financial institutions. Doing so decreased interest rates and increased demand in the economy! The public and stakeholders view the company as part of the success in coming out of the recession! Bravo",
+			"Over the phone, Jerome Powell laughs at your offer. He rejects selling you bonds as it would decrease money in the economy hence making the problem worse. Stockholders learn about this meeting and are furious with your decision-making.",
+			null,
+			"Since the real interest rate was negative, the company as a borrower would have benefited from further investment. Shareholders are not pleased one bit with this decision.",
+			"Since the real interest rate was negative, the company as a borrower benefited immensely from further investment. Shareholders are impressed with how the company swiftly navigated what would be a threatening situation for most other firms.",
+			null,
+			"With such a small closed economy, the formula for the quantity theory of money, MV=PQ, can be used with constant Velocity of Money (V) and Output (Q). The increase in the money supply (M) leads directly to increases in prices (P). The Wildcat dollar quickly became useless to buy anything in-store, being traded for gum in the office instead. Good luck getting that off the bottom of the cubicle!",
+			"With such a small closed economy, the formula for the quantity theory of money, MV=PQ, can be used with constant Velocity of Money (V) and Output (Q). The decrease in the money supply (M) leads directly to a decrease in prices (P). The Wildcat dollar became a useful tool for in-office motivation! No need to declare bankruptcy like Michael!",
+			null,
+			"While purchasing your new car, a bearded bald man approaches you, hands you sparkling water, asks you “What color is your Bugatti?” and walks away. You shrug and drive off the lot with your new whip. Vroom! Vroom!",
+			"With your new phone, comes many features, but apparently saving presentations isn’t one of them! During a board meeting, you freeze up and whip out the phone out of pressure. You loudly claim that you have purchase d the iPhone 14 Pro Max and look like a fool in front of the executive board. What were you thinking?",
+			"You decide to put your entire bonus towards the FOREX market, specifically investing in the Indian Rupee. Tragically, the value of the Indian Rupee plummets and you lose all the money you put in! To put salt in the wound, the next day, you trip and drop your lunch on the ground. Defeated, you eat it anyway. Classic case of Sunny Luck!"
 		],
 		"graphs": [
-			0, 0, 0, 0, 15, 14, 13, 0, 15, 14, 0, 0, 0, 0, 2, 1, 0, 9, 0, 7, 0, 0, 0, 0, 10, 12, 10, 3, 1, 0, 0, 0, 0, 0, 16, 9, 0, 1, 4, 5, 0, 0, 0, 0, 12, 1, 2, 8, 2, 1
+			0, 0, 0, 0, 15, 14, 13, 0, 15, 14, 0, 0, 0, 0, 2, 1, 0, 9, 0, 7, 0, 0, 0, 0, 10, 12, 10, 3, 1, 0, 0, 0, 0, 0, 16, 9, 0, 1, 4, 5, 0, 0, 0, 0, 12, 1, 2, 8, 2, 1, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0
 		],
 		"profiteffects": [
-			-0.2, -0.2, -0.2, 0.05, 0.05, 0.05, 0.25, 0, 0, 0, 0, 0.04, 0.05, 0, 0, -0.05, 0.1, 0, 0.1, 0, 0, 0.06, 0.03, 0, 0.04, 0, 0, 0.08, 0, 0, -0.1, -0.1, -0.1, 0.15, 0.15, 0.15, -0.03, -0.03, 0.03, -0.07, -0.05, 0.00, 0.15, -0.1, 0, 0.1, -0.05, 0, 0.15, -0.1, 0, -0.05, 0.1, 0, 0.02, -0.07, 0, -0.1, 0.05, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.02, 0, 0, -0.05, 0, 0, -0.05, 0, 0, -0.1, 0, 0, -0.05, 0.1, 0, 0.15, 0, 0, 0.05, -0.05, 0, -0.02, -0.02, -0.02, 0.03, 0.03, 0.03, -0.01, 0, -0.01, -0.01, -0.03, 0, 0.07, -0.05, 0, 0.05, 0, 0, -0.08, -0.15, 0, 0.05, -0.1, 0, -0.01, -0.04, 0, 0.02, -0.02, 0, -0.03, -0.03, -0.03, 0, 0, 0, -0.01, 0, 0.03, 0.01, -0.01, 0, 0.05, 0, 0, 0.05, -0.05, 0, 0.05, -0.05, 0, 0.05, -0.02, 0, 0.05, -0.05, 0, -0.02, -0.04, 0
+			-0.2, -0.2, -0.2, 0.05, 0.05, 0.05, 0.25, 0, 0, 0, 0, 0.04, 0.05, 0, 0, -0.05, 0.1, 0, 0.1, 0, 0, 0.06, 0.03, 0, 0.04, 0, 0, 0.08, 0, 0, -0.1, -0.1, -0.1, 0.15, 0.15, 0.15, -0.03, -0.03, 0.03, -0.07, -0.05, 0.00, 0.15, -0.1, 0, 0.1, -0.05, 0, 0.15, -0.1, 0, -0.05, 0.1, 0, 0.02, -0.07, 0, -0.1, 0.05, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.02, 0, 0, -0.05, 0, 0, -0.05, 0, 0, -0.1, 0, 0, -0.05, 0.1, 0, 0.15, 0, 0, 0.05, -0.05, 0, -0.02, -0.02, -0.02, 0.03, 0.03, 0.03, -0.01, 0, -0.01, -0.01, -0.03, 0, 0.07, -0.05, 0, 0.05, 0, 0, -0.08, -0.15, 0, 0.05, -0.1, 0, -0.01, -0.04, 0, 0.02, -0.02, 0, -0.03, -0.03, -0.03, 0, 0, 0, -0.01, 0, 0.03, 0.01, -0.01, 0, 0.05, 0, 0, 0.05, -0.05, 0, 0.05, -0.05, 0, 0.05, -0.02, 0, 0.05, -0.05, 0, -0.02, -0.04, 0, 0, 0, 0, 0.05, 0.05, 0.05, 0, 0, 0, -1, -0.03, 0, 0.05, 0, 0, 0, 0, 0, 0.02, 0, 0, -0.03, 0.05, 0, 0, 0, 0, 0, 0, 0
 		],
 		"stakeholdereffects": [
-			-0.4, -0.4, -0.4, 0.25, 0.25, 0.25, -0.02, -0.1, 0, 0.15, -0.2, 0.05, 0.1, -0.05, 0, -0.15, 0.1, 0, 0.05, -0.05, 0, 0.15, -0.1, 0, 0.08, -0.05, 0, 0.1, -0.05, 0, -0.05, -0.05, -0.05, 0.2, 0.2, 0.2, -0.03, -0.05, 0.05, 0, -0.03, 0.05, 0.15, -0.1, 0, 0.05, 0, 0, 0.05, -0.05, 0, 0.05, 0.1, 0, 0.05, 0.1, 0, 0.05, -0.05, 0, -0.02, -0.02, -0.02, 0.08, 0.08, 0.08, 0, -0.01, 0, 0.02, 0.01, -0.03, 0.1, -0.05, 0, 0.1, -0.05, 0, 0.1, -0.05, 0, 0.1, -0.1, 0, 0.1, -0.05, 0, 0.1, -0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.05, 0, 0.1, -0.1, 0, 0.1, -0.05, 0, -0.03, -0.1, 0, 0.05, -0.05, 0, -0.03, 0.03, 0, -0.01, 0.01, 0, 0, 0, 0, 0, 0, 0, 0.01, 0.02, 0.01, 0, 0, 0, 0.1, -0.05, 0, -0.1, 0.1, 0, 0.01, -0.05, -0.05, 0, 0, 0, 0.05, -0.05, 0, -0.05, -0.06, 0
+			-0.4, -0.4, -0.4, 0.25, 0.25, 0.25, -0.02, -0.1, 0, 0.15, -0.2, 0.05, 0.1, -0.05, 0, -0.15, 0.1, 0, 0.05, -0.05, 0, 0.15, -0.1, 0, 0.08, -0.05, 0, 0.1, -0.05, 0, -0.05, -0.05, -0.05, 0.2, 0.2, 0.2, -0.03, -0.05, 0.05, 0, -0.03, 0.05, 0.15, -0.1, 0, 0.05, 0, 0, 0.05, -0.05, 0, 0.05, 0.1, 0, 0.05, 0.1, 0, 0.05, -0.05, 0, -0.02, -0.02, -0.02, 0.08, 0.08, 0.08, 0, -0.01, 0, 0.02, 0.01, -0.03, 0.1, -0.05, 0, 0.1, -0.05, 0, 0.1, -0.05, 0, 0.1, -0.1, 0, 0.1, -0.05, 0, 0.1, -0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.05, 0, 0.1, -0.1, 0, 0.1, -0.05, 0, -0.03, -0.1, 0, 0.05, -0.05, 0, -0.03, 0.03, 0, -0.01, 0.01, 0, 0, 0, 0, 0, 0, 0, 0.01, 0.02, 0.01, 0, 0, 0, 0.1, -0.05, 0, -0.1, 0.1, 0, 0.01, -0.05, -0.05, 0, 0, 0, 0.05, -0.05, 0, -0.05, -0.06, 0, -0.10, -0.10, -0.10, 0.07, 0.07, 0.07, 0, 0, 0, -1, 0, 0, -0.1, 0.1, 0, -0.1, -0.05, 0, 0.1, -0.1, 0, -0.1, 0.05, 0, -0.05, 0.05, 0, 0, -0.01, 0
 		],
 		"publicimgeffects": [
-			-0.4, -0.4, -0.4, -0.05, -0.05, -0.05, -0.02, 0.15, 0, 0, 0, 0.02, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.05, -0.05, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.01, 0.01, 0.01, 0, 0, 0, -0.05, 0.07, -0.03, 0.1, -0.15, 0, 0.05, 0, 0, 0, 0, 0, 0, 0.05, 0, 0.01, 0.08, 0, -0.05, 0.05, 0, -0.04, -0.04, -0.04, 0.02, 0.02, 0.02, 0, -0.05, 0, 0, 0, -0.03, 0.05, -0.1, 0, 0.05, -0.1, 0, 0, -0.05, 0, 0.05, -0.2, 0, 0.05, 0, 0, 0.1, -0.1, 0, 0, 0, 0, 0.03, 0.03, 0.03, -0.02, -0.05, 0.02, -0.02, -0.1, 0.04, 0, -0.05, 0, 0, 0, 0, 0, -0.05, 0, -0.02, -0.1, 0, -0.08, 0.01, 0, -0.01, 0.02, 0, -0.03, -0.03, -0.03, 0.04, 0.04, 0.04, 0, 0, 0, -0.02, 0, 0.02, 0, 0, 0, -0.05, 0.05, 0, -0.01, -0.05, 0.01, 0, 0, 0, 0.05, -0.02, 0, -0.08, -0.05, 0
+			-0.4, -0.4, -0.4, -0.05, -0.05, -0.05, -0.02, 0.15, 0, 0, 0, 0.02, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.05, -0.05, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.01, 0.01, 0.01, 0, 0, 0, -0.05, 0.07, -0.03, 0.1, -0.15, 0, 0.05, 0, 0, 0, 0, 0, 0, 0.05, 0, 0.01, 0.08, 0, -0.05, 0.05, 0, -0.04, -0.04, -0.04, 0.02, 0.02, 0.02, 0, -0.05, 0, 0, 0, -0.03, 0.05, -0.1, 0, 0.05, -0.1, 0, 0, -0.05, 0, 0.05, -0.2, 0, 0.05, 0, 0, 0.1, -0.1, 0, 0, 0, 0, 0.03, 0.03, 0.03, -0.02, -0.05, 0.02, -0.02, -0.1, 0.04, 0, -0.05, 0, 0, 0, 0, 0, -0.05, 0, -0.02, -0.1, 0, -0.08, 0.01, 0, -0.01, 0.02, 0, -0.03, -0.03, -0.03, 0.04, 0.04, 0.04, 0, 0, 0, -0.02, 0, 0.02, 0, 0, 0, -0.05, 0.05, 0, -0.01, -0.05, 0.01, 0, 0, 0, 0.05, -0.02, 0, -0.08, -0.05, 0, 0, 0, 0, 0.1, 0.1, 0.1, -0.04, -0.04, 0.02, -1, -0.15, 0.03, 0.1, 0, 0, -0.07, 0.1, 0, 0.05, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 		]
 	}
 }
