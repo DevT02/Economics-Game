@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scenes/animatedsprites/AnimSprite.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/characters/spritesheet_male_walking.png" type="Texture" id=2]
@@ -135,10 +135,6 @@ region = Rect2( 325, 0, 56, 66 )
 atlas = ExtResource( 2 )
 region = Rect2( 389, 0, 56, 66 )
 
-[sub_resource type="AtlasTexture" id=38]
-atlas = ExtResource( 2 )
-region = Rect2( 5, 0, 56, 66 )
-
 [sub_resource type="AtlasTexture" id=45]
 atlas = ExtResource( 2 )
 region = Rect2( 453, 0, 56, 66 )
@@ -164,7 +160,7 @@ animations = [ {
 "name": "walk_right",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 38 ), SubResource( 45 ), SubResource( 46 ) ],
+"frames": [ SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ) ],
 "loop": true,
 "name": "walk_up",
 "speed": 5.0
@@ -174,18 +170,17 @@ animations = [ {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 4, 0 )
-scale = Vector2( 1.75, 1.75 )
+scale = Vector2( 2, 2 )
 frames = SubResource( 56 )
 animation = "walk_right"
-frame = 6
-speed_scale = 3.0
+speed_scale = 2.35
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
 position = Vector2( 5.00002, 4.76837e-07 )
-scale = Vector2( 1.75, 1.75 )
+scale = Vector2( 2, 2 )
 frames = ExtResource( 1 )
 animation = "walk_left"
-frame = 1
-speed_scale = 3.0
+frame = 6
+speed_scale = 2.35
 playing = true

@@ -416,13 +416,13 @@ func updateEffects(outcomeIndex):
 #	print(public_img_diff, " public_img_diff")
 
 	
-	var avgOfAllDiff = (profit_percent_diff + public_img_diff + stakeholder_diff) / 3
+	var differences = (profit_percent_diff + public_img_diff + stakeholder_diff)
 #	print(avgOfAllDiff)
-	if avgOfAllDiff < 0:
+	if differences < 0:
 		buttonEffect = 1
-	elif avgOfAllDiff > 0 && avgOfAllDiff < 0.019:
+	elif differences > 0 && differences < 0.0225:
 		buttonEffect = 2
-	elif avgOfAllDiff >= 0.019 && avgOfAllDiff < 1:
+	elif differences >= 0.022:
 		buttonEffect = 0
 	else:
 #		# idk?
@@ -452,8 +452,33 @@ func updateNumericalEffects(outcomeIndex):
 	public_img *= 1 + data[current_company][current_outcome_image_effects][outcomeIndex]	
 	stakeholder *= 1 + data[current_company][current_outcome_stakeholder][outcomeIndex]	
 	
+	profit = min(profit, 100)
+	public_img = min(public_img, 100)
+	stakeholder = min(stakeholder, 100)
+	
+	print(player_vars.profit, " profit")
+	print(profit, " profit")
+
+
+#	for i in range(player_vars.profit  - profit):
+#		get_node_or_null("../EffectsPopUp/Profit").value += profit
+#	for i in range(player_vars.public_img - public_img):
+#		get_node_or_null("../EffectsPopUp/PublicImage").value += profit
+#	for i in range(player_vars.stakeholder - stakeholder):
+#		get_node_or_null("../EffectsPopUp/Stakeholder").value += stakeholder
+		
 	updateGlobalVars()
-	updateDisplayEffects()
+	print(profit)
+	print(public_img)
+	print(stakeholder)
+	reupdateDisplayEffects(get_node_or_null("../EffectsPopUp/Profit"), profit, 1)
+	reupdateDisplayEffects(get_node_or_null("../EffectsPopUp/PublicImage"), public_img,  1)
+	reupdateDisplayEffects(get_node_or_null("../EffectsPopUp/Stakeholder"), stakeholder,  1)
+	
+	print(get_node_or_null("../EffectsPopUp/Stakeholder").value, "Stakeholder")
+	print(get_node_or_null("../EffectsPopUp/PublicImage").value, "PublicImage")
+	print(get_node_or_null("../EffectsPopUp/Profit").value, "Profit")
+#	updateDisplayEffects()
 
 func updateGlobalVars():
 	player_vars.profit = profit
@@ -464,11 +489,27 @@ func updateLocalVars():
 	profit = player_vars.profit
 	public_img = player_vars.public_img
 	stakeholder = player_vars.stakeholder
-	
+
+func reupdateDisplayEffects(texture_progress_node: Node, target_value: float, increment_or_decrement: float):
+	var new_value = texture_progress_node.value
+	var step_size = abs(increment_or_decrement)
+	if target_value < texture_progress_node.value:
+		step_size *= -1.0
+	for i in range(texture_progress_node.value, target_value, step_size):
+		new_value += step_size
+		if (step_size > 0 and new_value > target_value) or (step_size < 0 and new_value < target_value):
+			new_value = target_value
+		texture_progress_node.value = new_value
+		yield(get_tree().create_timer(0.1), "timeout") # Wait for a short time to update the progress visually
+	texture_progress_node.value = target_value
+
+
 func updateDisplayEffects():
+
 	get_node_or_null("../EffectsPopUp/Profit").value = profit
 	get_node_or_null("../EffectsPopUp/PublicImage").value = public_img
 	get_node_or_null("../EffectsPopUp/Stakeholder").value = stakeholder
+
 
 	if (profit < 0 || public_img < 0 || stakeholder < 0):
 		print("Game Over")
