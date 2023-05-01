@@ -23,9 +23,9 @@ var current_outcome_stakeholder =  "stakeholdereffects"
 var allNullText = "Pick any option, you can't change this outcome!"
 var emptyOptionText = "This option does nothing."
 
-var profit = 100
-var public_img = 100
-var stakeholder = 100
+var profit = 75
+var public_img = 75
+var stakeholder = 75
 var text_speed = 0.02
 var button1Index = null
 var button2Index = null
@@ -475,11 +475,18 @@ func updateNumericalEffects(outcomeIndex):
 	reupdateDisplayEffects(get_node_or_null("../EffectsPopUp/PublicImage"), public_img,  1)
 	reupdateDisplayEffects(get_node_or_null("../EffectsPopUp/Stakeholder"), stakeholder,  1)
 	
+	checkIfZero()
 #	print(get_node_or_null("../EffectsPopUp/Stakeholder").value, "Stakeholder")
 #	print(get_node_or_null("../EffectsPopUp/PublicImage").value, "PublicImage")
 #	print(get_node_or_null("../EffectsPopUp/Profit").value, "Profit")
 #	updateDisplayEffects()
 
+func checkIfZero():
+	if (player_vars.profit <= 0 || player_vars.public_img <= 0 || player_vars.stakeholder <= 0):
+		print("game over")
+		get_node_or_null("../PauseMenu/LargeText").text = "Game Over!"
+		get_node_or_null("../PauseMenu/LargeText").visible = true
+	
 func updateGlobalVars():
 	player_vars.profit = profit
 	player_vars.public_img = public_img

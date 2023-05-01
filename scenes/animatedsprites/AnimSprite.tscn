@@ -173,6 +173,7 @@ position = Vector2( 4, 0 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 56 )
 animation = "walk_right"
+frame = 1
 speed_scale = 2.35
 playing = true
 
@@ -181,6 +182,6 @@ position = Vector2( 5.00002, 4.76837e-07 )
 scale = Vector2( 2, 2 )
 frames = ExtResource( 1 )
 animation = "walk_left"
-frame = 6
+frame = 7
 speed_scale = 2.35
 playing = true

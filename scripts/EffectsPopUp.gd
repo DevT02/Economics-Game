@@ -1,9 +1,9 @@
 extends CanvasLayer
 
 func _ready():
-	$Profit.value = 100
-	$PublicImage.value = 100
-	$Stakeholder.value = 100
+	$Profit.value = 75
+	$PublicImage.value = 75
+	$Stakeholder.value = 75
 	pass 
 
 func _on_Tween_tween_completed(object, key):
