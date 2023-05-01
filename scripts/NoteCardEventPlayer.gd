@@ -468,16 +468,16 @@ func updateNumericalEffects(outcomeIndex):
 #		get_node_or_null("../EffectsPopUp/Stakeholder").value += stakeholder
 		
 	updateGlobalVars()
-	print(profit)
-	print(public_img)
-	print(stakeholder)
+#	print(profit)
+#	print(public_img)
+#	print(stakeholder)
 	reupdateDisplayEffects(get_node_or_null("../EffectsPopUp/Profit"), profit, 1)
 	reupdateDisplayEffects(get_node_or_null("../EffectsPopUp/PublicImage"), public_img,  1)
 	reupdateDisplayEffects(get_node_or_null("../EffectsPopUp/Stakeholder"), stakeholder,  1)
 	
-	print(get_node_or_null("../EffectsPopUp/Stakeholder").value, "Stakeholder")
-	print(get_node_or_null("../EffectsPopUp/PublicImage").value, "PublicImage")
-	print(get_node_or_null("../EffectsPopUp/Profit").value, "Profit")
+#	print(get_node_or_null("../EffectsPopUp/Stakeholder").value, "Stakeholder")
+#	print(get_node_or_null("../EffectsPopUp/PublicImage").value, "PublicImage")
+#	print(get_node_or_null("../EffectsPopUp/Profit").value, "Profit")
 #	updateDisplayEffects()
 
 func updateGlobalVars():
