@@ -30,7 +30,7 @@ func match_character():
 			animation = character_animations["whiteFemale"]
 			animation.visible = true
 		"brownMale":
-			animation = character_animations["whiteFemale"]
+			animation = character_animations["brownMale"]
 			animation.visible = true
 		"blackFemale":
 			animation = character_animations["blackFemale"]

@@ -548,11 +548,6 @@ func get_random_index(event_name):
 		return indexes[randi() % indexes.size()]
 
 
-	
-
-
-
-
 func get_random_number_in_range(start_range, end_range, known_numbers):
 	var valid_numbers = [] 
 	for i in range(start_range, end_range + 1):
