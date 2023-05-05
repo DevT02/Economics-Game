@@ -11,7 +11,7 @@ onready var character_animations = {
 	"whiteFemale": $AnimSprite/AnimatedSprite2,
 	"blackFemale": $AnimSprite/AnimatedSprite3,
 	"blackFemale2": $AnimSprite/AnimatedSprite4,
-	"whiteMale": $AnimSprite/AnimatedSprite5,
+	"whiteMale2": $AnimSprite/AnimatedSprite5,
 	"whiteMaleTopHat": $AnimSprite/AnimatedSprite6
 }
 
@@ -23,8 +23,8 @@ func _ready():
 func match_character():
 	for i in len($AnimSprite.get_children()):
 		$AnimSprite.get_child(i).visible = false
-
-	print(character, " << fuck u ")
+		
+	print("character is ", character)
 	match character:
 		"whiteFemale":
 			animation = character_animations["whiteFemale"]
@@ -40,6 +40,7 @@ func match_character():
 			animation.visible = true
 		"whiteMale2":
 			animation = character_animations["whiteMale2"]
+			print(animation, "Animation ")
 			animation.visible = true
 		"whiteMaleTopHat":
 			animation = character_animations["whiteMaleTopHat"]

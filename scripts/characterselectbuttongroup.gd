@@ -7,9 +7,8 @@ var button_map = {
 	1: "brownMale",
 	2: "blackFemale",
 	3: "blackFemale2",
-	4: "whiteMale",
+	4: "whiteMale2",
 	5: "whiteMaleTopHat",
-	6: "whiteMale"
 }
 
 func _ready():
