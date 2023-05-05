@@ -32,6 +32,10 @@ window/per_pixel_transparency/allowed=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
+[global]
+
+openGL=true
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
