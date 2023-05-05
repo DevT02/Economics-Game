@@ -10,7 +10,7 @@ func _input(event):
 	elif event.is_action_pressed("game_usage") and get_node_or_null("../Area2D/EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").is_visible():
 		if seeked && get_node_or_null("../Area2D/EffectsPopUp/Tween/MarginContainer/").modulate.a8 > 150 && !get_node_or_null("../Area2D/EffectsPopUp/Tween/").is_active():
 			print("hiding")
-			get_node_or_null("../Area2D/EffectsPopUp/Tween/").emit_signal("tween_completed")
+			get_node_or_null("../Area2D/EffectsPopUp/Tween/").emit_signal("tween_completed", null, null)
 			seeked = false
 		else:
 			get_node_or_null("../Area2D/EffectsPopUp/Tween/").seek(100)

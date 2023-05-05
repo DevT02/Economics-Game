@@ -10,10 +10,12 @@ func _ready():
 	pass 
 
 
-func on_tween_completed():
+func on_tween_completed(object = null, key = null):
 	currentlyWaiting = true
-	if currentlyWaiting:
-#		yield(get_tree().create_timer(5), "timeout")
+	if currentlyWaiting && object == null:
+		fadeOut()
+	else:
+		yield(get_tree().create_timer(5), "timeout")
 		fadeOut()
 
 
