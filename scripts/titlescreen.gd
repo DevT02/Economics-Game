@@ -5,9 +5,13 @@ onready var player_vars = get_node("/root/GlobalVars")
 
 
 func _ready():
-
 	screen_metrics()
-		
+
+func restart_scene():
+	var current_scene = get_tree().get_current_scene()
+	var new_scene = current_scene.duplicate()
+	get_tree().set_current_scene(new_scene)
+
 func screen_metrics():
 	print("                 [Screen Metrics]")
 	print("            Display size: ", OS.get_screen_size())
@@ -19,8 +23,18 @@ func screen_metrics():
 
 
 func _on_NewGameButton_pressed():
-	if get_tree().change_scene("res://scenes/characterselectionscreen.tscn") != OK:
-		print("Unexpected error when switching to character selection screen")
+	player_vars.new_name = null
+	player_vars.character_selected = null
+	player_vars.company_selected = null
+	player_vars.profit = null
+	player_vars.stakeholder = null
+	player_vars.public_img = null
+	player_vars.game_over = false
+	
+	var main_menu = "res://scenes/characterselectionscreen.tscn"
+	get_tree().change_scene(main_menu)
+	restart_scene()
+
 
 func _on_Continue_pressed():
 	print("pressed button continue")
