@@ -24,9 +24,9 @@ var allNullText = "Pick any option, you can't change this outcome!"
 var emptyOptionText = "This option does nothing."
 var difficultyFactor = 2
 
-var profit = 75
-var public_img = 75
-var stakeholder = 75
+var profit = 0
+var public_img = 0
+var stakeholder = 0
 var text_speed = 0.02
 var button1Index = null
 var button2Index = null
@@ -86,6 +86,9 @@ func _ready():
 	for i in group.get_buttons():
 		i.connect("pressed", self, "button_pressed")
 	data = load_data()
+	profit = 75
+	public_img = 75
+	stakeholder = 75
 	var fromevents = data[current_company][from_events]
 	var from_gen_events = data["general"][from_events]
 	
