@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var velocity : Vector2 = Vector2()
 var direction : Vector2 = Vector2()
+var game_over = false
 
 onready var animation
 onready var character = get_node("/root/GlobalVars").character_selected
@@ -24,7 +25,6 @@ func match_character():
 	for i in len($AnimSprite.get_children()):
 		$AnimSprite.get_child(i).visible = false
 		
-	print("character is ", character)
 	match character:
 		"whiteFemale":
 			animation = character_animations["whiteFemale"]
@@ -40,12 +40,14 @@ func match_character():
 			animation.visible = true
 		"whiteMale2":
 			animation = character_animations["whiteMale2"]
-			print(animation, "Animation ")
 			animation.visible = true
 		"whiteMaleTopHat":
 			animation = character_animations["whiteMaleTopHat"]
 			animation.visible = true
 func read_input():
+	if game_over:  
+		return
+
 	velocity = Vector2()
 	if Input.is_action_pressed("up"):
 		animation.play("walk_up")
@@ -69,10 +71,15 @@ func read_input():
 		
 
 	velocity = move_and_slide(velocity * 200)
-	
+
+func game_over():
+	game_over = true
+	velocity = Vector2()
 
 func _physics_process(delta):
 	read_input()
+	if game_over: 
+		game_over()
 
 
 

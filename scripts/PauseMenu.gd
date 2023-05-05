@@ -20,7 +20,6 @@ func _input(event):
 	elif event.is_action_pressed("escape") && $NinePatchRect.visible == true:
 		$NinePatchRect.visible = false
 func _on_Button_mouse_entered():
-	print("entered")
 	$Button.modulate.a8 = 180
 
 func _on_Button_mouse_exited():
@@ -58,7 +57,6 @@ func save_game():
 	$LargeText.text = "Saving Game..."
 	var save_game = File.new()
 	var stored_dict = save()
-	print(stored_dict)
 	if (stored_dict != null):
 		$LargeText.visible = true
 		$NinePatchRect.visible = false

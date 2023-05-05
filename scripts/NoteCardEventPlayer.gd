@@ -130,7 +130,6 @@ func _ready():
 	initialize_indexes("Finance_general", finance_indexes_general)
 	initialize_indexes("Operations_general", operations_indexes_general)
 	
-	print (player_vars.company_selected, "<<<< --- companty")
 	if player_vars.profit != null:
 		current_name = player_vars.name
 		current_company = player_vars.company_selected
@@ -486,10 +485,33 @@ func updateNumericalEffects(outcomeIndex):
 
 func checkIfZero():
 	if (player_vars.profit <= 0 || player_vars.public_img <= 0 || player_vars.stakeholder <= 0):
-		print("game over")
-		get_node_or_null("../PauseMenu/LargeText").text = "Game Over!"
-		get_node_or_null("../PauseMenu/LargeText").visible = true
-	
+		print('game over')
+		get_node("../../Player").z_index = -3
+		get_node("../../Player/CanvasLayer").layer = 3
+		get_node("../../Player/CanvasLayer/GameOver").visible = true
+		get_node("../../Player/CanvasLayer/GameOver").text = "Game Over!"
+		get_node_or_null("../EffectsPopUp").visible = false
+		
+		get_node("../../Player").game_over()
+		
+		var restart_game_button = get_node("../../Player/CanvasLayer/RestartGame")
+		restart_game_button.visible = true
+		restart_game_button.accept_event()
+
+
+
+
+func restart_game():
+	# Resume the game
+	print('yo trying')
+	var tree = get_tree()
+	if OS.has_environment("html5"):
+		OS.execute("location.reload()", [])
+
+
+
+
+
 func updateGlobalVars():
 	player_vars.profit = profit
 	player_vars.public_img = public_img

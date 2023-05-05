@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://scenes/NoteCardEventPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/EffectsPopUp.tscn" type="PackedScene" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://assets/map/ontop of map/ARFashnLogoBG.png" type="Texture" id=24]
 [ext_resource path="res://assets/map/ontop of map/ARFashnLogo.png" type="Texture" id=25]
 [ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=26]
+[ext_resource path="res://assets/fonts/Fipps-Regular.otf" type="DynamicFontData" id=27]
 
 [sub_resource type="TileSet" id=30]
 0/name = "ARFashnLogo.png 0"
@@ -822,6 +823,16 @@ extents = Vector2( 225.5, 28.75 )
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 165.25, 35.75 )
 
+[sub_resource type="DynamicFont" id=32]
+size = 36
+font_data = ExtResource( 27 )
+
+[sub_resource type="DynamicFont" id=31]
+size = 214
+outline_size = 11
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 27 )
+
 [sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 2987.5, 31 )
 
@@ -894,8 +905,10 @@ tile_data = PoolIntArray( 524288, 0, 0, 1376124, 0, 0, 1310812, 0, 0, 6815747, 0
 script = ExtResource( 14 )
 
 [node name="EffectsPopUp" parent="Area2D" instance=ExtResource( 2 )]
+pause_mode = 1
 
 [node name="NoteCardEventPlayer" parent="Area2D" instance=ExtResource( 1 )]
+pause_mode = 2
 data_file = "res://assets/interactions/data-reformat.json"
 
 [node name="PauseMenu" parent="Area2D" instance=ExtResource( 26 )]
@@ -943,6 +956,28 @@ shape = SubResource( 13 )
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, 260 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+layer = 3
+
+[node name="RestartGame" type="Button" parent="Player/CanvasLayer"]
+visible = false
+margin_left = 1071.0
+margin_top = 787.0
+margin_right = 1495.0
+margin_bottom = 899.0
+custom_fonts/font = SubResource( 32 )
+text = "Restart Game"
+
+[node name="GameOver" type="Label" parent="Player/CanvasLayer"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 346.0
+margin_top = 312.0
+margin_right = 2273.0
+margin_bottom = 848.0
+custom_fonts/font = SubResource( 31 )
+text = "Game Over!"
+
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 limit_left = -2878
@@ -968,3 +1003,5 @@ shape = SubResource( 29 )
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 105, 2690 )
 shape = SubResource( 28 )
+
+[connection signal="pressed" from="Player/CanvasLayer/RestartGame" to="Area2D/NoteCardEventPlayer" method="restart_game"]
