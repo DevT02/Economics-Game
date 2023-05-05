@@ -6,6 +6,14 @@ var direction : Vector2 = Vector2()
 onready var animation
 onready var character = get_node("/root/GlobalVars").character_selected
 
+onready var character_animations = {
+	"brownMale": $AnimSprite/AnimatedSprite,
+	"whiteFemale": $AnimSprite/AnimatedSprite2,
+	"blackFemale": $AnimSprite/AnimatedSprite3,
+	"blackFemale2": $AnimSprite/AnimatedSprite4,
+	"whiteMale": $AnimSprite/AnimatedSprite5,
+	"whiteMaleTopHat": $AnimSprite/AnimatedSprite6
+}
 
 func _ready():
 	match_character()
@@ -13,17 +21,29 @@ func _ready():
 	animation.stop()
 			
 func match_character():
-	$AnimSprite/AnimatedSprite.visible = false
-	$AnimSprite/AnimatedSprite2.visible = false
-	match character:
-		"brownMale":
-			animation = $AnimSprite/AnimatedSprite
-			$AnimSprite/AnimatedSprite.visible = true
-		"whiteFemale":
-			animation = $AnimSprite/AnimatedSprite2
-			$AnimSprite/AnimatedSprite2.visible = true
+	for i in len($AnimSprite.get_children()):
+		$AnimSprite.get_child(i).visible = false
 
-			
+	print(character, " << fuck u ")
+	match character:
+		"whiteFemale":
+			animation = character_animations["whiteFemale"]
+			animation.visible = true
+		"brownMale":
+			animation = character_animations["whiteFemale"]
+			animation.visible = true
+		"blackFemale":
+			animation = character_animations["blackFemale"]
+			animation.visible = true
+		"blackFemale2":
+			animation = character_animations["blackFemale2"]
+			animation.visible = true
+		"whiteMale2":
+			animation = character_animations["whiteMale2"]
+			animation.visible = true
+		"whiteMaleTopHat":
+			animation = character_animations["whiteMaleTopHat"]
+			animation.visible = true
 func read_input():
 	velocity = Vector2()
 	if Input.is_action_pressed("up"):

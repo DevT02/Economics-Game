@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/fonts/Fipps-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/characters/white_female_standing.png" type="Texture" id=2]
@@ -7,12 +7,24 @@
 [ext_resource path="res://scripts/characterselectbuttongroup.gd" type="Script" id=5]
 [ext_resource path="res://scenes/buttons/buttongroups/characterSelectionButtonGroup.tres" type="ButtonGroup" id=6]
 [ext_resource path="res://scenes/AdvancedSelection.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/characters/blackFemale.png" type="Texture" id=8]
+[ext_resource path="res://assets/characters/blackFemale2.png" type="Texture" id=9]
+[ext_resource path="res://assets/characters/whiteMaleTopHat.png" type="Texture" id=10]
+[ext_resource path="res://assets/characters/whiteMale2.png" type="Texture" id=11]
 
 [sub_resource type="ButtonGroup" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 36
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 2 )
+region_rect = Rect2( 10.7321, 5.8406, 32.9807, 55.2068 )
 
 [sub_resource type="StyleBoxEmpty" id=9]
 
@@ -23,15 +35,26 @@ font_data = ExtResource( 1 )
 [sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 4 )
 normal_map = SubResource( 5 )
-region_rect = Rect2( 8.22269, 2.25574, 31.5468, 52.3389 )
+region_rect = Rect2( 9.01279, 2.36014, 30.0896, 50.5174 )
 
-[sub_resource type="StyleBoxEmpty" id=11]
+[sub_resource type="StyleBoxTexture" id=18]
+texture = ExtResource( 8 )
+normal_map = SubResource( 5 )
+region_rect = Rect2( 17.5491, 140.765, 29.0567, 49.609 )
 
-[sub_resource type="StyleBoxEmpty" id=12]
+[sub_resource type="StyleBoxTexture" id=19]
+texture = ExtResource( 9 )
+normal_map = SubResource( 5 )
+region_rect = Rect2( 17.3719, 140.765, 30.2969, 49.609 )
 
-[sub_resource type="StyleBoxTexture" id=6]
-texture = ExtResource( 2 )
-region_rect = Rect2( 10.7321, 5.8406, 32.9807, 55.2068 )
+[sub_resource type="StyleBoxTexture" id=21]
+texture = ExtResource( 11 )
+normal_map = SubResource( 5 )
+region_rect = Rect2( 16.4861, 139.88, 30.6513, 49.4318 )
+
+[sub_resource type="StyleBoxTexture" id=22]
+texture = ExtResource( 10 )
+region_rect = Rect2( 17.5005, 135.632, 29.3634, 54.1875 )
 
 [sub_resource type="Theme" id=14]
 Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
@@ -91,11 +114,22 @@ text = "Character Selection"
 align = 1
 valign = 1
 
-[node name="MaleCharacter" type="Button" parent="MarginContainer/TextureRect"]
-margin_left = 323.353
-margin_top = 146.875
-margin_right = 477.353
-margin_bottom = 415.875
+[node name="whiteFemale" type="Button" parent="MarginContainer/TextureRect"]
+margin_left = 64.0
+margin_top = 149.0
+margin_right = 232.0
+margin_bottom = 412.0
+rect_pivot_offset = Vector2( -882, -145 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/normal = SubResource( 6 )
+group = ExtResource( 6 )
+
+[node name="brownMale" type="Button" parent="MarginContainer/TextureRect"]
+margin_left = 338.669
+margin_top = 150.814
+margin_right = 488.669
+margin_bottom = 405.814
 rect_min_size = Vector2( 10, 100 )
 rect_scale = Vector2( 0.975, 0.989 )
 rect_pivot_offset = Vector2( -882.083, -145 )
@@ -106,15 +140,60 @@ custom_styles/pressed = SubResource( 10 )
 custom_styles/normal = SubResource( 4 )
 group = ExtResource( 6 )
 
-[node name="FemaleCharacter" type="Button" parent="MarginContainer/TextureRect"]
-margin_left = 64.0
-margin_top = 149.0
-margin_right = 232.0
-margin_bottom = 412.0
+[node name="blackFemale" type="Button" parent="MarginContainer/TextureRect"]
+margin_left = 585.329
+margin_top = 150.0
+margin_right = 735.329
+margin_bottom = 405.0
+rect_min_size = Vector2( 10, 100 )
+rect_scale = Vector2( 0.975, 0.989 )
+rect_pivot_offset = Vector2( -882.083, -145 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 18 )
+group = ExtResource( 6 )
+
+[node name="blackFemale2" type="Button" parent="MarginContainer/TextureRect"]
+margin_left = 838.266
+margin_top = 149.284
+margin_right = 988.266
+margin_bottom = 404.284
+rect_min_size = Vector2( 10, 100 )
+rect_scale = Vector2( 0.975, 0.989 )
+rect_pivot_offset = Vector2( -882.083, -145 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 19 )
+group = ExtResource( 6 )
+
+[node name="whileMale2" type="Button" parent="MarginContainer/TextureRect"]
+margin_left = 1097.31
+margin_top = 149.219
+margin_right = 1247.31
+margin_bottom = 404.219
+rect_min_size = Vector2( 10, 100 )
+rect_scale = Vector2( 0.975, 0.989 )
+rect_pivot_offset = Vector2( -882.083, -145 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 21 )
+group = ExtResource( 6 )
+
+[node name="whiteMaleTopHot" type="Button" parent="MarginContainer/TextureRect"]
+margin_left = 1319.0
+margin_top = 145.0
+margin_right = 1466.0
+margin_bottom = 408.0
 rect_pivot_offset = Vector2( -882, -145 )
 custom_styles/hover = SubResource( 11 )
 custom_styles/pressed = SubResource( 12 )
-custom_styles/normal = SubResource( 6 )
+custom_styles/normal = SubResource( 22 )
 group = ExtResource( 6 )
 
 [node name="AdvancedSettingsButton" type="Button" parent="MarginContainer/TextureRect"]
