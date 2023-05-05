@@ -109,3 +109,6 @@ grow_vertical = 2
 rect_min_size = Vector2( 225, 55 )
 size_flags_horizontal = 4
 group = ExtResource( 7 )
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]

@@ -38,7 +38,7 @@ func _on_ButtonExit_pressed():
 
 func save():
 	var save_dict = {
-	"name" : player_vars.new_name,
+		"name" : player_vars.new_name,
 		"company" : player_vars.company_selected,
 		"profit" : player_vars.profit, 
 		"stakeholder" : player_vars.stakeholder,

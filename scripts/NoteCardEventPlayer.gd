@@ -22,6 +22,7 @@ var current_outcome_image_effects =  "publicimgeffects"
 var current_outcome_stakeholder =  "stakeholdereffects"
 var allNullText = "Pick any option, you can't change this outcome!"
 var emptyOptionText = "This option does nothing."
+var difficultyFactor = 2
 
 var profit = 75
 var public_img = 75
@@ -450,9 +451,9 @@ func updateEffects(outcomeIndex):
 	# reset randomization (so we don't repeat numbers)
 
 func updateNumericalEffects(outcomeIndex):
-	profit *= 1 + data[current_company][current_outcome_profit][outcomeIndex]	
-	public_img *= 1 + data[current_company][current_outcome_image_effects][outcomeIndex]	
-	stakeholder *= 1 + data[current_company][current_outcome_stakeholder][outcomeIndex]	
+	profit *= 1 + data[current_company][current_outcome_profit][outcomeIndex] * difficultyFactor
+	public_img *= 1 + data[current_company][current_outcome_image_effects][outcomeIndex] * difficultyFactor
+	stakeholder *= 1 + data[current_company][current_outcome_stakeholder][outcomeIndex]	* difficultyFactor
 	
 	profit = min(profit, 100)
 	public_img = min(public_img, 100)
@@ -460,7 +461,7 @@ func updateNumericalEffects(outcomeIndex):
 	
 	print(player_vars.profit, " profit")
 	print(profit, " profit")
-
+	
 
 #	for i in range(player_vars.profit  - profit):
 #		get_node_or_null("../EffectsPopUp/Profit").value += profit
@@ -484,7 +485,10 @@ func updateNumericalEffects(outcomeIndex):
 #	updateDisplayEffects()
 
 func checkIfZero():
-	if (player_vars.profit <= 0 || player_vars.public_img <= 0 || player_vars.stakeholder <= 0):
+	print(player_vars.profit, "< profit")
+	print(player_vars.stakeholder, "< stakeholder")
+	print(player_vars.public_img, "< public_img")
+	if (player_vars.profit <= 6 || player_vars.public_img <= 6 || player_vars.stakeholder <= 6):
 		print('game over')
 		get_node("../../Player").z_index = -3
 		get_node("../../Player/CanvasLayer").layer = 3
@@ -505,11 +509,10 @@ func restart_game():
 	# Resume the game
 	print('yo trying')
 	var tree = get_tree()
-	if OS.has_environment("html5"):
-		OS.execute("location.reload()", [])
-
-
-
+	var main_menu = "res://scenes/titlescreen.tscn"
+	player_vars.game_over = true
+	tree.change_scene(main_menu)
+	
 
 
 func updateGlobalVars():
