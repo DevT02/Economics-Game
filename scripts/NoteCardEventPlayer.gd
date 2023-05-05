@@ -130,6 +130,7 @@ func _ready():
 	initialize_indexes("Finance_general", finance_indexes_general)
 	initialize_indexes("Operations_general", operations_indexes_general)
 	
+	print (player_vars.company_selected, "<<<< --- companty")
 	if player_vars.profit != null:
 		current_name = player_vars.name
 		current_company = player_vars.company_selected
@@ -137,15 +138,16 @@ func _ready():
 		updateDisplayEffects()
 	
 	# At the moment, there is like 1/2 the functionality for specific companies. Maybe later I'll take a look into it (once we add it)
-	if player_vars.company_selected == "Random" :
+	if player_vars.company_selected == "Random":
 		var random_logo_indices = {0: 0,1: 2,2: 3,3: 4,4: 5, 5: 6}
+
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
 		var random_logo_index = rng.randi_range(0, 5)
 		setFountainLogo(random_logo_indices[random_logo_index])
-#TODO: FIX# updateWhenRandom(random_logo_index)
+		updateWhenRandom(random_logo_indices[random_logo_index])
 	else:
-		var logo_indices = {"1": 2,"2": 0,"3": 3,"4": 4,"5": 5,"6": 5}
+		var logo_indices = {"1": 2,"2": 0,"3": 3,"4": 4,"5": 5,"6": 6}
 		setFountainLogo(logo_indices[player_vars.company_selected])
 
 	current_name = player_vars.new_name
@@ -494,7 +496,7 @@ func updateGlobalVars():
 	player_vars.stakeholder = stakeholder
 
 func updateWhenRandom(random):
-	player_vars.company_selected = random
+	player_vars.company_selected = str(random)
 
 func updateLocalVars():
 	profit = player_vars.profit
