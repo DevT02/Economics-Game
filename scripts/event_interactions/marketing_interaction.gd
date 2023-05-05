@@ -9,6 +9,10 @@ func _input(event):
 			player_event.play(interaction)
 	elif event.is_action_pressed("game_usage") and get_node_or_null("../Area2D/EffectsPopUp/Tween/MarginContainer/NinePatchRect/Label").is_visible():
 		get_node_or_null("../Area2D/EffectsPopUp/Tween/").seek(100000)
+		print("completed")
+		get_node_or_null("../Area2D/EffectsPopUp/Tween/").emit_signal("tween_completed")
+
+
 
 		
 
