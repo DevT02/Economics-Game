@@ -1,18 +1,25 @@
 extends CanvasLayer
+signal tween_completed
+var currentlyWaiting = false
 
 func _ready():
+	$Tween.connect("tween_completed", self, "on_tween_completed")
 	$Profit.value = 75
 	$PublicImage.value = 75
 	$Stakeholder.value = 75
 	pass 
 
-func _on_Tween_tween_completed(object, key):
-	yield(get_tree().create_timer(15), "timeout")
-	fadeOut()
+
+func on_tween_completed():
+	currentlyWaiting = true
+	if currentlyWaiting:
+#		yield(get_tree().create_timer(5), "timeout")
+		fadeOut()
 
 
 func fadeOut():
 	$AnimationPlayer.play("fade_out")
+	currentlyWaiting = false
 
 	
 func _on_Tween_tween_started(object, key):
