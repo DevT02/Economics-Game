@@ -4,7 +4,6 @@ export(ButtonGroup) var group2
 
 
 func _ready():
-	print(group.get_buttons())
 	for i in group.get_buttons():
 		i.connect("pressed", self, "button_pressed")
 

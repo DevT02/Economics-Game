@@ -13,7 +13,6 @@ var button_map = {
 
 func _ready():
 	$MarginContainer/AdvancedSelection.visible = false
-	print(group.get_buttons())
 	for i in group.get_buttons():
 		i.connect("pressed", self, "button_pressed")
 

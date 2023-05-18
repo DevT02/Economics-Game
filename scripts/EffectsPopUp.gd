@@ -11,12 +11,11 @@ func _ready():
 
 
 func on_tween_completed(object = null, key = null):
-	currentlyWaiting = true
-	if currentlyWaiting && object == null:
+	if currentlyWaiting && object == null && key != null:
 		fadeOut()
 	else:
-		yield(get_tree().create_timer(5), "timeout")
-		fadeOut()
+		yield(get_tree().create_timer(2.5), "timeout")
+		on_tween_completed()
 
 
 func fadeOut():

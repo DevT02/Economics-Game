@@ -37,7 +37,6 @@ func _on_NewGameButton_pressed():
 
 
 func _on_Continue_pressed():
-	print("pressed button continue")
 	if not player_vars.game_over == true:
 		var file = File.new()
 		if file.file_exists("user://savegame.dat"):

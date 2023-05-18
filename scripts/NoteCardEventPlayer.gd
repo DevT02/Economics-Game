@@ -462,8 +462,8 @@ func updateNumericalEffects(outcomeIndex):
 	public_img = min(public_img, 100)
 	stakeholder = min(stakeholder, 100)
 	
-	print(player_vars.profit, " profit")
-	print(profit, " profit")
+#	print(player_vars.profit, " profit")
+#	print(profit, " profit")
 	
 
 #	for i in range(player_vars.profit  - profit):
@@ -488,11 +488,11 @@ func updateNumericalEffects(outcomeIndex):
 #	updateDisplayEffects()
 
 func checkIfZero():
-	print(player_vars.profit, "< profit")
-	print(player_vars.stakeholder, "< stakeholder")
-	print(player_vars.public_img, "< public_img")
+#	print(player_vars.profit, "< profit")
+#	print(player_vars.stakeholder, "< stakeholder")
+#	print(player_vars.public_img, "< public_img")
 	if (player_vars.profit <= 6 || player_vars.public_img <= 6 || player_vars.stakeholder <= 6):
-		print('game over')
+#		print('game over')
 		get_node("../../Player").z_index = -3
 		get_node("../../Player/CanvasLayer").layer = 3
 		get_node("../../Player/CanvasLayer/GameOver").visible = true
@@ -552,8 +552,6 @@ func updateDisplayEffects():
 	get_node_or_null("../EffectsPopUp/Stakeholder").value = stakeholder
 
 
-	if (profit < 0 || public_img < 0 || stakeholder < 0):
-		print("Game Over")
 	
 var last_index = -1
 var used_indexes = {}
